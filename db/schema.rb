@@ -11,7 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426215508) do
+ActiveRecord::Schema.define(version: 20150428162107) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "started_at"
+    t.integer  "ended_at"
+    t.integer  "user_id"
+    t.integer  "slot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "appointments", ["slot_id"], name: "index_appointments_on_slot_id"
+  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id"
+
+  create_table "locks", force: :cascade do |t|
+    t.string   "model"
+    t.string   "manufacturer"
+    t.integer  "property_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "locks", ["property_id"], name: "index_locks_on_property_id"
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "type"
+    t.text     "description"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.integer  "start_time"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "slots", ["property_id"], name: "index_slots_on_property_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

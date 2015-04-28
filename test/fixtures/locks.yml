@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  manufacturer: MyString
+  property_id: 
+
+two:
+  model: MyString
+  manufacturer: MyString
+  property_id: 
