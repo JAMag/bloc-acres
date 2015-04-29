@@ -1,25 +1,66 @@
+
+   Lock.create!(
+
+  model: "c3po",
+  manufacturer: "Lucas ltd."
+  )
+  
+  Lock.create!(
+    model: "r2d2",
+  manufacturer: "Spielberg Ent."
+  )
+
+
+
+ 
+ locks = Lock.all
+
+  10.times do
+   Slot.create!(
+ 
+  start_time: Faker::Time.between(Time.now, 2.days.from_now) 
+
+   )
+ end
+ slots = Slot.all
+
+
+  seller = User.new(
+  email: "sales@bob.com", 
+  name: "Seller"
+  )
+  seller.skip_confirmation!
+  seller.save
+
+  u = User.new(
+  email: "wolf@cnn.com",
+  name: "Buyer"
+   )
+  u.skip_confirmation!
+  u.save
+
+
+ Appointment.create(
+  user: seller,
+  slot: slots.sample
+  )
+
  10.times do
    Property.create!(
 
-  lock: Faker::Base.between(from = 1.00, to = 500.00),
-  type: Faker::Base.name,
-  description: Faker::Base.bs,
-  address: Faker::Base.building_number.street_name,
-  city: Faker::Base.city,
-  state: Faker::Base.state,
-  zip: Faker::Base.zip_code,
-  slots: Faker::Base.between(from = 1.00, to = 12.00)
+  lock: locks.sample,
+  slots: [slots.sample, slots.sample],
+  user: seller,
+  structure: Faker::Base.name,
+  description: Faker::Company.bs,
+  address: "#{Faker::Address.building_number} #{Faker::Address.street_name}",
+  city: Faker::Address.city,
+  state: Faker::Address.state,
+  zip: Faker::Address.zip_code
    )
  end
  property = Property.all
  
- # Create Comments
- 15.times do
-   Appointment.create!(
-     slots: 
-
-   )
- end
  
  puts "Seed finished"
  puts "#{Property.count} properties created"

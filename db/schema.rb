@@ -36,15 +36,18 @@ ActiveRecord::Schema.define(version: 20150428162107) do
   add_index "locks", ["property_id"], name: "index_locks_on_property_id"
 
   create_table "properties", force: :cascade do |t|
-    t.string   "type"
+    t.string   "structure"
     t.text     "description"
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
+    t.string   "zip"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
 
   create_table "slots", force: :cascade do |t|
     t.integer  "start_time"
