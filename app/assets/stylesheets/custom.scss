@@ -1,0 +1,16 @@
+.btn-custom {
+  background-color: hsl(186, 22%, 37%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bdd2d5", endColorstr="#496e73");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#bdd2d5), to(#496e73));
+  background-image: -moz-linear-gradient(top, #bdd2d5, #496e73);
+  background-image: -ms-linear-gradient(top, #bdd2d5, #496e73);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bdd2d5), color-stop(100%, #496e73));
+  background-image: -webkit-linear-gradient(top, #bdd2d5, #496e73);
+  background-image: -o-linear-gradient(top, #bdd2d5, #496e73);
+  background-image: linear-gradient(#bdd2d5, #496e73);
+  border-color: #496e73 #496e73 hsl(186, 22%, 26.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.69);
+  -webkit-font-smoothing: antialiased;
+}
