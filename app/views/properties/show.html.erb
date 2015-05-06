@@ -1,0 +1,9 @@
+<h1><%= @property.address %></h1>
+<h1><%= @property.state %></h1>
+<h1><%= @property.zip %></h1>
+
+<% #if policy(@property).edit? %>
+  <%= link_to "edit", edit_property_path(@property), class: 'btn btn-success' %>
+<% #  end %>
+
+

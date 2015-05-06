@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   
+  resources :properties
+  resources :lock
+  resources :slot
+  resources :appointment
+
+  
+
   devise_for :users
   get 'welcome/index'
+  get 'dashboard'  => 'welcome#dashboard', as: :dashboard
+    resources :property
+    resources :appointment
 
   get 'welcome/about'
   root to: 'welcome#index'

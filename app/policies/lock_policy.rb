@@ -1,0 +1,2 @@
+class LockPolicy < ApplicationPolicy
+end

@@ -11,7 +11,15 @@
   margin-top: 5px;
 }
 
+body {
+    background-image: url("winter_acre.jpg");
+   
+}
 
+.jumbotron {
+   background: rgb(100, 54, 54); /* This is for ie8 and below */
+   background: rgba(100, 54, 54, 0.5); 
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

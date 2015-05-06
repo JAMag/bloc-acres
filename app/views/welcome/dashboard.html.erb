@@ -1,0 +1,25 @@
+<br>
+<div class="jumbotron">
+  <h1>   <%= render partial: "layouts/property" %> </h1>
+  <p>Dashboard</p>
+  <p>
+      <%= link_to "Create Property", new_property_path, class: 'btn btn-primary' %>
+  </p>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <% @properties.each do  |p| %>
+      <%= p.address %>
+      <%= p.city %>
+      <%= p.zip %>
+    <% end %>
+
+  </div>
+  <div class="col-md-6">
+    <% @appointments.each do |a| %>
+      <%= a.user.name %>
+      <%= a.slot.start_time %>
+    <% end %>
+  </div>
+  

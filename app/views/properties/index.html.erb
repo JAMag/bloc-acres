@@ -1,0 +1,11 @@
+<h1>All Properties</h1>
+<% @properties.each do |p| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to p.address, property_path(p) %>
+      </h4>
+    </div>
+  </div>
+<% end %>
+

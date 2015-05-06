@@ -3,5 +3,19 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_one :property
+  has_many :properties
+  has_many :appointments
+
+def admin?
+  role == 'admin'
+end
+
+def buyer?
+  role == 'buyer'
+end
+
+def seller?
+  role == 'seller'
+end
+  
 end
