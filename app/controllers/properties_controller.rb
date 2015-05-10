@@ -8,11 +8,22 @@ class PropertiesController < ApplicationController
     authorize @property
   end
 
+  def update
+    if @property.save
+      flash[:notice] = "Edited listing."
+      redirect_to @property
+    else
+      flash[:error] = "Error creating listing. Try again."
+      redirect_to edit_property_path(@property)
+    end
+  end
+
   def about
   end
 
   def show
     @property = Property.find(params[:id])
+    @slots = Slot.all
   end
 
   def new
@@ -22,6 +33,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     @property.user = current_user
+    @slot = @property.slot
     authorize @property
     if @property.save
       flash[:notice] = "Created listing."

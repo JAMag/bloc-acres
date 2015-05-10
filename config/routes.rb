@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :properties
   resources :lock
-  resources :slot
-  resources :appointment
 
   
 
   devise_for :users
   get 'welcome/index'
   get 'dashboard'  => 'welcome#dashboard', as: :dashboard
-    resources :property
-    resources :appointment
+  resources :properties do
+    resources :slots do
+      get 'start_time' => 'property/show'
+      resources :appointments
+    end
+  end
 
   get 'welcome/about'
   root to: 'welcome#index'
