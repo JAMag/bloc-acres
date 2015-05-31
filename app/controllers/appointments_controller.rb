@@ -20,5 +20,6 @@ class AppointmentsController < ApplicationController
   def dashboard
     @properties = current_user.properties
     @appointments = current_user.appointments
+    @slots = Slot.appointment.current_user
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502225321) do
+ActiveRecord::Schema.define(version: 20150513011306) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "started_at"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150502225321) do
   add_index "properties", ["user_id"], name: "index_properties_on_user_id"
 
   create_table "slots", force: :cascade do |t|
-    t.integer  "start_time"
+    t.datetime "start_time"
     t.integer  "property_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

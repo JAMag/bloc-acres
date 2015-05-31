@@ -22,7 +22,7 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to s.start_time, property_slot_path(@property, s) %>
+            <%= link_to s.start_time.strftime("Visit on %D at %I:%M%p") , property_slot_path(@property, s) %>
               <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
           </h4>
         </div>

@@ -23,7 +23,7 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
-    @slots = Slot.all
+    @slots = @property.slots
   end
 
   def new

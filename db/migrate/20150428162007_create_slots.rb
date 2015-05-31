@@ -3,6 +3,7 @@ class CreateSlots < ActiveRecord::Migration
     create_table :slots do |t|
       t.integer :start_time
       t.references :property, index: true
+      
 
       t.timestamps null: false
     end

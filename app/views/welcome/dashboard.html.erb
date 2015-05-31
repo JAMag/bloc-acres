@@ -5,7 +5,6 @@
   <p>
       <%= link_to "Create Property", new_property_path, class: 'btn btn-primary' %>
   </p>
-</div>
 
 <div class="row">
   <div class="col-md-6">
@@ -16,10 +15,13 @@
     <% end %>
 
   </div>
-  <div class="col-md-6">
-    <% @appointments.each do |a| %>
-      <%= a.user.name %>
-      <%= a.slot.start_time %>
+
+  <div class="col-md-3">
+    <% @appointments.each do |a| %> 
+    <h4>  <%= a = a.slot %> </h4>
     <% end %>
   </div>
-  
+
+
+
+</div>
