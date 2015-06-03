@@ -3,6 +3,11 @@ class PropertiesController < ApplicationController
     @properties = Property.all
   end
 
+  def show
+    @property = Property.find(params[:id])
+    @slots = @property.slots
+  end
+
   def edit
     @property = Property.find(params[:id])
     authorize @property
@@ -21,10 +26,6 @@ class PropertiesController < ApplicationController
   def about
   end
 
-  def show
-    @property = Property.find(params[:id])
-    @slots = @property.slots
-  end
 
   def new
    @property = Property.new
@@ -33,7 +34,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     @property.user = current_user
-    @slot = @property.slot
+    #@slot = @property.slot
     authorize @property
     if @property.save
       flash[:notice] = "Created listing."
