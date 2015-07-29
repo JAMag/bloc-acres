@@ -1,11 +1,23 @@
-<h1>All Properties</h1>
-<% @properties.each do |p| %>
-  <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to p.address, property_path(p) %>
-      </h4>
-    </div>
+<div class="jumbotron">
+  <h1><center><b>ALL PROPERTIES</b></center></h1>
+
+  <div class="jumbotron">
+    <% @properties.each do |p| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <div class="panel panel-default">
+               <div class="panel-body">
+                <center>
+                  <%= link_to p.address, property_path(p) %>
+                </center>
+              </div>
+            </div>
+          </h4>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+
 

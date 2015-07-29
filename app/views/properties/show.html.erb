@@ -1,31 +1,36 @@
-<h1><%= @property.address %></h1>
-<div class="row">
-  <div class="col-xs-6 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="..." alt="...">
-    </a>
-  </div>
+<h1><center><%= @property.address %></center></h1>
 
-<div class="row">
-  <div class="col-xs-6 col-md-3">
-  <p><%= @property.structure %></p>
-  <p><%= @property.city %></p>
-  <p><%= @property.state %></p>
-  <p><%= @property.zip %></p>
-  <%= link_to "Edit This Listing", edit_property_path(@property), class: 'btn btn-success' %>
-</div>
-  
-<div class="row">
-  <div class="col-6 col-md-3">
-    <h2><%= "Available slots (Appointments) For This House" %></h2>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-6 col-md-3">
+      <a href="#" class="thumbnail">
+        <img src="assets/tree_acre.jpg" alt="small_house">
+      </a>
+    </div>
+
+  <div class="row">
+    <div class="col-6 col-md-3">
+    <p><b><%= @property.structure %></b></p>
+    <p><%= @property.city%></p>
+    <p><%= @property.state %></p>
+    <p><%= @property.zip %></p>
+    <%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %>
+  </div>
+    
+  <div class="row">
+    <div class="col-6 col-md-3">
+    <h3><center><%= "Available slots (Appointments)" %></center></h3>
       <% @slots.each do |s| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to s.start_time.strftime("Visit on %D at %I:%M%p") , property_slot_path(@property, s) %>
-              <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
-          </h4>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="media-heading"><center>
+              <%= link_to s.start_time.strftime("%D at %I:%M%p") , property_slot_path(@property, s) %>
+                <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
+            </center></h4>
+          </div>
         </div>
       </div>
+    </div>
+</div>
 <% end %>
              

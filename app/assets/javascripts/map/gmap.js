@@ -1,0 +1,1 @@
+//= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false"

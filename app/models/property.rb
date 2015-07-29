@@ -8,4 +8,6 @@ class Property < ActiveRecord::Base
 #  has_one :state
 #  has_one :zip
   has_many :slots
+
+
 end

@@ -1,25 +1,45 @@
 <br>
 <div class="jumbotron">
-  <h1>   <%= render partial: "layouts/property" %> </h1>
-  <p>Dashboard</p>
-  <p>
+  <div class="jumbotron">
+    <h2><center>DASHBOARD</center></h2>
+  </div>
+  
+  <h1><%= render partial: "layouts/property" %></h1>
+  
+  <p><center>Your Listed Properties</center></p>
+  <p><center>
       <%= link_to "Create Property", new_property_path, class: 'btn btn-primary' %>
-  </p>
+  </center></p>
 
 <div class="row">
   <div class="col-md-6">
+    <h2> <center> PROPERTIES </center> </h2>
     <% @properties.each do  |p| %>
-      <%= p.address %>
-      <%= p.city %>
-      <%= p.zip %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <center>
+         <h4> <%= link_to p.address, property_path(p) %></h4> 
+          <%= p.city %>
+          <%= p.state %>
+          <%= p.zip %>
+          
+        </center>
+        </div>
+      </div>
     <% end %>
-
   </div>
 
-  <div class="col-md-3">
-    <% @appointments.each do |a| %> 
-    <h4>  <%= a = a.slot %> </h4>
-    <% end %>
+  <div class="col-md-6">
+    <h2> <center> APPOINTMENTS </center></h2>
+      <% @appointments.each do |a| %> 
+        <div class="panel panel-default">
+          <div class="panel-body">
+          <center>
+          <ol> <li><b> <%= a = link_to a.slot %> </b></li> </ol>
+          </center>
+          </div>
+        </div>
+      <% end %>
   </div>
 
 
