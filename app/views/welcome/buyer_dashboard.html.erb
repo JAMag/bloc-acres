@@ -3,8 +3,7 @@
   <div class="jumbotron">
     <h2><center>DASHBOARD</center></h2>
   </div>
-  
-  <h1><%= render partial: "layouts/property" %></h1>
+  <h1><%= render partial: "layouts/property", locals: { address: @properties.first.map_address } %></h1>
   
   <p><center>Your Listed Properties</center></p>
   <p><center>

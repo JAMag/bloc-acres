@@ -5,12 +5,42 @@
 
 // google maps api styling, currently not working.
 
+
+
+.navbar{
+  min-height:54px; //* or whatever height you require
+  max-height:54px;
+  background: rgba(100, 104, 104, 0.5); 
+  border-radius: 16px 16px;
+  border-color: #fff;
+  border-style: solid;
+  box-shadow: 0px 0px 0px #B1B1B1;
+}
+
+.navbar-brand {
+    background-image: url("rsz_1key-house-logo-free-vector-1732.jpg");
+
+    width:150px;
+    height:200px;
+    border-radius: 16px 16px;
+    border-color: #000;
+    border-style: solid;
+    box-shadow: 0px 0px 0px #B1B1B1;
+}
+
+.panel-default {
+  border-radius:16px 16px;
+  border-color: #000;
+  border-style: solid;
+
+}
+
 .map
 {
 /*    padding:5px;*/
     float:left;
     background-image:url('../images/mapContainer.png');
-    width: 155px;
+    width: 300px;
     height: 123px;
     background-repeat: no-repeat;
 }
@@ -69,17 +99,28 @@
 }
 
 body {
-    background-image: url("winter_acre.jpg");
+    
+    background-image: url("stonehouse.jpg");
+    
+    
+   
+}
+
+header {
+    
+    background-repeat: repeat-y;
+    background: #FFFFFF; /* This is for ie8 and below */
+    
    
 }
 
 .jumbotron {
    background: rgb(100, 54, 54); /* This is for ie8 and below */
-   background: rgba(100, 54, 54, 0.5); 
+   background: rgba(100, 104, 104, 0.5); 
    border-radius: 16px 16px;
    border-color: #fff;
    border-style: solid;
-   box-shadow: 2px 2px 10px #B1B1B1;
+   box-shadow: 0px 0px 00px #B1B1B1;
 }
 
 //styling for google map container.
@@ -89,10 +130,11 @@ body {
    border-radius: 16px 16px;
    border-color: #fff;
    border-style: solid;
-   box-shadow: 2px 2px 10px #B1B1B1;
+   box-shadow: 0px 0px 0px #B1B1B1;
    border-padding: 8px 8px 8px 8px;
  }
  #map-canvas {
+  position: relative;
    height: 384px;
    width: 100%;
  }

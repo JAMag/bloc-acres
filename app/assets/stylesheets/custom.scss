@@ -27,7 +27,7 @@ textarea {
 }
 
 #map-container {
-   height: 400px;
+   height: 300px;
    border-radius: 16px 16px;
    border-color: #fff;
    border-style: solid;
@@ -36,6 +36,7 @@ textarea {
    border-width: 7px;
  }
  #map-canvas {
-   height: 384px;
+    position: relative;
+   height: 400px;
    width: 100%;
  }

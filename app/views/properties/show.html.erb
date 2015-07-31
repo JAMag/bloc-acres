@@ -1,23 +1,31 @@
 <h1><center><%= @property.address %></center></h1>
 
 <div class="jumbotron">
-  <div class="row">
-    <div class="col-6 col-md-3">
-      <a href="#" class="thumbnail">
-        <img src="assets/tree_acre.jpg" alt="small_house">
-      </a>
+
+    <div class="row">
+      <div class="col-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="assets/tree_acre.jpg" alt="small_house">
+        </a>
+      </div>
+
+
+    <div class="row">
+      <div class="col-6 col-md-3">
+      <p><b><%= @property.structure %></b></p>
+      <p><%= @property.city + "," %></p>
+      <p><%= @property.state + ","  %></p>
+      <p><%= @property.zip + ";"  %></p>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><%= @property.description %></p>
+        </div>
+      </div>
+      <%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %>
     </div>
 
-  <div class="row">
-    <div class="col-6 col-md-3">
-    <p><b><%= @property.structure %></b></p>
-    <p><%= @property.city%></p>
-    <p><%= @property.state %></p>
-    <p><%= @property.zip %></p>
-    <%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %>
-  </div>
     
-  <div class="row">
+<div class="row">
     <div class="col-6 col-md-3">
     <h3><center><%= "Available slots (Appointments)" %></center></h3>
       <% @slots.each do |s| %>

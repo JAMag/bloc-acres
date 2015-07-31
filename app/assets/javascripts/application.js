@@ -16,5 +16,5 @@
 //= require bootstrap
 //= require_tree .
 
-// The following is an attempt to use google maps in the dashboard view
+
 

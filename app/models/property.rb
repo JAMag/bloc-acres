@@ -9,5 +9,8 @@ class Property < ActiveRecord::Base
 #  has_one :zip
   has_many :slots
 
-
+  def map_address
+    "#{address} #{city} #{state} #{zip}"
+  end
+  
 end

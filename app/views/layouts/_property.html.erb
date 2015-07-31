@@ -1,15 +1,17 @@
   <div id="map-container">
-    <div id="map-canvas"></div>
+    <div id="map-canvas">
+      <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{address}&zoom=14&size=1200x375&markers=#{address}&sensor=false" %></center>
+    </div>
   </div>
 <div class="row">
   <div class="col-sm-6 col-md-12">
     <div class="thumbnail">
       <img src="..." alt="...">
       <div class="caption">
-        <h3><center>Property View</center></h3>
-        <p> </p>
+        <p><center><%= @properties.first.map_address %></center></p>
       </div>
     </div>
   </div>
+
 </div>
 
