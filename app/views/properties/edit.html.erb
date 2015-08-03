@@ -28,6 +28,19 @@
      <%= p.label :description %>
      <%= p.text_area :description, class: 'form-control', placeholder: "Description" %>
     </div>
+
+<% if @property.photo? %>
+         <div class="form-group">
+           <p>Current Photo</p>
+           <%= image_tag( @property.photo.profile.url ) %>
+         </div>
+       <% end %>
+       <div class="form-group">
+         <%= p.label :photo %>
+         <%= p.file_field :photo %>
+         <%= p.hidden_field :photo_cache %>
+       </div>
+
    <div class="form-group">
      <%= p.submit "Save", class: 'btn btn-success' %>
    </div>

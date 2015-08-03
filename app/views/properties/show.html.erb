@@ -19,6 +19,11 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <p><%= @property.description %></p>
+              <small>
+                <%= image_tag(@property.photo.url) if @property.photo? %>
+                submitted <%= time_ago_in_words(@property.created_at) %> ago by
+                <%= @property.user.name %>
+              </small>
         </div>
       </div>
       <%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %>

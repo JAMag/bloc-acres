@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 gem 'pundit'
 gem 'figaro', '1.0'
 gem 'faker'
+gem 'carrierwave'
+gem 'mini_magick', '~> 3.5.0'
+gem 'fog'
+
+#gem 'thinking-sphinx', '~> 3.1.4'
 
 gem 'bootstrap-sass'
 
@@ -10,7 +15,7 @@ gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 
 group :development do
-  gem 'sqlite3'
+  gem 'pg'
 end
 # Use SCSS for stylesheets
 group :production do

@@ -8,6 +8,7 @@ class Property < ActiveRecord::Base
 #  has_one :state
 #  has_one :zip
   has_many :slots
+  mount_uploader :photo, PhotoUploader
 
   def map_address
     "#{address} #{city} #{state} #{zip}"

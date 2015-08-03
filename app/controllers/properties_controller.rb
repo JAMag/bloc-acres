@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.all
+    @properties = Property.search params[:search]
   end
 
   def show
@@ -14,7 +14,8 @@ class PropertiesController < ApplicationController
   end
 
   def update
-    if @property.save
+    @property = Property.find(params[:id])
+    if @property.update_attributes(property_params)
       flash[:notice] = "Edited listing."
       redirect_to @property
     else
@@ -67,6 +68,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-     params.require(:property).permit(:structure, :address, :city, :state, :zip)
+     params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :lock, :photo, :photo_cache)
   end
 end
