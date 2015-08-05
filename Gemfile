@@ -8,13 +8,16 @@ gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
+gem 'pg'
+gem 'sphinx'
+gem 'thinking-sphinx', '~> 3.1.0'
+gem 'mysql2', '~> 0.3.18'
 
 group :development do
-  gem 'sqlite3'
 end
 # Use SCSS for stylesheets
 group :production do
-  gem 'pg'
+
   gem 'rails_12factor'
 end
 
