@@ -1,5 +1,7 @@
 <div class="jumbotron">
-  <h1><center><b>ALL PROPERTIES</b></center></h1>
+  <h1><center><b>PROPERTIES</b></center></h1>
+  </div>
+  <h3><%= render partial: "layouts/property", locals: { address: @properties.first.map_address } %></h3>
 
   <div class="jumbotron">
     <% @properties.each do |p| %>
@@ -11,6 +13,7 @@
                 <center>
                   <%= link_to p.address, property_path(p) %>
                 </center>
+                  <%= render partial: 'properties/favorite', locals: { p: p } %>
               </div>
             </div>
           </h4>
@@ -18,6 +21,8 @@
       </div>
     <% end %>
   </div>
+
+
 </div>
 
 

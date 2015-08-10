@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'start_time' => 'property/show'
       resources :appointments
     end
+    resources :favorites, only: [:create, :destroy]
   end
 
   get 'welcome/about'

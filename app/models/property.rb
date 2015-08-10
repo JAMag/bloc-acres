@@ -7,6 +7,7 @@ class Property < ActiveRecord::Base
 #  has_one :city
 #  has_one :state
 #  has_one :zip
+  has_many :favorites
   has_many :slots
 
   def map_address

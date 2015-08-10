@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :properties
   has_many :appointments
+  has_many :favorites
 
 def admin?
   role == 'admin'
@@ -17,5 +18,10 @@ end
 def seller?
   role == 'seller'
 end
+
+def favorited(property)
+  favorites.where(property_id: property.id).first
+end
+
   
 end
