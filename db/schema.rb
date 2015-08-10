@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513011306) do
+ActiveRecord::Schema.define(version: 20150805215636) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "started_at"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150513011306) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "appointments", ["slot_id"], name: "index_appointments_on_slot_id"
-  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id"
+  add_index "appointments", ["slot_id"], name: "index_appointments_on_slot_id", using: :btree
+  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
 
   create_table "locks", force: :cascade do |t|
     t.string   "model"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150513011306) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "locks", ["property_id"], name: "index_locks_on_property_id"
+  add_index "locks", ["property_id"], name: "index_locks_on_property_id", using: :btree
 
   create_table "properties", force: :cascade do |t|
     t.string   "structure"
@@ -45,9 +48,10 @@ ActiveRecord::Schema.define(version: 20150513011306) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "price"
   end
 
-  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
 
   create_table "slots", force: :cascade do |t|
     t.datetime "start_time"
@@ -56,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150513011306) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "slots", ["property_id"], name: "index_slots_on_property_id"
+  add_index "slots", ["property_id"], name: "index_slots_on_property_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -79,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150513011306) do
     t.string   "role"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
