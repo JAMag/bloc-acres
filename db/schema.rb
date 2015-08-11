@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150810210713) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "price"
+    t.string   "photo"
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
