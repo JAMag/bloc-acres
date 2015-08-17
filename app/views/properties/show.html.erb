@@ -8,9 +8,9 @@
     <div class="row">
       
       <div class="col-md-4">
-        <a href="#" class="thumbnail">
-          <img src="assets/tree_acre.jpg" alt="small_house">
-        </a>
+          <small>
+            <%= image_tag(@property.photo.url) if @property.photo? %>
+          </small>
       </div>
 
 
@@ -22,11 +22,6 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p><center><%= @property.description %></center></p>
-              <small>
-                <%= image_tag(@property.photo.url) if @property.photo? %>
-                submitted <%= time_ago_in_words(@property.created_at) %> ago by
-                <%= @property.user.name %>
-              </small>
           </div>
         </div>
         <%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %>
