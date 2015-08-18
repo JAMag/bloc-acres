@@ -8,9 +8,9 @@
     <div class="row">
       
       <div class="col-md-4">
-          <small>
-            <%= image_tag(@property.photo.url) if @property.photo? %>
-          </small>
+        <div class="thumbnail">
+          <%= image_tag(@property.photo.url) if @property.photo? %>
+        </div>
       </div>
 
 
@@ -22,15 +22,16 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p><center><%= @property.description %></center></p>
+            <H3><center><b><i><%= "$" + @property.price.to_s %></i></b></center></H3>
           </div>
         </div>
-        <%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %>
+        <center><%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %></center>
       </div>
 
     
 
       <div class="col-md-4">
-        <h3><center><%= "Available slots (Appointments)" %></center></h3>
+        <h3><center><%= "View" %></center></h3>
         <% @slots.each do |s| %>
           <div class="panel panel-default">
             <div class="panel-body">
