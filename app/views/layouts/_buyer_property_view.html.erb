@@ -3,18 +3,18 @@
   <div class="col-md-4">
     <div id="map-container">
       <div id="map-canvas">
-        <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=354x225&markers=#{p.map_address}&sensor=false" %></center>
+        <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
       </div>
     </div>
   </div>
+
   <div class="col-md-2">
     <div class="thumbnail">
       <%= image_tag(p.photo.url) if p.photo? %>
     </div>
   </div>
 
-  <div class="col-md-1">
-
+  <div class="col-md-2">
    <h4> <%= link_to p.address, property_path(p) %></h4> 
     <%= p.city + "," %>
     <%= p.state + "," %>
@@ -27,18 +27,15 @@
     </div>
 
 
-  <div class="col-md-2">
-    <p> <center>Next Showing</center></p>
-          <center>
-          <ol> 
-            <% p.slots.each do |s| %> 
-              <li><b> <%= s.start_time.strftime("%-I:%M%p %B %-d, %Y") %> </b></li> 
-            <% end %>
-          </ol>
-          </center>
+  <div class="col-md-1">
+    <center>Next Viewing</center>
+      <% @appointments.each do |a| %> 
+        <li><b> <%= link_to (a.slot ? a.slot.start_time.strftime("%-I:%M%p %B %-d, %Y") : "no slot") %> </b></li>
+      <% end %>
   </div>
 
-        <div class="col-md-1">
-          <h4> <%= link_to "Edit Listing", edit_property_path(p), class: 'btn btn-success' %></h4> 
-        </div>
+  <div class="col-md-1">
+    <%= render partial: 'properties/favorite', locals: { p: p } %> 
+  </div>
+
 </div>

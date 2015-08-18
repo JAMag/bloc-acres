@@ -2,61 +2,33 @@
 
   <div class="jumbotron">
     <h1><b><center>SELLER DASHBOARD</center></b></h1>
+    <p><center>
+        <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
+    </center></p>
   </div>
 
 
 
-      <h2> <center>My Listings</center> </h2>
-    <% @properties.each do  |p| %>
-      <div class="jumbotron">
-        <%= render partial: "layouts/property", locals: { p: p } %>    
-      </div>   
-    <% end %>
+  <h2> <center>My Listings</center> </h2>
+  <% @properties.each do  |p| %>
+    <div class="jumbotron">
+      <%= render partial: "layouts/property", locals: { p: p } %>    
+    </div>   
+  <% end %>
  
 
 
-  <p><center>
-      <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
-  </center></p>
-
-<div class="row">
-
-  <div class="col-md-3">
-    <h2> <center>Favorites</center> </h2>
-    <% @favorites.each do  |f| %>
-      <% p = f.property %>
-      <div class="panel panel-default">
-        <div class="panel-body">
-        <center>
-         <h4> <%= link_to p.address, property_path(p) %></h4> 
-          <%= p.city + "," %>
-          <%= p.state + "," %>
-          <%= p.zip + ";" %>
-          <li><b><i><%= "$" + p.price.to_s %></i></b></li>
-          <%= p.description %>
-          <%= render partial: 'properties/favorite', locals: { p: p } %>
-        </center>
-        </div>
+  <h2> <center>Favorites</center> </h2>
+  <% @favorites.each do  |f| %>
+    <% p = f.property %>
+      <div class="jumbotron">
+        <%= render partial: 'layouts/buyer_property_view', locals: { p: p } %>
       </div>
-    <% end %>
-  </div>
+  <% end %>
 
 
+</div>
 
-  <div class="col-md-3">
-    <h2> <center>Next Viewing</center></h2>
-    
-      <div class="panel panel-default">
-        <div class="panel-body">
-        <center>
-        <ol> 
-          <% @appointments.each do |a| %> 
-            <li><b> <%= link_to (a.slot ? a.slot.start_time.strftime("%-I:%M%p %B %-d, %Y") : "no slot") %> </b></li> 
-          <% end %>
-        </ol>
-        </center>
-        </div>
-      </div> 
-  </div>
+
 
 
