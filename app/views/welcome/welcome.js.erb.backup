@@ -1,0 +1,1 @@
+$('#propertyshow').html("<%= escape_javascript(render('buyer_property_view')) %>");

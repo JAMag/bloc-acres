@@ -1,33 +1,47 @@
 <br>
 
   <div class="jumbotron">
-    <h1><b><center>SELLER DASHBOARD</center></b></h1>
-    <p><center>
-        <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
-    </center></p>
+    <h1><b><center>DASHBOARD</center></b></h1>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#buyer">Buyer</a></li>
+      <li><a href="#seller">Seller</a></li>
+    </ul>
   </div>
 
-
-
-  <h2> <center>My Listings</center> </h2>
-  <% @properties.each do  |p| %>
-    <div class="jumbotron">
-      <%= render partial: "layouts/property", locals: { p: p } %>    
-    </div>   
-  <% end %>
- 
-
-
-  <h2> <center>Favorites</center> </h2>
+  <div class="tab-content">
+    <div id="buyer" class="tab-pane fade in active">
+      <h2> <center>Favorites</center> </h2>
   <% @favorites.each do  |f| %>
     <% p = f.property %>
       <div class="jumbotron">
         <%= render partial: 'layouts/buyer_property_view', locals: { p: p } %>
       </div>
   <% end %>
+    </div>
+
+    <div id="seller" class="tab-pane fade in active">
+    <h2> <center>My Listings</center> </h2>
+    <p><center>
+       <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
+    </center></p>
+  <% @properties.each do  |p| %>
+    <div class="jumbotron">
+      <%= render partial: "layouts/property", locals: { p: p } %>    
+    </div>   
+  <% end %>
+    </div>
+  </div>
 
 
-</div>
+<script>
+$(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+    });
+});
+</script>
+
+
 
 
 
