@@ -1,28 +1,17 @@
 <div class="jumbotron">
   <h1><center><b>PROPERTIES</b></center></h1>
-  </div>
-  <h3><%= render partial: "layouts/property", locals: { address: @properties.first.map_address } %></h3>
-
-  <div class="jumbotron">
-    <% @properties.each do |p| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <div class="panel panel-default">
-               <div class="panel-body">
-                <center>
-                  <%= link_to p.address, property_path(p) %>
-                </center>
-                  <%= render partial: 'properties/favorite', locals: { p: p } %>
-              </div>
-            </div>
-          </h4>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-
 </div>
+
+
+<% @properties.each do |p| %>
+  <div class="jumbotron">
+    <%= link_to p.address, property_path(p) %>
+    <%= render partial: "layouts/property", locals: { p: p} %>
+    <%= render partial: 'properties/favorite', locals: { p: p } %>
+  </div>
+<% end %>
+     
+
+
 
 
