@@ -3,7 +3,7 @@
   <div class="col-md-4">
     <div id="map-container">
       <div id="map-canvas">
-        <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=300x225&markers=#{p.map_address}&sensor=false" %></center>
+        <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
       </div>
     </div>
   </div>
@@ -14,28 +14,23 @@
   </div>
 
   <div class="col-md-2">
-
    <h4> <%= link_to p.address, property_path(p) %></h4> 
     <%= p.city + "," %>
     <%= p.state + "," %>
     <%= p.zip + ";" %>
   </div>
 
-    <div class="col-md-1">
+    <div class="col-md-2">
       <b><i><%= "$" + p.price.to_s %></i></b>
       <%= p.description %>
     </div>
 
 
-  <div class="col-md-2">
-    <p> <center>Next Showing</center></p>
-          <center>
-          <ol> 
-            <% p.slots.each do |s| %> 
-              <li><b> <%= s.start_time.strftime("%-I:%M%p %B %-d, %Y") %> </b></li> 
-            <% end %>
-          </ol>
-          </center>
+  <div class="col-md-1">
+    <p><center>Next Showing</center></p>
+      <% p.slots.each do |s| %> 
+        <li><b> <%= s.start_time.strftime("%-I:%M%p %B %-d, %Y") %> </b></li> 
+      <% end %>
   </div>
 
         <div class="col-md-1">
