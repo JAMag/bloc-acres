@@ -12,6 +12,9 @@ class SlotsController < ApplicationController
     @slot = Slot.new
   end
 
+
+
+
 end
 
 
