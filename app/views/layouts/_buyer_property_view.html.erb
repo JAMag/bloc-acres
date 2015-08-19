@@ -21,17 +21,19 @@
     <%= p.zip + ";" %>
   </div>
 
-    <div class="col-md-2">
-      <H3><b><i><%= "$" + p.price.to_s %></i></b></H3>
-      <%= p.description %>
-    </div>
+  <div class="col-md-2">
+    <H3><b><i><%= "$" + p.price.to_s %></i></b></H3>
+    <%= p.description %>
+  </div>
 
 
   <div class="col-md-1">
     <center>Next Viewing</center>
-      <% @appointments.each do |a| %> 
-        <b> <%= (a.slot ? a.slot.start_time.strftime("%-I:%M%p %B %-d, %Y") : "no slot") %> </b>
-      <% end %>
+    <center><ol>
+    <% @appointments.each do |a| %> 
+      <li><b><%= (a.slot ? a.slot.start_time.strftime("%-I:%M%p %B %-d, %Y") : "no slot") %></b></li>
+    <% end %>
+    </ol></center>
   </div>
 
   <div class="col-md-1">

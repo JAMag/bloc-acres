@@ -25,6 +25,9 @@
        <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
     </center></p>
   <% @properties.each do  |p| %>
+    <div class="col-md-1">
+      <h4> <%= link_to "Edit Listing", edit_property_path(p), class: 'btn btn-success' %></h4> 
+    </div>
     <div class="jumbotron">
       <%= render partial: "layouts/property", locals: { p: p } %>    
     </div>   

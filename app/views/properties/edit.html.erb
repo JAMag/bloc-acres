@@ -1,4 +1,6 @@
-<h1>Edit Property</h1>
+<h1><center>Edit Property</center></h1>
+
+<div class="jumbotron">
         <%= form_for [@property ] do |p| %>
     <div class="form-group">
      <%= p.label :structure %>
@@ -41,4 +43,5 @@
      <%= p.submit "Save", class: 'btn btn-success' %>
    </div>
  <% end %>
+</div>
 
