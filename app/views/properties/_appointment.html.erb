@@ -1,0 +1,8 @@
+      <div class="col-md-4">
+        <h3><center><%= "Bookings" %></center></h3>
+        <% if slot = p.booked_by_user?(current_user) %>
+          <center><%= link_to "Remove", [slot.property, slot, slot.appointment], class: 'btn btn-danger', method: :delete %></center>
+           <center> Appointment on </center><center><%= slot.start_time.strftime("%-I:%M%p %B %-d, %Y") %></center>
+           By <%= slot.appointment.user.email.split("@")[0] %>
+        <% end %>
+      </div>

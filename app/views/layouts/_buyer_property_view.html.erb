@@ -1,43 +1,72 @@
-<div class="row">
+<div>
+  <ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#appointment">Appointments</a></li>
+  </ul>
+</div>
+ 
 
-  <div class="col-md-4">
-    <div id="map-container">
-      <div id="map-canvas">
-        <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+    <div class="row">
+      <div class="col-md-4">
+        <div id="map-container">
+          <div id="map-canvas">
+            <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="thumbnail">
+          <%= image_tag(p.photo.url) if p.photo? %>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <%= render partial: 'properties/favorite', locals: { p: p } %> 
+      </div>
+      
+      <div class="col-md-2">
+       <h4> <%= link_to p.address, property_path(p) %></h4> 
+        <%= p.city + "," %>
+        <%= p.state + "," %>
+        <%= p.zip + ";" %>
+      </div>
+
+      <div class="col-md-2">
+        <H3><b><i><%= "$" + p.price.to_s %></i></b></H3>
+        <%= p.description %>
       </div>
     </div>
   </div>
 
-  <div class="col-md-2">
-    <div class="thumbnail">
-      <%= image_tag(p.photo.url) if p.photo? %>
+
+
+    <div id="appointment" class="tab-pane fade in active">
+      <div class="row">
+      <div class="col-md-4">
+      <h3><p><center>Showings</center></p></h3>
+        <% p.slots.each do |s| %> 
+          <ol><b> <%= s.start_time.strftime("%-I:%M%p %B %-d, %Y") %> </b></ol>
+        <% end %>
+    </div>
+
+
+
+      <div class="col-md-4">
+        <%= render partial: 'properties/appointment', locals: { p: p, slot: @slot } %> 
+      </div>
     </div>
   </div>
-
-  <div class="col-md-2">
-   <h4> <%= link_to p.address, property_path(p) %></h4> 
-    <%= p.city + "," %>
-    <%= p.state + "," %>
-    <%= p.zip + ";" %>
-  </div>
-
-  <div class="col-md-2">
-    <H3><b><i><%= "$" + p.price.to_s %></i></b></H3>
-    <%= p.description %>
-  </div>
-
-
-  <div class="col-md-1">
-    <center>Next Viewing</center>
-    <center><ol>
-    <% @appointments.each do |a| %> 
-      <li><b><%= (a.slot ? a.slot.start_time.strftime("%-I:%M%p %B %-d, %Y") : "no slot") %></b></li>
-    <% end %>
-    </ol></center>
-  </div>
-
-  <div class="col-md-1">
-    <%= render partial: 'properties/favorite', locals: { p: p } %> 
-  </div>
-
 </div>
+
+
+<script>
+$(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+    });
+});
+</script>
+
