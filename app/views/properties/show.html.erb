@@ -35,7 +35,8 @@
       <div class="col-md-4">
         <h3><center><%= "View" %></center></h3>
         <% if slot = @property.booked_by_user?(current_user) %>
-           <%= link_to "Remove", [slot.property, slot, slot.appointment], class: 'btn btn-danger', method: :delete %>
+          <center><%= link_to "Remove", [slot.property, slot, slot.appointment], class: 'btn btn-danger', method: :delete %></center>
+           <center> Your appointment is </center><center><%= slot.start_time.strftime("%I:%M%p on %D") %></center>
         <% else %>
           <% @slots.each do |s| %>
             <div class="panel panel-default">

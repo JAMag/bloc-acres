@@ -1,7 +1,7 @@
 <div class="favorite">
   <% if favorite = current_user.favorited(p) %>
-    <%= link_to "Remove", [p, favorite], class: 'btn btn-danger', method: :delete %>
+    <%= link_to "Unfavorite", [p, favorite], class: 'btn btn-danger', method: :delete %>
   <% else %>
-    <%= link_to "Keep", [p, Favorite.new], class: 'btn btn-primary', method: :post %>
+    <%= link_to "Favorite", [p, Favorite.new], class: 'btn btn-primary', method: :post %>
   <% end %>
 </div>
