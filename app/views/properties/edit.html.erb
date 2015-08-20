@@ -1,5 +1,10 @@
 <h1><center>Edit Property</center></h1>
-
+<br>
+</br>
+<br>
+</br>
+<br>
+</br>
 <div class="jumbotron">
         <%= form_for [@property ] do |p| %>
     <div class="form-group">
@@ -29,12 +34,11 @@
 
 <% if @property.photo? %>
          <div class="form-group">
-           <p>Current Photo</p>
+          </h3><p>Photos</p></h3>
            <%= image_tag( @property.photo.profile.url ) %>
          </div>
        <% end %>
        <div class="form-group">
-         <%= p.label :photo %>
          <%= p.file_field :photo %>
          <%= p.hidden_field :photo_cache %>
        </div>
@@ -42,6 +46,11 @@
    <div class="form-group">
      <%= p.submit "Save", class: 'btn btn-success' %>
    </div>
+
+  <div class="form-group">
+    <%= p.submit "Delete", class: 'btn btn-danger', method: :delete %>
+  </div>
+
  <% end %>
 </div>
 

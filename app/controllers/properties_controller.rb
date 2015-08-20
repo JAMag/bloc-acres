@@ -54,7 +54,7 @@ class PropertiesController < ApplicationController
     authorize = @property
     if @property.destroy
     flash[:notice] = "Listing removed."
-    redirect_to [@property]
+    redirect_to welcome_index_path
     else
     flash[:error] = "Listing not removed. Try again."
     redirect_to [@property]
