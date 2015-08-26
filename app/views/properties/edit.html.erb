@@ -6,7 +6,7 @@
 <br>
 </br>
 <div class="jumbotron">
-        <%= form_for [@property ] do |p| %>
+  <%= form_for [@property ] do |p| %>
     <div class="form-group">
      <%= p.label :structure %>
       <%= p.text_field :structure, class: 'form-control', placeholder: "Single family, Multi-family, Condo, Townhouse" %>
@@ -32,25 +32,34 @@
      <%= p.text_area :description, class: 'form-control', placeholder: "Description" %>
     </div>
 
-<% if @property.photo? %>
+<% if @property.photos? %>
          <div class="form-group">
           </h3><p>Photos</p></h3>
-           <%= image_tag( @property.photo.profile.url ) %>
+
+          <% @property.photos do |i| %>
+           <%= image_tag( i.profile.url ) %>
+
+          <% end %>
+          
+   
          </div>
        <% end %>
        <div class="form-group">
-         <%= p.file_field :photo %>
-         <%= p.hidden_field :photo_cache %>
+         <%= p.file_field :photos, multiple: true %>
+
        </div>
+
 
    <div class="form-group">
      <%= p.submit "Save", class: 'btn btn-success' %>
    </div>
 
-  <div class="form-group">
-    <%= p.submit "Delete", class: 'btn btn-danger', method: :delete %>
-  </div>
-
  <% end %>
+   <%= form_for [@property ], method: :delete  do |p| %>
+
+  <div class="form-group">
+    <%= p.submit "Delete", class: 'btn btn-danger'%>
+  </div>
+  <% end %>
 </div>
 

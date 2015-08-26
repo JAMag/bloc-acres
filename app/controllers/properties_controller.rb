@@ -19,7 +19,7 @@ class PropertiesController < ApplicationController
       flash[:notice] = "Edited listing."
       redirect_to @property
     else
-      flash[:error] = "Error creating listing. Try again."
+      flash[:error] = "Error updating listing. Try again."
       redirect_to edit_property_path(@property)
     end
   end
@@ -49,12 +49,12 @@ class PropertiesController < ApplicationController
 
 
   def destroy
-    @property = current_user.property
+    @property = current_user.properties.find(params[:id])
 
     authorize = @property
     if @property.destroy
     flash[:notice] = "Listing removed."
-    redirect_to welcome_index_path
+    redirect_to dashboard_path
     else
     flash[:error] = "Listing not removed. Try again."
     redirect_to [@property]
@@ -68,6 +68,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-     params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :lock, :photo, :photo_cache)
+     params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :lock, {photos:[]})
   end
 end

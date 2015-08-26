@@ -8,7 +8,7 @@
   </div>
   <div class="col-md-2">
     <div class="thumbnail">
-      <%= image_tag(p.photo.url) if p.photo? %>
+      <%= render partial: 'properties/photo', locals: { property: p } %>
     </div>
   </div>
 
