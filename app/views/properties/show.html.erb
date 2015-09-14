@@ -4,56 +4,74 @@
 <br>
 
 <div class="jumbotron">
-<h1><center><%= @property.address %></center></h1>
-    <div class="row">
-      
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= render partial: 'properties/photo', locals: { property: @property } %>
+  <h1>
+    <center><%= @property.address %></center>
+  </h1>
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <%= render partial: 'properties/photo', locals: {property: @property} %>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <p><b>
+        <center><%= @property.structure %></center>
+      </b></p>
+      <p>
+      <center><%= @property.city + "," %></center>
+      </p>
+      <p>
+      <center><%= @property.state + "," %></center>
+      </p>
+      <p>
+      <center><%= @property.zip + ";" %></center>
+      </p>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>
+          <center><%= @property.description %></center>
+          </p>
+          <H3>
+            <center><b><i><%= "$" + @property.price.to_s %></i></b></center>
+          </H3>
         </div>
       </div>
 
-
-      <div class="col-md-4">
-        <p><b><center><%= @property.structure %></center></b></p>
-        <p><center><%= @property.city + "," %></center></p>
-        <p><center><%= @property.state + ","  %></center></p>
-        <p><center><%= @property.zip + ";"  %></center></p>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <p><center><%= @property.description %></center></p>
-            <H3><center><b><i><%= "$" + @property.price.to_s %></i></b></center></H3>
-          </div>
-        </div>
-        <center><%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %></center>
-      </div>
-
-    
+    </div>
 
 
-
-      <div class="col-md-4">
-        <h3><center><%= "View" %></center></h3>
-        <% if slot = @property.booked_by_user?(current_user) %>
+    <div class="col-md-4">
+      <h3>
+        <center><%= "View" %></center>
+      </h3>
+      <% if slot = @property.booked_by_user?(current_user) %>
           <center><%= link_to "Remove", [slot.property, slot, slot.appointment], class: 'btn btn-danger', method: :delete %></center>
-           <center> Your appointment is </center><center><%= slot.start_time.strftime("%I:%M%p on %D") %></center>
-        <% else %>
+          <center> Your appointment is</center>
+          <center><%= slot.start_time.strftime("%I:%M%p on %D") %></center>
+      <% else %>
           <% @slots.each do |s| %>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4 class="media-heading"><center>
-                  <%= s.start_time.strftime("%D at %I:%M%p") %>
-                  <% if !s.appointment %>
-                    <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
-                  <% end %>
-                </center>
-                </h4>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4 class="media-heading">
+                    <center>
+                      <%= s.start_time.strftime("%D at %I:%M%p") %>
+                      <% if !s.appointment %>
+                          <%= form_tag charges_path do %>
+                              <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
+                              <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10 %> data-description="Viewing"></script>
+                          <% end %>
+                      <% end %>
+                    </center>
+                  </h4>
+                </div>
               </div>
-            </div>
           <% end %>
-        <% end %>
-      </div>
-  </div>  
+      <% end %>
+    </div>
+  </div>
 </div>
 
              
