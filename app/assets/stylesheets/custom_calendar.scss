@@ -1,0 +1,28 @@
+.calendar-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+
+  .calendar-header {
+    padding: 10px;
+    font-size: 20px;
+
+    span {
+      padding: 0px 10px;
+
+    }
+  }
+  table {
+    width: 100%;
+  }
+  th {
+    text-align: center;
+    padding: 20px;
+  }
+  td {
+    padding: 20px;
+    &.today{
+      background-color: #f4f4f4;
+    }
+  }
+}

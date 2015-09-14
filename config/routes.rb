@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
+  get 'calendar/show'
+
   resources :lock
 
+  resources :charges, only: [:new, :create]
   
 
   devise_for :users
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
     resources :slots do
       get 'start_time' => 'property/show'
       resources :appointments
+      delete 'by_day/:day', to: 'slots#by_day', on: :collection, as: 'by_day'
     end
     resources :favorites, only: [:create, :destroy]
   end

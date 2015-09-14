@@ -1,17 +1,38 @@
+@font-face {
+    font-family: "Jaapokki";
+    src: font-url('Jaapokki-Regular.otf') format('truetype');
+}
 
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "custom_calendar";
+@import "custom_carrierwave";
+
+
+
+.glyphicon {
+    font-size: 25px;
+}
+
+.carousel {
+
+}
+
+.carousel-inner > .item > img {
+min-height: 308px;
+max-height: 308;
+min-width: 308;
+max-width: 300;
+
+}
 
 
 .navbar{
-  min-height:54px; //* or whatever height you require
-  max-height:54px;
+  min-height:100px; //* or whatever height you require
+  max-height:100px;
   background: rgba(100, 104, 104, 0.5); 
-  border-radius: 16px 16px;
-  border-color: #fff;
-  border-style: solid;
-  box-shadow: 0px 0px 0px #B1B1B1;
+
 }
 
 .navbar-brand {
@@ -23,17 +44,50 @@
     border-color: #000;
     border-style: solid;
     box-shadow: 0px 0px 0px #B1B1B1;
+  margin: 0px 0px 0px 0px !important;
 }
 
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: #000;  /*Sets the text hover color on navbar*/
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
+ a:hover, .navbar-default .navbar-nav > .active > a:focus {
+color: white; /*BACKGROUND color for active*/
+background-color: #030033;
+}
+
+  .navbar-default {
+    background: rgba(100, 104, 104, 0.5); 
+
+ }
 
 
+  .dropdown-menu > li > a:hover,
+   .dropdown-menu > li > a:focus {
+    color: #262626;
+   text-decoration: none;
+  background-color: #66CCFF;  /*change color of links in drop down here*/
+   }
+
+ .nav > li > a:hover,
+ .nav > li > a:focus {
+    text-decoration: none;
+    background-color: silver; /*Change rollover cell color here*/
+  }
+
+
+  .navbar-default .navbar-nav > li > a {
+   color: white; /*Change active text color here*/
+    }
 
 
 
 
 .panel-default {
-  border-radius:16px 16px;
+  background: rgba(255, 255, 255, 0.7); 
+  border-radius:0px 0px;
   border-color: #000;
   border-style: solid;
 
@@ -46,11 +100,12 @@
 
 .nav-tabs > li > a:hover{
   background: transparent;
-    border: medium;
-    background: rgba(100, 104, 104, 0.5); 
+    border: thin;
+    border-bottom: 0;
+    background: rgba(255, 255, 255, 0.7); 
   border-radius: 8px px;
   border-color: #000;
-  border-style: medium;
+  border-style: solid;
   box-shadow: 0px 0px 00px #B1B1B1;
 }
 
@@ -106,13 +161,22 @@
   -ms-transition: background .2s ease-in-out, border .2s ease-in-out;
   -o-transition: background .2s ease-in-out, border .2s ease-in-out;
   transition: background .2s ease-in-out, border .2s ease-in-out;
+}
 
+.btn-xs{
+     background: rgb(100, 54, 54); /* This is for ie8 and below */
+   background: rgba(100, 104, 104, 0.3); 
+   border-radius: 0px 0px;
+   border-color: #000;
+   border-style: solid;
+   box-shadow: 0px 0px 00px #B1B1B1;
 }
 
 
 .nav {
   margin-top: 5px;
 }
+
 
 body {
     
@@ -129,6 +193,9 @@ header {
     
    
 }
+
+
+
 
 .jumbotron {
    background: rgb(100, 54, 54); /* This is for ie8 and below */
@@ -148,23 +215,51 @@ header {
 #map-container {
    height:relative;
    width:relative;
-   border-radius: 16px 16px;
-   border-color: #fff;
-   border-style: solid;
-   box-shadow: 0px 0px 0px #B1B1B1;
-
  }
 
-.table-hover {
-  
+
+#myTab {
+  margin: 5px 0px 5px 0px;
 }
 
- /*
- map-canvas {
-  position: relative;
-  height: 384px, relative;
-  width: 100%;
- }
- */
+
+.simple-calendar {
+  padding: 5px 5px 5px 5px;
+}
+
+#about-text1and2 { 
+  padding: 20px 0px 20px 0px;
+}
+
+
+#about-text1 { 
+  padding: 0px 20px 0px 100px;
+}
+
+#about-text2 { 
+  padding: 0px 20px 0px 100px;
+}
+
+
+#about-text3 { 
+  padding: 0px 20px 0px 20px;
+}
+
+#about-text4 { 
+  padding: 0px 20px 0px 20px;
+}
+
+.glyphicon-dashboard { 
+  padding: 5px 0px 0px 5px;
+}
+
+#favorites-listings {
+  color: rgba(255, 255, 255, 1); 
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
 
 

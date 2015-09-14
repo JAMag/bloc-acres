@@ -20,3 +20,5 @@
 /config/application.yml
 
 /db/sphinx/*
+
+.idea
