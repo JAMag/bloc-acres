@@ -1,13 +1,14 @@
 <div class="jumbotron">
-  <h1><center><b>PROPERTIES</b></center></h1>
+  <h1>
+    <center><b>PROPERTIES</b></center>
+  </h1>
 </div>
 
 
 <% @properties.each do |p| %>
-  <div class="jumbotron">
-    <%= render partial: "layouts/property", locals: { p: p} %>
-    <%= render partial: 'properties/favorite', locals: { p: p } %>
-  </div>
+    <div class="jumbotron">
+      <%= render partial: "layouts/buyer_property_view", locals: {p: p} %>
+    </div>
 <% end %>
      
 

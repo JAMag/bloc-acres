@@ -29,7 +29,7 @@ class PropertiesController < ApplicationController
 
 
   def new
-   @property = Property.new
+    @property = Property.new
   end
 
   def create
@@ -47,17 +47,16 @@ class PropertiesController < ApplicationController
   end
 
 
-
   def destroy
     @property = current_user.properties.find(params[:id])
 
     authorize = @property
     if @property.destroy
-    flash[:notice] = "Listing removed."
-    redirect_to dashboard_path
+      flash[:notice] = "Listing removed."
+      redirect_to dashboard_path
     else
-    flash[:error] = "Listing not removed. Try again."
-    redirect_to [@property]
+      flash[:error] = "Listing not removed. Try again."
+      redirect_to [@property]
     end
   end
 
@@ -68,6 +67,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-     params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :lock, {photos:[]})
+    params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :baths, :beds, :sqft, :lot, :lock, {photos: []})
   end
 end

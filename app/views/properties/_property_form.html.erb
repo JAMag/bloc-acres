@@ -1,27 +1,27 @@
 <h1>Edit Your Listing</h1>
-        <%= form_for [@property ] do |p| %>
+<%= form_for [@property] do |p| %>
     <div class="form-group">
-     <%= p.label :structure %>
+      <%= p.label :structure %>
       <%= p.text_field :structure, class: 'form-control', placeholder: "Single family, Multi-family, Condo, Townhouse" %>
-   </div>
-   <div class="form-group">
-     <%= p.label :address %>
+    </div>
+    <div class="form-group">
+      <%= p.label :address %>
       <%= p.text_field :address, class: 'form-control', placeholder: "Enter street and number" %>
-   </div>
-   <div class="form-group">
-     <%= p.label :city %>
+    </div>
+    <div class="form-group">
+      <%= p.label :city %>
       <%= p.text_field :city, class: 'form-control', placeholder: "City" %>
-   </div>
-   <div class="form-group">
-     <%= p.label :state %>
-     <%= p.text_area :state, class: 'form-control', placeholder: "State abbreviation" %>
-   </div>
-      <div class="form-group">
-     <%= p.label :zip %>
-     <%= p.text_area :zip, class: 'form-control', placeholder: "5 digit" %>
-   </div>
-   <div class="form-group">
-     <%= p.submit "Save", class: 'btn btn-success' %>
-   </div>
- <% end %>
+    </div>
+    <div class="form-group">
+      <%= p.label :state %>
+      <%= p.text_area :state, class: 'form-control', placeholder: "State abbreviation" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :zip %>
+      <%= p.text_area :zip, class: 'form-control', placeholder: "5 digit" %>
+    </div>
+    <div class="form-group">
+      <%= p.submit "Save", class: 'btn btn-success' %>
+    </div>
+<% end %>
 

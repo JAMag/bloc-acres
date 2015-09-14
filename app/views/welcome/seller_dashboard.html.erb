@@ -1,7 +1,11 @@
 <br>
 
   <div class="jumbotron">
-    <h1><b><center>DASHBOARD</center></b></h1>
+    <div class="panel panel-default">
+      <span class="glyphicon glyphicon-dashboard" style="font-size: 140px;"></span>
+      <h1><b>DASHBOARD</b></h1>
+    </div>
+
     <ul class="nav nav-tabs">
       <li><a data-toggle="tab" href="#buyer">Buyer</a></li>
       <li><a data-toggle="tab" href="#seller">Seller</a></li>
@@ -12,9 +16,12 @@
     </ul>
   </div>
 
+
+
+
   <div class="tab-content">
     <div id="buyer" class="tab-pane fade in active">
-      <h2> <center>Favorites</center> </h2>
+      <h2 id="favorites-listings"> <center>Favorites</center> </h2>
 
   <% @favorites.each do  |f| %>
     <% p = f.property %>
@@ -29,25 +36,19 @@
 
 
     <div id="seller" class="tab-pane fade in active">
-    <h2> <center>My Listings</center> </h2>
+    <h2 id="favorites-listings"><center>My Listings</center> </h2>
     <p><center>
        <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
     </center></p>
 
 
  
-  <% @properties.each do  |p| %>
-
-
-
-      <div class="col-md-1">
-        <h4> <%= link_to "Edit Listing", edit_property_path(p), class: 'btn btn-success' %></h4> 
-      </div>
+    <% @properties.each do  |p| %>
       <div class="jumbotron">
         <%= render partial: "layouts/property", locals: { p: p } %>    
       </div>  
 
-  <% end %>
+    <% end %>
     </div>
   </div>
 

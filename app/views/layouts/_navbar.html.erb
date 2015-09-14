@@ -13,28 +13,31 @@
         <li><%= link_to "Properties", properties_path %></li>
       </ul>
       <%= form_tag properties_path, method: :get, class: "navbar-form navbar-left", role: 'search' do %>
-        <div class="form-group">
-          <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'SEARCH' %>
-        </div>
-        <%= button_tag type: 'submit', class: 'btn btn-default' do %>
-            <span class="glyphicon glyphicon-search"></span>
-            Search
-        <% end %>
+          <div id="search" class="form-group">
+            <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'SEARCH' %>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-default' do %>
+              <span class="glyphicon glyphicon-home"></span>
+              Search
+          <% end %>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
-        
-    <div class="pull-right user-info">
-      <% if current_user %>
-      Hello <%= current_user.email %>! <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign In", new_user_session_path, class: 'btn btn-default btn-navbar' %> or 
-        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-default btn-navbar' %>
-      <% end %>
-          </ul>
-        </li>
+
+        <div class="pull-right user-info">
+
+          <% if current_user %>
+              <%= current_user.email %>! <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+              <%= link_to "Sign In", new_user_session_path, class: 'btn btn-default btn-navbar' %> or
+              <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-default btn-navbar' %>
+          <% end %>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+      </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
 
 
 </nav>
