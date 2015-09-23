@@ -1,6 +1,17 @@
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.search(params[:search])
+
+    @properties = Property.search(conditions: {
+                                      structure: params[:search][:structure],
+                                      beds: params[:search][:beds],
+                                      baths: params[:search][:baths],
+                                      price: params[:search][:price]
+                                  }
+    )
+
+
+
+
   end
 
   def show

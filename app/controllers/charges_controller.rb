@@ -13,8 +13,17 @@ class ChargesController < ApplicationController
         currency: 'usd'
     )
 
-    flash[:notice] = "Thanks for using Bloc-Acres, #{current_user.email}!"
-    redirect_to dashboard_path
+
+
+    @appointment = Appointment.new(slot_id: params[:slot_id], user: current_user)
+    @property = Property.find(params[:property_id])
+    if @appointment.save
+      flash[:notice] = "Created appointment to visit this house."
+      redirect_to @property
+    else
+      flash[:error] = "Error creating appointment to visit this house. Please try again."
+      redirect_to @property
+    end
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

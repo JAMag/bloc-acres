@@ -1,7 +1,8 @@
 ThinkingSphinx::Index.define :property, :with => :active_record do
-  indexes description
+  indexes structure
   indexes state
-#  has_one :city
-#  has_one :state
-#  has_one :zip
+  indexes city
+  indexes beds, :sortable => true
+  indexes baths, :sortable => true
+  indexes price, :sortable => true
 end

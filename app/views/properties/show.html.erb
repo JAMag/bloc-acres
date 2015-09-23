@@ -60,8 +60,9 @@
                       <%= s.start_time.strftime("%D at %I:%M%p") %>
                       <% if !s.appointment %>
                           <%= form_tag charges_path do %>
-                              <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
-                              <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10 %> data-description="Viewing"></script>
+                              <%= hidden_field_tag :slot_id, s.id %>
+                              <%= hidden_field_tag :property_id, @property.id %>
+                              <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10_00 %> data-description="Viewing"></script>
                           <% end %>
                       <% end %>
                     </center>

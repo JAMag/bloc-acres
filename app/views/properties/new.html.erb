@@ -24,15 +24,68 @@
         <%= p.text_area :zip, class: 'form-control', placeholder: "5 digit" %>
       </div>
       <div class="form-group">
-        <%= p.label :lock %>
-        <%= p.text_area :lock, class: 'form-control', placeholder: "Manufacturer and Model" %>
-      </div>
-      <div class="form-group">
         <%= p.label :description %>
         <%= p.text_area :description, class: 'form-control', placeholder: "Description" %>
       </div>
       <div class="form-group">
+        <%= p.label :price %>
+        <%= p.text_area :price, class: 'form-control', placeholder: "Price" %>
+      </div>
+
+
+      <div><H3>
+        Baths
+        <%= p.radio_button :baths, '1' %> <%= p.label :baths, "1" %>
+        <%= p.radio_button :baths, '2' %> <%= p.label :baths, "2" %>
+        <%= p.radio_button :baths, '3' %> <%= p.label :baths, "3" %>
+        <%= p.radio_button :baths, '4' %> <%= p.label :baths, "4" %>
+      </H3></div>
+      <div><H3>
+        Beds
+        <%= p.radio_button :beds, '1' %> <%= p.label :beds, "1" %>
+        <%= p.radio_button :beds, '2' %> <%= p.label :beds, "2" %>
+        <%= p.radio_button :beds, '3' %> <%= p.label :beds, "3" %>
+        <%= p.radio_button :beds, '4' %> <%= p.label :beds, "4" %>
+        <%= p.radio_button :beds, '5' %> <%= p.label :beds, "5" %>
+        <%= p.radio_button :beds, '6' %> <%= p.label :beds, "6" %>
+        <%= p.radio_button :beds, '7' %> <%= p.label :beds, "7" %>
+      </H3></div>
+      <div><H3>
+        Acres
+        <%= p.radio_button :lot, '1' %> <%= p.label :lot, "1" %>
+        <%= p.radio_button :lot, '2' %> <%= p.label :lot, "2" %>
+        <%= p.radio_button :lot, '3' %> <%= p.label :lot, "3" %>
+        <%= p.radio_button :lot, '4' %> <%= p.label :lot, "4" %>
+        <%= p.radio_button :lot, '5' %> <%= p.label :lot, "5" %>
+      </H3></div>
+
+      <% if @property.photos? %>
+          <div class="form-group">
+            </h3><p>Photos</p></h3>
+
+            <% @property.photos do |i| %>
+                <%= image_tag(i.profile.url) %>
+
+            <% end %>
+
+
+          </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= p.file_field :photos, multiple: true, class: 'btn btn-success' %>
+      </div>
+
+
+      <div class="form-group">
         <%= p.submit "Save", class: 'btn btn-success' %>
+      </div>
+
+  <% end %>
+  <%= form_for [@property], method: :delete do |p| %>
+
+      <div class="form-group">
+        <%= p.submit "Delete", class: 'btn btn-danger' %>
       </div>
   <% end %>
 </div>
