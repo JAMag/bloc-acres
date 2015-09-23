@@ -1,3 +1,22 @@
+.panel-default-front-page {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+    border: 20px;
+    border: solid;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.8);
+}
+.image {
+  background-image: url(image_path('lock.jpg'));
+  border-color: rgba(255, 255, 255, 0.7);
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 15px;
+  margin-bottom: 20px;
+}
+
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/

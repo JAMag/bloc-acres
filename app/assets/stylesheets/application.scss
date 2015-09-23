@@ -1,18 +1,17 @@
 @font-face {
-    font-family: "Jaapokki";
-    src: font-url('Jaapokki-Regular.otf') format('truetype');
+  font-family: "Jaapokki";
+  src: font-url('Jaapokki-Regular.otf') format('truetype');
 }
-
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom_calendar";
 @import "custom_carrierwave";
-
+@import "welcome";
 
 
 .glyphicon {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .carousel {
@@ -20,94 +19,92 @@
 }
 
 .carousel-inner > .item > img {
-min-height: 308px;
-max-height: 308;
-min-width: 308;
-max-width: 300;
+  min-height: 308px;
+  max-height: 308;
+  min-width: 308;
+  max-width: 300;
 
 }
 
-
-.navbar{
-  min-height:100px; //* or whatever height you require
-  max-height:100px;
-  background: rgba(100, 104, 104, 0.5); 
+.navbar {
+  min-height: 100px; //* or whatever height you require
+  max-height: 100px;
+  background: rgba(100, 104, 104, 0.5);
 
 }
 
 .navbar-brand {
-    background-image: url("rsz_1key-house-logo-free-vector-1732.jpg");
-    background-image: transparent;
-    width:150px;
-    height:200px;
-    border-radius: 16px 16px;
-    border-color: #000;
-    border-style: solid;
-    box-shadow: 0px 0px 0px #B1B1B1;
+  background-image: url("rsz_1key-house-logo-free-vector-1732.jpg");
+  background-image: transparent;
+  width: 150px;
+  height: 200px;
+  border-radius: 16px 16px;
+  border-color: #000;
+  border-style: solid;
+  box-shadow: 0px 0px 0px #B1B1B1;
   margin: 0px 0px 0px 0px !important;
 }
 
-
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-color: #000;  /*Sets the text hover color on navbar*/
+  color: #000; /*Sets the text hover color on navbar*/
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
- a:hover, .navbar-default .navbar-nav > .active > a:focus {
-color: white; /*BACKGROUND color for active*/
-background-color: #030033;
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
+a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: white; /*BACKGROUND color for active*/
+  background-color: #030033;
 }
 
-  .navbar-default {
-    background: rgba(100, 104, 104, 0.5); 
+.navbar-default {
+  background: rgba(100, 104, 104, 0.5);
 
- }
+}
 
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #66CCFF; /*change color of links in drop down here*/
+}
 
-  .dropdown-menu > li > a:hover,
-   .dropdown-menu > li > a:focus {
-    color: #262626;
-   text-decoration: none;
-  background-color: #66CCFF;  /*change color of links in drop down here*/
-   }
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: silver; /*Change rollover cell color here*/
+}
 
- .nav > li > a:hover,
- .nav > li > a:focus {
-    text-decoration: none;
-    background-color: silver; /*Change rollover cell color here*/
-  }
-
-
-  .navbar-default .navbar-nav > li > a {
-   color: white; /*Change active text color here*/
-    }
-
-
-
+.navbar-default .navbar-nav > li > a {
+  color: white; /*Change active text color here*/
+}
 
 .panel-default {
-  background: rgba(255, 255, 255, 0.7); 
-  border-radius:0px 0px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0px 0px;
   border-color: #000;
   border-style: solid;
 
 }
 
-.nav-tabs{
-  ;
+.nav-tabs {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 0px 0px;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
 }
 
-
-.nav-tabs > li > a:hover{
+.nav-tabs > li > a:hover {
   background: transparent;
-    border: thin;
-    border-bottom: 0;
-    background: rgba(255, 255, 255, 0.7); 
-  border-radius: 8px px;
+  border: thin;
+  border-bottom: 0px;
+  border-top: 0px;
+  background: rgba(255, 255, 255, 0.7);
+
   border-color: #000;
   border-style: solid;
-  box-shadow: 0px 0px 00px #B1B1B1;
+
 }
+
 
 
 .user-info {
@@ -117,36 +114,36 @@ background-color: #030033;
 //styling for button gradiants.
 
 .btn-primary.gradient {
-    background: -moz-linear-gradient(top,  #33a6cc 50%, #0099cc 50%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#33a6cc), color-stop(50%,#0099cc)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* IE10+ */
-    background: linear-gradient(to bottom,  #33a6cc 50%,#0099cc 50%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33a6cc', endColorstr='#0099cc',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, #33a6cc 50%, #0099cc 50%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #33a6cc), color-stop(50%, #0099cc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #33a6cc 50%, #0099cc 50%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #33a6cc 50%, #0099cc 50%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #33a6cc 50%, #0099cc 50%); /* IE10+ */
+  background: linear-gradient(to bottom, #33a6cc 50%, #0099cc 50%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33a6cc', endColorstr='#0099cc', GradientType=0); /* IE6-9 */
 }
 
 .btn-primary.gradient:hover, .btn-primary.gradient:focus, .btn-primary.gradient:active, .btn-primary.gradient.active, .open > .dropdown-toggle.btn-primary {
-    background: -moz-linear-gradient(top,  #66b2cc 50%, #33a6cc 50%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#66b2cc), color-stop(50%,#33a6cc)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #66b2cc 50%,#33a6cc 50%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #66b2cc 50%,#33a6cc 50%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #66b2cc 50%,#33a6cc 50%); /* IE10+ */
-    background: linear-gradient(to bottom,  #66b2cc 50%,#33a6cc 50%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66b2cc', endColorstr='#33a6cc',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, #66b2cc 50%, #33a6cc 50%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #66b2cc), color-stop(50%, #33a6cc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #66b2cc 50%, #33a6cc 50%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #66b2cc 50%, #33a6cc 50%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #66b2cc 50%, #33a6cc 50%); /* IE10+ */
+  background: linear-gradient(to bottom, #66b2cc 50%, #33a6cc 50%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66b2cc', endColorstr='#33a6cc', GradientType=0); /* IE6-9 */
 }
 
 .btn-primary.gradient:active, .btn-primary.gradient.active {
-    background: -moz-linear-gradient(top,  #267c99 50%, #007299 50%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#267c99), color-stop(50%,#007299)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #267c99 50%,#007299 50%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #267c99 50%,#007299 50%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #267c99 50%,#007299 50%); /* IE10+ */
-    background: linear-gradient(to bottom,  #267c99 50%,#007299 50%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#267c99', endColorstr='#007299',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, #267c99 50%, #007299 50%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #267c99), color-stop(50%, #007299)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #267c99 50%, #007299 50%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #267c99 50%, #007299 50%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #267c99 50%, #007299 50%); /* IE10+ */
+  background: linear-gradient(to bottom, #267c99 50%, #007299 50%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#267c99', endColorstr='#007299', GradientType=0); /* IE6-9 */
 }
 
-.btn{
+.btn {
 
   background: transparent;
   color: #F2F2F2;
@@ -163,103 +160,118 @@ background-color: #030033;
   transition: background .2s ease-in-out, border .2s ease-in-out;
 }
 
-.btn-xs{
-     background: rgb(100, 54, 54); /* This is for ie8 and below */
-   background: rgba(100, 104, 104, 0.3); 
-   border-radius: 0px 0px;
-   border-color: #000;
-   border-style: solid;
-   box-shadow: 0px 0px 00px #B1B1B1;
+.btn-xs {
+  background: rgb(100, 54, 54); /* This is for ie8 and below */
+  background: rgba(100, 104, 104, 0.3);
+  border-radius: 0px 0px;
+  border-color: #000;
+  border-style: solid;
+  box-shadow: 0px 0px 00px #B1B1B1;
 }
-
 
 .nav {
   margin-top: 5px;
 }
 
-
 body {
-    
-    background-image: url("stonehouse.jpg");
-    
-    
-   
+
+  background-image: url("stonehouse.jpg");
+
 }
 
 header {
-    
-    background-repeat: repeat-y;
-    background: #FFFFFF; /* This is for ie8 and below */
-    
-   
+
+  background-repeat: repeat-y;
+  background: #FFFFFF; /* This is for ie8 and below */
+
 }
 
-
-
-
 .jumbotron {
-   background: rgb(100, 54, 54); /* This is for ie8 and below */
-   background: rgba(100, 104, 104, 0.5); 
-   border-radius: 16px 16px;
-   border-color: #000;
-   border-style: solid;
-   box-shadow: 0px 0px 00px #B1B1B1;
+  background: rgb(100, 54, 54); /* This is for ie8 and below */
+  background: rgba(100, 104, 104, 0.5);
+  border-radius: 16px 16px;
+  border-color: #000;
+  border-style: solid;
+  box-shadow: 0px 0px 00px #B1B1B1;
 }
 
 .favorite {
-   margin-top: 20px;
- }
+  margin-top: 20px;
+}
 
 //styling for google map container.
 
 #map-container {
-   height:relative;
-   width:relative;
- }
-
+  height: relative;
+  width: relative;
+}
 
 #myTab {
   margin: 5px 0px 5px 0px;
 }
 
-
 .simple-calendar {
   padding: 5px 5px 5px 5px;
 }
 
-#about-text1and2 { 
+#about-text1and2 {
   padding: 20px 0px 20px 0px;
 }
 
-
-#about-text1 { 
+#about-text1 {
   padding: 0px 20px 0px 100px;
 }
 
-#about-text2 { 
+#about-text2 {
   padding: 0px 20px 0px 100px;
 }
 
-
-#about-text3 { 
+#about-text3 {
   padding: 0px 20px 0px 20px;
 }
 
-#about-text4 { 
+#about-text4 {
   padding: 0px 20px 0px 20px;
 }
 
-.glyphicon-dashboard { 
+.glyphicon-dashboard {
   padding: 5px 0px 0px 5px;
 }
 
 #favorites-listings {
-  color: rgba(255, 255, 255, 1); 
-  text-shadow:
-  -1px -1px 0 #000,
+  color: rgba(255, 255, 255, 1);
+  text-shadow: -1px -1px 0 #000,
   1px -1px 0 #000,
   -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  1px 1px 0 #000;
 }
 
+.marketing-message {
+  margin: 10px;
+}
 
+.panel-appointment {
+  background-color: rgba(85, 104, 98, 0.33);
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-color: white;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 8px 8px;
+}
+
+.panel-home {
+  background-color: rgba(255, 255, 255, 0.45);
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-color: white;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 8px 8px;
+}

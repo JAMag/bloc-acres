@@ -2,10 +2,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
-
+  border-bottom: 0px;
+  border-top: 0px;
   .calendar-header {
     padding: 10px;
     font-size: 20px;
+
 
     span {
       padding: 0px 10px;
@@ -22,7 +24,10 @@
   td {
     padding: 20px;
     &.today{
-      background-color: #f4f4f4;
+      background-color: rgba(85, 104, 98, 0.23);
+      border: solid;
+      border-color: white;
+      border-bottom: 0px;
     }
   }
 }

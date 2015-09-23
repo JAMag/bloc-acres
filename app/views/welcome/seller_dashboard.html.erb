@@ -1,7 +1,7 @@
 <br>
 
   <div class="jumbotron">
-    <div class="panel panel-default">
+    <div class="panel panel-default-front-page">
       <span class="glyphicon glyphicon-dashboard" style="font-size: 140px;"></span>
       <h1><b>DASHBOARD</b></h1>
     </div>
@@ -42,17 +42,17 @@
     </center></p>
 
 
- 
+
     <% @properties.each do  |p| %>
       <div class="jumbotron">
-        <%= render partial: "layouts/property", locals: { p: p } %>    
-      </div>  
+        <%= render partial: "layouts/property", locals: { p: p } %>
+      </div>
 
     <% end %>
     </div>
   </div>
 
-
+</div>
 <script>
 $(document).ready(function(){
     $(".nav-tabs a").click(function(){
