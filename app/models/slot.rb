@@ -14,5 +14,9 @@ class Slot < ActiveRecord::Base
       where('start_time BETWEEN ? and ?', Date.parse(day).beginning_of_day, Date.parse(day).end_of_day)
   }
 
+  scope :future, ->{
+    where('start_time > ?', DateTime.now.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S"))
+  }
+
 
 end

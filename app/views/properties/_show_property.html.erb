@@ -20,16 +20,16 @@
   <div class="row">
     <div class="col-6 col-md-3">
     <h3><center><%= "Available slots (Appointments)" %></center></h3>
-      <% @slots.each do |s| %>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4 class="media-heading"><center>
-              <%= link_to s.start_time.strftime("%D at %I:%M%p") , property_slot_path(@property, s) %>
-                <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
-            </center></h4>
+          <% @slots.each do |s| %>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4 class="media-heading"><center>
+                  <%= link_to s.start_time.strftime("%D at %I:%M%p") , property_slot_path(@property, s) %>
+                    <%= link_to "Visit This House", [@property, s, Appointment.new], method: :post, class: 'btn btn-success' %>
+                </center></h4>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
     </div>
 </div>
 <% end %>

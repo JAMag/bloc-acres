@@ -1,0 +1,58 @@
+<div class="col-md-12">
+  <div class="panel panel-default calendar-container">
+
+
+    <% if slots %>
+        <%= week_calendar events: slots, number_of_weeks: 1 do |date, slots| %>
+            <b><%= date.strftime("%d") %></b>
+            <% if slot = @property.booked_by_user?(current_user) %>
+                <center><%= link_to "Remove", [slot.property, slot, slot.appointment], class: 'btn btn-danger', method: :delete %></center>
+                <center> Your appointment is</center>
+                <center><%= slot.start_time.strftime("%I:%M%p on %D") %></center>
+            <% else %>
+                <% @slots.each do |s| %>
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        <h4 class="media-heading">
+                          <center>
+                            <%= s.starts_at.strftime("%D at %I:%M%p") %>
+                            <% if !s.appointment %>
+                                <%= form_tag charges_path do %>
+                                    <%= hidden_field_tag :slot_id, s.id %>
+                                    <%= hidden_field_tag :property_id, @property.id %>
+                                    <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10_00 %> data-description="Viewing"></script>
+                                <% end %>
+                            <% end %>
+                          </center>
+                        </h4>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <div class="row">
+              <%= form_for :slot, url: by_day_property_slots_path(property, date), method: :delete do |f| %>
+                  <%= f.submit "Delete Day", class: 'btn btn-danger btn-xs', data: {confirm: "Are you sure?"} %>
+              <% end %>
+            </div>
+
+            <div class="row">
+              <% slots.each do |slot| %>
+                  <div>
+                    <%= link_to slot.starts_at.strftime("%l:%M%p"), property_slot_path(slot.property, slot), method: :delete, data: {confirm: "Are you sure?"} %>
+                  </div>
+              <% end %>
+            </div>
+        <% end %>
+
+    <% else %>
+        No Slots
+    <% end %>
+
+
+
+
+  </div>
+</div>
+
+

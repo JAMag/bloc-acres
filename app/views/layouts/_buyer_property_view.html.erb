@@ -12,11 +12,13 @@
         <div class="row">
 
           <div class="col-md-4">
-            <div id="map-container">
-              <div id="map-canvas">
-                <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
+            <div class="panel -panel buyer">
+                <div id="map-container">
+                  <div id="map-canvas">
+                    <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
+                  </div>
+                </div>
               </div>
-            </div>
           </div>
 
           <div class="col-md-4">
@@ -28,6 +30,8 @@
 
           <div class="col-md-3">
             <h4> <%= link_to p.address, property_path(p) %></h4>
+            <b><%= p.structure %></b>
+            <br></br>
             <%= p.city + "," %>
             <%= p.state + "," %>
             <%= p.zip %>
