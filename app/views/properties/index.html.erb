@@ -5,10 +5,10 @@
   <div class="panel panel-appointment">
     <div class="container-fluid">
       <%= form_tag properties_path, method: :get, id: 'search-field', class: "navbar-form navbar-left", role: 'search' do %>
-          <%= select_tag 'search[structure]', options_for_select([['Structure',''],['Townhome', 'Townhome'], ['Condo', 'Condo'], ['House', 'House'], ['Multi-family', 'Multi-Family']], params[:search][:structure]) %>
-          <%= select_tag 'search[price]', options_for_select([['Price', ''], ['100000', '100000'], ['200000', '200000'], ['300000', '300000']], params[:search][:price])%>
-          <%= select_tag 'search[beds]', options_for_select([['Beds', ''], ['1', '1'], ['2', '2']], params[:search][:beds])%>
-          <%= select_tag 'search[baths]', options_for_select([['Baths', ''], ['1', '1'], ['1.5', '1.5'], ['2', '2'], ['2.5', '2.5']], params[:search][:baths]) %>
+          <%= select_tag 'search[structure]', options_for_select([['Structure',''], ['Townhome', 'Townhome'], ['Condo', 'Condo'], ['House', 'House'], ['Multi-family', 'Multi-family']], (params[:search][:structure] if params[:search])) %>
+          <%= select_tag 'search[price]', options_for_select([['Price', ''], ['100000', '100000'], ['125000', '125000'],['150000', '150000'],['175000', '175000'],['200000', '200000'], ['225000', '225000'],['250000', '250000'],['275000', '275000'],['300000', '300000'],['325000', '325000'], ['350000', '350000'],['375000', '375000'],['400000', '400000']], (params[:search][:price] if params[:search]))%>
+          <%= select_tag 'search[beds]', options_for_select([['Beds', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7']], (params[:search][:beds] if params[:search]))%>
+          <%= select_tag 'search[baths]', options_for_select([['Baths', ''], ['1', '1'], ['1.5', '1.5'], ['2', '2'], ['2.5', '2.5'], ['3', '3'], ['3.5', '3.5'], ['4', '4'], ['4.5', '4.5']], (params[:search][:baths] if params[:search])) %>
           <% button_tag type: 'submit', class: 'btn btn-default' do %>
           <% end %>
       <% end %>

@@ -1,22 +1,22 @@
 class PropertiesController < ApplicationController
   def index
+    if params[:search]
+      @properties = Property.search(conditions: {
 
-    @properties = Property.search(conditions: {
-                                      structure: params[:search][:structure],
-                                      beds: params[:search][:beds],
-                                      baths: params[:search][:baths],
-                                      price: params[:search][:price]
-                                  }
-    )
-
-
-
-
+                                        structure: params[:search][:structure],
+                                        beds: params[:search][:beds],
+                                        baths: params[:search][:baths],
+                                        price: params[:search][:price]
+                                    }
+      )
+    else
+      @properties = Property.all
+    end
   end
 
   def show
     @property = Property.find(params[:id])
-    @slots = @property.slots
+    @slots = @property.slots.future
   end
 
   def edit
