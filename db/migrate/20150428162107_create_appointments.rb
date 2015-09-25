@@ -1,8 +1,8 @@
 class CreateAppointments < ActiveRecord::Migration
   def change
     create_table :appointments do |t|
-      t.date_time :started_at
-      t.date_time :ended_at
+      t.datetime :started_at
+      t.datetime :ended_at
       t.references :user, index: true
       t.references :slot, index: true
 
