@@ -24,7 +24,8 @@ group :development do
 end
 # Use SCSS for stylesheets
 group :production do
-
+  source "https://rubygems.org"
+  ruby "2.2.0"
   gem 'rails_12factor'
 end
 
