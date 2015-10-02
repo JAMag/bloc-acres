@@ -14,7 +14,7 @@
       </ul>
       <%= form_tag properties_path, method: :get, class: "navbar-form navbar-left", role: 'search' do %>
           <div id="search" class="form-group">
-            <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'SEARCH' %>
+            <%= text_field_tag 'search[full_search]', (params[:search][:full_search] if params[:search]), class: 'form-control', placeholder: 'SEARCH' %>
           </div>
           <%= button_tag type: 'submit', class: 'btn btn-default' do %>
               <span class="glyphicon glyphicon-home"></span>

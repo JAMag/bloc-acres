@@ -1,8 +1,7 @@
 class PropertiesController < ApplicationController
   def index
     if params[:search]
-      @properties = Property.search(conditions: {
-
+      @properties = Property.search(params[:search][:full_search], conditions: {
                                         structure: params[:search][:structure],
                                         beds: params[:search][:beds],
                                         baths: params[:search][:baths],
