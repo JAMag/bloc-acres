@@ -22,25 +22,3 @@
 <% end %>
 
 
-
-
-
-<script>
-    $(document).on('pageinit', function()
-    {
-    $('#search-field').change(function() {
-    $('form').submit();
-    });
-    });
-</script>
-
-<script>
-window.addEventListener("scroll", function() {
-if (window.scrollY > 100) {
-$('.navbar-brand').fadeOut();
-}
-else {
-$('.navbar-brand').fadeIn();
-}
-},false);
-</script>
