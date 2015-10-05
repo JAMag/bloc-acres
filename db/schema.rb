@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821152849) do
+ActiveRecord::Schema.define(version: 20151005013308) do
 
-
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20150821152849) do
     t.datetime "updated_at",  null: false
     t.integer  "price"
     t.json     "photos"
+    t.integer  "beds"
+    t.integer  "baths"
+    t.integer  "sqft"
+    t.integer  "lot"
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
