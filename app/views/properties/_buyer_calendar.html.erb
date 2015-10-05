@@ -10,7 +10,7 @@
                 <center> Your appointment is</center>
                 <center><%= slot.start_time.strftime("%I:%M%p on %D") %></center>
             <% else %>
-                <% @slots.each do |s| %>
+                <% @slots.for_day(date.strftime('%Y-%m-%d')).each do |s| %>
                     <div class="panel panel-default">
                       <div class="panel-body">
                         <h4 class="media-heading">
@@ -30,19 +30,6 @@
                 <% end %>
             <% end %>
 
-            <div class="row">
-              <%= form_for :slot, url: by_day_property_slots_path(property, date), method: :delete do |f| %>
-                  <%= f.submit "Delete Day", class: 'btn btn-danger btn-xs', data: {confirm: "Are you sure?"} %>
-              <% end %>
-            </div>
-
-            <div class="row">
-              <% slots.each do |slot| %>
-                  <div>
-                    <%= link_to slot.starts_at.strftime("%l:%M%p"), property_slot_path(slot.property, slot), method: :delete, data: {confirm: "Are you sure?"} %>
-                  </div>
-              <% end %>
-            </div>
         <% end %>
 
     <% else %>
