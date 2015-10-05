@@ -24,6 +24,6 @@ module BlocAcres
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.enabled = true
-    
+    config.assets.version = '1.01019'
   end
 end

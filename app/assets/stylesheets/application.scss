@@ -1,13 +1,53 @@
-@font-face {
-  font-family: "Jaapokki";
-  src: font-url('Jaapokki-Regular.otf') format('truetype');
-}
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Cabin);
+
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom_calendar";
 @import "custom_carrierwave";
 @import "welcome";
+
+
+h1 {
+  font-family: 'Lobster';
+  text-shadow: -1px -1px 0 #f4f4f4,
+  1px -1px 0 #f4f4f4,
+  -1px 1px 0 #f4f4f4,
+  1px 1px 0 #f4f4f4;
+}
+
+h2 {
+  font-family: 'Lobster';
+  text-shadow: -1px -1px 0 #f4f4f4,
+  1px -1px 0 #f4f4f4,
+  -1px 1px 0 #f4f4f4,
+  1px 1px 0 #f4f4f4;
+}
+h2 {
+  font-family: 'Lobster';
+  text-shadow: -1px -1px 0 #f4f4f4,
+  1px -1px 0 #f4f4f4,
+  -1px 1px 0 #f4f4f4,
+  1px 1px 0 #f4f4f4;
+}
+h3 {
+  font-family: 'Lobster';
+
+}
+h4 {
+  font-family: 'Lobster';
+  text-shadow: -1px -1px 0 #f4f4f4,
+  1px -1px 0 #f4f4f4,
+  -1px 1px 0 #f4f4f4,
+  1px 1px 0 #f4f4f4;
+}
+
+body {
+  font-family: 'Cabin';
+}
+
 
 
 .glyphicon {
@@ -30,6 +70,8 @@
   min-height: 100px; //* or whatever height you require
   max-height: 100px;
   background: rgba(100, 104, 104, 0.5);
+  affix: top;
+
 
 }
 
@@ -105,6 +147,15 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 
 }
 
+#nav.affix {
+  position: fixed;
+  border-radius: 16px;
+  padding: 10px, 10px, 10px, 10px;
+  margin: 10px, 10px, 10px, 10px;
+  z-index: 2;
+  background: rgba(100, 104, 104, 0.98);
+
+}
 
 
 .user-info {
@@ -237,7 +288,19 @@ header {
 
 .glyphicon-dashboard {
   padding: 5px 0px 0px 5px;
+  text-shadow: -1px -1px 0 #f4f4f4,
+  1px -1px 0 #f4f4f4,
+  -1px 1px 0 #f4f4f4,
+  1px 1px 0 #f4f4f4;
 }
+.glyphicon-home {
+  padding: 5px 0px 0px 5px;
+  text-shadow: -1px -1px 0 #f4f4f4,
+  1px -1px 0 #f4f4f4,
+  -1px 1px 0 #f4f4f4,
+  1px 1px 0 #f4f4f4;
+}
+
 
 #favorites-listings {
   color: rgba(255, 255, 255, 1);
@@ -252,7 +315,7 @@ header {
 }
 
 .panel-appointment {
-  background-color: rgba(86, 176, 220, 0.23);
+  background-color: rgba(86, 176, 220, 0.13);
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
   border-color: white;
@@ -302,3 +365,8 @@ select {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+div.title {
+  display: none;
+}
+

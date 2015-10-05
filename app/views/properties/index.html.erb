@@ -28,8 +28,8 @@
 
 
 <script>
-
-    $(function() {
+    $(document).on('pageinit', function()
+    {
     $('#search-field').change(function() {
     $('form').submit();
     });
