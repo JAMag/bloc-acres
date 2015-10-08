@@ -1,13 +1,8 @@
 $(document).ready(function () {
 
-    $(document).on("scroll", function () {
-        if (window.scrollY > 100) {
-            $('.navbar-brand').fadeOut();
-        }
-        else {
-            $('.navbar-brand').fadeIn();
-        }
-    }, false);
+    $(function () {
+            $('.navbar-brand').fadeOut(4000);
+    });
 
 
     $('#search-field select').change(function () {
@@ -23,3 +18,7 @@ $(document).ready(function () {
     });
 
 });
+
+
+
+

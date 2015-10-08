@@ -15,7 +15,7 @@
                       <div class="panel-body">
                         <h4 class="media-heading">
                           <center>
-                            <%= s.starts_at.strftime("%D at %I:%M%p") %>
+                            <%= s.starts_at.strftime("%A %I:%M%p") %>
                             <% if !s.appointment %>
                                 <%= form_tag charges_path do %>
                                     <%= hidden_field_tag :slot_id, s.id %>
