@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require main
+//= require dropzone
 //= require_tree .
 
 
