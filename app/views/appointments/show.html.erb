@@ -1,2 +1,40 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<h1>See the house</h1>
+<%=@lock%>
+<div>
+  <%= link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn', id: 'start_show' %>
+</div>
+
+
+<div>
+  <%= link_to "end showing", property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn', id: 'end_show' %>
+</div>
+<div>
+  <a class="btn btn-success" type="button" href="tel:+178142067833">Panic</a>
+</div>
+
+<div class="star-rating">
+  <span class="fa fa-star-o" data-rating="1"></span>
+  <span class="fa fa-star-o" data-rating="2"></span>
+  <span class="fa fa-star-o" data-rating="3"></span>
+  <span class="fa fa-star-o" data-rating="4"></span>
+  <span class="fa fa-star-o" data-rating="5"></span>
+  <input type="hidden" name="whatever" class="rating-value" value="3">
+</div>
+
+
+
+
+
+
+
+
+<
+
+
+< if s.start_time.strftime < strftime.now >
+< You have missed your appointment. Create a new appointment to view this house. >
+< end >
+< else >
+< if user.location == 1 mile of s.property.address.city.state >
+
+

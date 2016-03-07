@@ -5,4 +5,6 @@ class Appointment < ActiveRecord::Base
 #  has_many :ended_at
 
 
+
+
 end

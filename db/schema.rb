@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005013308) do
+ActiveRecord::Schema.define(version: 20160220171126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_offers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "started_at"
@@ -41,6 +46,7 @@ ActiveRecord::Schema.define(version: 20151005013308) do
     t.integer  "property_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "lockitron_id"
   end
 
   add_index "locks", ["property_id"], name: "index_locks_on_property_id", using: :btree

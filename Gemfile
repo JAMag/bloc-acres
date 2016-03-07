@@ -7,8 +7,10 @@ gem 'mini_magick', '~> 3.5.0'
 gem 'fog'
 gem "simple_calendar", "~> 1.1.0"
 gem "stripe"
-
+gem "httparty"
+gem 'geocoder'
 #gem 'thinking-sphinx', '~> 3.1.4'
+gem 'dropzonejs-rails', '~> 0.4.16'
 
 gem 'bootstrap-sass'
 

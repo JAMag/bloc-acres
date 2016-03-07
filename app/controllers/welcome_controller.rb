@@ -13,6 +13,7 @@ class WelcomeController < ApplicationController
     @properties = current_user.properties
     @appointments = current_user.appointments
     @favorites = current_user.favorites
+
     if current_user.buyer?
       render :buyer_dashboard
     else
