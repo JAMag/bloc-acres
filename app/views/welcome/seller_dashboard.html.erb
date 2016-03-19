@@ -7,8 +7,8 @@
     </div>
 
     <ul class="nav nav-tabs">
-      <li><a data-toggle="tab" href="#buyer">Buyer</a></li>
-      <li><a data-toggle="tab" href="#seller">Seller</a></li>
+      <li><a data-toggle="tab" href="#buyer">Favs</a></li>
+      <li><a data-toggle="tab" href="#seller">My Listings</a></li>
       <li><a data-toggle="tab" href="#home">Home</a></li>
       <li><a data-toggle="tab" href="#appointment">Appointments</a></li>
       <li><a data-toggle="tab" href="#offers">Offers</a></li>
@@ -53,14 +53,14 @@
 
   <div id="advice" class="tab-pane fade in active">
     <h2 id="advice"> <center>Advice</center> </h2>
-    <div class="panel panel-default">
+    <div class="jumbotron">
     <%= render partial: "properties/advice" %>
     </div>
     </div>
 
     <div id="offers" class="tab-pane fade in active">
       <h2 id="offers"> <center>Offers</center> </h2>
-      <div class="panel panel-default">
+      <div class="jumbotron">
         <%= render partial: "properties/offer" %>
       </div>
 
