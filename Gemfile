@@ -4,7 +4,7 @@ gem 'figaro', '1.0'
 gem 'faker'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 3.5.0'
-gem 'fog'
+gem 'carrierwave-aws'
 gem "simple_calendar", "~> 1.1.0"
 gem "stripe"
 gem "httparty"
