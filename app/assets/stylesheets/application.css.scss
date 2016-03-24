@@ -377,6 +377,23 @@ header {
   border-radius: 8px 8px;
 }
 
+.row-welcome {
+
+}
+
+.panel-welcome {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-color: white !important;
+  border-style: solid;
+  border-width: 0px 1px 1px 1px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  border-radius: 8px 8px;
+}
+
 .panel-home {
   background-color: rgba(255, 255, 255, 0.75);
   border-top-left-radius: 0px !important;

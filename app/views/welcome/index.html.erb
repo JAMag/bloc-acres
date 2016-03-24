@@ -1,40 +1,48 @@
 <br>
-<div class="jumbotron">
-  <div class="title">
-  <h1><center><b>You're Able</b></center></h1>
-  </div>
-    <div class="panel panel-appointment">
-      <h3><center>Get started </center></h3>
-      <h3><center><%= link_to "SELLING", new_user_registration_path, class: 'btn btn-primary btn-lg' %> or
-      <%= link_to "BUYING", new_user_registration_path, class: 'btn btn-primary btn-lg' %></center></h3>
-      <h3><center>today!</center></h3>
-    </div>
-
-  <p><center>
- <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %>
-  </center></p>
-</div>
-
 <div class="row">
-  <div class="col-md-4">
-    <div class="panel panel-default-front-page">
-        <h2>Zero Pressure</h2>
-        <p>Show or buy a home with no sales pitch.</p>
+
+
+    <div class="row-welcome">
+      <div class="col-sm-3">
+        <div class="panel-welcome">
+        <div class="title">
+          <h1><b>Zero. Fee. Homes.</b></></h1>
+        </div>
+        <h5>People in the market for real estate are paying tens of thousands in real estate agent fees... to be told... "That's the bathroom."</h5>
+        <h4>Not you.</h4>
+          </div>
+      </div>
+      <div class="col-sm-6">
+        </div>
+      <div class="col-sm-3">
+        <div class="panel-welcome">
+
+      <h2>Remove The Fee</h2>
+
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div><%= f.label :email %><br />
+            <%= f.email_field :email %></div>
+
+          <div><%= f.label :password %><br />
+            <%= f.password_field :password %></div>
+
+          <div><%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation %></div>
+
+          <div><%= f.submit "Sign up" %></div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+        </div>
+        </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="panel panel-default-front-page">
-        <h2>All the Guidance</h2>
-        <p> Moverable explains everything in an easy to get way!</p>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="panel panel-default-front-page">
-        <h2>Makes Dough</h2>
-        <p> Moverable adds tens of thousands to your bank.</p>
-    </div>
-  </div>
+
+
 </div>
+
+
 <div class="row">
   <div class="col-md-4">
     <div class="panel panel-appointment">
