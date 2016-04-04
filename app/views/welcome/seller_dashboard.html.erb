@@ -4,16 +4,18 @@
     <div class="panel panel-appointment">
       <span class="glyphicon glyphicon-dashboard" style="font-size: 140px;"></span>
       <h1><b>DASHBOARD</b></h1>
+      <p>
+      <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
+      </p>
     </div>
 
     <ul class="nav nav-tabs">
-      <li><a data-toggle="tab" href="#buyer">Favs</a></li>
+      <li><a data-toggle="tab" href="#buyer">Favorites</a></li>
       <li><a data-toggle="tab" href="#seller">My Listings</a></li>
-      <li><a data-toggle="tab" href="#home">Home</a></li>
-      <li><a data-toggle="tab" href="#appointment">Appointments</a></li>
       <li><a data-toggle="tab" href="#offers">Offers</a></li>
       <li><a data-toggle="tab" href="#advice">Advice</a></li>
     </ul>
+
   </div>
 
 
@@ -37,9 +39,7 @@
 
     <div id="seller" class="tab-pane fade in active">
     <h2 id="favorites-listings"><center>My Listings</center> </h2>
-    <p><center>
-       <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
-    </center></p>
+
 
 
 

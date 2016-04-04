@@ -83,8 +83,6 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
-    dropzonejs-rails (0.4.16)
-      rails (> 3.1)
     erubis (2.7.0)
     excon (0.48.0)
     execjs (2.5.2)
@@ -367,7 +365,6 @@ DEPENDENCIES
   carrierwave!
   coffee-rails (~> 4.1.0)
   devise
-  dropzonejs-rails (~> 0.4.16)
   faker
   figaro (= 1.0)
   flying-sphinx (= 1.2.0)

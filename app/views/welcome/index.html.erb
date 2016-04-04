@@ -31,7 +31,7 @@
           <div><%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation %></div>
 
-          <div><%= f.submit "Sign up" %></div>
+          <div id="welcome-submit"><%= f.submit "Sign up" %></div>
       <% end %>
 
       <%= render "devise/shared/links" %>
@@ -45,8 +45,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <div class="panel panel-appointment">
-      <center><button type="button" id= "fake buy now" class="btn btn-primary btn-lg"  style="color:palegoldenrod">Buy Now!</button></center>
+    <div class="panel panel-index">
       <center><h2>Bronze</h2></center>
       <center>
       <span class= "glyphicon glyphicon-star" style="color:palegoldenrod"></span>
@@ -55,7 +54,11 @@
       <span class= "glyphicon glyphicon-star-empty" style="color:palegoldenrod"></span>
       <span class= "glyphicon glyphicon-star-empty" style="color:palegoldenrod"></span>
       </center>
-      <center><h3>$299.00 </h3></center>
+      <center><h4>$299.00 </h4></center>
+      <center><h3>or</h3></center>
+      <center><h5>Twelve payments of </h5></center>
+      <center><h4>$25.00 </h4></center>
+      <center><h5>Pay it off at any time</h5></center>
       <div class="panel-default">
           <ul> Syndication to Web Real Estate Portals</ul>
           <ul> MooveMint Listing</ul>
@@ -74,8 +77,7 @@
   </div>
     <div class="col-md-4">
       <div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1></h1></strong><div class="ribbon-stitches-bottom"></div></div>
-      <div class="panel panel-appointment">
-        <center><button type="button" id= "fake buy now" class="btn btn-primary btn-lg" style="color:gold">Best Value!</button></center>
+      <div class="panel panel-index">
         <center><h2>Gold</h2></center>
         <center>
         <span class= "glyphicon glyphicon-star" style="color:gold"></span>
@@ -84,7 +86,11 @@
           <span class= "glyphicon glyphicon-star" style="color:gold"></span>
         <span class= "glyphicon glyphicon-star-empty" style="color:gold"></span>
         </center>
-        <center><h3>$599.00 </h3></center>
+        <center><h4>$599.00 </h4></center>
+        <center><h3>or</h3></center>
+        <center><h5>Twelve payments of </h5></center>
+        <center><h4>$50.00 </h4></center>
+        <center><h5>Pay it off at any time</h5></center>
 
         <div class="panel-default">
             <ul> MLS Listing</ul>
@@ -103,8 +109,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="panel-appointment">
-        <center><button type="button" id= "fake buy now" class="btn btn-primary btn-lg" style="color:cornsilk">Buy Now!</button></center>
+      <div class="panel-index">
         <center><h2>Platinum</h2></center>
         <center>
         <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
@@ -113,7 +118,11 @@
         <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
         <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
         </center>
-        <center><h3>$1199.00 </h3></center>
+        <center><h4>$1199.00 </h4></center>
+        <center><h3>or</h3></center>
+        <center><h5>Twelve payments of </h5></center>
+        <center><h4>$100.00 </h4></center>
+        <center><h5>Pay it off at any time</h5></center>
 
         <div class="panel-default">
             <ul> MLS Listing</ul>

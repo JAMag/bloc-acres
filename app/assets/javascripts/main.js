@@ -11,7 +11,8 @@ $(document).ready(function () {
         $("#bedrooms1").hide();
         $("#baths1").hide();
         $("#acres1").hide();
-        var val = 14 + '%';
+        $("#review1").hide();
+        var val = 14+ '%';
         $('.progress-bar').width(val).text(val)
     });
     $("#address").click(function() {
@@ -22,6 +23,7 @@ $(document).ready(function () {
         $("#bedrooms1").hide();
         $("#baths1").hide();
         $("#acres1").hide();
+        $("#review1").hide();
         var val = 28 + '%';
         $('.progress-bar').width(val).text(val)
     });
@@ -33,6 +35,7 @@ $(document).ready(function () {
         $("#bedrooms1").hide();
         $("#baths1").hide();
         $("#acres1").hide();
+        $("#review1").hide();
         var val = 42 + '%';
         $('.progress-bar').width(val).text(val)
     });
@@ -44,6 +47,7 @@ $(document).ready(function () {
         $("#bedrooms1").hide();
         $("#baths1").hide();
         $("#acres1").hide();
+        $("#review1").hide();
         var val = 56 + '%';
         $('.progress-bar').width(val).text(val)
     });
@@ -55,6 +59,7 @@ $(document).ready(function () {
         $("#bedrooms1").toggle();
         $("#baths1").hide();
         $("#acres1").hide();
+        $("#review1").hide();
         var val = 70 + '%';
         $('.progress-bar').width(val).text(val)
     });
@@ -66,6 +71,7 @@ $(document).ready(function () {
         $("#bedrooms1").hide();
         $("#baths1").toggle();
         $("#acres1").hide();
+        $("#review1").hide();
         var val = 84 + '%';
         $('.progress-bar').width(val).text(val)
     });
@@ -77,6 +83,7 @@ $(document).ready(function () {
         $("#bedrooms1").hide();
         $("#baths1").hide();
         $("#acres1").toggle();
+        $("#review1").hide();
         var val = 98 + '%';
         $('.progress-bar').width(val).text(val)
     });
@@ -88,6 +95,7 @@ $(document).ready(function () {
         $("#description1").toggle();
         $("#address1").toggle();
         $("#structure1").toggle();
+        $("#review1").toggle();
         var val = 100 + '%';
         $('.progress-bar').width(val).text(val)
     });
@@ -322,7 +330,7 @@ $(document).ready(function () {
 
 
     $(function () {
-            $('.navbar-brand').fadeOut(4000);
+            $('.navbar-brand').fadeOut(2000);
     });
 
     if ($('#start_show')) {
@@ -384,6 +392,58 @@ function addLocationToLinks() {
     }
 }
 
+//multiple image preview
+function readURL(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
 
 
+function readURL1(input) {
 
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev1')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL2(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev2')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
