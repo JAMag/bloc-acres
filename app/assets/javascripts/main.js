@@ -407,6 +407,7 @@ function readURL(input) {
             };
 
             reader.readAsDataURL(input.files[0]);
+
         }
     }
 }
@@ -447,3 +448,186 @@ function readURL2(input) {
         }
     }
 }
+
+
+function readURL3(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev3')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL4(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev4')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL5(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev5')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL6(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev6')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL7(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev7')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL8(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev8')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL9(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev9')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL10(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev10')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL11(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev11')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+function readURL12(input) {
+
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files [i]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev12')
+                    .attr('src', e.target.result)
+                    .width("50%")
+                    .height("50%");
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+
+

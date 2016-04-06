@@ -98,11 +98,19 @@
             <%= p.label :description %>
             <%= p.text_area :description, class: 'form-control', placeholder: "Description", :required => true %>
           <div class="panel-default"><center>
+            <div class="form-group">
+              <img id="img_prev3" src="#" alt="unique" />
+              <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL3(this)' %></center>
+            </div>
             <p>Drag a photo of the unique aspect of the house that you like right here.</p>
             <span class= "glyphicon glyphicon-camera" style="color:black"></span>
             <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
           </div>
           <div class="panel-default"><center>
+            <div class="form-group">
+              <img id="img_prev4" src="#" alt="unique2" />
+              <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL4(this)' %></center>
+            </div>
             <p>If you have more than one photo of that unique aspect, drag it here.</p>
             <span class= "glyphicon glyphicon-camera" style="color:black"></span>
             <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
@@ -136,17 +144,29 @@
         <%= p.radio_button :baths, '4' %> <%= p.label :baths, "4" %></center>
       </H4>
         <div class="panel-default"><center>
+          <div class="form-group">
+            <img id="img_prev5" src="#" alt="bath" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL5(this)' %></center>
+          </div>
           <p>Drag a photo of your bathroom here.</p>
           <span class= "glyphicon glyphicon-camera" style="color:black"></span>
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
         </div>
         <div class="panel-default"><center>
+          <div class="form-group">
+            <img id="img_prev6" src="#" alt="bath1" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL6(this)' %></center>
+          </div>
           <p>Drag a second photo of your bathroom here.</p>
           <span class= "glyphicon glyphicon-camera" style="color:black"></span>
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
         </div>
         <div class="panel-default"><center>
-          <p>Drag a third photo of your bathroom here.</p>
+          <div class="form-group">
+            <img id="img_prev7" src="#" alt="back" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL7(this)' %></center>
+          </div>
+          <p>Bathrooms are important! Drag a third photo of your bathroom here.</p>
           <span class= "glyphicon glyphicon-camera" style="color:black"></span>
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
         </div>
@@ -169,6 +189,10 @@
         <%= p.radio_button :beds, '7' %> <%= p.label :beds, "7" %>
         </center>
         <div class="panel-default">
+          <div class="form-group">
+            <img id="img_prev8" src="#" alt="master" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL8(this)' %></center>
+          </div>
          <center> <p>Drag a photo of your master bedroom here.</p></center>
           <div class="alert alert-info fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -178,16 +202,28 @@
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
         </div>
         <div class="panel-default"><center>
+          <div class="form-group">
+            <img id="img_prev9" src="#" alt="bed2" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL9(this)' %></center>
+          </div>
           <p>Drag a photo of your second bedroom here.</p>
           <span class= "glyphicon glyphicon-camera" style="color:black"></span>
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
         </div>
         <div class="panel-default"><center>
+          <div class="form-group">
+            <img id="img_prev10" src="#" alt="bed3" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL10(this)' %></center>
+          </div>
           <p>If you have another photo of your second bedroom drag it here.</p>
           <span class= "glyphicon glyphicon-camera" style="color:black"></span>
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
         </div>
         <div class="panel-default"><center>
+          <div class="form-group">
+            <img id="img_prev11" src="#" alt="bed3" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL11(this)' %></center>
+          </div>
           <p>Drag a photo of your third bedroom here.</p>
           <span class= "glyphicon glyphicon-camera" style="color:black"></span>
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
@@ -205,6 +241,10 @@
         </center>
       </H4>
         <div class="panel-default"><center>
+          <div class="form-group">
+            <img id="img_prev12" src="#" alt="yard" />
+            <center> <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL12(this)' %></center>
+          </div>
           <p>Do you have a picture of the yard surrounding your house? Perhaps a lovely garden, a pool, or firepit? If so, drag your photo of that here.</p>
           <span class= "glyphicon glyphicon-camera" style="color:black"></span>
           <span class="glyphicon glyphicon-ok-circle" style="color:black"></span></center>
@@ -225,10 +265,11 @@
       <% end %>
 
           <div id="review1" class="panel-heading" style="display:none;"><H4>
-      <div class="form-group">
-        <%= p.submit "Save", class: 'btn btn-success' %>
+      <div class="form-group" id="property-create">
+        <%= p.button "Save", class: 'btn btn-success', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating Listing..."} %>
         <%= form_for [@property], method: :delete do |p| %>
         <%= p.submit "Delete", class: 'btn btn-danger' %>
+            <%#= CSS animation on submit %>
       </div>
         <% end %>
       </div>
@@ -245,3 +286,4 @@
 
 
   </div>
+

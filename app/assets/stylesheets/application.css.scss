@@ -192,13 +192,6 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 
 }
 
-.floating-box {
-  display: inline-block;
-  width: 150px;
-  height: 75px;
-  margin: 10px;
-  border: 3px solid #73AD21;
-}
 
 #welcome-submit {
   padding-top: 15px;
@@ -399,7 +392,9 @@ header {
 
 
 
+#property-create {
 
+}
 
 
 
@@ -580,3 +575,5 @@ div.title {
 #fake-buy-now {
   z-index: 1;
 }
+
+
