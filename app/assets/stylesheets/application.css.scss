@@ -9,6 +9,17 @@
 
 
 
+@media (max-width: 768px) {
+  .nav>li {
+    text-align: center;
+  }
+  .btn-success {
+    padding:2px 4px;
+    font-size:80%;
+    line-height: 1;
+    max-width: 50%
+  }
+}
 
 .star-rating {
   line-height:32px;
@@ -21,7 +32,18 @@
 }
 
 
-
+.navbar-toggle {
+  display: inline-block;
+  vertical-align:middle;
+}
+.dropdown-toggle .icon-bar {
+  margin-bottom:2px;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #cccccc;
+  border-radius: 1px;
+}
 
 
 h1 {
@@ -89,7 +111,6 @@ body {
 
 .navbar {
   min-height: 100px; //* or whatever height you require
-  max-height: 100px;
   background: rgba(100, 104, 104, .5);
   affix: top;
   .navbar-right {
@@ -126,8 +147,8 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 }
 
 .navbar-default {
-  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.19) 99%, rgba(231,56,39,0.18) 100%);
-
+  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.19) 99%, rgba(231,56,39,0.5) 100%);
+  border-style: none;
 }
 
 
@@ -157,24 +178,36 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   margin: 10px, 10px, 10px, 10px;
   z-index: 2;
   background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.19) 99%, rgba(231,56,39,0.18) 100%);
-
-
+  border-style: none;
+  min-width:100%;
 }
 
 .panel-default {
    background: rgba(255, 255, 255, 0.7);
    border-radius: 0px 0px;
    border-color: white;
-   border-style: solid;
+   border-style: none;
    padding: 20px;
 
  }
+
+.panel-default-offer {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0px 0px;
+  border-color: white;
+  border-style: none;
+  padding: 20px;
+    .p {
+      font-size: 14px !important;
+    }
+
+}
 
 .panel-about {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 0px 0px;
   border-color: white;
-  border-style: solid;
+  border-style: none;
   padding: 20px;
   min-height: 120px;
   max-height: 120px;
@@ -222,15 +255,14 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   padding: 10px, 10px, 10px, 10px;
   margin: 10px, 10px, 10px, 10px !important;
   z-index: 2;
-  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.19) 99%, rgba(231,56,39,0.18) 100%);
-  max-width: 150px;
-  min-height: 100% !important;
+  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.33) 99%, rgba(231,56,39,0.5) 100%);
+  min-width:100%;
 }
 
 
 .nav-wrapper
 {
-  min-height:100px !important;
+  min-height:50px !important;
 }
 
 
@@ -268,6 +300,14 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   background: -ms-linear-gradient(top, #267c99 50%, #007299 50%); /* IE10+ */
   background: linear-gradient(to bottom, #267c99 50%, #007299 50%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#267c99', endColorstr='#007299', GradientType=0); /* IE6-9 */
+}
+
+.button {
+  background: rgba(255, 255, 255, .5);
+  border-radius: 0px 0px;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
 }
 
 .btn {
@@ -319,7 +359,7 @@ header {
   background: linear-gradient(to right, rgba(155,156,124,0.93) 0%, rgba(210,211,196,0.73) 52%, rgba(242,242,238,0.54) 82%, rgba(255,255,255,0.74) 94%, rgba(255,255,255,0.34) 100%);
   border-radius: 16px 16px;
   border-color: white;
-  border-style: solid;
+  border-style: none;
   box-shadow: 0px 0px 00px #B1B1B1;
 }
 
@@ -420,12 +460,12 @@ header {
   background: rgb(100, 54, 54); /* This is for ie8 and below */
   background: linear-gradient(to right, rgba(155,156,124,0.93) 0%, rgba(210,211,196,0.73) 52%, rgba(242,242,238,0.54) 82%, rgba(255,255,255,0.74) 94%, rgba(255,255,255,0.34) 100%);
   border-color: white;
-  border-style: solid;
+  border-style: none;
   box-shadow: 0px 0px 00px #B1B1B1;
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
   border-color: white;
-  border-style: solid;
+  border-style: none;
   border-width: 0px 1.5px 1.5px 1.5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -445,12 +485,13 @@ header {
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
   border-color: white !important;
-  border-style: solid;
+  border-style: none;
   border-width: 0px 1px 1px 1px;
   padding: 10px;
-  margin-bottom: 5px;
-  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 0px;
   border-radius: 8px 8px;
+  box-shadow: 0px 0px 27px 9px rgba(0,0,0,0.08);
 }
 
 .panel-home {
@@ -458,7 +499,7 @@ header {
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
   border-color: white !important;
-  border-style: solid;
+  border-style: none;
   border-width: 0px 1px 1px 1px;
   padding: 10px;
   margin-bottom: 5px;
@@ -497,9 +538,9 @@ div.title {
 
 
 .ribbon {
-  width: 364px;
-  position: absolute;
-  z-index: 0;
+  width: 100%;
+  position: relative;
+  z-index: -1;
   text-align: center;
   font-size: 18px!important;
   background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.67) 0%, rgba(246,41,12,0.45) 91%, rgba(246,41,12,0.42) 95%, rgba(240,47,23,0.39) 99%, rgba(231,56,39,0.38) 100%);
