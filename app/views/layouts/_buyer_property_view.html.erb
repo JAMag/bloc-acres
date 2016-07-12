@@ -1,9 +1,28 @@
-<div>
-  <ul class="nav nav-tabs" id="myTab">
-    <li><a data-toggle="tab" href="#home<%= p.id %>">Home</a></li>
-    <li><a data-toggle="tab" href="#appointment<%= p.id %>">Appointments</a></li>
-  </ul>
+
+
+<div class="thumbnail-small">
+      <ul class="button">
+      <button data-toggle="collapse" class= "btn btn-primary-listing" href="#viewfavs<%= p.id %>"><%= image_tag(p.photos.first.url, :size => "100x100") %> Open/Close</button>
+        <%= p.address + "," %>
+        <%= p.city + "," %>
+        <%= p.state + ";"  %>
+        <%= "Asking: $" + p.price.to_s %>
+      </ul>
 </div>
+
+
+<div class="tab-content">
+  <div id="viewfavs<%=p.id %>" class="collapse">
+
+    <div>
+      <ul class="nav nav-tabs" id="myTab">
+        <li><a data-toggle="tab" href="#home<%= p.id %>">Home</a></li>
+        <li><a data-toggle="tab" href="#appointment<%= p.id %>">Appointments</a></li>
+      </ul>
+    </div>
+
+
+
 
 
 <div class="tab-content">
@@ -31,12 +50,9 @@
           <div class="col-md-3">
             <h4> <%= link_to p.address, property_path(p) %></h4>
             <b><%= p.structure %></b>
-            <br></br>
             <%= p.city + "," %>
             <%= p.state + "," %>
             <%= p.zip %>
-            <br>
-            </br>
             <b><%= p.beds.to_s + " " %>Beds -</b>
             <b><%= p.baths.to_s + " " %>Baths -</b>
             <b><%= p.lot.to_s + " " %>Acres</b>
@@ -64,26 +80,30 @@
             <%= render partial: 'properties/appointment', locals: {p: p, slot: @slot} %>
           </div>
           <div class="col-md-2">
-            <h3><p>
+            <h3>
               <center><%= "Key" %></center>
-              </p></h3>
+              </h3>
             <center><span class="glyphicon glyphicon-ok-circle" style="color:white"></span></center>
           </div>
           <div class="col-md-2">
-            <h3><p>
+            <h3>
               <center><%= "Entrance" %></center>
-              </p></h3>
+              </h3>
             <center><span class="glyphicon glyphicon-ok-circle" style="color:white"></span></center>
           </div>
           <div class="col-md-2">
-            <h3><p>
+            <h3>
               <center><%= "Exit" %></center>
-              </p></h3>
+              </h3>
             <center><span class="glyphicon glyphicon-remove-circle" style="color:red"></span></center>
           </div>
         </div>
     </div>
   </div>
+
+
 </div>
 
+  </div>
+</div>
 

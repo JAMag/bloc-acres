@@ -1,6 +1,10 @@
 class WelcomeController < ApplicationController
   before_action :authenticate_user!, except: [:index, :about]
 
+  def name
+    @property = Property.find(params[:id])
+    @name = @property.user.name
+  end
 
   def index
   end

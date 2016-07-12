@@ -1,6 +1,4 @@
-<br>
-
-  <div class="jumbotron">
+<div class="jumbotron">
     <div class="panel panel-appointment">
       <span class="glyphicon glyphicon-dashboard" style="font-size: 140px;"></span>
       <h1><b>DASHBOARD</b></h1>
@@ -15,58 +13,52 @@
       <li><a data-toggle="tab" href="#offers">Offers</a></li>
       <li><a data-toggle="tab" href="#advice">Advice</a></li>
     </ul>
-
-  </div>
-
+</div>
 
 
 
-  <div class="tab-content">
+
+<div class="tab-content">
+
+
     <div id="buyer" class="tab-pane fade in active">
-      <h2 id="favorites-listings"> <center>Favorites</center> </h2>
-
-  <% @favorites.each do  |f| %>
-    <% p = f.property %>
-      <div class="jumbotron">
-        <%= render partial: 'layouts/buyer_property_view', locals: { p: p } %>
-      </div>
-  <% end %>
+    <h2 id="favorites-listings"><center>Favorites</center></h2>
+    <% @favorites.each do |f| %>
+        <% p = f.property %>
+        <div class="jumbotron">
+          <div class="row">
+            <%= render partial: 'layouts/buyer_property_view', locals: {p: p} %>
+          </div>
+        </div>
+    <% end %>
     </div>
-
 
 
 
 
     <div id="seller" class="tab-pane fade in active">
-    <h2 id="favorites-listings"><center>My Listings</center> </h2>
+        <h2 id="my-listings"><center>My Listings</center> </h2>
+        <% @properties.each do  |p| %>
+          <div class="jumbotron">
 
+            <%= render partial: "layouts/property", locals: { p: p } %>
+          </div>
 
-
-
-    <% @properties.each do  |p| %>
-      <div class="jumbotron">
-        <%= render partial: "layouts/property", locals: { p: p } %>
-      </div>
-
-    <% end %>
+        <% end %>
     </div>
 
-  <div id="advice" class="tab-pane fade in active">
-    <h2 id="advice"> <center>Advice</center> </h2>
-    <div class="jumbotron">
-    <%= render partial: "properties/advice" %>
-    </div>
+    <div id="advice" class="tab-pane fade in active">
+        <h2 id="advice"> <center>Advice</center> </h2>
+        <div class="jumbotron">
+            <%= render partial: "properties/advice" %>
+        </div>
     </div>
 
     <div id="offers" class="tab-pane fade in active">
       <h2 id="offers"> <center>Offers</center> </h2>
-      <div class="jumbotron">
-        <%= render partial: "properties/offer" %>
-      </div>
-
+      <%= render partial: "properties/offer" %>
     </div>
 
-  </div>
 
 </div>
 

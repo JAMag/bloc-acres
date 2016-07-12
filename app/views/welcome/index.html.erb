@@ -8,9 +8,9 @@
         <div class="title">
           <h1><b>Zero. Agent. Fees.</b></></h1>
         </div>
-        <h5>People in the market for real estate are paying tens of thousands in real estate agent fees... to be told... "That's the bathroom."</h5>
+        <h5>People in the market for real estate are paying tens of thousands in real estate agent fees... for nothing.</h5>
         <h4>Not you.</h4>
-          <h5>Moverable can save you ten's of thousands. Learn how by clicking your primary purpose below.</h5>
+          <h5>Moverable can save you tens of thousands. Learn how by clicking your primary purpose below.</h5>
         <%= link_to  "Buyers", welcome_index_path  %>
           <p> OR </p>
           <%= link_to "Sellers", welcome_index_path %>
@@ -36,7 +36,7 @@
           <div><%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation %></div>
 
-          <div id="welcome-submit"><%= f.submit "Sign up" %></div>
+          <div id="welcome-submit"><%= f.submit class: 'btn btn-default'  %></div>
       <% end %>
 
       <%= render "devise/shared/links" %>
@@ -53,8 +53,8 @@
 
 <div class="jumbotron">
   <ul class="button">
-    <button data-toggle="collapse" data-target="#buyer">Buyer</button>
-    <button data-toggle="collapse" data-target="#seller">Seller</button>
+    <button data-toggle="collapse" class="btn btn-primary-listing" data-target="#buyer">Buyer</button>
+    <button data-toggle="collapse" class="btn btn-primary-listing" data-target="#seller">Seller</button>
   </ul>
 <div>
   <div class="tab-content">
@@ -66,26 +66,26 @@
   <h3>Sellers save boatloads.</h3>
 </div>
   <div class="panel-welcome">
-  The average real estate commission is between 5-7% of the purchase price of your house. That translates to savings between $5,000.00 and $20,000.00 if you use Moverable. It's the smartest decision you can make.
+  The average real estate commission is between 5-7% of the purchase price of your house. That translates to savings between $5,000.00 and $20,000.00 with Moverable. It's the smartest decision you can make in your life.
   </div>
 
 <div>
   <div class="panel-heading">
-  <h3>Without Moverable you are paying for more than one realtor. You are usually paying for 4.</h3>
+  <h3>Without Moverable you are paying for more than one realtor. You are paying for 4.</h3>
   </div>
   <div class="panel-welcome">
-  In the typical real estate transaction, there are 4 realtors. There is the seller's realtor, who splits his commission with his broker. And there is the buyer's realtor, and his broker. Because a realtor is mandated by law to work under a real estate broker, they each split their fee with their broker. So 4 middle-men are now in the transaction which is why it costs so much to use "a" realtor.
-    Realtor's make money one of two ways: 1) They list the house as low as they can to have as many transactions as possible (increasing their yearly pay) or 2) they keep the price as high as possible to increase their per-transaction fee. Neither way is helpful for anybody but the realtor.
+  In a typical real estate transaction, there are 4 realtors. There is the seller's realtor, who splits his commission with his broker. And there is the buyer's realtor, and his broker. Because a realtor is mandated by law to work under a broker, they each split their fee with their broker. So 4 middle-men are now in the transaction, which is why it costs so much to use "a" realtor.
+    Realtors make money one of two ways: 1) They list the house as low as possible to boost transactions (increasing yearly pay) or 2) they keep the price high to increase their per-transaction fees. Neither way is helpful for anybody... but the realtor.
 </div>
   </div>
 
 <div>
   <div class="panel-heading">
-  <h3>Open houses aren't for you. They are for your realtor.</h3>
+  <h3>Open houses aren't for you. They're for your realtor.</h3>
   </div>
   <div class="panel-welcome">
-    This is a common mistake that seller's make. Seller's often are dissapointed that they are having few open houses. Seller's don't realize that open houses are marketing tools for their realtor and only secondarily to sell your house. Open houses may bring people to see the house, few will like it, but the others will be looking for another house or realtor.... so it is wonderful marketing to get clients.
-    Open houses are nonetheless good at bringing potential buyers in because it's convenient, buyer's can stop in at their own schedule. And whoever buys your house will want to see it in person. With Moverable you've got an open house everyday using electronic locks and security cameras to ensure your home is safe.
+    This is a common mistake that seller's make. Sellers often are disapointed they are having few open houses. Sellers don't realize open houses are marketing tools for their realtor... only secondarily to sell your house. Open houses may bring people to see the house, few will like it, others will be looking for another house or realtor. It is wonderful marketing to get clients.
+    Open houses are good at bringing potential buyers to the house because it's convenient, buyers can visit at their leisure. Whoever buys your house will want to see it in person. With Moverable, you've got an open house everyday using electronic locks and security cameras to ensure your home is safe.
 </div>
   </div>
 

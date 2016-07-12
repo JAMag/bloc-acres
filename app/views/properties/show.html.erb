@@ -1,7 +1,4 @@
-<br/>
-<br>
-<br>
-<br>
+
 
 <div class="jumbotron">
   <h1>
@@ -51,6 +48,15 @@
     <div>
       <%= render partial: "properties/buyer_calendar", locals: { slots: @property.slots, property: @property } %>
     </div>
+
+  </div>
+
+  <div>
+    <% if @add_offer %>
+        <%= @add_offer.price %>
+        <% else %>
+    <%= render partial: "add_offers/add_offer", locals: { :property => @property }  %>
+        <% end %>
   </div>
 </div>
 

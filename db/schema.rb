@@ -11,14 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220171126) do
+ActiveRecord::Schema.define(version: 20160628151748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "add_offers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "percentage_financing"
+    t.string   "escrow_agent"
+    t.integer  "foundation_rating"
+    t.integer  "garage_rating"
+    t.integer  "windows_rating"
+    t.integer  "plumbing_rating"
+    t.integer  "furnace_rating"
+    t.integer  "roof_rating"
+    t.integer  "electric_rating"
+    t.integer  "basement_rating"
+    t.integer  "kitchen_rating"
+    t.integer  "bathroom_rating"
+    t.string   "buyer_names"
+    t.string   "buyer_address"
+    t.string   "seller_names"
+    t.string   "seller_address"
+    t.string   "property_address"
+    t.integer  "pns_deposit"
+    t.datetime "closing_date"
+    t.datetime "mortgage_application_date"
+    t.datetime "mortgage_written_commitment_date"
+    t.datetime "inspection_date"
+    t.datetime "signing_date"
+    t.text     "additional_terms"
   end
 
   create_table "appointments", force: :cascade do |t|

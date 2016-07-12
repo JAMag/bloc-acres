@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :locks
 
   resources :charges, only: [:new, :create]
-  
+  resources :add_offers
 
   devise_for :users
   get 'welcome/index'
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       delete 'by_day/:day', to: 'slots#by_day', on: :collection, as: 'by_day'
     end
     resources :favorites, only: [:create, :destroy]
+    resources :add_offers do
+      get 'price' => 'property/show'
+    end
   end
 
   resources :locks do

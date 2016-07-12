@@ -15,8 +15,8 @@ class Property < ActiveRecord::Base
     s.empty? ? nil : s.first
   end
 
-  def offer
-   @offer = AddOffer.new
-  end
+def add_offer
+  @add_offer = Property.Add_Offer[params: id]
+end
   
 end
