@@ -1,0 +1,7 @@
+<div class="col-md-12">
+  <%= form_for([p, p.comments.build]) do |f| %>
+      <%= f.text_area :content, class: 'text-area', placeholder: "Reply to question" %>
+      <%= f.submit "Submit my reply", class: 'btn btn-primary-listing' %>
+  <% end %>
+</div>
+

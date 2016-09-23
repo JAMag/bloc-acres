@@ -1,4 +1,8 @@
 class UserController < ApplicationController
+
+  before_action :user_params
+
+
   def index
   end
 
@@ -10,5 +14,9 @@ class UserController < ApplicationController
     @properties = current_user.properties
     @appointments = current_user
     @slots = @properties.slots
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :avatar)
   end
 end

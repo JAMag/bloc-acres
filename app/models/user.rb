@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :add_offers
   has_many :comments
+
+
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
 
 def admin?
   role == 'admin'
