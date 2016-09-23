@@ -5,6 +5,8 @@
   border-bottom: 1px;
   border-top: 0px;
   border-bottom-color: rgba(86, 176, 220, 0.43) !important;
+  width: auto;
+  overflow: scroll;
   .calendar-header {
     padding: 10px;
     font-size: 20px;
@@ -15,6 +17,7 @@
   }
   table {
     width: 100%;
+
   }
   th {
     text-align: center;

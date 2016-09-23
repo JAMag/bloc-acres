@@ -4,6 +4,7 @@ class Property < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :slots, dependent: :destroy
   has_many :add_offers
+  has_many :comments
   mount_uploaders :photos, PhotoUploader
 
   def map_address
@@ -18,5 +19,8 @@ class Property < ActiveRecord::Base
 def add_offer
   @add_offer = Property.Add_Offer[params: id]
 end
+
+
+
   
 end

@@ -18,6 +18,9 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
     @slots = @property.slots.future
+    #@addOffer= @property.addoffer
+    @comments = Comment.where(property_id: @property).order("created_at DESC")
+
 
   end
 
@@ -76,6 +79,7 @@ class PropertiesController < ApplicationController
   def dashboard
     @properties = current_user.properties
     @appointments = current_user.appointments
+
   end
 
   private

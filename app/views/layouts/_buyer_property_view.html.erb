@@ -3,10 +3,6 @@
 <div class="thumbnail-small">
       <ul class="button">
       <button data-toggle="collapse" class= "btn btn-primary-listing" href="#viewfavs<%= p.id %>"><%= image_tag(p.photos.first.url, :size => "100x100") %> Open/Close</button>
-        <%= p.address + "," %>
-        <%= p.city + "," %>
-        <%= p.state + ";"  %>
-        <%= "Asking: $" + p.price.to_s %>
       </ul>
 </div>
 
@@ -18,6 +14,7 @@
       <ul class="nav nav-tabs" id="myTab">
         <li><a data-toggle="tab" href="#home<%= p.id %>">Home</a></li>
         <li><a data-toggle="tab" href="#appointment<%= p.id %>">Appointments</a></li>
+        <li><a data-toggle="tab" href="#questions<%= p.id %>">Property Questions</a></li>
       </ul>
     </div>
 
@@ -30,11 +27,13 @@
     <div class="panel panel-home">
         <div class="row">
 
-          <div class="col-md-4">
+          <div class="col-md-4">f
             <div class="panel -panel buyer">
                 <div id="map-container">
                   <div id="map-canvas">
-                    <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
+                    <div class="google_map">
+                        <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %></center>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -47,7 +46,7 @@
           </div>
 
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h4> <%= link_to p.address, property_path(p) %></h4>
             <b><%= p.structure %></b>
             <%= p.city + "," %>
@@ -56,18 +55,18 @@
             <b><%= p.beds.to_s + " " %>Beds -</b>
             <b><%= p.baths.to_s + " " %>Baths -</b>
             <b><%= p.lot.to_s + " " %>Acres</b>
-          </div>
 
-          <div class="col-md-2">
             <H3><b><i><%= "$" + p.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></H3>
             <%= p.description %>
-          </div>
 
 
-          <div class="col-md-2">
+            <p> Listed <%= (Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
+
             <%= render partial: 'properties/favorite', locals: {p: p} %>
           </div>
         </div>
+
+
     </div>
   </div>
 
@@ -98,6 +97,18 @@
             <center><span class="glyphicon glyphicon-remove-circle" style="color:red"></span></center>
           </div>
         </div>
+    </div>
+  </div>
+  <div id="questions<%= p.id %>" class="tab-pane fade in">
+    <div class="">
+      <div class="row">
+        <div class="">
+          <%= render partial: 'comments/comment', locals: {p: p} %>
+        </div>
+      </div>
+      <div class="row">
+        <%= render partial: 'comments/form', locals: {p: p} %>
+      </div>
     </div>
   </div>
 

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :appointments
   has_many :favorites
   has_many :add_offers
+  has_many :comments
 
 def admin?
   role == 'admin'

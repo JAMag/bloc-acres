@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="well well-sm">
+        <h4> This property has <%= pluralize(p.comments.count, "question") %>:</h4>
+    </div>
+    <% p.comments.each do |comment| %>
+        <div class="col-md-4">
+          <% if p.user.id ==  comment.user.id  %>
+            <div class="well well-sm" id="owner-comment">
+                <p><%= comment.content %></p>
+                <p>Answer by <b>Owner</b></p>
+              <% if p.user.id == current_user.id %>
+                  <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
+              <% end %>
+            </div>
+              <%-# elsif p.user.id == current_user.id %>
+          <% else %>
+              <div class="well well-sm">
+                <p><%= comment.content %></p>
+                <p>Asked by <b><%=comment.user.email %></b></p>
+                <% if p.user.id == current_user.id %>
+                    <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>

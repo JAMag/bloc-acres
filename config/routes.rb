@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'dashboard'  => 'welcome#dashboard', as: :dashboard
   resources :properties do
+    resources :comments
     resources :slots do
       get 'start_time' => 'property/show'
       resources :appointments do

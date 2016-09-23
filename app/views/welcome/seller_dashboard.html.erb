@@ -1,9 +1,7 @@
-<div class="jumbotron">
-    <div class="panel panel-appointment">
-      <span class="glyphicon glyphicon-dashboard" style="font-size: 140px;"></span>
-      <h1><b>DASHBOARD</b></h1>
+<div class="">
+    <div class="">
       <p>
-      <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary' %>
+      <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary btn-block' %>
       </p>
     </div>
 
@@ -22,10 +20,9 @@
 
 
     <div id="buyer" class="tab-pane fade in active">
-    <h2 id="favorites-listings"><center>Favorites</center></h2>
     <% @favorites.each do |f| %>
         <% p = f.property %>
-        <div class="jumbotron">
+        <div class="container-fluid">
           <div class="row">
             <%= render partial: 'layouts/buyer_property_view', locals: {p: p} %>
           </div>
@@ -37,9 +34,8 @@
 
 
     <div id="seller" class="tab-pane fade in active">
-        <h2 id="my-listings"><center>My Listings</center> </h2>
         <% @properties.each do  |p| %>
-          <div class="jumbotron">
+          <div class="">
 
             <%= render partial: "layouts/property", locals: { p: p } %>
           </div>
@@ -48,14 +44,12 @@
     </div>
 
     <div id="advice" class="tab-pane fade in active">
-        <h2 id="advice"> <center>Advice</center> </h2>
-        <div class="jumbotron">
+        <div class="">
             <%= render partial: "properties/advice" %>
         </div>
     </div>
 
     <div id="offers" class="tab-pane fade in active">
-      <h2 id="offers"> <center>Offers</center> </h2>
       <%= render partial: "properties/offer" %>
     </div>
 

@@ -1,9 +1,13 @@
 <div>
   <ul class="nav nav-tabs" id="myTab">
-    <li><a data-toggle="tab" href="#home<%= p.id %>">Home</a></li>
+    <li><a data-toggle="tab" href="#home<%= p.id %>">Details</a></li>
     <li><a data-toggle="tab" href="#appointment<%= p.id %>">Appointments</a></li>
     <li><a data-toggle="tab" href="#schedule<%= p.id %>">Schedule</a></li>
     <li><a data-toggle="tab" href="#marketing<%= p.id %>">Marketing</a></li>
+    <li><a data-toggle="tab" href="#store<%= p.id %>">Store</a></li>
+    <li><a data-toggle="tab" href="#services<%= p.id %>">Services</a></li>
+    <li><a data-toggle="tab" href="#account<%= p.id %>">Account</a></li>
+    <li><a data-toggle="tab" href="#questions<%= p.id %>">Property Questions</a></li>
   </ul>
 </div>
 
@@ -17,7 +21,9 @@
           <div class="col-md-4">
             <div id="map-container">
               <div id="map-canvas">
-                <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=312x225&markers=#{p.map_address}&sensor=false" %></center>
+                <div class="google_map">
+                    <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %></center>
+                </div>
               </div>
             </div>
           </div>
@@ -28,7 +34,7 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h4> <%= link_to p.address, property_path(p) %></h4>
             <%= p.city + "," %>
             <%= p.state + "," %>
@@ -38,16 +44,26 @@
             <b><%= p.beds %> Beds -</b>
             <b><%= p.baths %> Baths -</b>
             <b><%= p.lot %> Acres</b>
-          </div>
 
-          <div class="col-md-2">
             <H3><b><i><%= "$" + p.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></H3>
+            <div class="thumbnail-small">
+              <ul class="button">
+                <button data-toggle="collapse" class= "btn btn-primary-listing" href="#suggested-price"<%= p.id %>"> Moverable Suggested Price</button>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div id="suggested-price"<%=p.id %>" class="collapse">
+              <h4>Moverable Suggested Price: $<%= p.price - (p.price * ((Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 /30).to_f*(0.01)).to_i%></h4>
+              <p>Would you like to turn on Moverable Auto Price? If you have not been gotten visits, or offers in the last 90 days, Moverable suggests it.</p>
+            </div>
+          </div>
+        </div>
             <%= p.description %>
-          </div>
+            <p> Listed <%=(Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
 
-          <div class="col-md-2">
             <h4> <%= link_to "Edit Listing", edit_property_path(p), class: 'btn btn-success' %></h4>
-          </div>
+
+
       </div>
     </div>
   </div>
@@ -99,6 +115,41 @@
     </div>
   </div>
 
+
+<div id="services<%= p.id %>" class="tab-pane fade in active">
+  <div class="jumbotron">
+    <h2>Service provider adds/reviews go here.</h2>
+
+    <%-#render partial: 'properties/marketing' %>
+
+  </div>
+</div>
+
+<div id="store<%= p.id %>" class="tab-pane fade in active">
+  <div class="jumbotron">
+    <h2>Store for extra yard signs, etc. go here.</h2>
+    <%-# render partial: 'properties/marketing' %>
+
+  </div>
+</div>
+
+<div id="account<%= p.id %>" class="tab-pane fade in active">
+  <div class="">
+    <%= render partial: 'layouts/user_account_info', locals: {p: p} %>
+  </div>
+</div>
+
+<div id="questions<%= p.id %>" class="tab-pane fade in active">
+  <div class="">
+    <div class="row">
+      <%= render partial: 'comments/comment', locals: {p: p} %>
+    </div>
+    <div class="row">
+      <%= render partial: 'comments/form', locals: {p: p} %>
+    </div>
+
+  </div>
+</div>
 
 </div>
 

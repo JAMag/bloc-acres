@@ -1,16 +1,22 @@
-<div class="jumbotron">
-  <div class="panel panel-appointment">
-    <span class="glyphicon glyphicon-home" style="font-size: 140px;"></span>
-    <h1><b>PROPERTIES</b></h1>
+
+<div class="">
+  <div class="col-md-8">
+    <div class="panel-appointment">
+      <h1>MAP GOES HERE</h1>
+      <div style='width: 800px;'>
+        <div id="map" style='width: 800px; height: 400px;'></div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="col-md-4">
+        <% @properties.each do |p| %>
+            <div class="row">
 
-<% @properties.each do |p| %>
-    <div class="jumbotron">
-      <%= render partial: "layouts/buyer_property_view", locals: {p: p} %>
-    </div>
-<% end %>
+                  <%= render partial: "layouts/search_property_view", locals: {p: p} %>
 
-
+            </div>
+        <% end %>
+</div>
 
