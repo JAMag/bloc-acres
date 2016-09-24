@@ -395,6 +395,10 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   border-radius: 0px!important;
 }
 
+.btn-primary-listing:hover {
+box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+}
+
 .btn-primary-listing.gradient {
   background: -moz-linear-gradient(top, #33a6cc 50%, #0099cc 50%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #33a6cc), color-stop(50%, #0099cc)); /* Chrome,Safari4+ */
@@ -406,6 +410,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 }
 
 .btn-primary-listing.gradient:hover, .btn-primary-listing.gradient:focus, .btn-primary-listing.gradient:active, .btn-primary-listing.gradient.active, .open > .dropdown-toggle.btn-primary-listing {
+
   background: -moz-linear-gradient(top, #66b2cc 50%, #33a6cc 50%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #66b2cc), color-stop(50%, #33a6cc)); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top, #66b2cc 50%, #33a6cc 50%); /* Chrome10+,Safari5.1+ */
@@ -431,7 +436,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 
 body {
 
-  /*background-image: url("stonehouse.jpg");*/
+  background-image: url("stonehouse.jpg");
   background-attachment: fixed;
   background-color: rgba(210,211,196,0.73);
 
@@ -517,6 +522,11 @@ header {
 
 #myTab {
   margin: 5px 0px 5px 0px;
+}
+
+.calendar-container {
+  overflow: scroll;
+  max-height: 400px;
 }
 
 .simple-calendar {
@@ -908,4 +918,10 @@ div.c-wrapper{
   -moz-border-radius: 99em;
   border-radius: 99em;
 
+}
+
+.showcase {
+  border-color: #33a6cc;
+  border-style: solid;
+  border-width: 1px;
 }

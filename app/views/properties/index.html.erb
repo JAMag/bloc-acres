@@ -1,5 +1,17 @@
 
-<div class="">
+
+  <div class="panel panel-default col-md-12">
+    <% @properties.sample(1).each do |p| %>
+        <div class="row">
+          <div class="showcase">
+            <center><h3>Showcase Home</h3></center>
+            <%= render partial: "layouts/buyer_property_view", locals: {p: p} %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+<div class="row">
   <div class="col-md-8">
     <div class="panel-appointment">
       <h1>MAP GOES HERE</h1>
@@ -8,15 +20,13 @@
       </div>
     </div>
   </div>
+
+
+    <div class="col-md-4">
+            <% @properties.each do |p| %>
+
+                      <%= render partial: "layouts/search_property_view", locals: {p: p} %>
+
+            <% end %>
+    </div>
 </div>
-
-<div class="col-md-4">
-        <% @properties.each do |p| %>
-            <div class="row">
-
-                  <%= render partial: "layouts/search_property_view", locals: {p: p} %>
-
-            </div>
-        <% end %>
-</div>
-

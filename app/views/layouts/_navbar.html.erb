@@ -61,7 +61,8 @@
     <li>
     <% if current_user %>
             <%= image_tag current_user.avatar.url, class: "profile-round" if current_user.avatar? %>
-        <li> Welcome back<%= link_to (current_user.name || current_user.email), edit_user_registration_path %></li>
+  </li>
+        <li> <%= link_to (current_user.name || current_user.email), edit_user_registration_path %></li>
         <li>
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
         </li>
@@ -74,9 +75,9 @@
         </li>
 
     <% end %>
-    </li>
-        </ul>
-      </div>
+
+    </ul>
+  </div>
 </nav>
 </div>
 

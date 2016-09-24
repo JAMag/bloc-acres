@@ -9,14 +9,14 @@
 
             <div class="row">
               <%= form_for :slot, url: by_day_property_slots_path(p, date), method: :delete do |f| %>
-                  <%= f.submit "Delete Day", class: 'btn btn-danger btn-xs', data: {confirm: "Are you sure?"} %>
+                  <%= f.submit "Delete Day", class: 'btn btn-danger btn-block', data: {confirm: "Are you sure?"} %>
               <% end %>
             </div>
 
             <div class="row">
               <% slots.each do |slot| %>
-                  <div>
-                    <%= link_to slot.starts_at.strftime("%l:%M%p"), property_slot_path(slot.property, slot), method: :delete, data: {confirm: "Are you sure?"} %>
+                  <div class="well well-xs">
+                    <%= link_to slot.starts_at.strftime("%l:%M%p"), property_slot_path(slot.property, slot), method: :delete, class: 'btn btn-danger', data: {confirm: "Are you sure?"} %>
                   </div>
               <% end %>
             </div>
@@ -27,5 +27,6 @@
     <% end %>
   </div>
 </div>
+
 
 
