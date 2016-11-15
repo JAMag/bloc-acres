@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923150727) do
+ActiveRecord::Schema.define(version: 20161108021727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160923150727) do
     t.integer  "slot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "avatar"
   end
 
   add_index "appointments", ["slot_id"], name: "index_appointments_on_slot_id", using: :btree
@@ -86,6 +87,17 @@ ActiveRecord::Schema.define(version: 20160923150727) do
 
   add_index "locks", ["property_id"], name: "index_locks_on_property_id", using: :btree
 
+  create_table "products", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image_url"
+    t.integer  "price"
+    t.string   "category"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image"
+  end
+
   create_table "properties", force: :cascade do |t|
     t.string   "structure"
     t.text     "description"
@@ -102,6 +114,8 @@ ActiveRecord::Schema.define(version: 20160923150727) do
     t.integer  "baths"
     t.integer  "sqft"
     t.integer  "lot"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree

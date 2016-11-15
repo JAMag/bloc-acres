@@ -7,151 +7,134 @@
     <li><a data-toggle="tab" href="#store<%= p.id %>">Store</a></li>
     <li><a data-toggle="tab" href="#services<%= p.id %>">Services</a></li>
     <li><a data-toggle="tab" href="#account<%= p.id %>">Account</a></li>
-    <li><a data-toggle="tab" href="#questions<%= p.id %>">Property Questions</a></li>
+    <li><a data-toggle="tab" href="#pquestions<%= p.id %>">Property Questions</a></li>
   </ul>
 </div>
 
 
 <div class="tab-content">
-  <div id="home<%= p.id %>" class="tab-pane fade in">
-    <div class="panel panel-home">
-        <div class="row">
+
+      <div id="home<%= p.id %>" class="tab-pane fade in active">
+        <div class="panel panel-home">
+          <div class="row">
 
 
-          <div class="col-md-4">
-            <div id="map-container">
-              <div id="map-canvas">
-                <div class="google_map">
-                    <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %></center>
+            <div class="col-md-4">
+              <div id="map-container">
+                <div id="map-canvas">
+                  <div class="google_map">
+                    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-md-4">
-            <div class="thumbnail">
-              <%= render partial: 'properties/photo', locals: {property: p} %>
+            <div class="col-md-4">
+              <div class="thumbnail">
+                <%= render partial: 'properties/photo', locals: {property: p} %>
+              </div>
             </div>
-          </div>
 
-          <div class="col-md-4">
-            <h4> <%= link_to p.address, property_path(p) %></h4>
-            <%= p.city + "," %>
-            <%= p.state + "," %>
-            <%= p.zip + ";" %>
-            <br>
-            </br>
-            <b><%= p.beds %> Beds -</b>
-            <b><%= p.baths %> Baths -</b>
-            <b><%= p.lot %> Acres</b>
+            <div class="col-md-4">
+              <h4> <%= link_to p.address, property_path(p) %></h4>
+              <%= p.city + ',' %>
+              <%= p.state + ',' %>
+              <%= p.zip + ';' %>
 
-            <H3><b><i><%= "$" + p.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></H3>
-            <div class="thumbnail-small">
-              <ul class="button">
-                <button data-toggle="collapse" class= "btn btn-primary-listing" href="#suggested-price"<%= p.id %>"> Moverable Suggested Price</button>
-              </ul>
-            </div>
-            <div class="tab-content">
-              <div id="suggested-price"<%=p.id %>" class="collapse">
-              <h4>Moverable Suggested Price: $<%= p.price - (p.price * ((Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 /30).to_f*(0.01)).to_i%></h4>
-              <p>Would you like to turn on Moverable Auto Price? If you have not been gotten visits, or offers in the last 90 days, Moverable suggests it.</p>
+              <b><%= p.beds %> Beds -</b>
+              <b><%= p.baths %> Baths -</b>
+              <b><%= p.lot %> Acres</b>
+
+              <H3><b><i><%= '$' + p.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></H3>
+
+              <div>
+                <ul class="button">
+                  <button data-toggle="collapse"  href="#suggested-price<%= p.id %>"> Moverable Suggested Price </button>
+                </ul>
+              </div>
+              <div>
+                <div id="suggested-price<%= p.id %>" class="collapse">
+                    <h4>Moverable Suggested Price:$<%= p.price - (p.price * ((Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 /30).to_f*(0.01)).to_i %></h4>
+                    <p>Would you like to turn on Moverable Auto Price? If you have not been gotten visits, or offers in the last 90 days, Moverable suggests it.</p>
+                </div>
+                <div>
+                    <%= p.description %>
+                    <p> Listed <%= (Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
+                    <h4> <%= link_to 'Edit Listing', edit_property_path(p), class: 'btn btn-success' %></h4>
+                </div>
             </div>
           </div>
         </div>
-            <%= p.description %>
-            <p> Listed <%=(Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
-
-            <h4> <%= link_to "Edit Listing", edit_property_path(p), class: 'btn btn-success' %></h4>
 
 
+
+
+
+
+        </div>
+    </div>
+
+
+      <div id="appointment<%= p.id %>" class="tab-pane fade in">
+        <div class="panel panel-appointment">
+          <div class="row">
+            <div class="col-md-6">
+              <%= render partial: 'properties/appointment', locals: {p: p, slot: @slot, appointment: @appointment} %>
+            </div>
+            <div class="col-md-2">
+              <h3>Entrance</h3>
+              <span class="glyphicon glyphicon-ok-circle" style="color:white"></span>
+            </div>
+            <div class="col-md-2">
+              <h3>Exit</h3>
+              <span class="glyphicon glyphicon-ok-circle" style="color:white"></span>
+            </div>
+            <div class="col-md-2">
+              <h3>Secured</h3>
+              <span class="glyphicon glyphicon-remove-circle" style="color:red"></span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div id="appointment<%= p.id %>" class="tab-pane fade in active">
-    <div class="panel panel-appointment">
+      <div id="schedule<%= p.id %>" class="tab-pane fade in">
         <div class="row">
-
-
-          <div class="col-md-6">
-            <%= render partial: 'properties/appointment', locals: {p: p, slot: @slot} %>
-          </div>
-          <div class="col-md-2">
-            <h3><p>
-              <center><%= "Entrance" %></center>
-              </p></h3>
-            <center><span class="glyphicon glyphicon-ok-circle" style="color:white"></span></center>
-          </div>
-          <div class="col-md-2">
-            <h3><p>
-              <center><%= "Exit" %></center>
-              </p></h3>
-            <center><span class="glyphicon glyphicon-ok-circle" style="color:white"></span></center>
-          </div>
-          <div class="col-md-2">
-            <h3><p>
-              <center><%= "Secured" %></center>
-              </p></h3>
-            <center><span class="glyphicon glyphicon-remove-circle" style="color:red"></span></center>
-          </div>
-
+          <%= render partial: 'properties/calendar', locals: {p: p} %>
         </div>
-    </div>
-  </div>
+      </div>
 
-  <div id="schedule<%= p.id %>" class="tab-pane fade in active">
-    <div class="row">
-
-      <%= render partial: 'properties/calendar', locals: {p: p} %>
-
-    </div>
-  </div>
-
-  <div id="marketing<%= p.id %>" class="tab-pane fade in active">
-    <div class="row">
-
-      <%= render partial: 'properties/marketing' %>
-
-    </div>
-  </div>
+      <div id="marketing<%= p.id %>" class="tab-pane fade in">
+        <div class="row">
+          <%= render partial: 'properties/marketing' %>
+        </div>
+      </div>
 
 
-<div id="services<%= p.id %>" class="tab-pane fade in active">
-  <div class="jumbotron">
-    <h2>Service provider adds/reviews go here.</h2>
+      <div id="services<%= p.id %>" class="tab-pane fade in">
+        <div class="row">
+          <%= render partial: 'layouts/services' %>
+        </div>
+      </div>
 
-    <%-#render partial: 'properties/marketing' %>
+      <div id="store<%= p.id %>" class="tab-pane fade in">
+        <div class="row">
+          <%= render partial: 'layouts/store' %>
+        </div>
+      </div>
 
-  </div>
+      <div id="account<%= p.id %>" class="tab-pane fade in">
+        <div class="row">
+          <%= render partial: 'layouts/user_account_info', locals: {p: p} %>
+        </div>
+      </div>
+
+      <div id="pquestions<%= p.id %>" class="tab-pane fade in">
+        <div class="row">
+          <%= render partial: 'comments/comment', locals: {p: p} %>
+        </div>
+        <div class="row">
+          <%= render partial: 'comments/form', locals: {p: p} %>
+        </div>
+      </div>
+
 </div>
-
-<div id="store<%= p.id %>" class="tab-pane fade in active">
-  <div class="jumbotron">
-    <h2>Store for extra yard signs, etc. go here.</h2>
-    <%-# render partial: 'properties/marketing' %>
-
-  </div>
-</div>
-
-<div id="account<%= p.id %>" class="tab-pane fade in active">
-  <div class="">
-    <%= render partial: 'layouts/user_account_info', locals: {p: p} %>
-  </div>
-</div>
-
-<div id="questions<%= p.id %>" class="tab-pane fade in active">
-    <div class="row">
-      <%= render partial: 'comments/comment', locals: {p: p} %>
-    </div>
-    <div class="row">
-      <%= render partial: 'comments/form', locals: {p: p} %>
-    </div>
-</div>
-
-
-
-
-
-
-
-        

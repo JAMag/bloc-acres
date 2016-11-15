@@ -5,10 +5,18 @@ class Property < ActiveRecord::Base
   has_many :slots, dependent: :destroy
   has_many :add_offers
   has_many :comments
+
   mount_uploaders :photos, PhotoUploader
+
+  geocoded_by :map_address   # can also be an IP address
+  before_save :geocode          # auto-fetch coordinates
 
   def map_address
     "#{address} #{city} #{state} #{zip}"
+  end
+
+  def lat_long_for_map
+
   end
 
   def booked_by_user?(user)

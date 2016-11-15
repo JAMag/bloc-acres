@@ -3,10 +3,12 @@ class FavoritesController < ApplicationController
   def create
     @property = Property.find(params[:property_id])
     favorite = current_user.favorites.build(property: @property)
-
+    @user = @property.user
 
     if favorite.save
+
       redirect_to :back, notice: "Created favorite."
+
     else
       redirect_to :back, notice: "Please try to create favorite again."
     end

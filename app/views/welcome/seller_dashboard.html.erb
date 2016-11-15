@@ -1,8 +1,7 @@
-<div class="">
-    <div class="">
-      <p>
-      <%= link_to "Create Listing", new_property_path, class: 'btn btn-primary btn-block' %>
-      </p>
+<div class="container-fluid">
+  <div>
+    <div>
+      <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block' %>
     </div>
 
     <ul class="nav nav-tabs">
@@ -11,51 +10,47 @@
       <li><a data-toggle="tab" href="#offers">Offers</a></li>
       <li><a data-toggle="tab" href="#advice">Advice</a></li>
     </ul>
-</div>
+  </div>
 
 
-
-
-<div class="tab-content">
+  <div class="tab-content">
 
 
     <div id="buyer" class="tab-pane fade in active">
-    <% @favorites.each do |f| %>
-        <% p = f.property %>
-        <div class="container-fluid">
-          <div class="row">
-            <%= render partial: 'layouts/buyer_property_view', locals: {p: p} %>
+      <% @favorites.each do |f| %>
+          <% p = f.property %>
+          <div class="container-fluid">
+            <div class="row">
+              <%= render partial: 'layouts/buyer_property_view', locals: {p: p} %>
+            </div>
           </div>
-        </div>
-    <% end %>
+      <% end %>
     </div>
-
-
 
 
     <div id="seller" class="tab-pane fade in active">
-        <% @properties.each do  |p| %>
-          <div class="">
-
-            <%= render partial: "layouts/property", locals: { p: p } %>
+      <% @properties.each do |p| %>
+          <div class="container-fluid">
+            <div class="row">
+              <%= render partial: 'layouts/property', locals: {p: p} %>
+            </div>
           </div>
-
-        <% end %>
+      <% end %>
     </div>
 
-    <div id="advice" class="tab-pane fade in active">
-        <div class="">
-            <%= render partial: "properties/advice" %>
-        </div>
+    <div id="advice" class="tab-pane fade in">
+      <div class="">
+        <%= render partial: 'properties/advice' %>
+      </div>
     </div>
 
-    <div id="offers" class="tab-pane fade in active">
-      <%= render partial: "properties/offer" %>
+    <div id="offers" class="tab-pane fade in">
+      <%= render partial: 'properties/offer' %>
     </div>
 
 
+  </div>
 </div>
-
 
 
 

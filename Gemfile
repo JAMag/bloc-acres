@@ -22,6 +22,7 @@ gem 'sphinx'
 gem 'thinking-sphinx', '~> 3.1.0'
 gem 'flying-sphinx',   '1.2.0'
 gem 'mysql2', '~> 0.3.18'
+gem 'rails_admin', '~> 1.0'
 
 group :development do
 end

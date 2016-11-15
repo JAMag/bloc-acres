@@ -1,40 +1,81 @@
-<h1>See the house</h1>
-<%=@lock%>
-<div>
-  <%= link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn', id: 'start_show' %>
+
+
+<div class="well well-lg">
+  <center>
+    <h1>Start Appointment</h1>
+    <%=@lock%>
+    <div>
+      <%= link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn', id: 'start_show' %>
+    </div>
+
+
+    <div>
+      <%= link_to "end showing", property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn', id: 'end_show' %>
+    </div>
+    <div>
+      <a class="btn btn-success" type="button" href="tel:+178142067833">Panic</a>
+    </div>
+
+
+  </center>
+
+    <!--
+      Ideally these elements aren't created until it's confirmed that the
+      client supports video/camera, but for the sake of illustrating the
+      elements involved, they are created with markup (not JavaScript)
+    -->
+    <div class="panel">
+      <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
+          <%= f.hidden_field :avatar %>
+
+          <%= f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
+
+    <% end %>
+
+
+        <video id="video" width="640" height="480" autoplay></video>
+
+        <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+
 </div>
 
 
-<div>
-  <%= link_to "end showing", property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn', id: 'end_show' %>
-</div>
-<div>
-  <a class="btn btn-success" type="button" href="tel:+178142067833">Panic</a>
-</div>
-
-<div class="star-rating">
-  <span class="fa fa-star-o" data-rating="1"></span>
-  <span class="fa fa-star-o" data-rating="2"></span>
-  <span class="fa fa-star-o" data-rating="3"></span>
-  <span class="fa fa-star-o" data-rating="4"></span>
-  <span class="fa fa-star-o" data-rating="5"></span>
-  <input type="hidden" name="whatever" class="rating-value" value="3">
-</div>
 
 
 
 
 
 
+<script>
+    // Grab elements, create settings, etc.
+    var video = document.getElementById('video');
+
+    // Get access to the camera!
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            video.src = window.URL.createObjectURL(stream);
+            video.play();
+        });
+    }
 
 
-<
+    // Elements for taking the snapshot
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var video = document.getElementById('video');
+
+    // Trigger photo take
+    document.getElementById("snap").addEventListener("click", function() {
+        context.drawImage(video, 0, 0, 640, 480);
+    });
+
+    //convert canvas to data for upload
+    var url = canvas.toDataURL('image/png');
+    $("#appointment_avatar").val(url);
 
 
-< if s.start_time.strftime < strftime.now >
-< You have missed your appointment. Create a new appointment to view this house. >
-< end >
-< else >
-< if user.location == 1 mile of s.property.address.city.state >
 
+</script>
 

@@ -1,9 +1,22 @@
 class AppointmentsController < ApplicationController
+
+
   def index
   end
 
   def about
   end
+
+  def update
+    @appointment = Appointment.find(params[:id])
+    if @appointment.update_attributes(appointment_params)
+      redirect_to :back, notice: "You started appointment."
+    else
+      redirect_to :back, notice: "Error. Try again."
+    end
+  end
+
+
 
 
   def destroy
@@ -29,9 +42,11 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+
   end
 
   def edit
+    @appointment = Appointment.find(params[:id])
   end
 
   def unlock
@@ -74,6 +89,10 @@ class AppointmentsController < ApplicationController
     #current_user.location == slot.property.address
 
     message
+  end
+
+  def appointment_params
+    params.require(:appointment).permit(:avatar)
   end
 
 

@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  #Makes cart available in views.
+  helper_method :cart
+
+  # Ensure cart session hash exists, if not, it creates a new one with its Value to a blank hash.
+
+  def cart
+    session[:cart] ||= {}
+  end
+
+
+
   rescue_from Pundit::NotAuthorizedError do |exception|
     redirect_to root_url, alert: exception.message
   end

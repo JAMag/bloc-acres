@@ -14,7 +14,7 @@
       <ul class="nav nav-tabs" id="myTab">
         <li><a data-toggle="tab" href="#home<%= p.id %>">Home</a></li>
         <li><a data-toggle="tab" href="#appointment<%= p.id %>">Appointments</a></li>
-        <li><a data-toggle="tab" href="#questions<%= p.id %>">Property Questions</a></li>
+        <li><a data-toggle="tab" href="#buyer_questions<%= p.id %>">Property Questions</a></li>
       </ul>
     </div>
 
@@ -32,7 +32,7 @@
                 <div id="map-container">
                   <div id="map-canvas">
                     <div class="google_map">
-                        <center><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %></center>
+                       <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %>
                     </div>
                   </div>
                 </div>
@@ -81,36 +81,34 @@
           </div>
           <div class="col-md-2">
             <h3>
-              <center><%= "Key" %></center>
+               Key
               </h3>
-            <center><span class="glyphicon glyphicon-ok-circle" style="color:white"></span></center>
+            <span class="glyphicon glyphicon-ok-circle" style="color:white"></span>
           </div>
           <div class="col-md-2">
             <h3>
-              <center><%= "Entrance" %></center>
+              Entrance
               </h3>
-            <center><span class="glyphicon glyphicon-ok-circle" style="color:white"></span></center>
+            <span class="glyphicon glyphicon-ok-circle" style="color:white"></span>
           </div>
           <div class="col-md-2">
             <h3>
-              <center><%= "Exit" %></center>
+              Exit
               </h3>
-            <center><span class="glyphicon glyphicon-remove-circle" style="color:red"></span></center>
+            <span class="glyphicon glyphicon-remove-circle" style="color:red"></span>
           </div>
         </div>
     </div>
   </div>
-  <div id="questions<%= p.id %>" class="tab-pane fade in">
-    <div class="">
+  <div id="buyer_questions<%= p.id %>" class="tab-pane fade in">
+
       <div class="row">
-        <div class="">
           <%= render partial: 'comments/comment', locals: {p: p} %>
-        </div>
       </div>
       <div class="row">
         <%= render partial: 'comments/form', locals: {p: p} %>
       </div>
-    </div>
+
   </div>
 
 

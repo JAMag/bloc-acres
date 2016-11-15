@@ -9,6 +9,7 @@
 
 
 
+
 @media (max-width: 768px) {
   .nav>li {
     text-align: center;
@@ -32,6 +33,11 @@
   background-color: transparent;
 }
 
+
+#property-index {
+  overflow-y: auto;
+  height: 700px;
+}
 
 .star-rating {
   line-height:32px;
@@ -497,7 +503,10 @@ header {
 
 }
 
-
+.panel-map {
+  height: 400px;
+  width: 400px;
+}
 .panel-rating {
   padding: 4px;
 }
@@ -509,7 +518,7 @@ header {
 //styling for google map container.
 
 #map-container {
-  minimum-height: relative;
+  minimum-height: 400px;
   width: relative;
   overflow: hidden;
   width: 100%;
@@ -518,6 +527,8 @@ header {
 #map-canvas {
   width: 100%;
   margin: auto;
+  height: 400px;
+
 }
 
 #myTab {
@@ -873,6 +884,7 @@ div.c-wrapper{
   background-size: cover;
   height: 0;
   padding-bottom: 100%;
+  border-radius: 50%;
 }
 
 .google_map img
@@ -886,7 +898,7 @@ div.c-wrapper{
   margin-top: -320px; /* Half image height */
 }
 
-#owner-comment {
+.owner-comment {
   border-color: white;
   background-color: rgba(248,80,50,.2);
 }

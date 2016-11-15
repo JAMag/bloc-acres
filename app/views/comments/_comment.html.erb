@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="well well-sm">
@@ -8,32 +10,28 @@
 
 
 
-          <% if p.user.id ==  comment.user.id  %>
-            <div class="well well-sm" id="owner-comment">
+
+
+            <div class="well well-sm <%= p.user.id == comment.user.id ? 'owner-comment': ''%>">
               <%= image_tag(comment.user.avatar.url, class: "profile-round-small") if comment.user.avatar? %>
                 <p><%= comment.content %></p>
-                <p>Answer by <b>Owner</b></p>
-              <% if p.user.id == current_user.id %>
-                  <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
-              <% end %>
+                  <% if p.user.id ==  comment.user.id  %>
+                    <p>Answer by <b>Owner</b></p>
+                   <% else %>
+                      <p>Asked by <b><%=comment.user.name %></b></p>
+                   <% end %>
+
+                  <% if p.user.id == current_user.id %>
+                      <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
+                  <% end %>
+
+
             </div>
-              <%-# elsif p.user.id == current_user.id %>
-          <% else %>
-              <div class="well well-sm">
-                <div class="">
-                    <%= image_tag(comment.user.avatar.url, class: "profile-round-small") if comment.user.avatar? %>
-                </div>
-                  <p><%= comment.content %></p>
-                <p>Asked by <b><%=comment.user.name %></b></p>
-                <% if p.user.id == current_user.id %>
-                    <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
-                <% end %>
-                <div class="row">
-                  <%-# render partial: 'comments/reply_form', locals: {p: p} %>
-                </div>
-              </div>
-          <% end %>
+
+
+
         </div>
+
     <% end %>
   </div>
 </div>

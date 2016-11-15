@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   
+  get '/cart' => 'cart#index'
+  get '/cart/clear' => 'cart#clearCart'
+  get '/cart/:id' => 'cart#add'
+
+  resources :products
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'calendar/show'
 
   resources :locks
@@ -11,7 +18,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'dashboard'  => 'welcome#dashboard', as: :dashboard
   resources :properties do
-    resources :comments
+    resources :comments do
+
+    end
     resources :slots do
       get 'start_time' => 'property/show'
       resources :appointments do

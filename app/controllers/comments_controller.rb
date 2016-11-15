@@ -17,6 +17,13 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show
+    @comments = Comment.where(property_id: @property).order("created_at DESC")
+  end
+
+  def new
+  @comment = Comment.new
+  end
 
   def destroy
     @comment.destroy

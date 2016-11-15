@@ -1,7 +1,8 @@
-<div class="col-md-12">
-    <%= form_for([p, p.comments.build]) do |f| %>
-        <%= f.text_area :content, class: 'text-area', placeholder: "Go ahead, ask a question!" %>
-        <%= f.submit "Submit my question", class: 'btn btn-primary-listing' %>
-    <% end %>
+
+<div class="form-group">
+  <%= form_for([p, Comment.new], method: :post) do |f| %>
+      <%= f.text_area :content, class: 'text-area', placeholder: 'Go ahead, ask a question!' %>
+      <%= f.submit "Submit my question", class: 'btn btn-primary-listing' %>
+  <% end %>
 </div>
 

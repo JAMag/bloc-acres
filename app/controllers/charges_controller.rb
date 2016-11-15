@@ -18,6 +18,7 @@ class ChargesController < ApplicationController
     @appointment = Appointment.new(slot_id: params[:slot_id], user: current_user)
     @property = Property.find(params[:property_id])
     if @appointment.save
+      UserMailer.appointment_email(@user).deliver
       flash[:notice] = "Created appointment to visit this house."
       redirect_to @property
     else
