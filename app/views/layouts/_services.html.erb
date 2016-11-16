@@ -1,5 +1,26 @@
-<div class="well well-xl">
-  <div class="well well-sm">
-    <h4>Service Providers</h4>
+
+
+<div class="panel panel-appointment col-md-12">
+
+  <h4>Service Providers</h4>
+  <% @advertisements.each do |add| %>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <%= image_tag add.image.url, class: "profile-round" %>
+
+          <div>
+            <b><%= add.title %></b>
+          </div>
+          <div>
+            <p><%= add.description %></p>
+          </div>
+          <div class="btn btn-default btn-block">
+            Contact Service Provider
+          </div>
+
+        </div>
+      </div>
+  <% end %>
+
   </div>
-</div>
+

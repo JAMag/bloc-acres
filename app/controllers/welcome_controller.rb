@@ -37,6 +37,7 @@ class WelcomeController < ApplicationController
     @comments = Comment.where(property_id: @property).order("created_at DESC")
     @products = Product.all
     @cart = cart
+    @advertisements = Advertisement.all
 
 
     if current_user.buyer?
