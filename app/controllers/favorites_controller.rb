@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
 
     if favorite.save
 
-      redirect_to :back, notice: "Created favorite."
+      redirect_to :back, notice: "Created favorite and added to dashboard."
 
     else
       redirect_to :back, notice: "Please try to create favorite again."

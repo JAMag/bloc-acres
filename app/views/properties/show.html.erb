@@ -1,12 +1,13 @@
+<% @title= @property.address %>
 
-
-<div class="jumbotron">
+<div class="container-fluid">
   <h1>
     <center><%= @property.address %></center>
   </h1>
   <div class="row">
 
     <div class="col-md-4">
+      <h4><%= link_to '< Back', :back %></h4>
       <div class="thumbnail">
         <%= render partial: 'properties/photo', locals: {property: @property} %>
       </div>
@@ -17,6 +18,7 @@
       <p><b>
         <center><%= @property.structure %></center>
       </b></p>
+      <hr>
       <p>
       <center><%= @property.city + "," %></center>
       </p>
@@ -31,6 +33,7 @@
           <p>
           <center><%= @property.description %></center>
           </p>
+          <hr>
           <H3>
             <center><b><i><%= "$" + @property.price.to_s %></i></b></center>
           </H3>

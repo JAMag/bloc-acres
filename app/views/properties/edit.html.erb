@@ -1,3 +1,5 @@
+<% @title="Edit Property" %>
+<div class="container">
 <h1>
   <center>Edit Property</center>
 </h1>
@@ -67,7 +69,7 @@
 
       <% if @property.photos? %>
           <div class="form-group">
-            </h3><p>Photos</p></h3>
+           <p>Photos</p>
 
             <% @property.photos do |i| %>
                 <%= image_tag(i.profile.url) %>
@@ -96,3 +98,4 @@
   <% end %>
 </div>
 
+</div>

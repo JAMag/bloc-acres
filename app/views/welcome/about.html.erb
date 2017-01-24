@@ -1,73 +1,210 @@
+<% @title="Moverable | About" %>
 
+<div class="container-fluid">
 <div id="about-text1and2" class="panel panel-default">
   <p id="about-text1" >Founded in January 2015 as a capstone project for Bloc.io's Full Stack Web Development program, Moverable is a marketplace for people to list, discover, and purchase unique properties — online and in-person.</p>
 
   <p id="about-text2" >Moverable is the easiest and most prudent way to buy and sell property.</p>
 
-  <p><i><center>Moverable removes the middleman. All rights reserved 2015. </center></i></p>
+  <p><i>Moverable removes the middleman. All rights reserved 2015.</i></p>
+
 </div>
 
-<div class="jumbotron">
+<div id="container-about" class="container">
   <div class="title">
-    <h1><b><center> Real Estate Different. </center></b></h1>
+    <h1><b> Real Estate Different.</b></h1>
+  </div>
+  <div class="image">
+    <%=  %>
   </div>
 
     <div class="row">
       <div class="col-md-4">
         <div class="panel-heading">1</div>
-        <div class="panel panel-about"><h3><b><center><p> Sign up! </p> </center></b></div>
+        <div class="panel panel-about"><b>Sign up!</b></div>
         </div>
       <div class="col-md-4">
         <div class="panel-heading">2</div>
-        <div class="panel panel-about"><h3><b><center><p> List or search properties </p> </center></b></div>
+        <div class="panel panel-about"><b>List or search properties</b></div>
         </div>
         <div class="col-md-4">
           <div class="panel-heading">3</div>
-        <div class="panel panel-about"><h3><b><center><p> Set schedule to view property </p> </center></b></div>
+        <div class="panel panel-about"><b>Set schedule to view property</b></div>
       </div>
       </div>
   <div class="row">
       <div class="col-md-4">
         <div class="panel-heading">4</div>
-        <div class="panel panel-about"><h3><b><center><p> Make appointment to view </p> </center></b></div>
+        <div class="panel panel-about"><b>Make appointment to view</b></div>
       </div>
     <div class="col-md-4">
       <div class="panel-heading">5</div>
-        <div class="panel panel-about"><h3><b><center><p> View property</p> </center></b></div>
+        <div class="panel panel-about"><b>View property</b></div>
     </div>
     <div class="col-md-4">
       <div class="panel-heading">6</div>
-        <div class="panel panel-about"><h3><b><center><p> Inspect the property </p> </center></b></div>
+        <div class="panel panel-about"><b>Inspect the property</b></div>
       </div>
   </div>
   <div class="row">
       <div class="col-md-4">
         <div class="panel-heading">7</div>
-        <div class="panel panel-about"><h3><b><center><p> Use guide to make an offer </p> </center></b></div>
+        <div class="panel panel-about"><b>Use guide to make an offer</b></div>
       </div>
     <div class="col-md-4">
       <div class="panel-heading">8</div>
-        <div class="panel panel-about"><h3><b><center><p> Lawyer up</p> </center></b></div>
+        <div class="panel panel-about"><b>Lawyer up</b></div>
     </div>
     <div class="col-md-4">
       <div class="panel-heading">9</div>
-        <div class="panel panel-about"><h3><b><center><p> Close </p> </center></b></div>
+        <div class="panel panel-about"><b>Close</b></div>
       </div>
     </div>
 
   <div class="image">
-  <%= link_to image_tag ("dreamhome_hero_summer.jpg") %>
+  <%=  %>
   </div>
 
   <div class="panel panel-default">
-    <br></br>
+    <br />
     <p id="about-text3" >Sellers set schedules. Buyers book appointments.  </p>
     <p id="about-text4" >To view a house, one must be a site member. Buyers pay a fee to view a house. This requires a valid email address, credit card, smartphone and number. Should verification be required, bank pre-qualification is available. Further, Moverable has zero tolerance for safety matters. Your home is safe with Moverable.</p>
-<H4><i><center>Copyright 2015. All rights reserved. </center></i></H4>
+    <H4><i>Copyright 2015. All rights reserved.</i></H4>
+  </div>
 </div>
-  <script>
-      $(document).ready(function () {
-          $('div.title').fadeIn(8000).removeClass('title');
 
-      });
-  </script>
+  <section id="labels">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="dl">
+            <div class="brand">
+              <h2>
+                bronze
+              </h2>
+            </div>
+            <div class="discount alizarin">
+              $30
+              <div class="type">
+                per month
+              </div>
+            </div>
+            <div class="descr">
+              <strong>
+                Mei mucius gloriatur reprimique mollis*.
+              </strong>
+              Ad sonet perfecto antiopam mei, denique molestie ne has.
+            </div>
+            <div class="ends">
+              <small>
+                * Conditions and restrictions apply.
+              </small>
+            </div>
+            <div class="coupon midnight-blue">
+              <a data-toggle="collapse" href="#code-1" class="open-code">Start Today</a>
+              <div id="code-1" class="collapse code">
+                LV5MAY14
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div  class="dl">
+            <div class="brand">
+              <h2>
+                silver
+              </h2>
+            </div>
+            <div class="discount emerald">
+              $50
+              <div class="type">
+                per month
+              </div>
+            </div>
+            <div class="descr">
+              <strong>
+                Ea per iuvaret ocurreret*.
+              </strong>
+              sit ea detraxit menandri mediocritatem, in mel dicant mentitum.
+            </div>
+            <div class="ends">
+              <small>
+                * Conditions and restrictions apply.
+              </small>
+            </div>
+            <div class="coupon midnight-blue">
+              <a data-toggle="collapse" href="#code-2" class="open-code">Start Today</a>
+              <div id="code-2" class="collapse in code">
+                MNO123ST
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div  class="dl">
+            <div class="brand">
+              <h2>
+                gold
+              </h2>
+            </div>
+            <div class="discount peter-river">
+              $75
+              <div class="type">
+                per month
+              </div>
+            </div>
+            <div class="descr">
+              <strong>
+                Solet consul tractatos ei pro*.
+              </strong>
+              Ei mei quot invidunt explicari, placerat percipitur intellegam.
+            </div>
+            <div class="ends">
+              <small>
+                * Conditions and restrictions apply.
+              </small>
+            </div>
+            <div class="coupon midnight-blue">
+              <a data-toggle="collapse" href="#code-3" class="open-code">Start Today</a>
+              <div id="code-3" class="collapse code">
+                OLV4SY3R
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div  class="dl">
+            <div class="brand">
+              <h2>
+                platinum
+              </h2>
+            </div>
+            <div class="discount amethyst">
+              $100
+              <div class="type">
+                per month
+              </div>
+            </div>
+            <div class="descr">
+              <strong>
+                Cu aliquip persius alterum duo*.
+              </strong>
+              Possit equidem disputando usu et, sea invidunt scriptorem in.
+            </div>
+            <div class="ends">
+              <small>
+                * Conditions and restrictions apply.
+              </small>
+            </div>
+            <div class="coupon midnight-blue">
+              <a data-toggle="collapse" href="#code-4" class="open-code">Start Today</a>
+              <div id="code-4" class="collapse code">
+                ZUY4OPLQ
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

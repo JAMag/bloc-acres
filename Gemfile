@@ -10,7 +10,7 @@ gem "stripe"
 gem "httparty"
 gem 'geocoder'
 #gem 'thinking-sphinx', '~> 3.1.4'
-
+gem 'gon'
 
 gem 'bootstrap-sass'
 

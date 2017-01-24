@@ -1,13 +1,11 @@
-<div>
+
+<div class="">
   <ul class="nav nav-tabs" id="myTab">
-    <li><a data-toggle="tab" href="#home<%= p.id %>">Details</a></li>
-    <li><a data-toggle="tab" href="#appointment<%= p.id %>">Appointments</a></li>
-    <li><a data-toggle="tab" href="#schedule<%= p.id %>">Schedule</a></li>
-    <li><a data-toggle="tab" href="#marketing<%= p.id %>">Marketing</a></li>
-    <li><a data-toggle="tab" href="#store<%= p.id %>">Store</a></li>
-    <li><a data-toggle="tab" href="#services<%= p.id %>">Services</a></li>
-    <li><a data-toggle="tab" href="#account<%= p.id %>">Account</a></li>
-    <li><a data-toggle="tab" href="#pquestions<%= p.id %>">Property Questions</a></li>
+    <li><a data-toggle="tab" href="#home<%= p.id %>">Details: <%=p.address %> <i class="fa fa-folder-open" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#appointment<%= p.id %>">Showing Appointments <i class="fa fa-clock-o" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#schedule<%= p.id %>">Schedule <i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#marketing<%= p.id %>">Marketing <i class="fa fa-users" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#pquestions<%= p.id %>">Property Questions <i class="fa fa-comments" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 
@@ -19,15 +17,7 @@
           <div class="row">
 
 
-            <div class="col-md-4">
-              <div id="map-container">
-                <div id="map-canvas">
-                  <div class="google_map">
-                    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             <div class="col-md-4">
               <div class="thumbnail">
@@ -35,106 +25,91 @@
               </div>
             </div>
 
+
+
             <div class="col-md-4">
-              <h4> <%= link_to p.address, property_path(p) %></h4>
+
+              <h4> <%= p.address %></h4>
+              <hr>
               <%= p.city + ',' %>
               <%= p.state + ',' %>
               <%= p.zip + ';' %>
-
+              <hr>
               <b><%= p.beds %> Beds -</b>
               <b><%= p.baths %> Baths -</b>
               <b><%= p.lot %> Acres</b>
-
+              <hr>
               <H3><b><i><%= '$' + p.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></H3>
 
               <div>
-                <ul class="button">
-                  <button data-toggle="collapse"  href="#suggested-price<%= p.id %>"> Moverable Suggested Price </button>
-                </ul>
+                <p> Listed <%= (Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
+
+                    <p>Moverable Suggested Price: $<%= p.price - (p.price * ((Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 /30).to_f*(0.01)).to_i %></p>
+                    <p>Would you like to turn on Auto Price? Without visits or offers in the last 90 days try Auto Price.</p>
               </div>
+
               <div>
-                <div id="suggested-price<%= p.id %>" class="collapse">
-                    <h4>Moverable Suggested Price:$<%= p.price - (p.price * ((Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 /30).to_f*(0.01)).to_i %></h4>
-                    <p>Would you like to turn on Moverable Auto Price? If you have not been gotten visits, or offers in the last 90 days, Moverable suggests it.</p>
-                </div>
-                <div>
-                    <%= p.description %>
-                    <p> Listed <%= (Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
-                    <h4> <%= link_to 'Edit Listing', edit_property_path(p), class: 'btn btn-success' %></h4>
-                </div>
+                <hr>
+                <%= p.description %>
+                <hr>
+                <h4> <%= link_to 'Edit Listing', edit_property_path(p), class: 'btn btn-success btn-block'%></h4>
+              </div>
             </div>
+
+
+
+            <div class="col-md-4">
+              <div id="map-container">
+                <div id="map-canvas">
+                  <div class="google_map">
+                    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=430x450&markers=#{p.map_address}&sensor=false" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
 
+        <div id="appointment<%= p.id %>" class="tab-pane fade">
+          <div class="panel panel-appointment">
+            <div class="row">
+              <div class="col-md-12">
 
-
-
-
-
-        </div>
-    </div>
-
-
-      <div id="appointment<%= p.id %>" class="tab-pane fade in">
-        <div class="panel panel-appointment">
-          <div class="row">
-            <div class="col-md-6">
               <%= render partial: 'properties/appointment', locals: {p: p, slot: @slot, appointment: @appointment} %>
             </div>
-            <div class="col-md-2">
-              <h3>Entrance</h3>
-              <span class="glyphicon glyphicon-ok-circle" style="color:white"></span>
-            </div>
-            <div class="col-md-2">
-              <h3>Exit</h3>
-              <span class="glyphicon glyphicon-ok-circle" style="color:white"></span>
-            </div>
-            <div class="col-md-2">
-              <h3>Secured</h3>
-              <span class="glyphicon glyphicon-remove-circle" style="color:red"></span>
             </div>
           </div>
         </div>
-      </div>
 
-      <div id="schedule<%= p.id %>" class="tab-pane fade in">
-        <div class="row">
-          <%= render partial: 'properties/calendar', locals: {p: p} %>
+        <div id="schedule<%= p.id %>" class="tab-pane fade">
+          <div class="row">
+            <%= render partial: 'properties/calendar', locals: {p: p} %>
+          </div>
         </div>
-      </div>
 
-      <div id="marketing<%= p.id %>" class="tab-pane fade in">
-        <div class="row">
-          <%= render partial: 'properties/marketing' %>
+        <div id="marketing<%= p.id %>" class="tab-pane fade">
+          <div class="row">
+            <%= render partial: 'properties/marketing' %>
+          </div>
         </div>
-      </div>
 
 
-      <div id="services<%= p.id %>" class="tab-pane fade in">
-        <div class="row">
-          <%= render partial: 'layouts/services' %>
-        </div>
-      </div>
 
-      <div id="store<%= p.id %>" class="tab-pane fade in">
-        <div class="row">
-          <%= render partial: 'layouts/store' %>
-        </div>
-      </div>
 
-      <div id="account<%= p.id %>" class="tab-pane fade in">
-        <div class="row">
-          <%= render partial: 'layouts/user_account_info', locals: {p: p} %>
+        <div id="pquestions<%= p.id %>" class="tab-pane fade">
+          <div class="row">
+            <%= render partial: 'comments/comment', locals: {p: p} %>
+          </div>
+          <div class="row">
+            <%= render partial: 'comments/form', locals: {p: p} %>
+          </div>
         </div>
-      </div>
 
-      <div id="pquestions<%= p.id %>" class="tab-pane fade in">
-        <div class="row">
-          <%= render partial: 'comments/comment', locals: {p: p} %>
-        </div>
-        <div class="row">
-          <%= render partial: 'comments/form', locals: {p: p} %>
-        </div>
-      </div>
 
 </div>
+
+
+
+

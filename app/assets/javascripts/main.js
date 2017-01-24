@@ -338,8 +338,8 @@ $(document).ready(function () {
     };
 
 
-    $('#search-field select').change(function () {
-        $('#search-field').submit();
+    $('#search-field button').click(function () {
+       $('#search-field').submit();
     });
 
     $(".nav-tabs a").click(function () {
@@ -383,13 +383,13 @@ SetRatingStar();
 
 
 function addLocationToLinks() {
-    //if (navigator.geolocation) {
-    //    position = navigator.geolocation.getCurrentPosition();
-    //    link = $('#start_show');
-    //    link.href = link.href + '?lat=' + position.coords.latitude + '&long=' + position.coords.longitude;
-    //} else {
-    //    alert("Call us.");
-    //}
+    if (navigator.geolocation) {
+        position = navigator.geolocation.getCurrentPosition();
+        link = $('#start_show');
+        link.href = link.href + '?lat=' + position.coords.latitude + '&long=' + position.coords.longitude;
+    } else {
+        alert("Call us.");
+    }
 }
 
 //multiple image preview

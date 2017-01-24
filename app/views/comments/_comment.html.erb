@@ -12,19 +12,31 @@
 
 
 
-            <div class="well well-sm <%= p.user.id == comment.user.id ? 'owner-comment': ''%>">
+            <div class="well well-sm clearfix <%= p.user.id == comment.user.id ? 'owner-comment': ''%>">
               <%= image_tag(comment.user.avatar.url, class: "profile-round-small") if comment.user.avatar? %>
-                <p><%= comment.content %></p>
+              <div class="well">
+                <i class="fa fa-comments fa-4x pull-right" aria-hidden="true" style="color:white"></i>
+                <p>"<%= comment.content %>"</p>
+                <br/>
                   <% if p.user.id ==  comment.user.id  %>
-                    <p>Answer by <b>Owner</b></p>
+
+                    <p class="pull-right">Answered by: <b>Owner</b></p>
                    <% else %>
-                      <p>Asked by <b><%=comment.user.name %></b></p>
+
+                      <p class="pull-right">Asked by: <b><%=comment.user.name %></b></p>
                    <% end %>
+                <br />
+                <hr>
 
-                  <% if p.user.id == current_user.id %>
-                      <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
-                  <% end %>
-
+                  <p class="pull-right">
+                    Created at: <%= comment.created_at.strftime("%-I:%M%p %B %-d, %Y") %>
+                  </p>
+                  <p class="pull-left">
+                      <% if p.user.id == current_user.id %>
+                          <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
+                      <% end %>
+                  </p>
+              </div>
 
             </div>
 
@@ -35,3 +47,5 @@
     <% end %>
   </div>
 </div>
+
+

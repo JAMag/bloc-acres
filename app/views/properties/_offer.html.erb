@@ -1,5 +1,31 @@
 
 <div class = "panel-default-offer-inner">
-  <h3>You have no current offers, <%= current_user.name %> ! </h3>
+  <div class="col-md-6">
+  <h3><%= current_user.name %> ! </h3>
 
+  <%= p.city + ',' %>
+  <%= p.state + ',' %>
+  <%= p.zip + ';' %>
+
+  <b><%= p.beds %> Beds -</b>
+  <b><%= p.baths %> Baths -</b>
+  <b><%= p.lot %> Acres</b>
+
+  <br />
+  Offer price: <%= %>
+  <br />
+  Percentage financing:
+  <br />
+  <% p.add_offers.each do |a| %>
+    <%= a.created_at.strftime("%d %b. %Y %H: %M") %>
+ <% end %>>
+  <br />
+  Expires on: <%= %>
+  <br />
+  Lawyer contact: BobLoblaw@Loblaw.com
+
+  </div>
+  <div class="col-md-6">
+    <%= image_tag(p.photos.first.url) %>
+  </div>
 </div>

@@ -1,57 +1,106 @@
+<% @title="Moverable Dashboard" %>
+
 <div class="container-fluid">
+
   <div>
     <div>
-      <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block' %>
+      <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block btn-lg' %>
     </div>
 
-    <ul class="nav nav-tabs">
-      <li><a data-toggle="tab" href="#buyer">Favorites</a></li>
-      <li><a data-toggle="tab" href="#seller">My Listings</a></li>
-      <li><a data-toggle="tab" href="#offers">Offers</a></li>
-      <li><a data-toggle="tab" href="#advice">Advice</a></li>
+    <ul id="seller-dash-tabs" class="nav nav-tabs">
+      <li><a data-toggle="tab" href="#buyer">Favorites <span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#seller">My Listings <span class="fa fa-home" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#offers">Offers <span class="fa fa-line-chart" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#advice">Advice <span class="fa fa-shield" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#store">Seller's Store <span class="fa fa-credit-card" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#services">Services <span class="fa fa-thumbs-o-up" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#account">Account <span class="fa fa-cog" style="vertical-align:middle"></span></a></li>
     </ul>
+    <hr>
   </div>
 
 
   <div class="tab-content">
 
 
-    <div id="buyer" class="tab-pane fade in active">
-      <% @favorites.each do |f| %>
-          <% p = f.property %>
+        <div id="buyer" class="tab-pane fade in active">
+          <% @favorites.each do |f| %>
+              <% p = f.property %>
+              <div class="container-fluid">
+                <div class="row">
+                  <%= render partial: 'layouts/buyer_property_view', locals: {p: p} %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+
+
+        <div id="seller" class="tab-pane fade in active">
+          <hr>
+
+
+          <% @properties.each do |p| %>
+              <div class="container-fluid">
+                <div class="row">
+                  <%= render partial: 'layouts/property', locals: {p: p} %>
+                </div>
+          <hr>
+
+              </div>
+          <% end %>
+        </div>
+
+
+
+        <div id="offers" class="tab-pane fade">
+
+          <% @properties.each do |p| %>
+              <div class="container-fluid">
+                <div class="row">
+                    <%= render partial: 'properties/offer', locals: {p: p} if p.add_offers.any? %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+
+
+        <div id="advice" class="tab-pane fade">
+          <div class="container-fluid">
+              <div class="row">
+                <%= render partial: 'properties/advice' %>
+              </div>
+          </div>
+        </div>
+
+        <div id="store" class="tab-pane fade">
+          <div class="container-fluid">
+              <div class="row">
+                <%= render partial: 'layouts/store' %>
+              </div>
+          </div>
+        </div>
+
+
+
+        <div id="services" class="tab-pane fade">
           <div class="container-fluid">
             <div class="row">
-              <%= render partial: 'layouts/buyer_property_view', locals: {p: p} %>
+              <%= render partial: 'layouts/services' %>
             </div>
           </div>
-      <% end %>
-    </div>
+        </div>
 
 
-    <div id="seller" class="tab-pane fade in active">
-      <% @properties.each do |p| %>
+
+        <div id="account" class="tab-pane fade">
           <div class="container-fluid">
             <div class="row">
-              <%= render partial: 'layouts/property', locals: {p: p} %>
+              <%= render partial: 'layouts/user_account_info' %>
             </div>
           </div>
-      <% end %>
-    </div>
-
-    <div id="advice" class="tab-pane fade in">
-      <div class="">
-        <%= render partial: 'properties/advice' %>
-      </div>
-    </div>
-
-    <div id="offers" class="tab-pane fade in">
-      <%= render partial: 'properties/offer' %>
-    </div>
-
+        </div>
 
   </div>
+
 </div>
-
-
-
 

@@ -7,6 +7,7 @@
         <img src="assets/tree_acre.jpg" alt="small_house">
       </a>
     </div>
+  </div>
 
   <div class="row">
     <div class="col-6 col-md-3">
@@ -15,8 +16,9 @@
     <p><%= property.state %></p>
     <p><%= property.zip %></p>
     <%= link_to "Edit Listing", edit_property_path(@property), class: 'btn btn-success' %>
+    </div>
   </div>
-    
+
   <div class="row">
     <div class="col-6 col-md-3">
     <h3><center><%= "Available slots (Appointments)" %></center></h3>

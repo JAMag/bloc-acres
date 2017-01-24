@@ -1,4 +1,5 @@
 <% if property.photos? %>
+
     <!-- Carousel Code -->
     <div id="carousel-example-generic<%= property.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
       <!-- Indicators -->
@@ -6,6 +7,7 @@
         <% property.photos.each_with_index do |i, counter| %>
             <li data-target="#carousel-example-generic<%= property.id %>" data-slide-to="<%= counter %>" class="<%= 'active' if counter==0 %>"></li>
         <% end %>
+
       </ol>
 
       <!-- Wrapper for slides -->
@@ -24,6 +26,7 @@
       <a class="right carousel-control" href="#carousel-example-generic<%= property.id %>" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
+
     </div> <!-- Carousel -->
 
 

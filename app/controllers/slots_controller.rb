@@ -19,10 +19,10 @@ class SlotsController < ApplicationController
 
     authorize = @slot
     if @slot.destroy
-      flash[:notice] = "Slot removed."
+      flash[:notice] = "Removed showing period."
       redirect_to dashboard_path
     else
-      flash[:error] = "Slot not removed. Try again."
+      flash[:error] = "Showing period not removed. Try again."
       redirect_to dashboard_path
     end
   end

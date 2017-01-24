@@ -31,12 +31,14 @@
   border-style: none;
   border-radius: 0px;
   background-color: transparent;
+  padding: 0%;
 }
 
 
 #property-index {
   overflow-y: auto;
   height: 700px;
+  text-align: right;
 }
 
 .star-rating {
@@ -66,10 +68,10 @@
 
 h1 {
   font-family: 'Montserrat';
-  text-shadow: -1px -1px 0 #fff,
-  1px -1px 0 #fff,
-  -1px 1px 0 #fff,
-  1px 1px 0 #fff;
+  //text-shadow: -1px -1px 0 #fff,
+  //1px -1px 0 #fff,
+  //-1px 1px 0 #fff,
+  //1px 1px 0 #fff;
 }
 
 
@@ -82,17 +84,17 @@ h1 {
 
 h2 {
   font-family: 'Montserrat';
-  text-shadow: -1px -1px 0 #f4f4f4,
-  1px -1px 0 #f4f4f4,
-  -1px 1px 0 #f4f4f4,
-  1px 1px 0 #f4f4f4;
+  //text-shadow: -1px -1px 0 #f4f4f4,
+  //1px -1px 0 #f4f4f4,
+  //-1px 1px 0 #f4f4f4,
+  //1px 1px 0 #f4f4f4;
 }
 h2 {
   font-family: 'Montserrat';
-  text-shadow: -1px -1px 0 #f4f4f4,
-  1px -1px 0 #f4f4f4,
-  -1px 1px 0 #f4f4f4,
-  1px 1px 0 #f4f4f4;
+  //text-shadow: -1px -1px 0 #f4f4f4,
+  //1px -1px 0 #f4f4f4,
+  //-1px 1px 0 #f4f4f4,
+  //1px 1px 0 #f4f4f4;
 }
 h3 {
   font-family: 'Montserrat';
@@ -100,10 +102,10 @@ h3 {
 }
 h4 {
   font-family: 'Montserrat';
-  text-shadow: -1px -1px 0 #f4f4f4,
-  1px -1px 0 #f4f4f4,
-  -1px 1px 0 #f4f4f4,
-  1px 1px 0 #f4f4f4;
+  //text-shadow: -1px -1px 0 #f4f4f4,
+  //1px -1px 0 #f4f4f4,
+  //-1px 1px 0 #f4f4f4,
+  //1px 1px 0 #f4f4f4;
 }
 
 body {
@@ -134,11 +136,9 @@ body {
   min-height: 100px; //* or whatever height you require
   background: rgba(100, 104, 104, .5);
   affix: top;
-  .navbar-right {
-  border-right-style: none;
-  border-left-style: none;
-  border-top-style: none;
-  padding: 10px !important;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 .nav-wrapper
@@ -147,21 +147,7 @@ body {
 }
 
 
-}
 
-.navbar-brand {
-  background-image: url("rsz_1key-house-logo-free-vector-1732.jpg");
-  background-image: transparent;
-  width: 150px;
-  height: 200px;
-  border-radius: 16px;
-  border-color: #000;
-  border-style: solid;
-  box-shadow: 0px 0px 0px #B1B1B1;
-  margin: 0px 0px 0px 0px !important;
-  affix: top;
-
-}
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #000; /*Sets the text hover color on navbar*/
@@ -176,7 +162,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 }
 
 .navbar-default {
-  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.19) 99%, rgba(231,56,39,0.5) 100%);
+
   border-style: none;
   border-radius: 0px;
 }
@@ -216,19 +202,19 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   padding: 10px, 10px, 10px, 10px;
   margin: 10px, 10px, 10px, 10px;
   z-index: 2;
-  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.19) 99%, rgba(231,56,39,0.18) 100%);
+
   border-style: none;
   min-width:100%;
 }
 
 .panel-default {
-   background: rgba(255, 255, 255, 0.7);
-   border-radius: 0px 0px;
-   border-color: white;
-   border-style: none;
-   padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0px 0px;
+  border-color: white;
+  border-style: none;
+  padding: 20px;
 
- }
+}
 
 .panel-default-offer-inner{
   background: rgba(255, 255, 255, 0.7);
@@ -240,9 +226,9 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   padding: 20px;
   max-height: 400px;
   overflow-y: scroll;
-    .p {
-      font-size: 14px !important;
-    }
+  .p {
+    font-size: 14px !important;
+  }
 
 }
 
@@ -302,12 +288,9 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   background: transparent;
   border: thin;
   border-bottom: 0px;
-  border-top: 0px;
-  background: rgba(255, 255, 255, .3);
-
-  border-color: #000;
-  border-style: solid;
-
+  border-top: 1px;
+  border-color: black;
+  border-style: dotted;
 }
 
 #nav.affix {
@@ -315,7 +298,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   padding: 10px, 10px, 10px, 10px;
   margin: 10px, 10px, 10px, 10px !important;
   z-index: 2;
-  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.33) 99%, rgba(231,56,39,0.5) 100%);
+
   min-width:100%;
 }
 
@@ -402,7 +385,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 }
 
 .btn-primary-listing:hover {
-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn-primary-listing.gradient {
@@ -442,11 +425,26 @@ box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
 
 body {
 
-  background-image: url("stonehouse.jpg");
+
   background-attachment: fixed;
   background-color: rgba(210,211,196,0.73);
 
 }
+
+
+.marquee {
+
+  top: 0;
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+  width: 100%;
+  background-color: rgba(210,211,196,0.73);
+  z-index: 0;
+  border-bottom: solid;
+  border-color: white;
+}
+
 
 header {
 
@@ -456,9 +454,9 @@ header {
 }
 
 .jumbotron {
-  background: rgb(100, 54, 54); /* This is for ie8 and below */
-  background: linear-gradient(to right, rgba(155,156,124,0.93) 0%, rgba(210,211,196,0.73) 52%, rgba(242,242,238,0.54) 82%, rgba(255,255,255,0.74) 94%, rgba(255,255,255,0.34) 100%);
-  border-radius: 16px 16px;
+
+  background: linear-gradient(to right, rgba(155,156,124,0.93)100%);
+
   border-color: white;
   border-style: none;
   box-shadow: 0px 0px 00px #B1B1B1;
@@ -466,17 +464,17 @@ header {
 }
 
 .panel-rating-header {
-   background: rgb(100, 54, 54); /* This is for ie8 and below */
-   background: linear-gradient(to right, rgba(155,156,124,0.93) 0%, rgba(210,211,196,0.73) 52%, rgba(242,242,238,0.54) 82%, rgba(255,255,255,0.74) 94%, rgba(255,255,255,0.34) 100%);
-   border-radius: 16px 16px;
-   border-color: white;
-   border-style: none;
-   box-shadow: 0px 0px 00px #B1B1B1;
-   padding: 4px;
-   margin-top: 8px;
-   margin-bottom: 8px;
+  background: rgb(100, 54, 54); /* This is for ie8 and below */
+  background: linear-gradient(to right, rgba(155,156,124,0.93) 0%, rgba(210,211,196,0.73) 52%, rgba(242,242,238,0.54) 82%, rgba(255,255,255,0.74) 94%, rgba(255,255,255,0.34) 100%);
+  border-radius: 16px 16px;
+  border-color: white;
+  border-style: none;
+  box-shadow: 0px 0px 00px #B1B1B1;
+  padding: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 
- }
+}
 
 .panel-rating-header-second-last {
   background: rgb(100, 54, 54); /* This is for ie8 and below */
@@ -527,7 +525,7 @@ header {
 #map-canvas {
   width: 100%;
   margin: auto;
-  height: 400px;
+  height:587px;
 
 }
 
@@ -875,27 +873,28 @@ div.c-wrapper{
 
 .google_map
 {
-  width: 100%;
+  max-width: 100%;
   overflow:hidden;
   display: block;
 
   position: relative;
   /* Uncle Daves Padded Box */
-  background-size: cover;
-  height: 0;
-  padding-bottom: 100%;
-  border-radius: 50%;
+ // background-size: cover;
+ // height: 0;
+ // padding-bottom: 100%;
+  //border-radius: 50%;
 }
 
 .google_map img
 {
-  width: 640px;
-  miniumum-height: 640px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -320px; /* Half image width */
-  margin-top: -320px; /* Half image height */
+  width: 100%;
+
+  //miniumum-height: 640px;
+  //position: absolute;
+  //top: 50%;
+  //left: 50%;
+ // margin-left: -320px; /* Half image width */
+ // margin-top: -320px; /* Half image height */
 }
 
 .owner-comment {
@@ -936,4 +935,312 @@ div.c-wrapper{
   border-color: #33a6cc;
   border-style: solid;
   border-width: 1px;
+}
+
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.embed-responsive .embed-responsive-item,
+.embed-responsive iframe,
+.embed-responsive embed,
+.embed-responsive object,
+.embed-responsive video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%!important;
+  height: 100%!important;
+  max-height: 600px;
+  border: 0;
+}
+
+#video {
+  width: 100%;
+  height: auto;
+}
+.embed-responsive-16by9 {
+  padding-bottom: 56.25%;
+}
+.embed-responsive-4by3 {
+  padding-bottom: 75%;
+}
+
+#signup {
+  background-color: #499b7e;
+  padding: 50px;
+}
+
+#welcomethird{
+  background-color: cadetblue;
+  padding: 50px;
+  text-align: center;
+}
+
+.navbar .navbar-nav {
+  display: flex;
+  float: right;
+  align-items: center;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+#devise_signin {
+  text-align: center;
+}
+.timer {
+  text-align: center;
+  font-size: 250%;
+}
+
+.tr {
+  line-height: 14px;
+}
+
+#video {
+  z-index: -1;
+  width: 100%;
+}
+
+.separate {
+  background-color: rgba(248, 80, 50, 0.23);
+  height: 10px;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 20px;
+}
+
+.row-welcome {
+  margin-bottom: 50px;
+}
+
+.panel-marketing {
+  text-align: center;
+  background: linear-gradient(to right, rgba(248,80,50,.93) 0%, rgba(107,24,11,.47) 0%, rgba(246,41,12,0.55) 91%, rgba(246,41,12,0.22) 95%, rgba(240,47,23,0.19) 99%, rgba(231,56,39,0.18) 100%);
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-color: white;
+  border-style: solid;
+  border-width: 0px 1.5px 1.5px 1.5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  border-radius: 8px 8px;
+}
+
+th.navigate {
+  width: 40%; /* Not necessary, since only 70% width remains */
+}
+
+th.user {
+  width: 10%; /* Not necessary, since only 70% width remains */
+}
+th.time {
+  width: 10%; /* Not necessary, since only 70% width remains */
+}
+th.date {
+  width: 10%; /* Not necessary, since only 70% width remains */
+}
+th.enter {
+  width: 10%; /* Not necessary, since only 70% width remains */
+}
+th.exit {
+  width: 10%; /* Not necessary, since only 70% width remains */
+}
+th.report {
+  width: 10%; /* Not necessary, since only 70% width remains */
+}
+
+.table > tbody > tr > td {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.th {
+
+}
+
+
+.sign_up {
+  text-align: center;
+}
+
+.fa-check-circle-o {
+  color: green;
+}
+
+.fa-times-circle-o {
+  color: red;
+}
+
+.glyphicon-time {
+  color: #ffbd1f;
+}
+
+
+
+
+
+
+
+//about bootsnip
+
+
+section {
+  padding: 5% 0;
+}
+
+.alizarin {
+  background: #e74c3c;
+}
+
+.amethyst {
+  background: #9b59b6;
+}
+
+.emerald {
+  background: #2ecc71;
+}
+
+.midnight-blue {
+  background: #2c3e50;
+}
+
+.peter-river {
+  background: #3498db;
+}
+
+.dl {
+  background: #f0f0f0;
+  padding: 30px 0;
+  border-radius: 20px;
+  position: relative;
+}
+
+.dl:before {
+  content: " ";
+  height: 20px;
+  width: 20px;
+  background: #ddd;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  margin-left: -10px;
+}
+
+.dl .brand {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  min-height: 100px;
+}
+
+.dl .discount {
+  min-height: 50px;
+  position: relative;
+  font-size: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-weight: bold;
+
+  padding: 20px 15px 0;
+  color: #f1c40f;
+}
+
+.dl .discount:after {
+  content: " ";
+
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  position: absolute;
+  bottom: -20px;
+  left: 20%;
+}
+
+.dl .discount.alizarin:after {
+  border-top: 20px solid #e74c3c;
+}
+
+.dl .discount.peter-river:after {
+  border-top: 20px solid #3498db;
+}
+
+.dl .discount.emerald:after {
+  border-top: 20px solid #2ecc71;
+}
+
+.dl .discount.amethyst:after {
+  border-top: 20px solid #9b59b6;
+}
+
+.dl .discount .type {
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: -30px;
+}
+
+.dl .descr {
+  color: #999;
+  margin-top: 10px;
+  padding: 20px 15px;
+}
+
+.dl .ends {
+  padding: 0 15px;
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.dl .coupon {
+  min-height: 50px;
+  text-align: center;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 20px 15px;
+}
+
+.dl .coupon a.open-code {
+  color: #16a085;
+}
+
+.dl .coupon .code {
+  letter-spacing: 1px;
+  border-radius: 4px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  color: #f1c40f;
+  background: #f0f0f0;
+}
+
+
+
+.well-property-create {
+  text-align: center;
+}
+
+#about-text1and2 {
+  text-align: center;
+}
+
+#container-about {
+  text-align: center;
+}
+
+
+.appointment-show {
+  text-align: center;
 }

@@ -1,339 +1,112 @@
-<br>
-<div class="container-fluid">
-  <center><h1>View The Site Without Account</h1></center>
-  <center><iframe width="560" height="315" src="https://www.youtube.com/embed/Fdl7GLUJIt0" frameborder="0" allowfullscreen></iframe></center>
+<% @title="Moverable | Zero Agent Fees" %>
 
-    <div class="">
-      <div class="">
-        <div class="">
-          <div class="stick col-md-4 col-md-offset-4">
+<div class="wrapper">
+    <div class="marquee">
+      <div class="embed-responsive embed-responsive-16by9" >
+            <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/Fdl7GLUJIt0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div id="signup" class="marquee">
+        <div class="stick col-md-4 col-md-offset-4">
 
             <div class="title">
-              <h1><b>Zero. Agent. Fees.</b></></h1>
+              <h1><b>Zero. Agent. Fees.</b></h1>
             </div>
-            <h5>People in the market for real estate are paying tens of thousands in real estate agent fees... for nothing.</h5>
-            <h4>Not you.</h4>
-              <h5>Moverable can save you tens of thousands. Learn how by clicking below.</h5>
-              <p> or jump right in and sign up!</p>
 
+            <div>
+                <h5>People in the market for real estate are wasting tens of thousands in real estate agent fees.</h5>
+                <h4>Not you.</h4>
+                <h5>Moverable saves you thousands.</h5>
 
+                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
 
-          <h2>Remove The Fee</h2>
+                  <div>
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email %>
+                  </div>
+                  <br />
+                  <div>
+                    <%= f.label :password %><br />
+                    <%= f.password_field :password %>
+                  </div>
+                  <br />
+                  <div>
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation %>
+                  </div>
+                  <br />
+                  <div id="welcome-submit">
+                    <%= f.submit class: 'btn btn-default'  %>
+                  </div>
+                <% end %>
+            </div>
 
-          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
-
-              <div><%= f.label :email %><br />
-                <%= f.email_field :email %></div>
-
-              <div><%= f.label :password %><br />
-                <%= f.password_field :password %></div>
-
-              <div><%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation %></div>
-
-              <div id="welcome-submit"><%= f.submit class: 'btn btn-default'  %></div>
-          <% end %>
-
-          <%= render "devise/shared/links" %>
-
-              </div>
+        </div>
+    </div>
+    <div id="welcomethird" class="marquee">
+      <div class="row row-welcome">
+        <div class="col-md-3">
+            <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+          <p>Set your own schedule to show or view a house.</p>
+        </div>
+        <div class="col-md-3">
+        <i class="fa fa-comments fa-5x" aria-hidden="true"></i>
+          <p>Comments for each property saves time for both sellers and buyers.</p>
           </div>
-        </div>
-
-
-
-
-
-
-
-
-<div class="">
-  <ul class="button">
-    <button data-toggle="collapse" class="btn btn-primary-listing" data-target="#buyer">Buyer</button>
-    <button data-toggle="collapse" class="btn btn-primary-listing" data-target="#seller">Seller</button>
-  </ul>
-<div>
-  <div class="tab-content">
-    <div id="seller" class="collapse">
-  <h2><center>Reasons to sell a house on Moverable.</center></h2>
-<div class="panel-heading">
-  <h3>Sellers save boatloads.</h3>
-</div>
-  <div class="panel-welcome">
-  The average real estate commission is between 5-7% of the purchase price of your house. That translates to savings between $5,000.00 and $20,000.00 with Moverable. It's the smartest decision you can make in your life.
-  </div>
-
-<div>
-  <div class="panel-heading">
-  <h3>Without Moverable you are paying for more than one realtor. You are paying for 4.</h3>
-  </div>
-  <div class="panel-welcome">
-  In a typical real estate transaction, there are 4 realtors. There is the seller's realtor, who splits his commission with his broker. And there is the buyer's realtor, and his broker. Because a realtor is mandated by law to work under a broker, they each split their fee with their broker. So 4 middle-men are now in the transaction, which is why it costs so much to use "a" realtor.
-    Realtors make money one of two ways: 1) They list the house as low as possible to boost transactions (increasing yearly pay) or 2) they keep the price high to increase their per-transaction fees. Neither way is helpful for anybody... but the realtor.
-</div>
-  </div>
-
-<div>
-  <div class="panel-heading">
-  <h3>Open houses aren't for you. They're for your realtor.</h3>
-  </div>
-  <div class="panel-welcome">
-    This is a common mistake that seller's make. Sellers often are disapointed they are having few open houses. Sellers don't realize open houses are marketing tools for their realtor... only secondarily to sell your house. Open houses may bring people to see the house, few will like it, others will be looking for another house or realtor. It is wonderful marketing to get clients.
-    Open houses are good at bringing potential buyers to the house because it's convenient, buyers can visit at their leisure. Whoever buys your house will want to see it in person. With Moverable, you've got an open house everyday using electronic locks and security cameras to ensure your home is safe.
-</div>
-  </div>
-
-<div>
-  <div class="panel-heading">
-  <h3>A realtor knows the process. So does Moverable.</h3>
-  </div>
-  <div class="panel-welcome">
-  Moverable provides guides throughout the entire process. Moverable will make recommendations for pricing your home using large-scale data sets. It will auto-suggest changes should the house not sell after a set period of time (don't worry about your realtor forgetting about you... it's automatic). Moverable makes recommendations of well-regarded home inspectors, mortgage brokers, and real estate attorneys. We will even save you money on the costs of an attorney by drafting closing documents, auto-completing forms and then emailing them to her. In fact, we require the use of an attorney to make sure your interests are taken care of. You choose which one, but our forms can only go to an attorney.
-  We want each deal to be fair. We recommend a fair price to the seller when they list the property, and should the inspection process turn up issues, we suggest fair counter offers back!
-    You are in control the entire time. Decide the suggested price is too low? Change it! It's up to you! Moverable has no incentive either way. As long as we can help you sell your house, we're happy.
-</div>
-  </div>
-
-<div>
-  <div class="panel-heading">
-  <h3>My realtor will market the house! So does Moverable.</h3>
-  </div>
-  <div class="panel-welcome">
-You're realtor is being blindsided by the internet too! Moverable allows for easy syndication to other real estate web sites at the click of a button. Moverable also incorporates social media to use the network effect to get your house sold... just like your realtor!
-</div>
-  </div>
-
-  <div>
-    <div class="panel-heading">
-    <h3>My realtor has yard signs and brochures...</h3>
-    </div>
-    <div class="panel-welcome">
-    So do we. Signing up for Moverable and picking a tier, means you will receive a package in the mail about a week later. That package will have Moverable branded marketing materials, like brochures, yard signs, and balloons. So you'll have the yard sign... do you want to pay someone $15,000.00 to stick that in the ground for you? We didn't think so.
-  </div>
-    </div>
-
-<div>
-  <div class="panel-heading">
-  <h3>How much does it cost?</h3>
-  </div>
-  <div class="panel-welcome">
-  For sellers, Moverable has two payment options and three price tiers. The payment options are either upfront or twelve monthly payments. The first price tier is simply $300 upfront or $25 dollars a month. The second tier is $600 dollars up front or $50 dollars a month. The third tier is $1200 up front or $100 a month.
-Should you want, you can pay off the balance at any time. So if you take the first tier and sell your house after three months (which is the average length of time a house is on the market), you may pay off the remaining $225 out of the proceeds of the sale of your house. Which means, you paid $75 dollars out of pocket to sell your house!
-  Please click here to see what you get with each tier.
-</div>
-  </div>
-
-<div>
-  <div class="panel-heading">
-  <h2>How do I get started?</h2>
-    </div>
-  <div class="panel-welcome">
-  Sign up. Pick a tier and payment term (upfront or monthly). And get started selling your house... get started saving thousands!
-</div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="panel panel-index">
-        <center><h2>Bronze</h2></center>
-        <center>
-          <span class= "glyphicon glyphicon-star" style="color:palegoldenrod"></span>
-          <span class= "glyphicon glyphicon-star" style="color:palegoldenrod"></span>
-          <span class= "glyphicon glyphicon-star-empty" style="color:palegoldenrod"></span>
-          <span class= "glyphicon glyphicon-star-empty" style="color:palegoldenrod"></span>
-          <span class= "glyphicon glyphicon-star-empty" style="color:palegoldenrod"></span>
-        </center>
-        <center><h4>$299.00 </h4></center>
-        <center><h3>or</h3></center>
-        <center><h5>Twelve payments of </h5></center>
-        <center><h4>$25.00 </h4></center>
-        <center><h5>Pay it off at any time</h5></center>
-        <div class="panel-default">
-          <ul> Syndication to Web Real Estate Portals</ul>
-          <ul> MooveMint Listing</ul>
-          <ul> Guided listing creation</ul>
-          <ul> Drag and Drop Photo Uploading</ul>
-          <ul> Yard Sign</ul>
-          <ul> Print ready listing sheet</ul>
-          <ul> Preprinted paper for listing sheet with professional branding and all information pre-formatted.</ul>
-          <ul> Automated viewing schedule.</ul>
-          <ul> Yard sign.</ul>
-          <ul>  Balloons.</ul>
-          <ul> Guided Purchase and Offer.</ul>
-        </div>
-
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1></h1></strong><div class="ribbon-stitches-bottom"></div></div>
-      <div class="panel panel-index">
-        <center><h2>Gold</h2></center>
-        <center>
-          <span class= "glyphicon glyphicon-star" style="color:gold"></span>
-          <span class= "glyphicon glyphicon-star" style="color:gold"></span>
-          <span class= "glyphicon glyphicon-star" style="color:gold"></span>
-          <span class= "glyphicon glyphicon-star" style="color:gold"></span>
-          <span class= "glyphicon glyphicon-star-empty" style="color:gold"></span>
-        </center>
-        <center><h4>$599.00 </h4></center>
-        <center><h3>or</h3></center>
-        <center><h5>Twelve payments of </h5></center>
-        <center><h4>$50.00 </h4></center>
-        <center><h5>Pay it off at any time</h5></center>
-
-        <div class="panel-default">
-          <ul> MLS Listing</ul>
-          <ul> Syndication to Web Real Estate Portals</ul>
-          <ul> MooveMint Listing</ul>
-          <ul> Guided listing creation</ul>
-          <ul> Drag and Drop Photo Uploading</ul>
-          <ul> Yard Sign</ul>
-          <ul> Print ready listing sheet</ul>
-          <ul> Preprinted paper for listing sheet with professional branding and all information pre-formatted.</ul>
-          <ul> Automated viewing schedule.</ul>
-          <ul> Yard sign.</ul>
-          <ul>  Balloons.</ul>
-          <ul> Guided Purchase and Offer.</ul>
+        <div class="col-md-3">
+        <i class="fa fa-cog fa-5x" aria-hidden="true"></i>
+          <p>Get help with inspections, mortgages and lawyers.</p>
+          </div>
+        <div class="col-md-3">
+            <i class="fa fa-shield fa-5x" aria-hidden="true"></i>
+          <p>Protect yourself from sketchy real estate agents.</p>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel-index">
-        <center><h2>Platinum</h2></center>
-        <center>
-          <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
-          <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
-          <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
-          <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
-          <span class= "glyphicon glyphicon-star" style="color:cornsilk"></span>
-        </center>
-        <center><h4>$1199.00 </h4></center>
-        <center><h3>or</h3></center>
-        <center><h5>Twelve payments of </h5></center>
-        <center><h4>$100.00 </h4></center>
-        <center><h5>Pay it off at any time</h5></center>
-
-        <div class="panel-default">
-          <ul> MLS Listing</ul>
-          <ul> Syndication to Various Web Real Estate Portals</ul>
-          <ul> MooveMint Listing</ul>
-          <ul> Guided listing creation</ul>
-          <ul> Drag and Drop Photo Uploading</ul>
-          <ul> Yard Sign</ul>
-          <ul> Print ready listing sheet</ul>
-          <ul> Preprinted paper for listing sheet with professional branding and all of your information pre-filled.</ul>
-          <ul> Automated viewing schedule.</ul>
-          <ul> Yard sign.</ul>
-          <ul>  Balloons.</ul>
-          <ul> Guided Purchase and Offer.</ul>
-          <ul> Automated showing app -- Show your house to potential customers when you aren't home!</ul>
-          <ul> Automated showing hardware and installation.</ul>
-          <ul>  Professional photos.</ul>
-          <ul> Listing creation.</ul>
+      <div class="row row-welcome">
+        <div class="col-md-3">
+        <i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i>
+          <p>Get recommendations on price and offers to get the deal done!</p>
         </div>
+        <div class="col-md-3">
+        <i class="fa fa-camera fa-5x" aria-hidden="true"></i>
+          <p>Rest easy knowing nobody can view your house with out photo id.</p>
+          </div>
+        <div class="col-md-3">
+        <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
+          <p>Save time by viewing houses without someone else's schedule.</p>
+          </div>
+        <div class="col-md-3">
+        <i class="fa fa-credit-card fa-5x" aria-hidden="true"></i>
+          <p>Simple and affordable payment options.</p>
+          </div>
+      </div>
+      <div class="row row-welcome">
+        <div class="col-md-3">
+          <i class="fa fa-usd fa-5x" aria-hidden="true"></i>
+          <p>Save cash by cutting out the middleman.</p>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-heart fa-5x" aria-hidden="true"></i>
+          <p>Find and save that perfect house and then make it a home.</p>
+          </div>
+        <div class="col-md-3">
+          <i class="fa fa-map-marker fa-5x" aria-hidden="true"></i>
+          <p>Automatic directions and appointments when viewing homes.</p>
+          </div>
+        <div class="col-md-3">
+          <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+          <p>Support is always available to help.</p>
+          </div>
       </div>
     </div>
-  </div>
-  </div>
-</div>
-  </div>
 
-  </div>
-
-
-
-
-
-
-
-
-
-<div class="">
-  <div>
-    <div class="tab-content">
-      <div id="buyer" class="collapse">
-    <h2><center>Reasons to buy a house on Moverable.</center></h2>
-    <div class="panel-heading">
-    <h3>Buyer's pay for the Realtors.</h3>
-    </div>
-    <div class="panel-welcome">
-    Shhhh.... it's a little known secret that.... Buyers are buying the house. They are taking out a mortgage that will pay for that house. The cost of the Realtors are added into the price of the house. So in general, the buyer... not the seller.... is paying for the Realtor's costs.
-    If the seller uses a lower cost way to sell the house, you may be buying a lower cost house!
-  </div>
-
-
-  <div>
-    <div class="panel-heading">
-    <h3>You are paying for more than one realtor. You are usually paying for at least 4.</h3>
-    </div>
-    <div class="panel-welcome">
-    In the typical real estate transaction, there are 4 realtors. There is the seller's realtor, who splits his commission with his broker. And there is your realtor (who claims you aren't paying him), and his broker. Because a real estate agent is mandated by law to work under a real estate broker, they each split their fee with that broker. So 4 middle-men are now in the transaction.
-    Using Moverable to buy a house removes all 4 of them.
-  </div>
-    </div>
-
-  <div>
-    <div class="panel-heading">
-    <h3>Your realtor is against you.</h3>
-    </div>
-    <div class="panel-welcome">
-    Sounds crazy. And it is crazy. That's why Moverable thought we could help. Because each realtor is paid a percentage of the purchase price of the house, each realtor wants to see you pay the most as possible for the house... they get more money if you pay more. Even "your" realtor. Messed up, isn't it?
-    Moverable is paid a flat fee by the seller. And a small per tour fee by the buyer. Because Moverable isn't incentivized to inflate the price of the house, we won't. This means you are negotiating with the buyer only, not the buyer and 4 other real estate agents.
-    Don't believe us? In MLS, the commission split for each house is hid from the buyer and seller but put in the listing. If you already have a realtor, go to another FSBO site and ask your realtor to schedule a tour at a house not listed on MLS. Unless, that FSBO has offered a buyer commission, "your" realtor won't show it to you... because they won't get paid.
-    Too much work? Ask yourself this question: how many FSBO houses has my realtor shown me? Although, we aren't psychic the answer is likely none.
-  </div>
-    </div>
-
-  <div>
-    <div class="panel-heading">
-    <h3>But a realtor knows the process. So does Moverable.</h3>
-    </div>
-    <div class="panel-welcome">
-    Moverable provides guides throughout the entire process. It makes recommendations to well regarded home inspectors, mortgage brokers, and real estate attorneys. We will even save you money on the costs of an attorney by drafting closing documents, auto-completing forms and emailing them to her. In fact, we require the use of an attorney to make sure your interests are taken care of. You choose which one, but our forms can only go to an attorney.
-   Also, did you know the average realtor has only been selling houses for 2 years? In fact, 33% of them don't even have a college education! Moverable was founded by a real estate broker and lawyer. Thought has been put into every facet. You're likely to get more expertise going through Moverable, while skipping the smarmy sales speach and fake smiles.
-    We want each deal to be fair. We recommend a fair price to the seller when they list the property, and should the inspection turn up issues, we suggest fair counter offers to you!
-  </div>
-    </div>
-
-  <div>
-    <div class="panel-heading">
-    <h3>Okay. What else?</h3>
-    </div>
-    <div class="panel-welcome">
-    Because Moverable uses electronic locks and security cameras on each home, you can view the home whenever the seller says it is available. That means if you pass by a house on the way to get coffee you could tour that house on your way back from the coffee shop! Removing the realtor and her fees, also removes the realtor's schedule. Home buying is now convenient for you not your realtor!
-    Oh yeah. You will be viewing the house without a strange salesmen there telling you "that's the toilet" and charging you $10,000's for the service.
-  </div>
-    </div>
-
-  <div>
-    <div class="panel-heading">
-    <h3>How much does it cost?</h3>
-    </div>
-    <div class="panel-welcome">
-    For Buyers, Moverable has two price tiers. The first price tier costs $10.00 per tour of a house. This fee, protects homesellers from thievery and ensures that you are who you say you are. The second tier, is $100.00 for as many tours as you want. This means that if you are going to tour more than 10 houses during your search, you are saving money.
-    All other Moverable services are included after your first tour purchase. If the first house you see is perfect, great for you! That makes us happy! Your $10.00 tour fee still entitles you to the use of Moverable's guides, auto-offers, auto-forms, auto-negotiation and third-party recommendations.
-  </div>
-    </div>
-
-  <div>
-    <div class="panel-heading">
-    <h3>How do I get started?</h3>
-      </div>
-    <div class="panel-welcome">
-    Sign up. It is free to sign up and search for houses (though, addresses will be excluded). If you are confident you will view more than 10 homes during your search, pay right away. If you are unsure, then wait and pay a tour fee when you come across a house you like!
-  </div>
-</div>
-        <div class="panel-default">
-          <ul> Set your own schedule to view the house! No need to rely on a Realtor!</ul>
-          <ul> Because there is no realtor involved you could potentially save $1,000's</ul>
-          <ul> Guided Offers.</ul>
-          <ul> Guided Inspections.</ul>
-          <ul> 3rd party recommendations of the top professionals in your area!</ul>
-          <ul> Pay $10.00 per house or a one-time fee of $89.00 and view as many houses as you want!</ul>
-        </div>
-    </div>
-    </div>
-  </div>
 
 </div>
+
+
+
+
 
 

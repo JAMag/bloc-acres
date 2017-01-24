@@ -5,7 +5,7 @@ class AddOffersController < ApplicationController
 
   def create
     @add_offer = AddOffer.new(add_offer_params)
-
+    @add_offer.property = Property.find(params[:property_id])
 
 
     if @add_offer.save
@@ -18,7 +18,7 @@ class AddOffersController < ApplicationController
 
 
   def add_offer_params
-    params[:add_offer].permit(:percentage_financing, :escrow_agent, :foundation_rating, :garage_rating, :windows_rating, :plumbing_rating, :furnace_rating, :roof_rating, :electric_rating, :basement_rating, :kitchen_rating, :bathroom_rating, :buyer_names, :buyer_address, :seller_names, :seller_address, :property_address, :pns_deposit, :closing_date, :mortgage_application_date, :mortgage_written_commitment_date, :inspection_date, :signing_date, :additional_terms)
+    params.require(:add_offer).permit(:percentage_financing, :escrow_agent, :foundation_rating, :garage_rating, :windows_rating, :plumbing_rating, :furnace_rating, :roof_rating, :electric_rating, :basement_rating, :kitchen_rating, :bathroom_rating, :buyer_names, :buyer_address, :seller_names, :seller_address, :property_address, :pns_deposit, :closing_date, :mortgage_application_date, :mortgage_written_commitment_date, :inspection_date, :signing_date, :additional_terms)
   end
 
 end

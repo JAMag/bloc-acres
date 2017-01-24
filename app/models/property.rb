@@ -3,6 +3,7 @@ class Property < ActiveRecord::Base
   has_one :lock, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :slots, dependent: :destroy
+  has_many :appointments, through: 'slots'
   has_many :add_offers
   has_many :comments
 
@@ -25,9 +26,7 @@ class Property < ActiveRecord::Base
 
   end
 
-def add_offer
-  @add_offer = Property.Add_Offer[params: id]
-end
+
 
 
 

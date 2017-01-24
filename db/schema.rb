@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115024854) do
+ActiveRecord::Schema.define(version: 20170110022049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20161115024854) do
     t.datetime "inspection_date"
     t.datetime "signing_date"
     t.text     "additional_terms"
+    t.integer  "property_id"
   end
 
   create_table "advertisements", force: :cascade do |t|
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20161115024854) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "avatar"
+    t.integer  "price"
   end
 
   add_index "appointments", ["slot_id"], name: "index_appointments_on_slot_id", using: :btree
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 20161115024854) do
     t.integer  "lot"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "showcase"
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree

@@ -11,6 +11,8 @@ class PropertiesController < ApplicationController
     else
       @properties = Property.all
     end
+    gon.property_coordinates = @properties.map{|p|{lat: p.latitude, lng: p.longitude}}
+
   end
 
 
@@ -87,6 +89,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-    params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :baths, :beds, :sqft, :lot, :price, :lock, {photos: []})
+    params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :baths, :beds, :sqft, :lot, :price, :lock, :showcase, {photos: []})
   end
 end

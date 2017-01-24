@@ -2,7 +2,8 @@
 <html>
 
 <head>
-  <title>Moverable</title>
+  <title><%= @title || "Default Page Title" %></title>
+  <%= Gon::Base.render_data %>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -14,13 +15,14 @@
   <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
 
+
 </head>
 
 <body>
 
 <%= render partial: 'layouts/navbar' %>
 
-    <div class="container-fluid">
+
 
 
       <% if flash[:notice] %>
@@ -43,7 +45,7 @@
       <%= yield %>
 
 
-    </div>
+
 
 
 </body>

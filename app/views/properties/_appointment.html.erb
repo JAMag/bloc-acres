@@ -1,51 +1,72 @@
+<% if p.appointments.any? %>
 
-<div id="appointments" class="col-md-4">
+    <table class="table table-striped">
 
-  <h3>
-    Bookings
-  </h3>
-  <% if slot = p.booked_by_user?(current_user) %>
+        <thead>
+        <tr>
+            <th class="user"><h4>User</h4></th>
+            <th class="navigate"><h4>Navigate</h4></th>
+            <th class="time"><h4>Time</h4></th>
+            <th class="date"><h4>Date</h4></th>
+            <th class="enter"><h4>Enter</h4></th>
+            <th class="exit"><h4>Exit</h4></th>
+            <th class="report"><h4>Secure</h4></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% p.appointments.each do |a| %>
+            <% if a.user == current_user %>
 
-      <div>
-        <%= link_to [slot.property, slot, slot.appointment], class: 'btn btn-danger btn-block', method: :delete do %>
-            <span class="glyphicon glyphicon-time"></span>
-            <%= slot.start_time.strftime("%-I:%M%p %B %-d, %Y") %>
-            <div>
-              by <%= slot.appointment.user.name %>
-            </div>
-            <%= image_tag(slot.appointment.user.avatar.url, class: "profile-round-small") %>
-        <% end %>
-      </div>
-
-      <div class="btn btn-success btn-block">
-        <%= link_to 'Go to Appointment', [slot.property, slot, slot.appointment]  %>
-        <div>
-            <span class="glyphicon glyphicon-time"></span>
-            <%= slot.start_time.strftime("%-I:%M%p %B %-d, %Y") %>
-            <div>
-                by <%= slot.appointment.user.name %>
-            </div>
-            <%= image_tag(slot.appointment.user.avatar.url, class: "profile-round-small") %>
-        </div>
-      </div>
-  <% end %>
-  <div>
-    <% if p.user == current_user %>
-    <% p.slots.each do |s| %>
-        <% if s.appointment %>
-            <div>
-              <%= link_to [s.property, s, s.appointment], class: 'btn btn-danger btn-block', method: :delete do %>
-                  <span class="glyphicon glyphicon-time"></span>
-                  <%= s.start_time.strftime("%-I:%M%p %B %-d, %Y") %>
-                  <div>
-                    by <%= s.appointment.user.name %>
+                <tr>
+                  <td>  <%= image_tag(a.user.avatar.url, class: "profile-round-small") %></td>
+                  <div class="btn-group btn-block">
+                    <td>
+                      <%= link_to [a.slot.property, a.slot, a], class: 'btn btn-danger btn-block', method: :delete do %>
+                          Delete Viewing
+                      <% end %>
+                      <%= link_to 'Start Viewing', [a.slot.property, a.slot, a], class: 'btn btn-success btn-block' %>
+                    </td>
                   </div>
-                  <%= image_tag(s.appointment.user.avatar.url, class: "profile-round-small") %>
-              <% end %>
-            </div>
-        <% end %>
-    <% end %>
-    <% end %>
-  </div>
 
-</div>
+                  <td><%= a.slot.start_time.strftime("%-I:%M%p") %></td>
+                  <td><%= a.slot.start_time.strftime("%B %-d, %Y") %></td>
+                  <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                  <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                  <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                </tr>
+
+            <% end %>
+        <% end %>
+
+        <% if p.user == current_user %>
+            <% p.appointments.each do |appointment| %>
+                <% if appointment.user != current_user %>
+
+
+                    <tr>
+                      <td><%= image_tag(appointment.user.avatar.url, class: "profile-round-small") %></td>
+
+                      <td><%= link_to [appointment.slot.property, appointment.slot, appointment], class: 'btn btn-danger btn-block', method: :delete do %>
+                              Delete Tour
+                      <% end %></td>
+                      <td><%= appointment.slot.start_time.strftime("%-I:%M%p") %></td>
+                      <td><%= appointment.slot.start_time.strftime("%B %-d, %Y") %></td>
+                      <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                      <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                      <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        <% end %>
+
+
+
+
+        </tbody>
+
+    </table>
+<% else %>
+    <div>
+      <p>You've got no appointments.</p>
+    </div>
+<% end %>

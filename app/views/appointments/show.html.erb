@@ -1,39 +1,64 @@
 
 
-<div class="well well-lg">
-  <center>
-    <h1>Start Appointment</h1>
+<div class="appointment-show">
+    <div class="row">
+  <h4>Today: <%= Time.now.strftime("%m-%d-%Y") %> </h4>
+    </div>
+    <div class="row">
+      <h4>Appointment: <%= @slot.start_time.strftime("%m-%d-%Y %I:%M%p") %></h4>
+    </div>
+    <div class="row">
+      <h4> Duration: 1 Hour</h4>
+    </div>
+  <div class="timer">
+    <br />
+    <br />
+    <p></p>
+  </div>
+
     <%=@lock%>
-    <div>
-      <%= link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn', id: 'start_show' %>
+    <div class="row">
+<%#=link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'start_show' %>
+      <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
+          <%= f.hidden_field :avatar %>
+
+          <%= f.submit 'Press here to take photo and start showing', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
+
+      <% end %>
+      </div>
+  <br />
+      <div class="row">
+      <%= link_to "Press here to end showing", property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'end_show' %>
     </div>
-
-
-    <div>
-      <%= link_to "end showing", property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn', id: 'end_show' %>
+    <br />
+  <br />
+    <div class="row">
+      <a class="btn btn-warning btn-block" type="button" href="tel:+11111111">Panic</a>
     </div>
-    <div>
-      <a class="btn btn-success" type="button" href="tel:+178142067833">Panic</a>
-    </div>
+    <br />
+    <br />
 
 
-  </center>
+
 
     <!--
       Ideally these elements aren't created until it's confirmed that the
       client supports video/camera, but for the sake of illustrating the
       elements involved, they are created with markup (not JavaScript)
     -->
-    <div class="panel">
-      <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
-          <%= f.hidden_field :avatar %>
-
-          <%= f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
-
-    <% end %>
+    <div class="video">
 
 
-        <video id="video" width="640" height="480" autoplay></video>
+
+        <video id="video" width="640" height="480" autoplay>
+
+          <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
+              <%= f.hidden_field :avatar %>
+
+              <%= f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
+
+          <% end %>
+        </video>
 
         <canvas id="canvas" width="640" height="480"></canvas>
     </div>
@@ -48,6 +73,28 @@
 
 
 <script>
+
+
+
+
+  // clock jquery
+  $(document).ready(function(){
+      function getdate(){
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          if(s<10){
+              s = "0"+s;
+          }
+
+          $("p").text(h+" : "+m+" : "+s);
+          setTimeout(function(){getdate()}, 500);
+      }
+
+      $("#snap").click(getdate);
+  });
+
     // Grab elements, create settings, etc.
     var video = document.getElementById('video');
 

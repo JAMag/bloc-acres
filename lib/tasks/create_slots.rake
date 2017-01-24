@@ -1,4 +1,4 @@
-  desc ''
+  desc 'creates slots'
   task :create_slots => :environment do
     start = Time.now.in_time_zone.beginning_of_week + 9.hours
       Property.all.each do |p|
