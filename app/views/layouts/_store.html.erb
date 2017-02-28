@@ -15,11 +15,13 @@
                 <p><%= product.description %></p>
               </div>
               <div>
+                <a href="/cart/<%= product.id %>" style="text-decoration:none;">
                 <div class="btn btn-default btn-block">
                   <h3><%= number_to_currency(product.price, :unit => '$')%></h3>
-                  <a href="/cart/<%= product.id %>"> Add To Cart </a>
+                  Add To Cart
                   <span class="glyphicon glyphicon-shopping-cart" style="vertical-align:middle"></span>
                 </div>
+                </a>
               </div>
 
             </div>
@@ -29,7 +31,7 @@
       <div>
 
         <% if @cart.empty? %>
-            <b>Your Cart is empty</b>
+            <b>Cart is empty</b>
         <% else %>
             <%= link_to 'Empty Your Cart', cart_clear_path %>
         <% end %>

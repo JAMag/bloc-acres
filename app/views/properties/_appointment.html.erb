@@ -7,7 +7,7 @@
             <th class="user"><h4>User</h4></th>
             <th class="navigate"><h4>Navigate</h4></th>
             <th class="time"><h4>Time</h4></th>
-            <th class="date"><h4>Date</h4></th>
+            <th id="date"><h4>Date</h4></th>
             <th class="enter"><h4>Enter</h4></th>
             <th class="exit"><h4>Exit</h4></th>
             <th class="report"><h4>Secure</h4></th>
@@ -24,7 +24,7 @@
                       <%= link_to [a.slot.property, a.slot, a], class: 'btn btn-danger btn-block', method: :delete do %>
                           Delete Viewing
                       <% end %>
-                      <%= link_to 'Start Viewing', [a.slot.property, a.slot, a], class: 'btn btn-success btn-block' %>
+                      <%= link_to 'Start Viewing', [a.slot.property, a.slot, a], class: 'btn btn-success btn-block', target: :_blank %>
                     </td>
                   </div>
 

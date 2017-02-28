@@ -1,5 +1,5 @@
-<% @title="Moverable | Edit User" %>
-  <div id="signup" class="marquee">
+
+
   <div class="stick col-md-4 col-md-offset-4">
 
 
@@ -11,9 +11,7 @@
     </div>
 
     <div>
-      <h5>People in the market for real estate are wasting tens of thousands in real estate agent fees.</h5>
-      <h4>Update User.</h4>
-      <h5>Moverable saves you thousands.</h5>
+
       <% if current_user.avatar.url.present? %>
           <%= image_tag(current_user.avatar.url, :class => "profile-round") %>
       <% else %>
@@ -55,8 +53,8 @@
             <%= f.hidden_field :avatar_cache %>
 
             <div>
-                <% f.label :current_password %>
-                <%= f.password_field :current_password, class: 'form-control', placeholder: 'Password to confirm changes', autocomplete: "off" %>
+              <% f.label :current_password %>
+              <%= f.password_field :current_password, class: 'form-control', placeholder: 'Password to confirm changes', autocomplete: "off" %>
             </div>
             <%= f.submit 'Update User', class: 'btn btn-lg btn-primary btn-block'  %>
             <div class="form-group">
@@ -68,4 +66,4 @@
     </div>
 
   </div>
-</div>
+

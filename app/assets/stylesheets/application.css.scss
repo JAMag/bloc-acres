@@ -6,9 +6,14 @@
 @import "custom_calendar";
 @import "custom_carrierwave";
 @import "welcome";
+@import "properties";
+@import "form";
+@import "timepicker";
 
 
-
+.well {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3)!important;
+}
 
 @media (max-width: 768px) {
   .nav>li {
@@ -49,6 +54,7 @@
 
 .progress {
   height: 40px;
+  background-color: transparent;
 }
 
 
@@ -213,7 +219,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   border-color: white;
   border-style: none;
   padding: 20px;
-
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .panel-default-offer-inner{
@@ -257,7 +263,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   min-height: 120px;
   max-height: 120px;
   text-align: center;
-
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .panel-heading {
@@ -282,6 +288,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   border-color: white;
   border-style: solid;
   border-width: 1px 0px 0px 0px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .nav-tabs > li > a:hover {
@@ -351,12 +358,13 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   border-color: white;
   border-style: solid;
   border-width: 1px 0px 0px 0px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .btn {
 
   background: rgba(100, 104, 104, 0.2);
-  color: #F2F2F2;
+  color: white;
   border-radius: 8px 8px;
   border-color: white;
   border-style: solid;
@@ -665,6 +673,7 @@ header {
   margin-bottom: 5px;
   margin-top: 5px;
   border-radius: 8px 8px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 select {
@@ -852,6 +861,7 @@ div.title {
   border-style: solid;
   border-color: black;
   text-align: center;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 div.c-wrapper{
@@ -1123,6 +1133,7 @@ section {
   padding: 30px 0;
   border-radius: 20px;
   position: relative;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .dl:before {
@@ -1243,4 +1254,78 @@ section {
 
 .appointment-show {
   text-align: center;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+  z-index: 1;
+  position: absolute;
+  display: block;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+#create_listing {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .btn {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3) !important;
+  }
+
+}
+
+#property_show {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-style: solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  border-width: 1px;
+  vertical-align: middle;
+}
+
+#search_structure {
+  padding: 5px;
+
+  width: 100%;
+}
+#search_price {
+  padding: 2.5px;
+
+  width: 45%;
+}
+#search_beds {
+  padding: 2.5px;
+
+  width: 45%;
+}
+#search_baths {
+  padding: 2.5px;
+
+  width: 45%;
+}
+
+.form-id {
+  #search-field {
+    padding: 2px;
+  }
+}
+
+#search-toggle:active {
+  color: white;
+  background-color: rgba(248, 80, 50, 0.2);
+  border-bottom-color: white;
+  border-bottom-style: solid;
+}
+
+#appointment-show {
+    margin: 20px;
+  }
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: auto;
 }

@@ -1,4 +1,4 @@
-<% @title="Create Property" %>
+<% @title="Moverable | Create Property" %>
 <div class="container">
   <div class="well well-property-create">
     <h3>Create Your Listing</h3>
@@ -49,37 +49,48 @@
 
                 <div class="panel-default">
                   <div class="form-group">
-                    <img id="img_prev" />
-                     <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL(this)' %>
+                    <div class="photo-upload-info">
+                      <img id="img_prev" />
                       <p>Drag a photo of the front of your house here.</p>
-                      <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                      <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
+                    </div>
+
+                     <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL(this)' %>
 
                     <hr>
                   </div>
 
-
-
                 </div>
+
                 <div class="panel-default">
                   <div class="form-group">
+                    <div class="photo-upload-info">
                     <img id="img_prev1"/>
-                     <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL1(this)' %>
+                      <p>Drag a photo of the back of your house here.</p>
+                      <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
                   </div>
-                  <p>Drag a photo of the back of your house here.</p>
-                  <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                    <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL1(this)' %>
+
                   <hr>
+                  </div>
                 </div>
+
                 <div class="panel-default">
 
                   <form>
                   </form>
                   <div class="form-group">
+                    <div class="photo-upload-info">
                     <img id="img_prev2"/>
-                     <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL2(this)' %>
-                  </div>
-                  <p>Drag a photo of the side of your house here.</p>
-                  <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                      <p>Drag a photo of the side of your house here.</p>
+                      <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
 
+                  </div>
+                    <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL2(this)' %>
+
+                </div>
                 </div>
             </div>
           </div>
@@ -104,20 +115,27 @@
                 <%= p.text_area :description, class: 'form-control', placeholder: "Description", :required => true %>
               <div class="panel-default">
                 <div class="form-group">
+                  <div class="photo-upload-info">
                   <img id="img_prev3"/>
-                   <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL3(this)' %>
+                    <p>Drag a photo of the unique aspect of the house that you like right here.</p>
+                    <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
                 </div>
-                <p>Drag a photo of the unique aspect of the house that you like right here.</p>
-                <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                  <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL3(this)' %>
+                  </div>
+
                 <hr>
               </div>
               <div class="panel-default">
                 <div class="form-group">
+                  <div class="photo-upload-info">
                   <img id="img_prev4"/>
-                   <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL4(this)' %>
+                    <p>If you have more than one photo of that unique aspect, drag it here.</p>
+                    <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
                 </div>
-                <p>If you have more than one photo of that unique aspect, drag it here.</p>
-                <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                  <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL4(this)' %>
+                  </div>
 
               </div>
             </div>
@@ -151,29 +169,41 @@
           </H4>
             <div class="panel-default">
               <div class="form-group">
+                <div class="photo-upload-info">
                 <img id="img_prev5"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL5(this)' %>
+                  <p>Drag a photo of your bathroom here.</p>
+                  <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
               </div>
-              <p>Drag a photo of your bathroom here.</p>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL5(this)' %>
+                </div>
+
               <hr>
             </div>
+
             <div class="panel-default">
               <div class="form-group">
+                <div class="photo-upload-info">
                 <img id="img_prev6"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL6(this)' %>
+                  <p>Drag a second photo of your bathroom here.</p>
+                  <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
               </div>
-              <p>Drag a second photo of your bathroom here.</p>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL6(this)' %>
+                </div>
+
               <hr>
             </div>
             <div class="panel-default">
               <div class="form-group">
-                <img id="img_prev7"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL7(this)' %>
+                <div class="photo-upload-info">
+                    <img id="img_prev7"/>
+                    <p>Bathrooms are important! Drag a third photo of your bathroom here.</p>
+                    <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+                </div>
+                <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL7(this)' %>
               </div>
-              <p>Bathrooms are important! Drag a third photo of your bathroom here.</p>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+
             </div>
           </div>
 
@@ -195,42 +225,58 @@
 
             <div class="panel-default">
               <div class="form-group">
+                <div class="photo-upload-info">
                 <img id="img_prev8"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL8(this)' %>
+                  <p>Drag a photo of your master bedroom here.</p>
+                  <div class="alert alert-info fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Tip!</strong>(Your master bedroom is likely to be where the owner of the home sleeps... generally, it is the largest bedroom).
+                  </div>
+                  <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
+                </div>
+                    <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL8(this)' %>
               </div>
-              <p>Drag a photo of your master bedroom here.</p>
-              <div class="alert alert-info fade in">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Tip!</strong>(Your master bedroom is likely to be where the owner of the home sleeps... generally, it is the largest bedroom).
-              </div>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+
               <hr>
             </div>
             <div class="panel-default">
               <div class="form-group">
+                <div class="photo-upload-info">
                 <img id="img_prev9"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL9(this)' %>
+                  <p>Drag a photo of your second bedroom here.</p>
+                  <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
+                </div>
+                    <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL9(this)' %>
               </div>
-              <p>Drag a photo of your second bedroom here.</p>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+
               <hr>
             </div>
             <div class="panel-default">
               <div class="form-group">
+                <div class="photo-upload-info">
                 <img id="img_prev10"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL10(this)' %>
+                  <p>If you have another photo of your second bedroom drag it here.</p>
+                  <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
+                </div>
+                    <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL10(this)' %>
               </div>
-              <p>If you have another photo of your second bedroom drag it here.</p>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+
               <hr>
             </div>
             <div class="panel-default">
               <div class="form-group">
+                <div class="photo-upload-info">
                 <img id="img_prev11"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL11(this)' %>
+                  <p>Drag a photo of your third bedroom here.</p>
+                  <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
+                </div>
+                    <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL11(this)' %>
               </div>
-              <p>Drag a photo of your third bedroom here.</p>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+
 
             </div>
 
@@ -247,14 +293,18 @@
           </H4>
             <div class="panel-default">
               <div class="form-group">
+                <div class="photo-upload-info">
                 <img id="img_prev12"/>
-                 <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL12(this)' %>
+                  <p>Do you have a picture of the yard surrounding your house? Perhaps a lovely garden, a pool, or firepit? If so, drag your photo of that here.</p>
+                  <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
 
-              <p>Do you have a picture of the yard surrounding your house? Perhaps a lovely garden, a pool, or firepit? If so, drag your photo of that here.</p>
-              <span class= "glyphicon glyphicon-camera" style="color:black"></span>
+                </div>
+                <%= p.file_field :photos, multiple: true, class: 'btn btn-success', onchange:'readURL12(this)' %>
+
+
+              </div>
             </div>
-          </div>
-            </div>
+        </div>
 
           <% if @property.photos? %>
               <div class="form-group">

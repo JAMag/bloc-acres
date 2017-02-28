@@ -1,71 +1,81 @@
+<div class="well" id="appointment-show">
 
+    <div class="appointment-show">
+      <div class="container-fluid">
+        <div class="well">
+            <div class="row">
+          <p>Today: <%= Time.now.strftime("%m-%d-%Y") %> </p>
+              <hr />
+            </div>
 
-<div class="appointment-show">
-    <div class="row">
-  <h4>Today: <%= Time.now.strftime("%m-%d-%Y") %> </h4>
-    </div>
-    <div class="row">
-      <h4>Appointment: <%= @slot.start_time.strftime("%m-%d-%Y %I:%M%p") %></h4>
-    </div>
-    <div class="row">
-      <h4> Duration: 1 Hour</h4>
-    </div>
-  <div class="timer">
-    <br />
-    <br />
-    <p></p>
-  </div>
-
-    <%=@lock%>
-    <div class="row">
-<%#=link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'start_show' %>
-      <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
-          <%= f.hidden_field :avatar %>
-
-          <%= f.submit 'Press here to take photo and start showing', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
-
-      <% end %>
+            <div class="row">
+              <p>Appointment: <%= @slot.start_time.strftime("%m-%d-%Y %I:%M%p") %></p>
+            </div>
+          <hr />
+            <div class="row">
+              <p> Duration: 1 Hour</p>
+              <hr />
+            </div>
+            <div class="row">
+              <div class="timer">
+                <br />
+                <br />
+                <p></p>
+              </div>
+            </div>
+        </div>
       </div>
-  <br />
-      <div class="row">
-      <%= link_to "Press here to end showing", property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'end_show' %>
-    </div>
-    <br />
-  <br />
-    <div class="row">
-      <a class="btn btn-warning btn-block" type="button" href="tel:+11111111">Panic</a>
-    </div>
-    <br />
-    <br />
 
-
-
-
-    <!--
-      Ideally these elements aren't created until it's confirmed that the
-      client supports video/camera, but for the sake of illustrating the
-      elements involved, they are created with markup (not JavaScript)
-    -->
-    <div class="video">
-
-
-
-        <video id="video" width="640" height="480" autoplay>
-
+        <%=@lock%>
+        <div class="row">
+    <%#=link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'start_show' %>
           <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
               <%= f.hidden_field :avatar %>
 
-              <%= f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
+              <%= f.submit 'Press here to take photo and start showing', :class => 'btn btn-primary btn-block', :id=>'snap',  accept:"image/*;capture=camera",:style =>'padding:20px;'%>
 
           <% end %>
-        </video>
 
-        <canvas id="canvas" width="640" height="480"></canvas>
+          </div>
+          <div class="row">
+          <%= link_to "Press here to end showing", property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn btn-danger btn-block', id: 'end_show',:style =>'padding:20px;' %>
+        </div>
+        <br />
+      <br />
+        <div class="row">
+          <a class="btn btn-warning btn-block" style="padding:20px;" type="button" href="tel:+11111111">Panic</a>
+        </div>
+        <br />
+        <br />
+
+
+
+
+        <!--
+          Ideally these elements aren't created until it's confirmed that the
+          client supports video/camera, but for the sake of illustrating the
+          elements involved, they are created with markup (not JavaScript)
+        -->
+        <div class="video">
+
+
+
+            <video id="video" width="640" height="480" autoplay>
+
+              <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
+                  <%= f.hidden_field :avatar %>
+
+                  <%= f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
+
+              <% end %>
+            </video>
+
+            <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+
     </div>
 
 </div>
-
-
 
 
 

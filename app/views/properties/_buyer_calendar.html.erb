@@ -1,33 +1,58 @@
 <div class="col-md-12">
   <div class="panel panel-default calendar-container">
 
-
     <% if slots %>
-        <%= week_calendar events: slots, number_of_weeks: 1 do |date, slots| %>
+        <%= calendar events: slots, number_of_days: 1 do |date, slots| %>
             <b><%= date.strftime("%d") %></b>
             <% if slot = @property.booked_by_user?(current_user) %>
-                <center><%= link_to "Remove", [slot.property, slot, slot.appointment], class: 'btn btn-danger', method: :delete %></center>
-                <center> Your appointment is</center>
-                <center><%= slot.start_time.strftime("%I:%M%p on %D") %></center>
+                <%= link_to "Remove", [slot.property, slot, slot.appointment], class: 'btn btn-danger', method: :delete %>
+                Your appointment is
+                <%= slot.start_time.strftime("%I:%M%p on %D") %>
             <% else %>
+
+
+
+
+
+
+                <div class="row">
+                  <div class="date-picker"  data-date="2014-02-03">
+                    <div class="date-container">
+
+
                 <% @slots.for_day(date.strftime('%Y-%m-%d')).each do |s| %>
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        <h4 class="media-heading">
-                          <center>
+
+
+
                             <%= s.starts_at.strftime("%A %I:%M%p") %>
-                            <% if !s.appointment %>
-                                <%= form_tag charges_path do %>
-                                    <%= hidden_field_tag :slot_id, s.id %>
-                                    <%= hidden_field_tag :property_id, @property.id %>
-                                    <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10_00 %> data-description="Viewing"></script>
-                                <% end %>
-                            <% end %>
-                          </center>
-                        </h4>
+
+
+                          <h4 class="month">
+                            <span data-toggle="datepicker" data-method="subtract" data-type="M" class="fa fa-angle-left"></span>
+                            <span class="text"><b><%= s.starts_at.strftime("%b") %></b></span>
+                            <span data-toggle="datepicker" data-method="add" data-type="M" class="fa fa-angle-right"></span>
+                          </h4>
+                          <h4 class="date">
+                            <span data-toggle="datepicker" data-method="subtract" data-type="d" class="fa fa-angle-left"></span>
+                            <span class="text"><b><%= s.starts_at.strftime("%d") %></b></span>
+                            <span data-toggle="datepicker" data-method="add" data-type="d" class="fa fa-angle-right"></span>
+                          </h4>
+                          <h4 class="hour">
+                            <span data-toggle="datepicker" data-method="subtract" data-type="Hour" class="fa fa-angle-left"></span>
+                            <span class="text"><%= s.starts_at.strftime("%I:%M%p") %></span>
+                            <span data-toggle="datepicker" data-method="add" data-type="Hour" class="fa fa-angle-right"></span>
+                          </h4>
+                          <div id ="timepicker_stripe" class="well">
+                            <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10_00 %> data-description="Viewing"></script>
+                          </div>
+                        </div>
                       </div>
+
                     </div>
-                <% end %>
+                          <input type="hidden" id="dateinput" name="date"></input>
+
+
+  <% end %>
             <% end %>
 
         <% end %>
@@ -42,4 +67,11 @@
   </div>
 </div>
 
+<!-- Based off the original date picker: http://bootsnipp.com/snippets/featured/simple-datepicker-with-momentjs -->
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js"></script>
 

@@ -31,12 +31,13 @@
                   <p class="pull-right">
                     Created at: <%= comment.created_at.strftime("%-I:%M%p %B %-d, %Y") %>
                   </p>
-                  <p class="pull-left">
-                      <% if p.user.id == current_user.id %>
-                          <%= link_to "Owner May Delete Comment", [comment.property, comment ], method: :delete %>
-                      <% end %>
-                  </p>
+
               </div>
+              <p class="pull-left">
+                <% if p.user.id == current_user.id %>
+                    <%= link_to "Owner May Delete Comment", [comment.property, comment ], class: "btn btn-danger btn-block", method: :delete %>
+                <% end %>
+              </p>
 
             </div>
 

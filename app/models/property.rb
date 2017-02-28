@@ -27,6 +27,10 @@ class Property < ActiveRecord::Base
   end
 
 
+  def monthly_payment
+    (((price.to_i)*(0.06 / 12)) / (1-(1+ 0.06 / 12)**(360 * -1))).round
+  end
+
 
 
 

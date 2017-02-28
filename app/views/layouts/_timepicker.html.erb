@@ -1,0 +1,32 @@
+<!-- Based off the original date picker: http://bootsnipp.com/snippets/featured/simple-datepicker-with-momentjs -->
+
+
+  <div class="row">
+      <div class="date-picker"  data-date="2014-02-03">
+        <div class="date-container">
+          <h4 class="month">
+            <span data-toggle="datepicker" data-method="subtract" data-type="M" class="fa fa-angle-left"></span>
+            <span class="text">December</span>
+            <span data-toggle="datepicker" data-method="add" data-type="M" class="fa fa-angle-right"></span>
+          </h4>
+          <h4 class="date">
+            <span data-toggle="datepicker" data-method="subtract" data-type="d" class="fa fa-angle-left"></span>
+            <span class="text">17th</span>
+            <span data-toggle="datepicker" data-method="add" data-type="d" class="fa fa-angle-right"></span>
+          </h4>
+          <h4 class="hour">
+            <span data-toggle="datepicker" data-method="subtract" data-type="Hour" class="fa fa-angle-left"></span>
+            <span class="text">"12:00"</span>
+            <span data-toggle="datepicker" data-method="add" data-type="Hour" class="fa fa-angle-right"></span>
+          </h4>
+          <div id ="timepicker_stripe" class="well">
+            <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10_00 %> data-description="Viewing"></script>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+<input type="hidden" id="dateinput" name="date"></input>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js"></script>

@@ -1,14 +1,14 @@
 <% if user_signed_in? %>
     <div class="favorite">
       <% if favorite = current_user.favorited(p) %>
-          <%= link_to [p, favorite], class: 'btn btn-danger', method: :delete do %>
+          <%= link_to [p, favorite], class: 'btn btn-danger btn-block', method: :delete do %>
               <span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span>
               Delete Favorite
           <% end %>
 
 
       <% else %>
-          <%= link_to [p, Favorite.new], class: 'btn btn-primary', method: :post do %>
+          <%= link_to [p, Favorite.new], class: 'btn btn-primary btn-block', method: :post do %>
               <span class="glyphicon glyphicon-heart-empty" style="vertical-align:middle"></span>
               Favorite
           <% end %>
