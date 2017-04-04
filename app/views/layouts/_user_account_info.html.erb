@@ -1,13 +1,13 @@
 
 
 
-<div>
+<div id="account-info" class="container-fluid">
   <div class="well well-xl">
-    <%= render partial: 'devise/registrations/edit' %>
+
     <div class="well well-sm">
       <h4>User Account Information</h4>
     </div>
-    <div class="well well-sm">
+    <div class="well">
       <div class="row">
         <p> Name: <%= current_user.name %></p>
       </div>
@@ -46,6 +46,7 @@
       <div class="row">
         <p> Other owner info: Jane Doe</p>
       </div>
+
     </div>
 
   </div>

@@ -43,6 +43,10 @@ class AppointmentsController < ApplicationController
 
   def new
 
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   def edit
@@ -53,7 +57,7 @@ class AppointmentsController < ApplicationController
     #check that current_user is correct user
     @appointment = Appointment.find(params[:appointment_id])
     @lock = @appointment.slot.property.lock
-    response = @lock.unlock(slot)
+    #response = @lock.unlock(slot)
 
     message=check_time_and_location(@appointment)
     if message

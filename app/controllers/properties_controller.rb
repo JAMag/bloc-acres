@@ -24,6 +24,12 @@ class PropertiesController < ApplicationController
     @comments = Comment.where(property_id: @property).order("created_at DESC")
 
 
+    @has_slots = @property.slots.future.map{|slot| slot.start_time.strftime('%y%m%d-%I%P')}
+
+    @booked_appointments = @property.appointments.map(&:slot).map{|slot| slot.start_time.strftime('%y%m%d-%I%P')}
+logger.info " SLOTS #{@property.appointments.map(&:slot).inspect}"
+    gon.push({booked_appointments: @booked_appointments})
+    gon.push({has_slots: @has_slots})
   end
 
   def edit

@@ -119,7 +119,7 @@ body {
 }
 
 .glyphicon {
-  font-size: 25px;
+
 }
 
 
@@ -139,12 +139,13 @@ body {
 
 
 .navbar {
-  min-height: 100px; //* or whatever height you require
-  background: rgba(100, 104, 104, .5);
+  min-height: 50px;
+  background: rgba(100, 104, 104, 0.5);
   affix: top;
   padding: 10px;
   text-align: center;
   margin-bottom: 0px;
+  max-height: 62px;
 }
 
 .nav-wrapper
@@ -232,10 +233,18 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
   padding: 20px;
   max-height: 400px;
   overflow-y: scroll;
-  .p {
+  p {
     font-size: 14px !important;
   }
-
+    h3 {
+      text-align: center;
+      padding: 10px;
+    }
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    margin-top: 10px;
+  }
 }
 
 .panel-default-offer{
@@ -1328,4 +1337,44 @@ section {
 a:-webkit-any-link {
   text-decoration: none;
   cursor: auto;
+}
+
+
+#account-info {
+  text-align: center;
+}
+
+
+
+
+.carousel-inner .active.left { left: -33%; }
+.carousel-inner .next        { left:  33%; }
+.carousel-inner .prev        { left: -33%; }
+.carousel-control.left,.carousel-control.right {background-image:none;}
+.item:not(.prev) {visibility: visible;}
+.item.right:not(.prev) {visibility: hidden;}
+.rightest{ visibility: visible;}
+
+
+//loader for buying viewing
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 4s linear infinite;
+  position: fixed;
+  z-index: 999;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

@@ -4,13 +4,13 @@
 
         <thead>
         <tr>
-            <th class="user"><h4>User</h4></th>
+            <th class="hidden-xs hidden-sm"><h4>User</h4></th>
             <th class="navigate"><h4>Navigate</h4></th>
             <th class="time"><h4>Time</h4></th>
             <th id="date"><h4>Date</h4></th>
-            <th class="enter"><h4>Enter</h4></th>
-            <th class="exit"><h4>Exit</h4></th>
-            <th class="report"><h4>Secure</h4></th>
+            <th class="hidden-xs hidden-sm"><h4>Enter</h4></th>
+            <th class="hidden-xs hidden-sm"><h4>Exit</h4></th>
+            <th class="hidden-xs hidden-sm"><h4>Secure</h4></th>
         </tr>
         </thead>
         <tbody>
@@ -18,21 +18,21 @@
             <% if a.user == current_user %>
 
                 <tr>
-                  <td>  <%= image_tag(a.user.avatar.url, class: "profile-round-small") %></td>
+                  <td class="hidden-xs hidden-sm">  <%= image_tag(a.user.avatar.url, class: "profile-round-small") %></td>
                   <div class="btn-group btn-block">
                     <td>
                       <%= link_to [a.slot.property, a.slot, a], class: 'btn btn-danger btn-block', method: :delete do %>
                           Delete Viewing
                       <% end %>
-                      <%= link_to 'Start Viewing', [a.slot.property, a.slot, a], class: 'btn btn-success btn-block', target: :_blank %>
+                      <%= link_to 'Start Viewing', [a.slot.property, a.slot, a], class: 'btn btn-primary btn-block', target: :_blank %>
                     </td>
                   </div>
 
                   <td><%= a.slot.start_time.strftime("%-I:%M%p") %></td>
                   <td><%= a.slot.start_time.strftime("%B %-d, %Y") %></td>
-                  <td><span class="fa fa-check-circle-o fa-3x"></span></td>
-                  <td><span class="fa fa-check-circle-o fa-3x"></span></td>
-                  <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                  <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
+                  <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
+                  <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
                 </tr>
 
             <% end %>
@@ -44,16 +44,16 @@
 
 
                     <tr>
-                      <td><%= image_tag(appointment.user.avatar.url, class: "profile-round-small") %></td>
+                      <td class="hidden-xs hidden-sm"><%= image_tag(appointment.user.avatar.url, class: "profile-round-small") %></td>
 
                       <td><%= link_to [appointment.slot.property, appointment.slot, appointment], class: 'btn btn-danger btn-block', method: :delete do %>
                               Delete Tour
                       <% end %></td>
                       <td><%= appointment.slot.start_time.strftime("%-I:%M%p") %></td>
                       <td><%= appointment.slot.start_time.strftime("%B %-d, %Y") %></td>
-                      <td><span class="fa fa-check-circle-o fa-3x"></span></td>
-                      <td><span class="fa fa-check-circle-o fa-3x"></span></td>
-                      <td><span class="fa fa-check-circle-o fa-3x"></span></td>
+                      <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
+                      <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
+                      <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
                     </tr>
                 <% end %>
             <% end %>

@@ -19,14 +19,40 @@
             <span class="text">"12:00"</span>
             <span data-toggle="datepicker" data-method="add" data-type="Hour" class="fa fa-angle-right"></span>
           </h4>
-          <div id ="timepicker_stripe" class="well">
-            <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10_00 %> data-description="Viewing"></script>
+          <div id="" class="well">
+            <div class="timepicker_stripe">
+                <% @slots.each do |s| %>
+
+
+
+
+
+                        <%= form_tag(charges_path, remote: true, class: "#{s.start_time.strftime('%y%m%-d-%I%P')}", style: "display: none;") do %>
+                            <%= hidden_field_tag :slot_id, s.id %>
+                            <%= hidden_field_tag :property_id, @property.id %>
+                            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                            <input type="hidden" id="dateinput" name="date" value="DateTime" >
+
+                        <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10_00 %> data-description="Viewing"></script>
+
+                        <% end %>
+
+
+
+                <% end %>
+            </div>
+
           </div>
         </div>
       </div>
 
   </div>
 
-<input type="hidden" id="dateinput" name="date"></input>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js"></script>
+
+
+
+
+
+

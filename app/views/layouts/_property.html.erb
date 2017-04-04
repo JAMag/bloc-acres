@@ -1,7 +1,7 @@
 
 <div class="">
   <ul class="nav nav-tabs" id="myTab">
-    <li><a data-toggle="tab" href="#home<%= p.id %>">Details: <%=p.address %> <i class="fa fa-folder-open" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#home<%= p.id %>"> <%=p.address %> <i class="fa fa-folder-open" aria-hidden="true"></i></a></li>
     <li><a data-toggle="tab" href="#appointment<%= p.id %>">Showing Appointments <i class="fa fa-clock-o" aria-hidden="true"></i></a></li>
     <li><a data-toggle="tab" href="#schedule<%= p.id %>">Schedule <i class="fa fa-calendar" aria-hidden="true"></i></a></li>
     <li><a data-toggle="tab" href="#marketing<%= p.id %>">Marketing <i class="fa fa-users" aria-hidden="true"></i></a></li>
@@ -52,7 +52,7 @@
                 <hr>
                 <%= p.description %>
                 <hr>
-                <h4> <%= link_to 'Edit Listing', edit_property_path(p), class: 'btn btn-success btn-block'%></h4>
+                <h4> <%= link_to 'Edit Listing', edit_property_path(p), class: 'btn btn-primary btn-block'%></h4>
               </div>
             </div>
 
