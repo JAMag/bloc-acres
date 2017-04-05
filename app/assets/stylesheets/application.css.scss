@@ -993,12 +993,24 @@ div.c-wrapper{
 #signup {
   background-color: #499b7e;
   padding: 50px;
+  background-image: url("stonehouse.jpg");
 }
 
 #welcomethird{
   background-color: cadetblue;
   padding: 50px;
   text-align: center;
+}
+
+#welcomefourth {
+  background-color: #62529b;
+  padding: 50px;
+  background-image: url("Aspen1.jpg");
+  background-size: 100% auto;
+}
+#welcomefifth {
+  background-color: #9b6c6e;
+  padding: 50px;
 }
 
 .navbar .navbar-nav {
@@ -1272,6 +1284,7 @@ section {
   z-index: 1;
   position: absolute;
   display: block;
+  width: 100%;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -1382,4 +1395,66 @@ a:-webkit-any-link {
 /// pagination
 #search_pagination {
   text-align: center;
+}
+
+///blur effect welcome page
+.bmenu{
+  padding: 0px;
+  margin: 0 0 10px 0;
+  position: relative;
+}
+.bmenu li{
+  font-size: 30px;
+  display: block;
+}
+.bmenu li a{
+  white-space: nowrap;
+  color: transparent;
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0px 0px 6px #fff;
+  letter-spacing: 2px;
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  -o-transition: all 0.6s linear;
+  -ms-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+
+.bmenu:hover li a{
+  text-shadow: 0px 0px 15px #fff;
+}
+.bmenu li a:hover{
+  text-shadow: 0px 0px 1px #fff;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  background-color: rgba(188, 188, 188, 0.47);
+
+}
+
+
+///footer
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  min-height: 30px;
+  background: rgba(191, 195, 195, 0.5);
+
+    color: white;
+
+
 }
