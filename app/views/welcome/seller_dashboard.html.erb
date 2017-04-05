@@ -24,6 +24,7 @@
 
 
         <div id="buyer" class="tab-pane fade in active">
+          <%= will_paginate @favorites %>
           <% @favorites.each do |f| %>
               <% p = f.property %>
               <div class="container-fluid">
@@ -37,7 +38,7 @@
 
         <div id="seller" class="tab-pane fade in active">
           <hr>
-
+          <%= will_paginate @properties %>
 
           <% @properties.each do |p| %>
               <div class="container-fluid">

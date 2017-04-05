@@ -1,4 +1,7 @@
 class PropertiesController < ApplicationController
+  require 'will_paginate/array'
+
+
   def index
     if params[:search]
       @properties = Property.search(params[:search][:full_search], conditions: {
@@ -7,9 +10,9 @@ class PropertiesController < ApplicationController
                                         baths: params[:search][:baths],
                                         price: params[:search][:price]
                                     }
-      )
+      ).paginate(page: params[:page], per_page: 2)
     else
-      @properties = Property.all
+      @properties = Property.all.paginate(page: params[:page], per_page: 5)
     end
     gon.property_coordinates = @properties.map{|p|{lat: p.latitude, lng: p.longitude}}
 

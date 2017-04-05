@@ -31,9 +31,9 @@ class WelcomeController < ApplicationController
 
 
   def dashboard
-    @properties = current_user.properties
+    @properties = current_user.properties.paginate(page: params[:page], per_page: 1)
     @appointments = current_user.appointments
-    @favorites = current_user.favorites
+    @favorites = current_user.favorites.paginate(page: params[:page], per_page: 3)
     @comments = Comment.where(property_id: @property).order("created_at DESC")
     @products = Product.all
     @cart = cart

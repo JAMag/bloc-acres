@@ -4,24 +4,15 @@ $(document).ready(function() {
         var $datepicker = $(this),
             cur_date = ($datepicker.data('date') ? moment($datepicker.data('date'), "YYMMD-hha") : moment());
 
-       // Original isBooked (by John I believe)
-       //function isBooked(cur_date) {
-         //   console.log('In Is Booked, cur_date', cur_date.format('YYMMD-hha'));
-          // if (cur_date.format('YYMMD-hha') == gon.booked_appointments[0]){
-          //     return(true)
-         //  } else{
-          //     return (false)
-         //  }
-        //}
 
-
+        /// check to see if there is already an appointment
         function isBooked(cur_date)
         {
             console.log('In Is Booked, cur_date', cur_date.format('YYMMD-hha'));
             var count=gon.booked_appointments.length;
             for(var i=0;i<count;i++)
             {
-                if(gon.has_slots[i]===cur_date.format('YYMMDD-hha')){return true;}
+                if(gon.booked_appointments[i]===cur_date.format('YYMMDD-hha')){return true;}
             }
             return false;
         }
@@ -29,7 +20,7 @@ $(document).ready(function() {
 
 
 
-        ////check to see if there is a slot available
+        ////check to see if there is a slot available (in other words, can you book an appointment)
 
         function hasSlots(cur_date)
         {
@@ -58,18 +49,26 @@ $(document).ready(function() {
 
             ////if current hours is booked, set CSS on the element to mark booked and replace booking button with 'already booked'
             if (isBooked(cur_date)) {
+
+                // has a slot, and a booked appointment, display red and hide payment button
                 $datepicker.find('.date-container > .hour').css({backgroundColor: "#f2bdb3"});
                 console.log('Booked time:', $("."+cur_date.format('YYMMD-hha')));
                 $(".timepicker_stripe").hide();
                 $("."+cur_date.format('YYMMD-hha')).siblings().hide();
                 $("."+cur_date.format('YYMMD-hha')).hide();
+
             } else if (hasSlots(cur_date)) {
+
+                // has a slot, but not an appointment, display gray and payment button
                 $datepicker.find('.date-container > .hour').css({backgroundColor: "#67bbeb" });
                 console.log('form selector', $("."+cur_date.format('YYMMD-hha')));
                 $(".timepicker_stripe").show();
                 $("."+cur_date.format('YYMMD-hha')).siblings().hide();
                 $("."+cur_date.format('YYMMD-hha')).show();
+
             }else{
+
+                //no slot or booked appointment, display gray
                 $datepicker.find('.date-container > .hour').css({backgroundColor: "#A1A3A3" });
                 $(".timepicker_stripe").hide();
             }

@@ -12,6 +12,8 @@ class Property < ActiveRecord::Base
   geocoded_by :map_address   # can also be an IP address
   before_save :geocode          # auto-fetch coordinates
 
+
+
   def map_address
     "#{address} #{city} #{state} #{zip}"
   end
