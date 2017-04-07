@@ -452,9 +452,9 @@ body {
 .marquee {
 
   top: 0;
-  height: 600px;
-  min-height: 600px;
-  max-height: 600px;
+  //height: 600px;
+  //min-height: 600px;
+  //max-height: 600px;
   width: 100%;
   background-color: rgba(210,211,196,0.73);
   z-index: 0;
@@ -1006,7 +1006,8 @@ div.c-wrapper{
   background-color: #62529b;
   padding: 50px;
   background-image: url("Aspen1.jpg");
-  background-size: 100% auto;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #welcomefifth {
   background-color: #9b6c6e;
@@ -1289,7 +1290,7 @@ section {
 }
 
 #create_listing {
-  margin-top: 10px;
+  margin-top: 40px;
   margin-bottom: 10px;
 
   .btn {
@@ -1432,12 +1433,8 @@ a:-webkit-any-link {
 }
 .bmenu li a:hover{
   text-shadow: 0px 0px 1px #fff;
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  background-color: rgba(188, 188, 188, 0.47);
+  transform: scale(.7);
+color: #000000;
 
 }
 
@@ -1457,4 +1454,12 @@ a:-webkit-any-link {
     color: white;
 
 
+}
+
+
+//// welcome modal
+.modal-content {
+  background-color: rgba(102, 178, 204, 0.78);
+  text-align: center;
+  color: white;
 }
