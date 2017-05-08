@@ -21,7 +21,7 @@ class PropertiesController < ApplicationController
 
 
   def show
-    @property = Property.find(params[:id])
+    @property = Property.friendly.find(params[:id])
     @slots = @property.slots.future
     #@addOffer= @property.addoffer
     @comments = Comment.where(property_id: @property).order("created_at DESC")
@@ -33,6 +33,7 @@ class PropertiesController < ApplicationController
 logger.info " SLOTS #{@property.appointments.map(&:slot).inspect}"
     gon.push({booked_appointments: @booked_appointments})
     gon.push({has_slots: @has_slots})
+    gon.push({property: @property})
   end
 
   def edit

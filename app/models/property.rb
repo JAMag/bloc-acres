@@ -1,4 +1,10 @@
 class Property < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :map_address, use: :slugged
+ 
+
+
   belongs_to :user
   has_one :lock, dependent: :destroy
   has_many :favorites, dependent: :destroy

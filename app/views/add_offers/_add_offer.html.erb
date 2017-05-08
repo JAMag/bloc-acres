@@ -10,6 +10,16 @@
     <div>
       <ul class="button">
         <button data-toggle="collapse" class="btn btn-primary" href="#offer<%= @property.id %>">Start Contract</button>
+        <div class="col-md-5" id="suggested_price">
+          Suggested Price:
+
+          <h4></h4>
+        </div>
+        <div class="col-md-5" >
+          Asking Price:
+
+          <h4><%=@property.price%></h4>
+        </div>
       </ul>
     </div>
 </div>
@@ -75,11 +85,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating1">
-                        <%= o.radio_button :kitchen_rating, '1' %> <%= o.label :kitchen_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :kitchen_rating, '2' %> <%= o.label :kitchen_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :kitchen_rating, '3' %> <%= o.label :kitchen_rating, "average wear and tear" %>
-                        <%= o.radio_button :kitchen_rating, '4' %> <%= o.label :kitchen_rating, "better than expected" %>
-                        <%= o.radio_button :kitchen_rating, '5' %> <%= o.label :kitchen_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :kitchen_rating_percentage, value: '15' %>
+                        <%= o.radio_button :kitchen_rating, '-1.0' %> <%= o.label :kitchen_rating, "Replace Imediatley" %>
+                        <%= o.radio_button :kitchen_rating, '-0.5' %> <%= o.label :kitchen_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :kitchen_rating, '0.0' %> <%= o.label :kitchen_rating, "average wear and tear" %>
+                        <%= o.radio_button :kitchen_rating, '0.5' %> <%= o.label :kitchen_rating, "better than expected" %>
+                        <%= o.radio_button :kitchen_rating, '1.0' %> <%= o.label :kitchen_rating, "brand new or ideal" %>
 
                       </div>
                     </div>
@@ -89,11 +100,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating2">
-                        <%= o.radio_button :bathroom_rating, '1' %> <%= o.label :bathroom_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :bathroom_rating, '2' %> <%= o.label :bathroom_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :bathroom_rating, '3' %> <%= o.label :bathroom_rating, "average wear and tear" %>
-                        <%= o.radio_button :bathroom_rating, '4' %> <%= o.label :bathroom_rating, "better than expected" %>
-                        <%= o.radio_button :bathroom_rating, '5' %> <%= o.label :bathroom_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :bathroom_rating_percentage, value: '10' %>
+                        <%= o.radio_button :bathroom_rating, '-1.0' %> <%= o.label :bathroom_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :bathroom_rating, '-0.5' %> <%= o.label :bathroom_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :bathroom_rating, '0.0' %> <%= o.label :bathroom_rating, "average wear and tear" %>
+                        <%= o.radio_button :bathroom_rating, '0.5' %> <%= o.label :bathroom_rating, "better than expected" %>
+                        <%= o.radio_button :bathroom_rating, '1.0' %> <%= o.label :bathroom_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -102,11 +114,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating3">
-                        <%= o.radio_button :windows_rating, '1' %> <%= o.label :windows_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :windows_rating, '2' %> <%= o.label :windows_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :windows_rating, '3' %> <%= o.label :windows_rating, "average wear and tear" %>
-                        <%= o.radio_button :windows_rating, '4' %> <%= o.label :windows_rating, "better than expected" %>
-                        <%= o.radio_button :windows_rating, '5' %> <%= o.label :windows_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :windows_rating_percentage, value: '5' %>
+                        <%= o.radio_button :windows_rating, '-1.0' %> <%= o.label :windows_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :windows_rating, '-0.5' %> <%= o.label :windows_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :windows_rating, '0.0' %> <%= o.label :windows_rating, "average wear and tear" %>
+                        <%= o.radio_button :windows_rating, '0.5' %> <%= o.label :windows_rating, "better than expected" %>
+                        <%= o.radio_button :windows_rating, '1.0' %> <%= o.label :windows_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -115,11 +128,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating4">
-                        <%= o.radio_button :garage_rating, '1' %> <%= o.label :garage_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :garage_rating, '2' %> <%= o.label :garage_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :garage_rating, '3' %> <%= o.label :garage_rating, "average wear and tear" %>
-                        <%= o.radio_button :garage_rating, '4' %> <%= o.label :garage_rating, "better than expected" %>
-                        <%= o.radio_button :garage_rating, '5' %> <%= o.label :garage_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :garage_rating_percentage, value: '5' %>
+                        <%= o.radio_button :garage_rating, '-1.0' %> <%= o.label :garage_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :garage_rating, '-0.5' %> <%= o.label :garage_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :garage_rating, '0.0' %> <%= o.label :garage_rating, "average wear and tear" %>
+                        <%= o.radio_button :garage_rating, '0.5' %> <%= o.label :garage_rating, "better than expected" %>
+                        <%= o.radio_button :garage_rating, '1.0' %> <%= o.label :garage_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -128,11 +142,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating5">
-                        <%= o.radio_button :roof_rating, '1' %> <%= o.label :roof_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :roof_rating, '2' %> <%= o.label :roof_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :roof_rating, '3' %> <%= o.label :roof_rating, "average wear and tear" %>
-                        <%= o.radio_button :roof_rating, '4' %> <%= o.label :roof_rating, "better than expected" %>
-                        <%= o.radio_button :roof_rating, '5' %> <%= o.label :roof_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :roof_rating_percentage, value: '10' %>
+                        <%= o.radio_button :roof_rating, '-1.0' %> <%= o.label :roof_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :roof_rating, '-0.5' %> <%= o.label :roof_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :roof_rating, '0.0' %> <%= o.label :roof_rating, "average wear and tear" %>
+                        <%= o.radio_button :roof_rating, '0.5' %> <%= o.label :roof_rating, "better than expected" %>
+                        <%= o.radio_button :roof_rating, '1.0' %> <%= o.label :roof_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -141,11 +156,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating6">
-                        <%= o.radio_button :plumbing_rating, '1' %> <%= o.label :roof_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :plumbing_rating, '2' %> <%= o.label :roof_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :plumbing_rating, '3' %> <%= o.label :roof_rating, "average wear and tear" %>
-                        <%= o.radio_button :plumbing_rating, '4' %> <%= o.label :roof_rating, "better than expected" %>
-                        <%= o.radio_button :plumbing_rating, '5' %> <%= o.label :roof_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :plumbing_rating_percentage, value: '10' %>
+                        <%= o.radio_button :plumbing_rating, '-1.0' %> <%= o.label :roof_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :plumbing_rating, '-0.5' %> <%= o.label :roof_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :plumbing_rating, '0.0' %> <%= o.label :roof_rating, "average wear and tear" %>
+                        <%= o.radio_button :plumbing_rating, '0.5' %> <%= o.label :roof_rating, "better than expected" %>
+                        <%= o.radio_button :plumbing_rating, '1.0' %> <%= o.label :roof_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -155,11 +171,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating7">
-                        <%= o.radio_button :furnace_rating, '1' %> <%= o.label :furnace_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :furnace_rating, '2' %> <%= o.label :furnace_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :furnace_rating, '3' %> <%= o.label :furnace_rating, "average wear and tear" %>
-                        <%= o.radio_button :furnace_rating, '4' %> <%= o.label :furnace_rating, "better than expected" %>
-                        <%= o.radio_button :furnace_rating, '5' %> <%= o.label :furnace_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :furnace_rating_percentage, value: '2.5' %>
+                        <%= o.radio_button :furnace_rating, '-1.0' %> <%= o.label :furnace_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :furnace_rating, '-0.5' %> <%= o.label :furnace_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :furnace_rating, '0.0' %> <%= o.label :furnace_rating, "average wear and tear" %>
+                        <%= o.radio_button :furnace_rating, '0.5' %> <%= o.label :furnace_rating, "better than expected" %>
+                        <%= o.radio_button :furnace_rating, '1.0' %> <%= o.label :furnace_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -168,11 +185,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating8">
-                        <%= o.radio_button :electric_rating, '1' %> <%= o.label :electric_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :electric_rating, '2' %> <%= o.label :electric_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :electric_rating, '3' %> <%= o.label :electric_rating, "average wear and tear" %>
-                        <%= o.radio_button :electric_rating, '4' %> <%= o.label :electric_rating, "better than expected" %>
-                        <%= o.radio_button :electric_rating, '5' %> <%= o.label :electric_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :electric_rating_percentage, value: '5' %>
+                        <%= o.radio_button :electric_rating, '-1.0' %> <%= o.label :electric_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :electric_rating, '-0.5' %> <%= o.label :electric_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :electric_rating, '0.0' %> <%= o.label :electric_rating, "average wear and tear" %>
+                        <%= o.radio_button :electric_rating, '0.5' %> <%= o.label :electric_rating, "better than expected" %>
+                        <%= o.radio_button :electric_rating, '1.0' %> <%= o.label :electric_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -181,11 +199,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating9">
-                        <%= o.radio_button :basement_rating, '1' %> <%= o.label :basement_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :basement_rating, '2' %> <%= o.label :basement_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :basement_rating, '3' %> <%= o.label :basement_rating, "average wear and tear" %>
-                        <%= o.radio_button :basement_rating, '4' %> <%= o.label :basement_rating, "better than expected" %>
-                        <%= o.radio_button :basement_rating, '5' %> <%= o.label :basement_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :basement_rating_percentage, value: '5' %>
+                        <%= o.radio_button :basement_rating, '-1.0' %> <%= o.label :basement_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :basement_rating, '-0.5' %> <%= o.label :basement_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :basement_rating, '0.0' %> <%= o.label :basement_rating, "average wear and tear" %>
+                        <%= o.radio_button :basement_rating, '0.5' %> <%= o.label :basement_rating, "better than expected" %>
+                        <%= o.radio_button :basement_rating, '1.0' %> <%= o.label :basement_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -194,11 +213,12 @@
 
                     <div class="panel panel-rating">
                       <div class="star-rating10">
-                        <%= o.radio_button :foundation_rating, '1' %> <%= o.label :foundation_rating, "Replace Immediatley" %>
-                        <%= o.radio_button :foundation_rating, '2' %> <%= o.label :foundation_rating, "Replace in the foreseable future" %>
-                        <%= o.radio_button :foundation_rating, '3' %> <%= o.label :foundation_rating, "average wear and tear" %>
-                        <%= o.radio_button :foundation_rating, '4' %> <%= o.label :foundation_rating, "better than expected" %>
-                        <%= o.radio_button :foundation_rating, '5' %> <%= o.label :foundation_rating, "brand new or ideal" %>
+                        <%= o.hidden_field :foundation_rating_percentage, value: '5' %>
+                        <%= o.radio_button :foundation_rating, '-1.0' %> <%= o.label :foundation_rating, "Replace Immediatley" %>
+                        <%= o.radio_button :foundation_rating, '-0.5' %> <%= o.label :foundation_rating, "Replace in the foreseable future" %>
+                        <%= o.radio_button :foundation_rating, '0.0' %> <%= o.label :foundation_rating, "average wear and tear" %>
+                        <%= o.radio_button :foundation_rating, '0.5' %> <%= o.label :foundation_rating, "better than expected" %>
+                        <%= o.radio_button :foundation_rating, '1.0' %> <%= o.label :foundation_rating, "brand new or ideal" %>
                       </div>
                     </div>
                   </div>
@@ -206,22 +226,23 @@
                   <div class="panel-appointment">
                     <div class="row">
                       <div class="col-md-5">
-                        Asking Price
+                        Asking Price:
                         <%= @property.price %>
                       </div>
-                      <div class="col-md-5">
-                        Suggested Price
+                      <div class="col-md-5" >
 
-                          <% offer_price = @property.price.to_f*0.8 %>
+                          <p></p><% offer_price = @property.price %>
 
-                        $<%= offer_price %>
+
 
 
                       </div>
                     </div>
 
-                    <button id="show">Calculate Suggested Offer</button>
 
+                    <div>
+
+                    </div>
 
                   </div>
 
@@ -464,8 +485,36 @@
       <% end %>
       </div>
     </div>
-  </div>
-</div>
+
+
+
+
+
+<script>
+    property_value = gon.property.price;
+
+
+  $('#new_add_offer input:radio').click(function(event){
+      var target = event.currentTarget;
+      console.log('radio name',target.name);
+      console.log('radio name value', target.value);
+      console.log('hidden', $(target).parent().find(':hidden')[0].value);
+      var value = (($(target).parent().find(':hidden')[0].value)*(target.value)*(1000));
+      console.log(value);
+
+      var full_math = ((property_value)+(value));
+      console.log('full math', (full_math));
+      property_value = full_math
+      console.log('property value', (property_value));
+
+      $( "#suggested_price h4" ).html(property_value);
+
+
+  });
+
+
+
+</script>
 
 
 

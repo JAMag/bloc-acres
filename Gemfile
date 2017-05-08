@@ -11,6 +11,7 @@ gem "httparty"
 gem 'geocoder'
 #gem 'thinking-sphinx', '~> 3.1.4'
 gem 'gon'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'will_paginate', '~> 3.1.0'
 gem 'rspec-rails'

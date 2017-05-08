@@ -213,6 +213,8 @@ GEM
     font-awesome-rails (4.7.0.0)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     geocoder (1.2.11)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -421,6 +423,7 @@ DEPENDENCIES
   figaro (= 1.0)
   flying-sphinx (= 1.2.0)
   fog (~> 1.37)
+  friendly_id (~> 5.1.0)
   geocoder
   gon
   httparty
