@@ -1,11 +1,9 @@
 <% @title="Moverable Dashboard" %>
-
+<%= render partial: 'layouts/buyer_step_wizard' %>
 <div class="container-fluid">
 
   <div>
-    <div id = "create_listing" class="well">
-      <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block btn-lg' %>
-    </div>
+
 
     <ul id="seller-dash-tabs" class="nav nav-tabs">
       <li><a data-toggle="tab" href="#buyer">Favorites <span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span></a></li>
@@ -38,6 +36,12 @@
 
         <div id="seller" class="tab-pane fade in active">
           <hr>
+          <div id = "create_listing" class="well">
+            <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block btn-lg' %>
+          </div>
+          <%= render partial: 'layouts/seller_step_wizard' %>
+
+
           <%= will_paginate @properties %>
 
           <% @properties.each do |p| %>

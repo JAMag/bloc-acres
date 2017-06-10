@@ -1,0 +1,45 @@
+<div class="">
+  <ul class="breadcrumb">
+    <li class="next-step">
+      <span>Check what you can afford, get mortgage</span>
+    </li>
+
+    <li class="<%= current_user.progress_has_favorited? ? 'active' : 'next-step' %>">
+      <span>Search and Favorite Properties</span>
+    </li>
+
+    <li class="<%= current_user.appointments.any? ? 'active' : 'next-step' %>">
+      <span>Make appointments to view (save with social media!)</span>
+    </li>
+    <li class="next-step">
+      <span>view properties</span>
+    </li>
+    <li class="<%= current_user.properties.any? ? 'active' : 'next-step' %>">
+      <span>Make offer using offer wizard</span>
+    </li>
+    <li class="next-step">
+      <span>Send offer to attorney</span>
+    </li>
+    <li class="next-step">
+      <span>Deposit Moverable Escrow</span>
+    </li>
+    <li class="next-step">
+      <span>Pick home inspector </span>
+    </li>
+    <li class="next-step">
+      <span>Review inspection results</span>
+    </li>
+    <li class="next-step">
+      <span>Have attorney renegotiate if needed</span>
+    </li>
+    <li class="next-step">
+      <span>Schedule closing </span>
+    </li>
+    <li class="next-step">
+      <span>Close</span>
+    </li>
+    <li class="next-step">
+      <span>Pick mover </span>
+    </li>
+  </ul>
+</div>

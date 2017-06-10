@@ -1,12 +1,12 @@
 class FavoritesController < ApplicationController
 
   def create
-    @property = Property.find(params[:property_id])
+    @property = Property.friendly.find(params[:property_id])
     favorite = current_user.favorites.build(property: @property)
     @user = @property.user
 
     if favorite.save
-
+      current_user.update_attribute(:progress_has_favorited, true)
       redirect_to :back, notice: "Created favorite and added to dashboard."
 
     else

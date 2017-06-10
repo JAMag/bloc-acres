@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-
+  config.action_view.embed_authenticity_token_in_remote_forms = true
 
   def index
   end
@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @property = Property.find(params[:property_id])
+    @property = Property.friendly.find(params[:property_id])
     @slot = Slot.find(params[:slot_id])
     @appointment = Appointment.find(params[:id])
   end
