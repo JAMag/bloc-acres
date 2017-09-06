@@ -1,0 +1,161 @@
+.sale {
+    background-color: $gray-dark;
+    padding: 2.5rem 15px 2.1875rem 15px;
+    &__header {
+        text-align: center;
+    }
+    &__title {
+        font-family: $main;
+        color: $black;
+        font-size: 1.875rem;
+        font-weight: 400;
+        margin-bottom: 1.5625rem;
+    }
+    &__subtitle {
+        font-family: $main;
+        color: $text-med;
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+        font-weight: 300;
+    }
+    &__content {
+        margin-top: 1.875rem;
+    }
+    &__group {
+        @include atSmall {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+        }
+        &+& {
+            margin-top: 2.5rem;
+        }
+    }
+    &__item {
+        background-color: $white;
+        box-shadow: 0px 20px 26px 0px rgba(0, 0, 0, 0.05);
+        @include atSmall {
+            width: 33.33%;
+        }
+        &+& {
+            margin-top: 2.5rem;
+            @include atSmall {
+                margin-top: 0;
+                margin-left: 1.25rem;
+            }
+        }
+        &-link {
+            display: block;
+            @include linkStates(inherit, none);
+        }
+        &-img-wrapper {
+            position: relative;
+            &:after {
+                content: "Sale";
+                font-family: $main;
+                color: $white;
+                font-size: 1.125rem;
+                font-weight: 400;
+                padding: 5px 30px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                background-color: $brand;
+            }
+        }
+        &-img {
+            width: 100%;
+            height: auto;
+        }
+        &-content {
+            padding: 2.8125rem 1.875rem 1.875rem 1.875rem;
+            &__group {
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                &+& {
+                    margin-top: 1.875rem;
+                }
+            }
+        }
+        &-name {
+            font-family: $main;
+            font-weight: 400;
+            color: $text-dark;
+            letter-spacing: 0.01em;
+            font-size: 1.125rem;
+            line-height: 1.5rem;
+            width: 70%;
+        }
+        &-price {
+            font-family: $main;
+            color: $brand;
+            font-size: 1.25rem;
+            line-height: 1.875rem;
+            letter-spacing: 0.01em;
+            font-weight: 400;
+            width: 30%;
+            text-align: right;
+        }
+        &-size {
+            font-family: $main;
+            color: $brand;
+            font-size: 400;
+            font-size: 1rem;
+            line-height: 1.875rem;
+            letter-spacing: 0.01em;
+            width: 100%;
+            @include atMedium {
+                width: 40%;
+                transform: translateY(0.25rem);
+            }
+        }
+        &-features {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            width: 100%;
+            @include atMedium {
+                width: 60%;
+                justify-content: flex-end;
+            }
+            &__item {
+                font-family: $main;
+                font-size: 0.75rem;
+                line-height: 1.875rem;
+                color: $black;
+                font-weight: 400;
+                letter-spacing: 0.01em;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-around;
+                &+& {
+                    margin-left: 0.75rem;
+                }
+                &-icon {
+                    margin-right: 0.25rem;
+                }
+                &-label {
+                    transform: translateY(0.5rem);
+                    flex-grow: 1;
+                }
+            }
+        }
+        &--sold {
+            .sale__item {
+                &-img-wrapper {
+                    &:after {
+                        content: "Sold";
+                        background-color: $accent;
+                        color: $black;
+                    }
+                }
+                &-size,
+                &-price {
+                    color: $accent;
+                }
+            }
+        }
+    }
+}

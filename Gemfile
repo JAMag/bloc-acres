@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem  'bootstrap-tour-rails'
 gem 'pundit'
 gem 'figaro', '1.0'
 gem 'faker'

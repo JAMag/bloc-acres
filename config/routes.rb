@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :products
 
+  get 'user/choose_type', to: 'user#choose_type', as: 'choose_type'
+
+  patch 'user/update_type', to: 'user#update_type', as: 'update_type'
+
   resources :calculators
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'dashboard'  => 'welcome#dashboard', as: :dashboard
   resources :properties do
+    get 'saved_search' => 'properties#saved_search', as: :saved_search, on: :collection
     resources :comments do
 
     end
@@ -36,6 +41,8 @@ Rails.application.routes.draw do
       get 'price' => 'property/show'
     end
   end
+  resources :subscribers
+
 
   resources :locks do
     get :lock, on: :member

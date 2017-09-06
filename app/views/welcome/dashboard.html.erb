@@ -22,7 +22,9 @@
 
 
         <div id="buyer" class="tab-pane fade in active">
-          <%= will_paginate @favorites %>
+           <% if @favorites != nil %>
+          <%# will_paginate @favorites %>
+
           <% @favorites.each do |f| %>
               <% p = f.property %>
               <div class="container-fluid">
@@ -30,6 +32,7 @@
                   <%= render partial: 'layouts/buyer_property_view', locals: {p: p} %>
                 </div>
               </div>
+          <% end %>
           <% end %>
         </div>
 
@@ -42,7 +45,7 @@
           <%= render partial: 'layouts/seller_step_wizard' %>
 
 
-          <%= will_paginate @properties %>
+          <%# will_paginate @properties %>
 
           <% @properties.each do |p| %>
               <div class="container-fluid">
@@ -53,12 +56,13 @@
 
               </div>
           <% end %>
+
         </div>
 
 
 
         <div id="offers" class="tab-pane fade">
-
+          <% if @properties != nil %>
           <% @properties.each do |p| %>
               <div class="container-fluid">
                 <div class="row">
@@ -66,6 +70,7 @@
                 </div>
               </div>
           <% end %>
+              <% end %>
         </div>
 
 
@@ -108,4 +113,29 @@
   </div>
 
 </div>
+<script>
 
+    $('.breadcrumbs li a').each(function(){
+
+        var breadWidth = $(this).width();
+
+        if($(this).parent('li').hasClass('active') || $(this).parent('li').hasClass('first')){
+
+
+
+        } else {
+
+            $(this).css('width', 75 + 'px');
+
+            $(this).mouseover(function(){
+                $(this).css('width', breadWidth + 'px');
+            });
+
+            $(this).mouseout(function(){
+                $(this).css('width', 150 + 'px');
+            });
+        }
+
+
+    });
+</script>

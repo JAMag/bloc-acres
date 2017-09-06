@@ -40,11 +40,12 @@ class WelcomeController < ApplicationController
     @advertisements = Advertisement.all
 
 
-    if current_user.buyer?
-      render :buyer_dashboard
-    else
-      render :seller_dashboard
+    if current_user.role.blank?
+      redirect_to choose_type_path and return
+
     end
+
+
   end
 
   private

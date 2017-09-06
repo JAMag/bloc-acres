@@ -328,10 +328,10 @@ $(document).ready(function () {
 
 
 
-
-    $(function () {
-            $('.navbar-brand').fadeOut(2000);
-    });
+    //
+    //$(function () {
+    //        $('.navbar-brand').fadeOut(2000);
+    //});
 
     if ($('#start_show')) {
         addLocationToLinks();

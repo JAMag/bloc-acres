@@ -1,229 +1,518 @@
-<% @title="Moverable | Zero Agent Fees" %>
+<% @title="Moverable | List it. View it. Love it. Move it." %>
 
-<div class="wrapper">
-
-
-    <div id="signup" class="marquee">
-      <div class="row">
-        <div class="well stick col-md-4">
-
-
-
-
-
-            <div class="title">
-              <h1><b>Zero Agent Fees</b></h1>
-            </div>
-
-            <div>
-                <h5>People in the market for real estate are wasting tens of thousands in real estate agent fees.</h5>
-                <h4>Sign Up.</h4>
-                <h5>Moverable makes For Sale By Owner for Everyone.</h5>
-              <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
-              <form class="form-signin">
-                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-                  <%= devise_error_messages! %>
-
-                  <div>
-                    <% f.label :email %>
-                    <%= f.email_field :email, placeholder: 'Email', class: "form-control" %>
-                  </div>
-                  <div>
-                    <% f.label :password %>
-                    <%= f.password_field :password, placeholder: 'Password', class: "form-control"%>
-                  </div>
-                  <br />
-                  <div>
-                    <% f.label :password_confirmation %><br />
-                    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: "form-control" %>
-                  </div>
-                  <br />
-                  <div id="welcome-submit">
-                    <%= f.submit class: 'btn btn-lg btn-primary btn-block', value: 'Start for Free!'  %>
-                  </div>
-                <% end %>
-              </form>
-            </div>
-
-        </div>
-
-        <div class="col-md-8">
-          <ul class="bmenu">
-            <li><a href="#">For sale by owner does not mean by yourself</a></li>
-            <li><a href="#">Buying and Showing Guides</a></li>
-            <li><a href="#">Automated Marketing, Offers and negotiation</a></li>
-            <li><a href="#">Huge Savings</a></li>
-            <li><a href="#">Recommended Top Rated Pros</a></li>
-            <li><a href="#">Automated showings</a></li>
-            <li><a href="#">Simple and comprehensive</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-
-    <div id="welcomethird" class="marquee">
-
-
-
-          <div class="row">
-            <div class="col-sm-3">
-              <ul class="bmenu">
-                  <li><a href="#"> <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
-                  <p>Set your own schedule </p></a></li>
-              </ul>
-            </div>
-            <div class="col-sm-3">
-              <ul class="bmenu">
-              <li><a href="#"><i class="fa fa-comments fa-5x" aria-hidden="true"></i>
-              <p>Comments save time</p></a></li>
-              </ul>
-              </div>
-
-                <div class="col-sm-3">
-                  <ul class="bmenu">
-                  <li><a href="#"><i class="fa fa-cog fa-5x" aria-hidden="true"></i>
-                    <p>Suggested third-parties</p></a></li>
-                  </ul>
+    <section class="container-fluid banner">
+        <div class="banner__slider">
+            <div class="banner__item">
+                <img src="/assets/banner-1.png" alt="Banner image" class="banner__item-img">
+                <div class="banner__item-copy">
+                    <h1 class="banner__item-title">We help people buy and sell real estate without an expensive agent.</h1>
                 </div>
-                <div class="col-sm-3">
-                  <ul class="bmenu">
-                  <li><a href="#"><i class="fa fa-video-camera fa-5x" aria-hidden="true"></i>
-                    <p>View when you want</p></a></li>
-                      </ul>
-                </div>
-              </div>
-          </div>
-
-
-
-
-    </div>
-
-    <div id="welcomefourth" class="marquee">
-
-          <div class="row">
-
-                <div class="col-md-3">
-                  <ul class="bmenu">
-                  <li><a href="#"><i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i>
-                  <p>Automated social marketing</p></a></li>
-                      </ul>
-                </div>
-                <div class="col-md-3">
-                  <ul class="bmenu">
-                  <li><a href="#"><i class="fa fa-camera fa-5x" aria-hidden="true"></i>
-                 <p>Show without being there</p></a></li>
-                      </ul>
-                  </div>
-                <div class="col-md-3">
-                  <ul class="bmenu">
-                  <li><a href="#"><i class="fa fa-shield fa-5x" aria-hidden="true"></i>
-                  <p>Secure</p></a></li>
-                      </ul>
-                  </div>
-                <div class="col-md-3">
-                  <ul class="bmenu">
-                  <li><a href="#"><i class="fa fa-credit-card fa-5x" aria-hidden="true"></i>
-                  <p>Affordable </p></a></li>
-                      </ul>
-                </div>
-
-          </div>
-    </div>
-
-
-    <div id="welcomefifth" class="marquee">
-
-      <div class="row">
-
-            <div class="col-sm-3 ">
-              <ul class="bmenu">
-              <li><a href="#"><i class="fa fa-pie-chart fa-5x" aria-hidden="true"></i>
-             <p>Price and offer advice</p></a></li>
-              </ul>
             </div>
-            <div class="col-sm-3">
-              <ul class="bmenu">
-              <li><a href="#"><i class="fa fa-heart fa-5x" aria-hidden="true"></i>
-             <p>Find the perfect house</p></a></li>
-              </ul>
-              </div>
-
-
-            <div class="col-sm-3 ">
-              <ul class="bmenu">
-              <li><a href="#"><i class="fa fa-map-marker fa-5x" aria-hidden="true"></i>
-             <p>Guides to show the way</p></a></li>
-              </ul>
-              </div>
-            <div class="col-sm-3 ">
-              <ul class="bmenu">
-              <li><a href="#"><i class="fa fa-users fa-5x" aria-hidden="true"></i>
-              <p>One-click support</p></a></li>
-                  </ul>
-              </div>
-
-      </div>
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="title">
-          <h1><b>Thanks for visiting Moverable!</b></h1>
+            <div class="banner__item">
+                <img src="/assets/banner-2.png" alt="Banner image" class="banner__item-img">
+                <div class="banner__item-copy">
+                    <h1 class="banner__item-title">We provide everything an owner needs to show, market, and sell a house.</h1>
+                </div>
+            </div>
+            <div class="banner__item">
+                <img src="/assets/banner-3.png" alt="Banner image" class="banner__item-img">
+                <div class="banner__item-copy">
+                    <h1 class="banner__item-title">We guide buyers through searching, viewing, inspecting, offering, and closing. </h1>
+                </div>
+            </div>
+            <div class="banner__item">
+                <img src="/assets/banner-4.png" alt="Banner image" class="banner__item-img">
+                <div class="banner__item-copy">
+                    <h1 class="banner__item-title">With technology, Sellers show their house, and Buyers view that house at their own convenience.</h1>
+                </div>
+            </div>
+            <div class="banner__item">
+                <img src="/assets/banner-5.png" alt="Banner image" class="banner__item-img">
+                <div class="banner__item-copy">
+                    <h1 class="banner__item-title">We remove the middleman, and keep it affordable: less than $20 per viewing for Buyers, and less than $200 a month for Sellers. </h1>
+                </div>
+            </div>
         </div>
+        <div class="banner__controls"></div>
+    </section>
 
-        <div>
-          <h4>We are changing real estate by removing the middleman and saving customers time and money. Whether you are a buyer or seller, let us show you how you can save boatloads by using Moverable instead of a real estate agent.</h4>
-          <h2>FSBO has never been easier!</h2>
-          <h5>Moverable saves you thousands.</h5>
+    <section class="container-fluid search">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="search__header">
+                        <h2 class="search__title">Find Your Home</h2>
+                    </div>
+                    <div class="search__form-wrapper">
+                        <div class="search__filters">
+                            <div class="search__filters-item search__filters-item--active">Sale</div>
+                            <div class="search__filters-item">Buy</div>
+                        </div>
+                        <form class="search__form">
+                            <div class="search__form-main">
+                                <div class="search__form-columns">
+                                    <div class="search__form-column">
+                                        <div class="search__form-content">
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Keyword</label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                  <%= form_tag properties_path, method: :get, id: 'search-field', role: 'search' do %>
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="search__form-content search__form-content--halves">
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Min Beds</label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Min Baths</label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="search__form-column">
+                                        <div class="search__form-content">
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Location</label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="search__form-content search__form-content--halves">
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Max Price</label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Min Area <span class="search__form-label search__form-label--alt">(Sq Ft)</span></label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="search__form-column">
+                                        <div class="search__form-content">
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Property  type</label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                      <!--<%= select_tag 'search[structure]', options_for_select([['Home Type',''], ['Townhome', 'Townhome', {:class => 'search__form-dropdown'}], ['Condo', 'Condo', {:class => 'search__form-dropdown'}], ['House', 'House', {:class => 'search__form-dropdown'}], ['Multi-family', 'Multi-family', {:class => 'search__form-dropdown'}]], (params[:search][:structure] if params[:search]) ) %>-->
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="search__form-content search__form-content--halves">
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Min Area <span class="search__form-label search__form-label--alt">(Sq Ft)</span></label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="search__form-group">
+                                                <label class="search__form-label">Min Area <span class="search__form-label search__form-label--alt">(Sq Ft)</span></label>
+                                                <div class="search__form-dropdown-wrapper">
+                                                    <select class="search__form-dropdown">
+                                                <option value="">Any</option>
+                                                <option value="1">Item 1</option>
+                                                <option value="2">Item 2</option>
+                                                <option value="3">Item 3</option>
+                                            </select>
+                                                    <div class="search__form-dropdown-arrow">
+                                                        <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search__form-actions">
+                                    <div class="search__form-plus">
+                                        <i class="fa fa-plus-square search__form-plus__icon"></i>
+                                        <span class="search__form-plus__label">Looking for certain features</span>
+                                    </div>
+                                    <a href="#" class="search__form-more">View all deals for sale &nbsp;&nbsp;></a>
+                                </div>
+                            </div>
+                                                      <% end %>
+                            <input type="submit" class="search__form-btn" value="SEARCH">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close x</button>
-    </div>
-  </div>
-</div>
-</div>
+    </section>
+
+    <section class="container-fluid sale">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="sale__header">
+                        <h2 class="sale__title">New Homes For Sale</h2>
+                        <h3 class="sale__subtitle">Here are the most recent listing that have decided to save thousands by skipping the real estate agent fee.</h3>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="sale__content">
+                        <div class="sale__group">
+                            <div class="sale__item">
+                                <a href="#" class="sale__item-link">
+                                    <div class="sale__item-img-wrapper">
+                                        <img src="/assets/sale-1.png" alt="Sale image" class="sale__item-img">
+                                    </div>
+                                    <div class="sale__item-content">
+                                        <div class="sale__item-content__group">
+                                            <h3 class="sale__item-name">46365 Southwest 28th Terrace</h3>
+                                            <h3 class="sale__item-price">$990</h3>
+                                        </div>
+                                        <div class="sale__item-content__group">
+                                            <h4 class="sale__item-size">2944 Sq Ft</h4>
+                                            <ul class="sale__item-features">
+                                                <li class="sale__item-features__item"><img src="/assets/i-room-bed.png" alt="Number of beds" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">3</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-bathtub.png" alt="Number of bathrooms" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">2</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-kitchen.png" alt="Number of kitchens" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sale__item">
+                                <a href="#" class="sale__item-link">
+                                    <div class="sale__item-img-wrapper">
+                                        <img src="/assets/sale-2.png" alt="Sale image" class="sale__item-img">
+                                    </div>
+                                    <div class="sale__item-content">
+                                        <div class="sale__item-content__group">
+                                            <h3 class="sale__item-name">46365 Southwest 28th Terrace</h3>
+                                            <h3 class="sale__item-price">$1090</h3>
+                                        </div>
+                                        <div class="sale__item-content__group">
+                                            <h4 class="sale__item-size">2944 Sq Ft</h4>
+                                            <ul class="sale__item-features">
+                                                <li class="sale__item-features__item"><img src="/assets/i-room-bed.png" alt="Number of beds" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">3</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-bathtub.png" alt="Number of bathrooms" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">2</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-kitchen.png" alt="Number of kitchens" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sale__item">
+                                <a href="#" class="sale__item-link">
+                                    <div class="sale__item-img-wrapper">
+                                        <img src="/assets/sale-3.png" alt="Sale image" class="sale__item-img">
+                                    </div>
+                                    <div class="sale__item-content">
+                                        <div class="sale__item-content__group">
+                                            <h3 class="sale__item-name">46365 Southwest 28th Terrace</h3>
+                                            <h3 class="sale__item-price">$790</h3>
+                                        </div>
+                                        <div class="sale__item-content__group">
+                                            <h4 class="sale__item-size">2944 Sq Ft</h4>
+                                            <ul class="sale__item-features">
+                                                <li class="sale__item-features__item"><img src="/assets/i-room-bed.png" alt="Number of beds" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">3</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-bathtub.png" alt="Number of bathrooms" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">2</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-kitchen.png" alt="Number of kitchens" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sale__group">
+                            <div class="sale__item">
+                                <a href="#" class="sale__item-link">
+                                    <div class="sale__item-img-wrapper">
+                                        <img src="/assets/sale-4.png" alt="Sale image" class="sale__item-img">
+                                    </div>
+                                    <div class="sale__item-content">
+                                        <div class="sale__item-content__group">
+                                            <h3 class="sale__item-name">46365 Southwest 28th Terrace</h3>
+                                            <h3 class="sale__item-price">$890</h3>
+                                        </div>
+                                        <div class="sale__item-content__group">
+                                            <h4 class="sale__item-size">2944 Sq Ft</h4>
+                                            <ul class="sale__item-features">
+                                                <li class="sale__item-features__item"><img src="/assets/i-room-bed.png" alt="Number of beds" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">3</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-bathtub.png" alt="Number of bathrooms" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">2</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-kitchen.png" alt="Number of kitchens" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sale__item sale__item--sold">
+                                <a href="#" class="sale__item-link">
+                                    <div class="sale__item-img-wrapper">
+                                        <img src="/assets/sale-5.png" alt="Sale image" class="sale__item-img">
+                                    </div>
+                                    <div class="sale__item-content">
+                                        <div class="sale__item-content__group">
+                                            <h3 class="sale__item-name">46365 Southwest 28th Terrace</h3>
+                                            <h3 class="sale__item-price">$1199</h3>
+                                        </div>
+                                        <div class="sale__item-content__group">
+                                            <h4 class="sale__item-size">2944 Sq Ft</h4>
+                                            <ul class="sale__item-features">
+                                                <li class="sale__item-features__item"><img src="/assets/i-room-bed-alt.png" alt="Number of beds" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">3</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-bathtub-alt.png" alt="Number of bathrooms" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">2</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-kitchen-alt.png" alt="Number of kitchens" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sale__item">
+                                <a href="#" class="sale__item-link">
+                                    <div class="sale__item-img-wrapper">
+                                        <img src="/assets/sale-6.png" alt="Sale image" class="sale__item-img">
+                                    </div>
+                                    <div class="sale__item-content">
+                                        <div class="sale__item-content__group">
+                                            <h3 class="sale__item-name">46365 Southwest 28th Terrace</h3>
+                                            <h3 class="sale__item-price">$1599</h3>
+                                        </div>
+                                        <div class="sale__item-content__group">
+                                            <h4 class="sale__item-size">2944 Sq Ft</h4>
+                                            <ul class="sale__item-features">
+                                                <li class="sale__item-features__item"><img src="/assets/i-room-bed.png" alt="Number of beds" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">3</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-bathtub.png" alt="Number of bathrooms" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">2</span></li>
+                                                <li class="sale__item-features__item"><img src="/assets/i-kitchen.png" alt="Number of kitchens" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label">1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid call">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="call__copy">
+                        <h3 class="call__title">Looking to Buy or Sell your property?</h3>
+                        <h4 class="call__subtitle">Moverable is the easiest way to FSBO in the United States.</h4>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="call__actions">
+                        <div class="call__tel">
+                            <img src="/assets/i-phone.png" alt="Call Us Now" class="call__tel-img">
+                            <div class="call__tel-copy">
+                                <span class="call__tel-title">Call Us Now</span>
+                                <a href="tel:800-555-5555" class="call__tel-link">(800)555-5555</a>
+                            </div>
+                        </div>
+                        <button class="call__cta">Get in touch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid features">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="features__header">
+                        <h2 class="features__title features__title--big">AWESOME FEATURES</h2>
+                        <p class="features__text">We have rethought how to make buying and selling real estate the easiest it has ever been.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 features__group">
+                    <div class="col-xs-12 col-sm-4 features__item">
+                        <img src="/assets/recommend-experts.png" alt="Feature icon" class="features__item-img">
+                        <h3 class="features__title features__item-title">Recommend experts</h3>
+                        <p class="features__text">Buyers recieve tailored recommendations of home inspectors, lawyers, and movers. </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 features__item">
+                        <img src="/assets/guide-purchase-sales.png" alt="Feature icon" class="features__item-img">
+                        <h3 class="features__title features__item-title">Guide purchase &amp; sales</h3>
+                        <p class="features__text">We provide guides for both buyers and sellers so you are never wondering what to do next.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 features__item">
+                        <img src="/assets/recommend-experts.png" alt="Feature icon" class="features__item-img">
+                        <h3 class="features__title features__item-title">Allow viewings with security cameras and electronic locks</h3>
+                        <p class="features__text">Show your house when you aren't there using Moverable electronic locks and security cameras. Pop into that house for sale that you noticed on the way to get your morning joe.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 features__group">
+                    <div class="col-xs-12 col-sm-4 features__item">
+                        <img src="/assets/living-inside-nature.png" alt="Feature icon" class="features__item-img">
+                        <h3 class="features__title features__item-title">Save some Green</h3>
+                        <p class="features__text">The average real estate agent price is 5-7% of purchase price. Save tens of thousands by using Moverable instead.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 features__item">
+                        <img src="/assets/price-and-offer-advice.png" alt="Feature icon" class="features__item-img">
+                        <h3 class="features__title features__item-title">Price and offer advice</h3>
+                        <p class="features__text">We provide suggested pricing for both buyers and sellers based on user feedback. You're sure to have a fair transaction.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 features__item">
+                        <img src="/assets/one-click-support.png" alt="Feature icon" class="features__item-img">
+                        <h3 class="features__title features__item-title">One click support</h3>
+                        <p class="features__text">We are always just a click away to help with any questions you may have.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid sign">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 sign__content">
+                    <h2 class="sign__title">Sign up for Updates! We'll let you know when we launch!</h2>
+                    <input type="email" class="sign__input" placeholder="Enter Email">
+                    <a href="#" class="sign__cta">SUBMIT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 footer__column">
+                    <h3 class="footer__column-title">CONTACT US</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item footer__list-item--contact"><i class="fa fa-map-marker footer__list-item__icon"></i> 123 Main Street, Rye, NH</li>
+                        <li class="footer__list-item footer__list-item--contact"><a href="tel:+880174240499" class="footer__list-item__link"><i class="fa fa-phone footer__list-item__icon"></i> CALL us FREE  +880174240499</a></li>
+                        <li class="footer__list-item footer__list-item--contact"><a href="mailto:Moverable@home.com" class="footer__list-item__link"><i class="fa fa-envelope footer__list-item__icon"></i> Moverable@home.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 footer__column">
+                    <h3 class="footer__column-title">QUICK LINK</h3>
+                    <nav class="footer__nav">
+                        <ul class="footer__list">
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">Contact US</a></li>
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">Transactions</a></li>
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">Create Property</a></li>
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">My Properties</a></li>
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">Boston</a></li>
+                        </ul>
+                        <ul class="footer__list">
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">Maine</a></li>
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">New Hampshire</a></li>
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">Massachusetts</a></li>
+                            <li class="footer__list-item"><a href="#" class="footer__list-item__link">Vermont</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-12 col-sm-4 footer__column">
+                    <h3 class="footer__column-title">NEWSLETTER</h3>
+                    <p class="footer__text">We are a “safe agent” and member of the “my deposits” protected deposit scheme too, enter your email to recieve the complete newsletter.</p>
+                    <div class="newsletter">
+                        <input type="email" class="newsletter__input" placeholder="Enter your email">
+                        <div class="newsletter__btn">
+                            <i class="fa fa-envelope newsletter__btn-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <section class="container-fluid subfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="subfooter__social">
+                        <li class="subfooter__social-item"><a href="#" class="subfooter__social-link"><i class="subfooter__social-icon fa fa-facebook"></i></a></li>
+                        <li class="subfooter__social-item"><a href="#" class="subfooter__social-link"><i class="subfooter__social-icon fa fa-twitter"></i></a></li>
+                        <li class="subfooter__social-item"><a href="#" class="subfooter__social-link"><i class="subfooter__social-icon fa fa-pinterest-p"></i></a></li>
+                        <li class="subfooter__social-item"><a href="#" class="subfooter__social-link"><i class="subfooter__social-icon fa fa-google-plus"></i></a></li>
+                        <li class="subfooter__social-item"><a href="#" class="subfooter__social-link"><i class="subfooter__social-icon fa fa-youtube"></i></a></li>
+                    </ul>
+                    <h6 class="subfooter__copyright">© 2017 Moverable, All Rights Reserved</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>-->
+    <!--<script src="js/app.js"></script>-->
 
 
-
-
-
-
-
-
-
-
-
-
-<script>
-            $(window).load(function(){
-                $('#myModal').modal('show');
-            });
-
-
-
-</script>

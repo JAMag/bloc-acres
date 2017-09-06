@@ -1,0 +1,55 @@
+.footer {
+    background-color: $white;
+    padding: 5rem 15px 1.875rem 15px;
+    &__column {
+        & + & {
+            margin-top: 3rem;
+            @include atSmall {
+                margin-top: 0;
+            }
+        }
+        &-title {
+            font-family: $main;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: $brand;
+            text-transform: uppercase;
+            margin-bottom: 1.5625rem;
+        }
+    }
+    &__nav {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        ul {
+            width: 50%;
+        }
+    }
+    &__list {
+        &-item {
+            font-family: $main;
+            color: $text;
+            font-size: 0.75rem;
+            font-weight: 400;
+            & + & {
+                margin-top: 1.25rem;
+            }
+            &__link {
+                @include linkStates($text, none);
+            }
+            &__icon {
+                width: 1rem;
+                font-size: 0.75rem;
+            }
+            &--contact {
+                font-weight: 300;
+            }
+        }
+    }
+    &__text {
+        font-family: $main;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        color: $text;
+    }
+}

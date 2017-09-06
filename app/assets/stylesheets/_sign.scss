@@ -1,0 +1,47 @@
+.sign {
+    background-color: $brand;
+    padding: 1.875rem 15px;
+    text-align: center;
+    &__content {
+        @include atSmall {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__title {
+        font-family: $main;
+        font-weight: 400;
+        font-size: 1.5rem;
+        color: $white;
+    }
+    &__input {
+        height: 3rem;
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-family: $main;
+        color: $text;
+        font-size: 1.125rem;
+        padding: 0 1.5625rem;
+        font-style: italic;
+        font-weight: 400;
+        @include atSmall {
+            width: 33.33%;
+            margin-left: 4.375rem;
+            margin-right: 2.1875rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        &::placeholder {
+            color: $text;
+        }
+    }
+    &__cta {
+        font-family: $main;
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        @include linkStates($white, none);
+    }
+}

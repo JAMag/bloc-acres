@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+
 
 <head>
   <title><%= @title || "Default Page Title" %></title>
@@ -8,20 +10,35 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
 
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOVERABLE | List It.View It.Love It.Move It</title>
 
 
   <%= csrf_meta_tags %>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>-->
+  <!--<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>-->
+<!-- Designer Links-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/main.scss">
+  <!-- End of Designer Links -->
 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0XtdadnCScIHtKprl46UROKJkoP1cg7s&libraries=places"></script>
+
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script src="assets/app.js"></script>
 
 
 </head>
 
 <body>
 
-<%= render partial: 'layouts/navbar' %>
+<%=render partial: 'layouts/navbar' %>
 
 
 
@@ -44,27 +61,50 @@
       <% end %>
 
       <%= yield %>
+      <!--<script src="jquery.js"></script>-->
+      <!--<script src="bootstrap.tooltip.js"></script>-->
+      <!--<script src="bootstrap.popover.js"></script>-->
+      <!--<script src="bootstrap-tour.js"></script>-->
 
 
 
 
 
-
-<footer class="footer">
-  <div class="container">
-    <span class="text-muted">
-      Moverable &copy 2015 |
-      Help |
-      Tel: 1 (800) 888-8888 |
-      Other stuff
-    </span>
-
-
-  </div>
-</footer>
+<!--<footer class="footer">-->
+  <!--<div class="container">-->
+    <!--<span class="text-muted">-->
+      <!--Moverable &copy 2015 |-->
+      <!--Help |-->
+      <!--Tel: 1 (800) 888-8888 |-->
+      <!--Other stuff-->
+    <!--</span>-->
 
 
+  <!--</div>-->
+<!--</footer>-->
 
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--//    var tour = new Tour({-->
+<!--//        steps: [-->
+<!--//            {-->
+<!--//                element: "#my-element",-->
+<!--//                title: "Title of my step",-->
+<!--//                content: "Content of my step"-->
+<!--//            },-->
+<!--//            {-->
+<!--//                element: "#my-other-element",-->
+<!--//                title: "Title of my step",-->
+<!--//                content: "Content of my step"-->
+<!--//            }-->
+<!--//        ]});-->
+<!--//-->
+<!--//    // Initialize the tour-->
+<!--//    tour.init();-->
+<!--//-->
+<!--//    // Start the tour-->
+<!--//    tour.start();-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
 
 </body>
 

@@ -5,9 +5,12 @@
   <br>
   <br>
   <%= form_for :calculator, url: { action: :new }, method: :get do |f|   %>
-      <%= number_field_tag :a, params[:a] %>
-      <%= select_tag :operation, options_for_select([['+', :sum], ['-',    :subtr]], params[:operation]) %>
-      <%= number_field_tag :b, params[:b] %>
+      <%= number_field_tag :yearly_salary, params[:yearly_salary] %>
+      <p>yearly salary</p>
+
+      <%= number_field_tag :monthly_debt, params[:monthly_debt] %>
+      <p>monthly debt</p>
+
       <%= f.submit 'Calculate!' %>
   <% end %>
 

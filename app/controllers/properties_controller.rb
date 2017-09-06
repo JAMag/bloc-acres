@@ -10,14 +10,20 @@ class PropertiesController < ApplicationController
                                         baths: params[:search][:baths],
                                         price: params[:search][:price]
                                     }
-      ).paginate(page: params[:page], per_page: 2)
+      ).paginate(page: params[:page], per_page: 5)
     else
       @properties = Property.all.paginate(page: params[:page], per_page: 5)
     end
     gon.property_coordinates = @properties.map{|p|{lat: p.latitude, lng: p.longitude}}
 
+
   end
 
+
+  def saved_search
+    current_user.update_attribute(:saved_search, params.to_query)
+    redirect_to :back
+  end
 
 
   def show

@@ -10,6 +10,9 @@
 @import "properties";
 @import "form";
 @import "timepicker";
+@import "main.scss";
+
+
 
 
 .well {
@@ -40,6 +43,15 @@
   padding: 0%;
 }
 
+.thumbnail-street-view {
+  border-style: none;
+  border-radius: 0px;
+  background-color: transparent;
+  padding: 0%;
+  height: 300px;
+  width: 300px;
+}
+
 
 #property-index {
   overflow-y: auto;
@@ -56,6 +68,13 @@
 .progress {
   height: 40px;
   background-color: transparent;
+}
+
+.myLogo {
+  padding: 0px;
+  max-width: 217px;
+  height: auto;
+
 }
 
 
@@ -178,7 +197,7 @@ h2, .h2 {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
 a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: white; /*BACKGROUND color for active*/
-  background-color: rgba(248,80,50,.2);
+  background-color: rgba(41, 171, 226, 0.67);
   border-bottom-color: white;
   border-bottom-style: solid;
 }
@@ -510,7 +529,7 @@ header {
 
 .panel-rating-header-second-last {
   background: rgb(100, 54, 54); /* This is for ie8 and below */
-  background: linear-gradient(to right, rgb(174, 204, 209) 0%, rgba(210, 211, 196, 0.73) 52%, rgba(242, 242, 238, 0.54) 82%, rgba(255, 255, 255, 0.74) 94%, rgba(255, 255, 255, 0.34) 100%);
+  background: linear-gradient(to right, rgb(32, 143, 205) 0%, rgba(210, 211, 196, 0.73) 52%, rgba(242, 242, 238, 0.54) 82%, rgba(255, 255, 255, 0.74) 94%, rgba(255, 255, 255, 0.34) 100%);
   border-radius: 8px 8px 0px 0px;
   border-color: white;
   border-style: none;
@@ -522,7 +541,7 @@ header {
 }
 .panel-rating-header-last {
   background: rgb(100, 54, 54); /* This is for ie8 and below */
-  background: linear-gradient(to right, rgb(174, 204, 209) 0%, rgba(210, 211, 196, 0.73) 52%, rgba(242, 242, 238, 0.54) 82%, rgba(255, 255, 255, 0.74) 94%, rgba(255, 255, 255, 0.34) 100%);
+  background: linear-gradient(to right, rgb(30, 147, 213) 0%, rgba(210, 211, 196, 0.73) 52%, rgba(242, 242, 238, 0.54) 82%, rgba(255, 255, 255, 0.74) 94%, rgba(255, 255, 255, 0.34) 100%);
   border-radius: 0px 0px;
   border-color: white;
   border-style: none;
@@ -545,6 +564,11 @@ header {
   margin-top: 20px;
 }
 
+#search-field {
+  display: inline-block;
+  width: 100%;
+}
+
 //styling for google map container.
 
 #map-container {
@@ -558,6 +582,12 @@ header {
   width: 100%;
   margin: auto;
   height:587px;
+
+}
+#pano {
+  width: 400px;
+  margin: auto;
+  height: 400px;
 
 }
 
@@ -645,7 +675,7 @@ header {
   margin-top: 5px;
   border-radius: 8px 8px;
   //background-color: rgba(248, 80, 50, 0.2);
-  background-color: rgba(102, 178, 204, 0.4);
+  background-color: rgba(77, 77, 77, 0.64);
 }
 
 
@@ -942,7 +972,7 @@ div.c-wrapper{
   display: block;
   width: 100px;
   height: 100px;
-  margin: 1em auto;
+  //margin: 1em auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1008,9 +1038,9 @@ div.c-wrapper{
 }
 
 #signup {
-  background-color: #499b7e;
+
   padding: 50px;
-  background-image: url("stonehouse.jpg");
+
 }
 
 #welcomethird{
@@ -1330,23 +1360,23 @@ section {
 
 #search_structure {
   padding: 5px;
-
+ background-color: white;
   width: 100%;
 }
 #search_price {
   padding: 2.5px;
-
-  width: 45%;
+  background-color: white;
+  width: 100%;
 }
 #search_beds {
   padding: 2.5px;
-
-  width: 45%;
+  background-color: white;
+  width: 100%;
 }
 #search_baths {
   padding: 2.5px;
-
-  width: 45%;
+  background-color: white;
+  width: 100%;
 }
 
 .form-id {
@@ -1459,20 +1489,20 @@ color: #000000;
 
 ///footer
 
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 30px;
-  line-height: 30px;
-  min-height: 30px;
-  background: rgba(191, 195, 195, 0.5);
-
-    color: white;
-
-
-}
+//
+//.footer {
+//  position: fixed;
+//  bottom: 0;
+//  width: 100%;
+//  height: 30px;
+//  line-height: 30px;
+//  min-height: 30px;
+//  background: rgba(191, 195, 195, 0.5);
+//
+//    color: white;
+//
+//
+//}
 
 
 //// welcome modal
@@ -1496,164 +1526,119 @@ color: #000000;
   width: 80%;
   margin: 2em auto;
 }
-.breadcrumb {
-  list-style: none;
-  margin: 50px 10px 10px 10px!important;
-  padding: 0;
-  background-color: #cecec1;
-}
-.breadcrumb li {
-  display: inline;
-  position: relative;
-}
-.breadcrumb li:nth-child(1) {
-  z-index: 14;
-}
-.breadcrumb li:nth-child(2) {
-  z-index: 13;
-}
-.breadcrumb li:nth-child(3) {
-  z-index: 12;
-}
-.breadcrumb li:nth-child(4) {
-  z-index: 11;
-}
-.breadcrumb li:nth-child(5) {
-  z-index: 10;
-}
-.breadcrumb li:nth-child(6) {
-  z-index: 9;
-}
-.breadcrumb li:nth-child(7) {
-  z-index: 8;
-}
-.breadcrumb li:nth-child(8) {
-  z-index: 7;
-}
-.breadcrumb li:nth-child(9) {
-  z-index: 6;
-}
-.breadcrumb li:nth-child(10) {
-  z-index: 5;
-}
-.breadcrumb li:nth-child(11) {
-  z-index: 4;
-}
-.breadcrumb li:nth-child(12) {
-  z-index: 3;
-}
-.breadcrumb li:nth-child(13) {
-  z-index: 2;
-}
-.breadcrumb li:nth-child(14) {
-  z-index: 1;
-}
-.breadcrumb li a,
-.breadcrumb li span {
+
+$green: #96be11;
+
+@mixin inline {
   display: inline-block;
-  padding: 0.4em 0.8em 0.4em 2em;
-  color: white;
-  text-decoration: none;
-}
-.breadcrumb li a {
-  background: #999999;
-  position: relative;
-}
-.breadcrumb li a:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  right: -30px;
-  border: 15px solid transparent;
-  border-left-color: #999999;
-}
-.breadcrumb li a:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  border: 15px solid transparent;
-  border-left-color: #cecec1;
-}
-.breadcrumb li a:hover {
-  background: #737373;
-  position: relative;
-}
-.breadcrumb li a:hover:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  right: -30px;
-  border: 15px solid transparent;
-  border-left-color: #737373;
-}
-.breadcrumb li a:hover:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  border: 15px solid transparent;
-  border-left-color: #cecec1;
-}
-.breadcrumb li.active span {
-  background: #36A292;
-  position: relative;
-  margin: 5px 0px;
-}
-.breadcrumb li.active span:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  right: -30px;
-  border: 15px solid transparent;
-  border-left-color: #36A292;
-}
-.breadcrumb li.active span:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  border: 15px solid transparent;
-  border-left-color: #cecec1;
-}
-.breadcrumb li.next-step span {
-  background: #666666;
-  position: relative;
-  margin: 5px 0px;
-}
-.breadcrumb li.next-step span:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  right: -30px;
-  border: 15px solid transparent;
-  border-left-color: #666666;
-}
-.breadcrumb li.next-step span:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  border: 15px solid transparent;
-  border-left-color: #cecec1;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top;
 }
 
+
+ul.breadcrumbs {
+  margin: 25px 0px 0px;
+  padding: 0px;
+  font-size: 0px;
+  line-height: 0px;
+
+  height: 40px;
+
+  li {
+    position: relative;
+    margin: 0px 0px;
+    padding: 0px;
+    list-style: none;
+    list-style-image: none;
+    @include inline;
+    border-left: 1px solid #ccc;
+    transition: 0.3s ease;
+
+    &:hover {
+      &:before {
+        border-left: 10px solid $green;
+      }
+
+      a {
+        color: #000;
+        background: $green;
+      }
+
+    }
+
+    &:before {
+      content:"";
+      position: absolute;
+      right: -9px;
+      top: -1px;
+      z-index: 20;
+      border-left: 10px solid #fff;
+      border-top: 22px solid transparent;
+      border-bottom: 22px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    &:after {
+      content:"";
+      position: absolute;
+      right: -10px;
+      top: -1px;
+      z-index: 10;
+      border-left: 10px solid #ccc;
+      border-top: 22px solid transparent;
+      border-bottom: 22px solid transparent;
+    }
+
+
+    &.active {
+
+      a {
+        color: #000;
+        background: $green;
+      }
+    }
+
+    &.first {
+      border-left: none;
+
+      a {
+        font-size: 18px;
+        padding-left: 20px;
+        border-radius: 5px 0px 0px 5px;
+      }
+    }
+
+    &.last {
+
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
+
+      a {
+        padding-right: 20px;
+        border-radius: 0px 40px 40px 0px;
+      }
+    }
+
+    a {
+      display: block;
+      font-size: 12px;
+      line-height: 40px;
+      color: #757575;
+      padding: 0px 15px 0px 25px;
+      text-decoration: none;
+      background: #fff;
+      border: 1px solid #ddd;
+      white-space:nowrap;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+  }
+}
 
 .blue {
   color: blue;

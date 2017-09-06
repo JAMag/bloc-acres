@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def after_signup_path_for(resource)
+
+  end
 
 
   rescue_from Pundit::NotAuthorizedError do |exception|

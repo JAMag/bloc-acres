@@ -1,0 +1,229 @@
+<% @title="Moverable | Zero Agent Fees" %>
+
+<div class="wrapper">
+
+
+    <div id="signup" class="marquee">
+      <div class="row">
+        <div class="well stick col-md-4">
+
+
+
+
+
+            <div class="title">
+              <h1><b>Zero Agent Fees</b></h1>
+            </div>
+
+            <div>
+                <h5>People in the market for real estate are wasting tens of thousands in real estate agent fees.</h5>
+                <h4>Sign Up.</h4>
+                <h5>Moverable makes For Sale By Owner for Everyone.</h5>
+              <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+              <form class="form-signin">
+                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+
+                  <div>
+                    <% f.label :email %>
+                    <%= f.email_field :email, placeholder: 'Email', class: "form-control" %>
+                  </div>
+                  <div>
+                    <% f.label :password %>
+                    <%= f.password_field :password, placeholder: 'Password', class: "form-control"%>
+                  </div>
+                  <br />
+                  <div>
+                    <% f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: "form-control" %>
+                  </div>
+                  <br />
+                  <div id="welcome-submit">
+                    <%= f.submit class: 'btn btn-lg btn-primary btn-block', value: 'Start for Free!'  %>
+                  </div>
+                <% end %>
+              </form>
+            </div>
+
+        </div>
+
+        <div class="col-md-8">
+          <ul class="bmenu">
+            <li><a href="#">For sale by owner does not mean by yourself</a></li>
+            <li><a href="#">Buying and Showing Guides</a></li>
+            <li><a href="#">Automated Marketing, Offers and negotiation</a></li>
+            <li><a href="#">Huge Savings</a></li>
+            <li><a href="#">Recommended Top Rated Pros</a></li>
+            <li><a href="#">Automated showings</a></li>
+            <li><a href="#">Simple and comprehensive</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="welcomethird" class="marquee">
+
+
+
+          <div class="row">
+            <div class="col-sm-3">
+              <ul class="bmenu">
+                  <li><a href="#"> <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+                  <p>Set your own schedule </p></a></li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <ul class="bmenu">
+              <li><a href="#"><i class="fa fa-comments fa-5x" aria-hidden="true"></i>
+              <p>Comments save time</p></a></li>
+              </ul>
+              </div>
+
+                <div class="col-sm-3">
+                  <ul class="bmenu">
+                  <li><a href="#"><i class="fa fa-cog fa-5x" aria-hidden="true"></i>
+                    <p>Suggested third-parties</p></a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3">
+                  <ul class="bmenu">
+                  <li><a href="#"><i class="fa fa-video-camera fa-5x" aria-hidden="true"></i>
+                    <p>View when you want</p></a></li>
+                      </ul>
+                </div>
+              </div>
+          </div>
+
+
+
+
+    </div>
+
+    <div id="welcomefourth" class="marquee">
+
+          <div class="row">
+
+                <div class="col-md-3">
+                  <ul class="bmenu">
+                  <li><a href="#"><i class="fa fa-thumbs-o-up fa-5x" aria-hidden="true"></i>
+                  <p>Automated social marketing</p></a></li>
+                      </ul>
+                </div>
+                <div class="col-md-3">
+                  <ul class="bmenu">
+                  <li><a href="#"><i class="fa fa-camera fa-5x" aria-hidden="true"></i>
+                 <p>Show without being there</p></a></li>
+                      </ul>
+                  </div>
+                <div class="col-md-3">
+                  <ul class="bmenu">
+                  <li><a href="#"><i class="fa fa-shield fa-5x" aria-hidden="true"></i>
+                  <p>Secure</p></a></li>
+                      </ul>
+                  </div>
+                <div class="col-md-3">
+                  <ul class="bmenu">
+                  <li><a href="#"><i class="fa fa-credit-card fa-5x" aria-hidden="true"></i>
+                  <p>Affordable </p></a></li>
+                      </ul>
+                </div>
+
+          </div>
+    </div>
+
+
+    <div id="welcomefifth" class="marquee">
+
+      <div class="row">
+
+            <div class="col-sm-3 ">
+              <ul class="bmenu">
+              <li><a href="#"><i class="fa fa-pie-chart fa-5x" aria-hidden="true"></i>
+             <p>Price and offer advice</p></a></li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <ul class="bmenu">
+              <li><a href="#"><i class="fa fa-heart fa-5x" aria-hidden="true"></i>
+             <p>Find the perfect house</p></a></li>
+              </ul>
+              </div>
+
+
+            <div class="col-sm-3 ">
+              <ul class="bmenu">
+              <li><a href="#"><i class="fa fa-map-marker fa-5x" aria-hidden="true"></i>
+             <p>Guides to show the way</p></a></li>
+              </ul>
+              </div>
+            <div class="col-sm-3 ">
+              <ul class="bmenu">
+              <li><a href="#"><i class="fa fa-users fa-5x" aria-hidden="true"></i>
+              <p>One-click support</p></a></li>
+                  </ul>
+              </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="title">
+          <h1><b>Thanks for visiting Moverable!</b></h1>
+        </div>
+
+        <div>
+          <h4>We are changing real estate by removing the middleman and saving customers time and money. Whether you are a buyer or seller, let us show you how you can save boatloads by using Moverable instead of a real estate agent.</h4>
+          <h2>FSBO has never been easier!</h2>
+          <h5>Moverable saves you thousands.</h5>
+        </div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close x</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+            $(window).load(function(){
+                $('#myModal').modal('show');
+            });
+
+
+
+</script>

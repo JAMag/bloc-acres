@@ -26,5 +26,7 @@ module BlocAcres
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.enabled = true
     config.assets.version = '1.01019'
+    config.serve_static_files = true
+
   end
 end

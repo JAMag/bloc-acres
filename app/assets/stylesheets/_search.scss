@@ -1,0 +1,190 @@
+.search {
+    background-color: $gray;
+    padding: 3.125rem 15px 4.375rem 15px;
+    &__title {
+        font-family: $main;
+        color: $text-dark;
+        font-size: 2.25rem;
+        font-weight: 400;
+        margin-bottom: 3rem;
+        @include atSmall {
+            margin-bottom: -2rem;
+        }
+    }
+    &__filters {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        &-item {
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            padding: 2.1875rem 4.375rem;
+            font-family: $main;
+            color: $text-black-light;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            font-weight: 400;
+            &--active {
+                background-color: $white;
+                box-shadow: -20px 40px 30px 0px rgba(0, 0, 0, 0.07);
+            }
+        }
+    }
+    &__form {
+        position: relative;
+        z-index: 2;
+        background-color: $white;
+        box-shadow: -20px 40px 30px 0px rgba(0, 0, 0, 0.07);
+        &-main {
+            padding: 3.4375rem 1.5rem 2.1875rem 1.5rem;
+            @include atSmall {
+                padding: 2.4375rem 2.375rem 2.1875rem 2.375rem;
+            }
+            @include atMedium {
+                padding: 3.4375rem 4.375rem 2.1875rem 4.375rem;
+            }
+        }
+        &-content {
+            margin-bottom: 1.5625rem;
+        }
+        &-label {
+            font-family: $main;
+            color: $text-black-light;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            &--alt {
+                color: $text-gray;
+            }
+        }
+        &-dropdown-wrapper {
+            position: relative;
+        }
+        &-dropdown-arrow {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                height: 60%;
+                width: 1px;
+                background-color: $border;
+            }
+            &__icon {
+                font-size: 0.75rem;
+                color: $text-dark;
+            }
+        }
+        &-dropdown {
+            appearance: none;
+            background-color: $dropdown;
+            height: 2.5rem;
+            border-radius: 3px;
+            padding-left: 1.4375rem;
+            border: 0;
+            width: 100%;
+            color: $text-light;
+            font-size: 1.125rem;
+            font-style: italic;
+            &:focus {
+                outline: none;
+            }
+        }
+        &-actions {
+            @include atSmall {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        &-btn {
+            background-color: $brand;
+            padding: 1.5625rem;
+            width: 100%;
+            display: block;
+            font-family: $main;
+            color: $white;
+            font-size: 1.125rem;
+        }
+        &-plus {
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+            @include atSmall {
+                margin-bottom: 0;
+            }
+            &__icon {
+                color: $brand;
+                margin-right: 0.5rem;
+            }
+            &__label {
+                font-family: $main;
+                color: $text-black-light;
+                font-size: 1.125rem;
+                font-weight: 300;
+            }
+        }
+        &-more {
+            font-family: $main;
+            color: $brand;
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            @include linkStates($brand, none);
+        }
+    }
+    &__form-columns {
+        @include atSmall {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+    }
+    &__form-column {
+        @include atSmall {
+            width: 33.33%;
+        }
+        &+& {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid $border;
+            @include atSmall {
+                margin-left: 1.5rem;
+                margin-top: 0;
+                padding-top: 0;
+                border-top: 0;
+            }
+        }
+    }
+    &__form-content {
+        &--halves {
+            @include atSmall {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+            .search__form-group {
+                @include atSmall {
+                    width: 50%;
+                }
+                &+.search__form-group {
+                    margin-top: 1.5rem;
+                    @include atSmall {
+                        margin-top: 0;
+                        margin-left: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

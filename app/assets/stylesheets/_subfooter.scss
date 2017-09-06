@@ -1,0 +1,33 @@
+.subfooter {
+    padding-bottom: 1.5625rem;
+    text-align: center;
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        &-item {
+            & + & {
+                margin-left: 1.6875rem;
+            }
+        }
+        &-link {
+            font-size: 1.333rem;
+            @include linkStates($text, none);
+            @include atSmall {
+                font-size: 1rem;
+            }
+        }
+    }
+    &__copyright {
+        font-family: $main;
+        color: $text-dark;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.0625rem;
+        display: inline-block;
+        margin-top: 2rem;
+        @include atSmall {
+            margin-top: 0;
+        }
+    }
+}

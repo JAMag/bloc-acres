@@ -1,8 +1,8 @@
 <% @title="Moverable Search" %>
 <div class="container-fluid">
-  <div class="well">
-    <div class="well"><h4> See your new home today!</h4></div>
-  </div>
+  <!--<div class="well">-->
+    <!--<div class="well"><h4> See your new home today!</h4></div>-->
+  <!--</div>-->
 
   <input id="pac-input" class="controls" type="hidden" placeholder="Search Box">
 
@@ -21,12 +21,46 @@
 
         </div>
       </div>
-      <div class="col-md-4 float-right">
+      <div class="col-md-4 float-right" id="search_right">
         <div class="well">
-          <div class="well" id="search_pagination">
+          <div class ="search-inline">
+
+
+            <%= form_tag properties_path, method: :get, id: 'search-field', role: 'search' do %>
+                <%= select_tag 'search[structure]', options_for_select([['Home Type',''], ['Townhome', 'Townhome'], ['Condo', 'Condo'], ['House', 'House'], ['Multi-family', 'Multi-family']], (params[:search][:structure] if params[:search])) %>
+                <%= select_tag 'search[price]', options_for_select([['Price', ''], ['100000', '100000'], ['125000', '125000'],['150000', '150000'],['175000', '175000'],['200000', '200000'], ['225000', '225000'],['250000', '250000'],['275000', '275000'],['300000', '300000'],['325000', '325000'], ['350000', '350000'],['375000', '375000'],['400000', '400000']], (params[:search][:price] if params[:search]))%>
+                <%= select_tag 'search[beds]', options_for_select([['Beds', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7']], (params[:search][:beds] if params[:search]))%>
+                <%= select_tag 'search[baths]', options_for_select([['Baths', ''], ['1', '1'], ['1.5', '1.5'], ['2', '2'], ['2.5', '2.5'], ['3', '3'], ['3.5', '3.5'], ['4', '4'], ['4.5', '4.5']], (params[:search][:baths] if params[:search])) %>
+<br>
+                <br>
+
+                <div id="search" class="form-group">
+                  <%= text_field_tag 'search[full_search]', (params[:search][:full_search] if params[:search]), class: 'form-control', placeholder: 'City, State ...' %>
+                </div>
+                <div>
+                  <%= button_tag type: 'submit', class: 'btn btn-primary btn-block', style: " display:inline!important;" do %>
+                      Search
+                      <span class="glyphicon glyphicon-search"></span>
+
+                  <% end %>
+
+                </div>
+
+            <% end %>
+
+            <div class="well" id="search_pagination">
             <%= will_paginate @properties %>
+            <br>
+            <div class="btn-group">
+
+              <%= link_to 'Save Search', saved_search_properties_path(params[:search]), class:"btn btn-primary" %>
+              <%= link_to 'Use Saved', properties_path(search: Rack::Utils.parse_nested_query(current_user.saved_search)), class:"btn btn-primary" %>
+            </div>
           </div>
+
         </div>
+
+
         <div id="property-index">
 
               <% @properties.each do |p| %>
@@ -40,16 +74,238 @@
 </div>
 
   <script>
+      function initMap() {
+
+          // Create a new StyledMapType object, passing it an array of styles,
+          // and the name to be displayed on the map type control.
+          var styledMapType = new google.maps.StyledMapType(
+                  [
+                      {
+                          "featureType": "poi",
+                          "stylers": [
+                              {
+                                  "visibility": "off"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "road.highway",
+                          "stylers": [
+                              {
+                                  "visibility": "off"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "transit",
+                          "stylers": [
+                              {
+                                  "visibility": "off"
+                              }
+                          ]
+                      }
+                  ],
+                  {name: 'Styled Map'});
+
+
+
+          // Create a map object, and include the MapTypeId to add
+          // to the map type control.
+          var map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 55.647, lng: 37.581},
+              zoom: 11,
+              mapTypeControlOptions: {
+                  mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                      'styled_map']
+              }
+          });
+
+          //Associate the styled map with the MapTypeId and set it to display.
+          map.mapTypes.set('styled_map', styledMapType);
+          map.setMapTypeId('styled_map');
+      }
 
       function initAutocomplete() {
           var map = new google.maps.Map(document.getElementById('map-canvas'), {
               center: {lat: 37.09024, lng: -95.712891},
-              zoom: 4,
+              zoom: 5,
               mapTypeId: 'roadmap',
-              styles: 'styles',
+
               scrollwheel: false,
               mapTypeControl: false,
+              styles:
+                  [
+                      {
+                          "featureType": "all",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                              {
+                                  "weight": "2.00"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "all",
+                          "elementType": "geometry.stroke",
+                          "stylers": [
+                              {
+                                  "color": "#9c9c9c"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "all",
+                          "elementType": "labels.text",
+                          "stylers": [
+                              {
+                                  "visibility": "on"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "landscape",
+                          "elementType": "all",
+                          "stylers": [
+                              {
+                                  "color": "#f2f2f2"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "landscape",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                              {
+                                  "color": "#ffffff"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "landscape.man_made",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                              {
+                                  "color": "#ffffff"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "poi",
+                          "elementType": "all",
+                          "stylers": [
+                              {
+                                  "visibility": "off"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "road",
+                          "elementType": "all",
+                          "stylers": [
+                              {
+                                  "saturation": -100
+                              },
+                              {
+                                  "lightness": 45
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "road",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                              {
+                                  "color": "#eeeeee"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "road",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                              {
+                                  "color": "#7b7b7b"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "road",
+                          "elementType": "labels.text.stroke",
+                          "stylers": [
+                              {
+                                  "color": "#ffffff"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "road.highway",
+                          "elementType": "all",
+                          "stylers": [
+                              {
+                                  "visibility": "simplified"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "road.arterial",
+                          "elementType": "labels.icon",
+                          "stylers": [
+                              {
+                                  "visibility": "off"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "transit",
+                          "elementType": "all",
+                          "stylers": [
+                              {
+                                  "visibility": "off"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "water",
+                          "elementType": "all",
+                          "stylers": [
+                              {
+                                  "color": "#46bcec"
+                              },
+                              {
+                                  "visibility": "on"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "water",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                              {
+                                  "color": "#c8d7d4"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "water",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                              {
+                                  "color": "#070707"
+                              }
+                          ]
+                      },
+                      {
+                          "featureType": "water",
+                          "elementType": "labels.text.stroke",
+                          "stylers": [
+                              {
+                                  "color": "#ffffff"
+                              }
+                          ]
+                      }
+                  ]
           });
+
 
 
           // Create the search box and link it to the UI element.
@@ -60,36 +316,91 @@
 
           var markers = [];
 
+            <% @properties.each do |p| %>
 
-              $.each(gon.property_coordinates,function(index, coordinates){
-                  markers.push(new google.maps.Marker({
-                      map: map,
-                      title: 'bob',
-                      animation: google.maps.Animation.DROP,
+          (function(){
+              var marker = new google.maps.Marker({
+                  map: map,
+                  title: 'bob',
+                  animation: google.maps.Animation.DROP,
+                  //icon: {url: '<%= p.photos.first.url %>',  scaledSize: new google.maps.Size(100, 100)},
+                  icon: ' ',
+                  label: {
+                      fontFamily: 'Fontawesome',
+                      text: '\uf015',
+                      color: '#29abe2',
+                      fontSize: '32px',
+                      fontBorder: '1px',
+                  },
+                  position: {lat: <%= p.latitude %>, lng: <%= p.longitude %>}
 
-                      position: {lat: coordinates.lat, lng: coordinates.lng}
+              });
 
-                  }));
-              })
+              marker.addListener('dblclick', function() {
+                  map.setZoom(8);
+                  map.setCenter(marker.getPosition());
+              });
+              marker.addListener('click', function() {
+                  var infowindow = new google.maps.InfoWindow({
+                      content: '<%= image_tag((p.photos.first), class: "profile-round") %> <%= p.address %>$<%= p.price %>',
+                      position: {lat: <%= p.latitude %>, lng: <%= p.longitude %>}
+
+                  });
+                  infowindow.open(map, marker);
+              });
+              markers.push(marker);
+
+          })();
 
 
 
 
-          var infowindow = new google.maps.InfoWindow({
-              content:"Hello World!"
-          });
 
-          infowindow.open(map,marker);
+
+
+
+//          google.maps.event.addListener(markers, 'click', function() {
+//              this.infowindow.open(map, this);
+//
+//          });
+
+          //zoom in on click
+
+
+          //////
+
+//          google.maps.event.addListener(markers,'click',function() {
+//              map.setZoom(9);
+//              map.setCenter(markers.getPosition());
+//          });
+
+
+
+            <% end %>
+              //$.each(gon.property_coordinates,function(index, coordinates){
+                  //markers.push(new google.maps.Marker({
+                      //map: map,
+                      //title: 'bob',
+                      //animation: google.maps.Animation.DROP,
+                        //icon: {url: '<%# @properties.first.photos.first.url %>', scaledSize: new google.maps.Size(100, 100)},
+
+                      //position: {lat: coordinates.lat, lng: coordinates.lng}
+
+                  //}));
+//              })
+
+
+
+
+
+
       }
 
+initAutocomplete();
+
+
+
   </script>
-
-
-
-
-
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0XtdadnCScIHtKprl46UROKJkoP1cg7s&libraries=places&callback=initAutocomplete"
-              async defer></script>
 
 
 

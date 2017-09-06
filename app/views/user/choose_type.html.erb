@@ -1,0 +1,18 @@
+
+<br>
+
+<br>
+<br>
+<br>
+
+<div class="well">
+
+  <%= form_for(current_user, url: update_type_path, html: { method: :patch}) do |f| %>
+      <%= f.radio_button :role, 'buyer' %> <%= f.label :buyer, "Buyer" %>
+      <%= f.radio_button :role, 'seller' %> <%= f.label :seller, "Seller" %>
+      <%= f.submit 'Submit', :class => 'btn btn-primary'%>
+
+  <% end %>
+
+</div>
+

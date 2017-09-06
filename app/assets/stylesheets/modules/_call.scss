@@ -1,0 +1,81 @@
+.call {
+    background-color: $brand;
+    padding: 3.75rem 15px;
+    &__copy {
+        text-align: center;
+        @include atSmall {
+            text-align: left;
+        }
+    }
+    &__title {
+        font-family: $main;
+        font-size: 1.5rem;
+        color: $white;
+        font-weight: 400;
+    }
+    &__subtitle {
+        font-family: $main;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: $white;
+        margin-top: 1rem;
+        @include atSmall {
+            line-height: 1.125rem;
+        }
+    }
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3.125rem;
+        @include atSmall {
+            margin-top: 0;
+            justify-content: flex-end;
+        }
+    }
+    &__cta {
+        background-color: $white;
+        font-family: $main;
+        font-weight: 300;
+        font-size: 1.125rem;
+        color: $black;
+        height: 3.75rem;
+        max-width: 200px;
+        width: 50%;
+        border-radius: 10px;
+        text-transform: uppercase;
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+    &__tel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 3.125rem;
+        &-img {
+            height: 2.9167rem;
+            width: auto;
+            @include atSmall {
+                height: 2.1875rem;
+            }
+        }
+        &-copy {
+            margin-left: 0.5rem;
+        }
+        &-title {
+            font-family: $main;
+            font-weight: 300;
+            color: $white;
+            font-size: 0.875rem;
+            line-height: 1.125rem;
+            display: block;
+            margin-left: -1rem;
+        }
+        &-link {
+            font-family: $main;
+            font-size: 1.25rem;
+            font-weight: 400;
+            @include linkStates($white, none);
+        }
+    }
+}

@@ -1,0 +1,32 @@
+// Font imports and stacks
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700');
+
+@font-face {
+    font-family: "Brittanic-Bld";
+    src: url("../fonts/BritannicBold.ttf");
+}
+
+$main: "Lato", Helvetica, Arial, sans-serif;
+$alt: "Brittanic-Bld", serif;
+
+// Colors
+$brand: #29abe2;
+$accent: #fc601b;
+
+$text: #656565;
+$text-light: #a4a4a4;
+$text-light-alt: #747474;
+$text-med: #515151;
+$text-dark: #454545;
+$text-black: #171717;
+$text-black-light: #2e2e2e;
+$text-gray: #c6c6c6;
+
+$white: #ffffff;
+$black: #000000;
+$gray: #f3f3f3;
+$gray-light: #f6f6f6;
+$gray-dark: #e8e8e8;
+
+$dropdown: #f9f9f9;
+$border: #878787;

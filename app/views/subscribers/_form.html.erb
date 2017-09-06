@@ -1,0 +1,8 @@
+
+
+
+    <%= form_tag subscriber_path(:id), method: :put do %>
+        <h4>Create Platinum Subscription</h4>
+        <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= 10000 %> data-description="Platinum_plan" ></script>
+    <% end %>
+
