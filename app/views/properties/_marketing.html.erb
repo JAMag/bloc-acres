@@ -1,43 +1,51 @@
 <div class="col-md-12">
+  <div class="well">
 
-  <div class="panel panel-marketing">
+  <div class="row">
 
-    <div class="marketing-message">
-      <form class="form-inline" role="form">
-        <div class="form-group">
-          <div>
-
-            <label for="message">Tell People about it!</label>
-
-          </div>
-          <input type="text" class="form-control" id="message">
-        </div>
-      </form>
+    <div class="col-md-2 text-center">
+      <div class="time-zone">
+        <h3 class="text-center">Connect</h3>
+        <hr>
+        <p class="text-center">
+          <b><%= Time.zone.name %> Timezone </b>
+          <%= link_to 'change', edit_user_registration_path %>
+        </p>
+      </div>
+      <div class="social">
+        <% unless current_user.connections.where(provider: 'twitter').any? %>
+            <%= link_to 'Connect Twitter', 'auth/twitter', class: 'btn btn-info btn-block btn-sm' %>
+        <% else %>
+            <%= link_to 'Connect Twitter', 'auth/twitter', class: 'btn btn-info btn-block btn-sm', disabled: true %>
+            <%= link_to 'Delete Connection', connection_path(current_user.connections.where(provider: 'twitter').first), method: :delete %>
+        <% end %>
+        <% unless current_user.connections.where(provider: 'facebook').any? %>
+            <%= link_to 'Connect Facebook', 'auth/facebook', class: 'btn btn-primary btn-block btn-sm' %>
+        <% else %>
+            <%= link_to 'Connect Facebook', 'auth/facebook', class: 'btn btn-primary btn-block btn-sm', disabled: true %>
+            <%= link_to 'Delete Connection', connection_path(current_user.connections.where(provider: 'facebook').first), method: :delete %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-center">Create</h3>
+      <hr>
+      <%= render :partial => '/posts/form', :post => @post %>
     </div>
 
-    <div>
-      <!-- Twitter -->
-      <a href="" title="Email" target="_blank" class="btn btn-envelope"><i class="fa fa-envelope"></i> Email </a>
-      <!-- Twitter -->
-      <a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i>
-        Twitter</a>
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i>
-        Facebook</a>
-      <!-- Google+ -->
-      <a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i>
-        Google+</a>
-      <!-- StumbleUpon -->
-      <a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i>
-        Stumbleupon</a>
-      <!-- LinkedIn -->
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i>
-        LinkedIn</a>
-      <!-- Pinterest -->
-      <a href="http://www.pinterest.com/pin/create/button/?ur=_DESCRIPTION_&media=_URL_TO_IMAGE_" title="Share on Pinterest" target="_blank" class="btn btn-pinterest"><i class="fa fa-pinterest"></i>
-        Pinterest</a>
+    <div class="col-md-2">
+      <h3 class="text-center">Future Posts</h3>
+      <hr>
+      <%= render @scheduled %>
     </div>
 
+    <div class="col-md-2">
+      <h3 class="text-center">Past Posts</h3>
+      <hr>
+      <%= render @history %>
+    </div>
   </div>
 
+
+  </div>
 </div>

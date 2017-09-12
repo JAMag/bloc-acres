@@ -1,4 +1,20 @@
 source 'https://rubygems.org'
+
+#social media marketer section
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'validates_timeliness', '~>3.0'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'momentjs-rails', '~> 2.9',  github: 'derekprior/momentjs-rails'
+gem 'simple_form'
+gem 'twitter'
+gem 'koala'
+gem 'delayed-web'
+gem 'delayed_job_active_record'
+
+#end of social media marketer section
+
+
 gem  'bootstrap-tour-rails'
 gem 'pundit'
 gem 'figaro', '1.0'

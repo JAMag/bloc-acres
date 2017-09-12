@@ -8,10 +8,11 @@ Bundler.require(*Rails.groups)
 
 module BlocAcres
   class Application < Rails::Application
+    config.assets.precompile << 'delayed/web/application.css'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
@@ -27,6 +28,7 @@ module BlocAcres
     config.assets.enabled = true
     config.assets.version = '1.01019'
     config.serve_static_files = true
+    config.active_job.queue_adapter = :delayed_job
 
   end
 end

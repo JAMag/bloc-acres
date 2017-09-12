@@ -38,7 +38,10 @@ class WelcomeController < ApplicationController
     @products = Product.all
     @cart = cart
     @advertisements = Advertisement.all
-
+    @scheduled = current_user.posts.where(state: "scheduled").paginate(page: params[:scheduled_page], per_page: 4).order("scheduled_at ASC")
+    @history = current_user.posts.where.not(state:"scheduled").paginate(page: params[:history_page], per_page: 4).order("scheduled_at DESC")
+    @posts = current_user.posts
+    @post = Post.new(content: "Hey, I've decided to sell my house on www.Moverable.com. Check it out at:")
 
     if current_user.role.blank?
       redirect_to choose_type_path and return

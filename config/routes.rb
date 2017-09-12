@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+
+
+# social media marketer
+
+  authenticated :user, -> user { user.admin? } do
+    mount Delayed::Web::Engine, at: '/jobs'
+  end
+
+  get 'auth/:provider/callback', to: 'connections#create'
+  resources :connections, only: [:destroy]
+  resources :posts do
+    member do
+      put :cancel
+    end
+  end
+
+# end of social media marketer
   
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
@@ -42,7 +59,7 @@ Rails.application.routes.draw do
     end
   end
   resources :subscribers
-
+  get 'auth/failure', to: 'connections#omniauth_failure'
 
   resources :locks do
     get :lock, on: :member

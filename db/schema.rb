@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815014816) do
+ActiveRecord::Schema.define(version: 20170906182630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,31 @@ ActiveRecord::Schema.define(version: 20170815014816) do
   add_index "comments", ["property_id"], name: "index_comments_on_property_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "connections", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "oauth_token"
+    t.string   "secret"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "property_id"
@@ -109,6 +134,18 @@ ActiveRecord::Schema.define(version: 20170815014816) do
   end
 
   add_index "locks", ["property_id"], name: "index_locks_on_property_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "error"
+    t.text     "content"
+    t.datetime "scheduled_at"
+    t.string   "state"
+    t.integer  "user_id"
+    t.boolean  "facebook"
+    t.boolean  "twitter"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
@@ -156,12 +193,12 @@ ActiveRecord::Schema.define(version: 20170815014816) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -178,6 +215,8 @@ ActiveRecord::Schema.define(version: 20170815014816) do
     t.boolean  "subscribed"
     t.string   "stripeid"
     t.string   "saved_search"
+    t.string   "time_zone"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
