@@ -7,6 +7,7 @@
 
 <div class="well">
 
+  Select buyer to create a subscription for $100 a month that allows access to all facets of Moverable. Sellect seller for a free subscription that also allows all facets of moverable.
   <%= form_for(current_user, url: update_type_path, html: { method: :patch}) do |f| %>
       <%= f.radio_button :role, 'buyer' %> <%= f.label :buyer, "Buyer" %>
       <%= f.radio_button :role, 'seller' %> <%= f.label :seller, "Seller" %>

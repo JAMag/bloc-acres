@@ -40,7 +40,7 @@
             </div>
             <div>
               <!--# social media marketer-->
-              <%= f.input :time_zone, required: true %>
+              <%= f.time_zone_select :time_zone, nil, include_blank: true, required: true, placeholder: 'Time Zone', class: "form-control" %>
               <!--# end of social media marketer-->
             </div>
             <div class="form-control">

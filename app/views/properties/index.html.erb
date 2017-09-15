@@ -49,12 +49,16 @@
             <% end %>
 
             <div class="well" id="search_pagination">
-            <%= will_paginate @properties %>
+              <%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
             <br>
             <div class="btn-group">
+              <% if current_user %>
+                  <%= link_to 'Save Search', saved_search_properties_path(params[:search]), class:"btn btn-primary" %>
+                  <%= link_to 'Use Saved', properties_path(search: Rack::Utils.parse_nested_query(current_user.saved_search)), class:"btn btn-primary" %>
+              <% else %>
+                  <h4>Sign Up To Save Your Search</h4>
+              <% end %>
 
-              <%= link_to 'Save Search', saved_search_properties_path(params[:search]), class:"btn btn-primary" %>
-              <%= link_to 'Use Saved', properties_path(search: Rack::Utils.parse_nested_query(current_user.saved_search)), class:"btn btn-primary" %>
             </div>
           </div>
 
@@ -72,6 +76,7 @@
         </div>
       </div>
 </div>
+  </div>
 
   <script>
       function initMap() {
@@ -130,7 +135,7 @@
               center: {lat: 37.09024, lng: -95.712891},
               zoom: 5,
               mapTypeId: 'roadmap',
-
+              draggable: true,
               scrollwheel: false,
               mapTypeControl: false,
               styles:

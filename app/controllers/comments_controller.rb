@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   private
 
   def find_property
-    @property = Property.find(params[:property_id])
+    @property = Property.friendly.find(params[:property_id])
   end
 
   def find_comment

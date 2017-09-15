@@ -1,5 +1,5 @@
 <% @title="Moverable Dashboard" %>
-<%= render partial: 'layouts/buyer_step_wizard' %>
+
 <div class="container-fluid">
 
   <div>
@@ -13,8 +13,9 @@
       <li><a data-toggle="tab" href="#store">Seller's Store <span class="fa fa-credit-card" style="vertical-align:middle"></span></a></li>
       <li><a data-toggle="tab" href="#services">Services <span class="fa fa-thumbs-o-up" style="vertical-align:middle"></span></a></li>
       <li><a data-toggle="tab" href="#account">Account <span class="fa fa-cog" style="vertical-align:middle"></span></a></li>
+
     </ul>
-    <hr>
+
   </div>
 
 
@@ -22,8 +23,14 @@
 
 
         <div id="buyer" class="tab-pane fade in active">
-           <% if @favorites != nil %>
-          <%# will_paginate @favorites %>
+          <hr>
+          <%= render partial: 'layouts/buyer_step_wizard' %>
+          <div class="well">
+            <h4 id="buyer-dashboard-directions">Your Favorited Properties:</h4>
+            <% if @favorites != nil %>
+                <%= will_paginate @favorites, :param_name => 'favorites_page', renderer: BootstrapPagination::Rails %>
+          </div>
+
 
           <% @favorites.each do |f| %>
               <% p = f.property %>
@@ -39,13 +46,15 @@
 
         <div id="seller" class="tab-pane fade in active">
           <hr>
-          <div id = "create_listing" class="well">
-            <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block btn-lg' %>
-          </div>
           <%= render partial: 'layouts/seller_step_wizard' %>
 
+          <div class="well">
+            <h4 id="seller-dashboard-directions">Your Listings For Sale:</h4>
+            <%= will_paginate @properties, :param_name => 'properties_page', renderer: BootstrapPagination::Rails %>
+          </div>
 
-          <%# will_paginate @properties %>
+
+
 
           <% @properties.each do |p| %>
               <div class="container-fluid">
@@ -62,6 +71,7 @@
 
 
         <div id="offers" class="tab-pane fade">
+          <hr>
           <% if @properties != nil %>
           <% @properties.each do |p| %>
               <div class="container-fluid">
@@ -75,6 +85,7 @@
 
 
         <div id="advice" class="tab-pane fade">
+          <hr>
           <div class="container-fluid">
               <div class="row">
                 <%= render partial: 'properties/advice' %>
@@ -83,6 +94,7 @@
         </div>
 
         <div id="store" class="tab-pane fade">
+          <hr>
           <div class="container-fluid">
               <div class="row">
                 <%= render partial: 'layouts/store' %>
@@ -93,6 +105,7 @@
 
 
         <div id="services" class="tab-pane fade">
+          <hr>
           <div class="container-fluid">
             <div class="row">
               <%= render partial: 'layouts/services' %>
@@ -103,6 +116,7 @@
 
 
         <div id="account" class="tab-pane fade">
+          <hr>
           <div class="container-fluid">
             <div class="row">
               <%= render partial: 'layouts/user_account_info' %>

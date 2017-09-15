@@ -14,7 +14,7 @@ gem 'delayed_job_active_record'
 
 #end of social media marketer section
 
-
+gem 'will_paginate-bootstrap'
 gem  'bootstrap-tour-rails'
 gem 'pundit'
 gem 'figaro', '1.0'

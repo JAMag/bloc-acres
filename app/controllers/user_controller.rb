@@ -28,6 +28,6 @@ class UserController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :avatar)
+    params.require(:user).permit(:name, :avatar, :time_zone)
   end
 end
