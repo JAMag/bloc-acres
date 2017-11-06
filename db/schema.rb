@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906182630) do
+ActiveRecord::Schema.define(version: 20171106204753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -191,6 +191,22 @@ ActiveRecord::Schema.define(version: 20170906182630) do
 
   add_index "slots", ["property_id"], name: "index_slots_on_property_id", using: :btree
 
+  create_table "store_purchases", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "amount"
+    t.string   "description"
+    t.string   "currency"
+    t.string   "customer_id"
+    t.string   "card"
+    t.integer  "product_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "uuid"
+    t.integer  "user_id"
+  end
+
+  add_index "store_purchases", ["user_id"], name: "index_store_purchases_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "",    null: false
@@ -217,6 +233,7 @@ ActiveRecord::Schema.define(version: 20170906182630) do
     t.string   "saved_search"
     t.string   "time_zone"
     t.boolean  "admin",                  default: false
+    t.string   "phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -224,4 +241,5 @@ ActiveRecord::Schema.define(version: 20170906182630) do
 
   add_foreign_key "comments", "properties"
   add_foreign_key "comments", "users"
+  add_foreign_key "store_purchases", "users"
 end

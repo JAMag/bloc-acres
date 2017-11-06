@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
 
-# social media marketer
+  get 'messages/reply'
 
-  authenticated :user, -> user { user.admin? } do
+# social media marketer
+#
+#   authenticated :user, -> user { user.admin? } do
     mount Delayed::Web::Engine, at: '/jobs'
-  end
+  # end
 
   get 'auth/:provider/callback', to: 'connections#create'
   resources :connections, only: [:destroy]
@@ -16,25 +18,35 @@ Rails.application.routes.draw do
   end
 
 # end of social media marketer
-  
+# Start of "seller store"
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add'
 
   resources :products
 
+  #store bug
+  # resources :store_purchases, only: [:show]
+  #end of store bug
+# end of "seller store"
+
+# Start of user subscription
   get 'user/choose_type', to: 'user#choose_type', as: 'choose_type'
-
   patch 'user/update_type', to: 'user#update_type', as: 'update_type'
+# end of user subscription
 
+# Start of mortgage calculator
   resources :calculators
+# end of mortgage claculator
 
+# start of Admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'calendar/show'
 
   resources :locks
 
   resources :charges, only: [:new, :create]
+    post '/store_charges', to: 'charges#store_purchase', as: 'store_charges'
   resources :add_offers
 
   devise_for :users
@@ -68,60 +80,13 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
   root to: 'welcome#index'
-  
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  resource :messages do
+    collection do
+      post 'reply'
+    end
+  end
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

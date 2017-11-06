@@ -5,7 +5,7 @@ class AddOffersController < ApplicationController
 
   def create
     @add_offer = AddOffer.new(add_offer_params)
-    @add_offer.property = Property.find(params[:property_id])
+    @add_offer.property = Property.friendly.find(params[:property_id])
 
 
     if @add_offer.save

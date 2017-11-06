@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
-
+  skip_before_filter :verify_authenticity_token
+  skip_before_filter :authenticate_user!, :only => 'reply'
 
   def index
   end
@@ -9,7 +10,17 @@ class AppointmentsController < ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
+    @user = @appointment.user
     if @appointment.update_attributes(appointment_params)
+
+
+      boot_twilio
+      sms = @client.messages.create(
+          from: Rails.application.secrets.twilio_number,
+          to: @user.phone_number,
+          body: "You've started your viewing. Thank you for using Moverable. "
+      )
+
       redirect_to :back, notice: "You started appointment."
     else
       redirect_to :back, notice: "Error. Try again."
@@ -99,5 +110,7 @@ class AppointmentsController < ApplicationController
     params.require(:appointment).permit(:avatar)
   end
 
-
+  def boot_twilio
+    @client = Twilio::REST::Client.new(Rails.application.secrets.twilio_sid, Rails.application.secrets.twilio_token)
+  end
 end

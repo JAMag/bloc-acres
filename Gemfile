@@ -14,6 +14,10 @@ gem 'delayed_job_active_record'
 
 #end of social media marketer section
 
+#sms notifications
+gem 'twilio-ruby'
+#end sms notifications
+
 gem 'will_paginate-bootstrap'
 gem  'bootstrap-tour-rails'
 gem 'pundit'

@@ -15,7 +15,7 @@ class SlotsController < ApplicationController
 
 
   def destroy
-    @slot = current_user.properties.find(params[:property_id]).slots.find(params[:id])
+    @slot = current_user.properties.friendly.find(params[:property_id]).slots.find(params[:id])
 
     authorize = @slot
     if @slot.destroy
@@ -28,7 +28,7 @@ class SlotsController < ApplicationController
   end
 
   def by_day
-    @slots = current_user.properties.find(params[:property_id]).slots.for_day(params[:day])
+    @slots = current_user.properties.friendly.find(params[:property_id]).slots.for_day(params[:day])
 
     authorize = @slots
     if @slots.destroy_all

@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
 
   def name
-    @property = Property.find(params[:id])
+    @property = Property.friendly.find(params[:id])
     @name = @property.user.name
   end
 
@@ -34,7 +34,6 @@ class WelcomeController < ApplicationController
     @properties = current_user.properties.paginate(page: params[:properties_page], per_page: 1)
     @appointments = current_user.appointments
     @favorites = current_user.favorites.paginate(page: params[:favorites_page], per_page: 3)
-    @comments = Comment.where(property_id: @property).order("created_at DESC")
     @products = Product.all
     @cart = cart
     @advertisements = Advertisement.all
@@ -42,6 +41,7 @@ class WelcomeController < ApplicationController
     @history = current_user.posts.where.not(state:"scheduled").paginate(page: params[:history_page], per_page: 4).order("scheduled_at DESC")
     @posts = current_user.posts
     @post = Post.new(content: "Hey, I've decided to sell my house on www.Moverable.com. Check it out at:")
+    @past_purchases = current_user.store_purchases
 
     if current_user.role.blank?
       redirect_to choose_type_path and return
