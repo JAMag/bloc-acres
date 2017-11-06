@@ -15,18 +15,18 @@
         <p> Email: <%= current_user.email %></p>
       </div>
       <div class="row">
-        <p> Last signed in on: </p>
+        <p> User role: <%= current_user.role %> </p>
       </div>
       <div class="row">
-        <p> Number of listings:
+        <p> Number of listings: <%= current_user.properties.count %>
 
         </p>
       </div>
       <div class="row">
-        <p> Phone number: (xxx) xxx-xxxx </p>
+        <p> Phone number: <%=number_to_phone(current_user.phone_number, area_code: true) %></p>
       </div>
       <div class="row">
-        <p> Address if different from listing: </p>
+        <p> Last Sign In: <%= current_user.last_sign_in_at.strftime("%B %e, %Y at %I:%M%p ") %> </p>
       </div>
       <div class="row">
         <p> Listing Plan: Bronze - Gold - Platinum </p>
@@ -41,16 +41,21 @@
         <p> Credit Card Info: xxxxxxxxxxxxxxxxx</p>
       </div>
       <div class="row">
-        <p> Number of Houses visited: 3 </p>
+        <p> Favorited Houses: <%= current_user.favorites.count %></p>
       </div>
       <div class="row">
-        <p> Dates of visit: 3/3/3 at 3:00pm </p>
+        <p> Time Zone: <%= current_user.time_zone %></p>
       </div>
       <div class="row">
-        <p> Other owner info: Jane Doe</p>
+        <p> Saved Search Parameters: <%= current_user.saved_search %></p>
       </div>
       <div class="row">
-        <p> Recent order info: XXXXX</p>
+        <p> Recent order info:
+          <% @past_purchases.each do |p| %>
+            <%= p.description %>
+          <% end %>
+
+              </p>
       </div>
 
     </div>

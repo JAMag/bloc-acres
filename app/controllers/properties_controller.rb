@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   require 'will_paginate/array'
 
 
@@ -12,7 +13,7 @@ class PropertiesController < ApplicationController
                                     }
       ).paginate(page: params[:page], per_page: 5)
     else
-      @properties = Property.all.paginate(page: params[:page], per_page: 5)
+      @properties = Property.all.paginate(page: params[:page], per_page: 5).order(sort_column + " " + sort_direction)
     end
     gon.property_coordinates = @properties.map{|p|{lat: p.latitude, lng: p.longitude}}
 
@@ -30,30 +31,47 @@ class PropertiesController < ApplicationController
     @property = Property.friendly.find(params[:id])
     @slots = @property.slots.future
     #@addOffer= @property.addoffer
-    @comments = Comment.where(property_id: @property).order("created_at DESC")
+    # @comments = Comment.where(property_id: @property).order("created_at DESC")
 
 
     @has_slots = @property.slots.future.map{|slot| slot.start_time.strftime('%y%m%d-%I%P')}
 
     @booked_appointments = @property.appointments.map(&:slot).map{|slot| slot.start_time.strftime('%y%m%d-%I%P')}
+
+#     CM reconfigure of db and timepicker for appointment booking
+
+    @slot_info = {}
+    @slots.each do |slot|
+      formatted_date = slot.start_time.strftime('%y%m%d-%I%P')
+      key = formatted_date
+      value = {
+          id: slot.id,
+          is_booked: @booked_appointments.include?(formatted_date)
+      }
+
+      @slot_info[key] = value
+    end
+
 logger.info " SLOTS #{@property.appointments.map(&:slot).inspect}"
     gon.push({booked_appointments: @booked_appointments})
     gon.push({has_slots: @has_slots})
     gon.push({property: @property})
+    gon.push({slots: @slots})
+    gon.push({slot_info: @slot_info})
   end
 
   def edit
-    @property = Property.find(params[:id])
+    @property = Property.friendly.find(params[:id])
     authorize @property
   end
 
   def update
-    @property = Property.find(params[:id])
+    @property = Property.friendly.find(params[:id])
     if @property.update_attributes(property_params)
-      flash[:notice] = "Edited listing."
+      flash[:notice] = 'Edited listing.'
       redirect_to @property
     else
-      flash[:error] = "Error updating listing. Try again."
+      flash[:error] = 'Error updating listing. Try again.'
       redirect_to edit_property_path(@property)
     end
   end
@@ -72,24 +90,24 @@ logger.info " SLOTS #{@property.appointments.map(&:slot).inspect}"
     #@slot = @property.slot
     authorize @property
     if @property.save
-      flash[:notice] = "Created listing."
+      flash[:notice] = 'Created listing.'
       redirect_to @property
     else
-      flash[:error] = "Error creating listing. Try again."
+      flash[:error] = 'Error creating listing. Try again.'
       redirect_to edit_property_path(@property)
     end
   end
 
 
   def destroy
-    @property = current_user.properties.find(params[:id])
+    @property = current_user.properties.friendly.find(params[:id])
 
     authorize = @property
     if @property.destroy
-      flash[:notice] = "Listing removed."
+      flash[:notice] = 'Listing removed.'
       redirect_to dashboard_path
     else
-      flash[:error] = "Listing not removed. Try again."
+      flash[:error] = 'Listing not removed. Try again.'
       redirect_to [@property]
     end
   end
@@ -106,5 +124,13 @@ logger.info " SLOTS #{@property.appointments.map(&:slot).inspect}"
   private
   def property_params
     params.require(:property).permit(:structure, :address, :city, :state, :zip, :description, :baths, :beds, :sqft, :lot, :price, :lock, :showcase, {photos: []})
+  end
+
+  def sort_column
+   Property.column_names.include?(params[:sort]) ? params[:sort] : "price"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

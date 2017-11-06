@@ -6,7 +6,7 @@
   </div>
   <div class="container-fluid">
 
-    <div class="row">
+    <div class="row hidden-xs">
       <div class="panel-default">
           <h1>
             <center><%= @property.address %></center>
@@ -90,7 +90,7 @@
 
 
 
-  <div class="row">
+  <div class="row visible-lg-block">
     <% if @add_offer %>
         <%= @add_offer.price %>
         <% else %>

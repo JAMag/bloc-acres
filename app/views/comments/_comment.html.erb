@@ -1,12 +1,23 @@
 
 
 <div class="container-fluid">
+  <%= will_paginate comments, :param_name => 'comments_page', renderer: BootstrapPagination::Rails %>
   <div class="panel panel-default">
+    <%= controller.controller_name %>
     <div class="well well-sm">
-        <h4> This property has <%= pluralize(p.comments.count, "question") %>:</h4>
+        <h4 data-toggle="tooltip" title="Hooray!"> This property has <%= pluralize(comments.count, "question") %>:</h4>
+      <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
     </div>
-    <% p.comments.each do |comment| %>
-        <div class="col-md-4">
+
+    <% comments.each_slice(3) do |group| %>
+    <div class="row">
+      <div class="three columns">
+
+        <% group.each do |comment| %>
+
+
+        <div class="comment">
+          <div class="col-md-4">
 
 
 
@@ -18,24 +29,24 @@
                 <i class="fa fa-comments fa-4x pull-right" aria-hidden="true" style="color:white"></i>
                 <p>"<%= comment.content %>"</p>
                 <br/>
-                  <% if p.user.id ==  comment.user.id  %>
+                <% if p.user.id ==  comment.user.id  %>
 
                     <p class="pull-right">Answered by: <b>Owner</b></p>
-                   <% else %>
+                <% else %>
 
-                      <p class="pull-right">Asked by: <b><%=comment.user.name %></b></p>
-                   <% end %>
+                    <p class="pull-right">Asked by: <b><%=comment.user.name %></b></p>
+                <% end %>
                 <br />
                 <hr>
 
-                  <p class="pull-right">
-                    Created at: <%= comment.created_at.strftime("%-I:%M%p %B %-d, %Y") %>
-                  </p>
+                <p class="pull-right">
+                  Created at: <%= comment.created_at.strftime("%-I:%M%p %B %-d, %Y") %>
+                </p>
 
               </div>
               <p class="pull-left">
                 <% if p.user.id == current_user.id %>
-                    <%= link_to "Owner May Delete Comment", [comment.property, comment ], class: "btn btn-danger btn-block", method: :delete %>
+                    <%= link_to 'Owner May Delete Comment', [comment.property, comment ], class: "btn btn-danger btn-block", method: :delete %>
                 <% end %>
               </p>
 
@@ -43,9 +54,21 @@
 
 
 
+          </div>
         </div>
+        <% end %>
+      </div>
 
+    </div>
     <% end %>
+
+
+
   </div>
 </div>
 
+<!--<script>-->
+//    $(document).ready(function(){
+//        $('[data-toggle="tooltip"]').tooltip();
+//    });
+<!--</script>-->

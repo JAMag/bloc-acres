@@ -8,7 +8,7 @@
 
       <div class="row col-md-8 float-left">
         <div id="map-canvas"></div>
-        <div class="panel panel-default">
+        <div class="panel panel-default hidden-xs">
 
               <% @properties.each do |p| %>
               <div class="row">
@@ -38,18 +38,26 @@
                   <%= text_field_tag 'search[full_search]', (params[:search][:full_search] if params[:search]), class: 'form-control', placeholder: 'City, State ...' %>
                 </div>
                 <div>
-                  <%= button_tag type: 'submit', class: 'btn btn-primary btn-block', style: " display:inline!important;" do %>
-                      Search
-                      <span class="glyphicon glyphicon-search"></span>
+                  <%= button_tag type: 'submit', class: 'search__form-btn', style: " display:inline!important;" do %>
+                      SEARCH
+                      <!--<span class="glyphicon glyphicon-search"></span>-->
 
                   <% end %>
 
                 </div>
 
             <% end %>
+            <div class="search-inline" id="sort">
+              <p>Sort:</p>
+              <%= sortable "price" %>
+              <%= sortable "beds" %>
+              <%= sortable "baths" %>
+            </div>
+
+
 
             <div class="well" id="search_pagination">
-              <%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
+              <%= will_paginate @properties, :page_links => false, renderer: BootstrapPagination::Rails %>
             <br>
             <div class="btn-group">
               <% if current_user %>
@@ -347,7 +355,7 @@
               });
               marker.addListener('click', function() {
                   var infowindow = new google.maps.InfoWindow({
-                      content: '<%= image_tag((p.photos.first), class: "profile-round") %> <%= p.address %>$<%= p.price %>',
+                      content: '<%= image_tag((p.photos.first), class: "profile-round") %><br><%= link_to p.address, property_path(p), target: :_blank %><br>$<%= p.price %>',
                       position: {lat: <%= p.latitude %>, lng: <%= p.longitude %>}
 
                   });

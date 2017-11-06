@@ -1,7 +1,7 @@
 
 <div class="thumbnail-small">
   <ul class="button">
-    <button data-toggle="collapse" class= "btn btn-primary-listing btn-block" href="#viewfavs<%= p.id %>"><%= image_tag(p.photos.first.url, :class=>'profile-round', :size => "100x100") %> Open/Close <i class="fa fa-folder-open" aria-hidden="true"></i></button>
+    <button data-toggle="collapse" class= "btn btn-primary-listing btn-block" href="#viewfavs<%= p.id %>"><span class="search_prop_tab"><%= image_tag(p.photos.first.url, :class=>'profile-round', :size => "100x100") %> Open/Close <i class="fa fa-folder-open" aria-hidden="true"></i></span></button>
   </ul>
 </div>
 
@@ -26,16 +26,18 @@
         <div class="panel panel-home">
           <div class="row">
 
-            <div class="col-md-8">
+            <div class="">
 
               <div class="thumbnail">
+
+
                 <%= render partial: 'properties/photo', locals: {property: p} %>
               </div>
               <div id="pano<%= p.id %>" class="thumbnail-street-view"></div>
             </div>
 
 
-            <div class="col-md-4">
+            <div class="">
               <h4> <%= link_to p.address, property_path(p) %></h4>
               <h3 class="sale__item-name">
                 <%= p.city + "," %>

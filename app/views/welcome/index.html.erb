@@ -45,10 +45,11 @@
                     </div>
                     <div class="search__form-wrapper">
                         <div class="search__filters">
-                            <div class="search__filters-item search__filters-item--active">Sale</div>
+                            <div class="search__filters-item search__filters-item--active">Sell</div>
                             <div class="search__filters-item">Buy</div>
                         </div>
-                        <form class="search__form">
+                        <!--<form class="search__form">-->
+                          <%= form_tag properties_path, method: :get, id: 'search-field', class: 'search__form', role: 'search' do %>
                             <div class="search__form-main">
                                 <div class="search__form-columns">
                                     <div class="search__form-column">
@@ -56,7 +57,7 @@
                                             <div class="search__form-group">
                                                 <label class="search__form-label">Keyword</label>
                                                 <div class="search__form-dropdown-wrapper">
-                                                  <%= form_tag properties_path, method: :get, id: 'search-field', role: 'search' do %>
+
                                                     <select class="search__form-dropdown">
                                                 <option value="">Any</option>
                                                 <option value="1">Item 1</option>
@@ -156,14 +157,20 @@
                                             <div class="search__form-group">
                                                 <label class="search__form-label">Property  type</label>
                                                 <div class="search__form-dropdown-wrapper">
-                                                    <select class="search__form-dropdown">
-                                                      <!--<%= select_tag 'search[structure]', options_for_select([['Home Type',''], ['Townhome', 'Townhome', {:class => 'search__form-dropdown'}], ['Condo', 'Condo', {:class => 'search__form-dropdown'}], ['House', 'House', {:class => 'search__form-dropdown'}], ['Multi-family', 'Multi-family', {:class => 'search__form-dropdown'}]], (params[:search][:structure] if params[:search]) ) %>-->
-                                                <option value="">Any</option>
-                                                <option value="1">Item 1</option>
-                                                <option value="2">Item 2</option>
-                                                <option value="3">Item 3</option>
-                                                <option value="3">Item 3</option>
-                                            </select>
+                                                    <div class="search__form-dropdown">
+
+                                                          <%= select_tag 'search[structure]',  options_for_select([['Home Type','', {:class => ''}],
+                                                                          ['Townhome', 'Townhome', {:class => ''}],
+                                                                          ['Condo', 'Condo', {:class => ''}],
+                                                                          ['House', 'House', {:class => ''}],
+                                                                          ['Multi-family', 'Multi-family', {:class => ''}]],
+                                                                                                        (params[:search][:structure] if params[:search]) )%>
+                                                        <!--<option value="">Any</option>-->
+                                                        <!--<option value="1">Item 1</option>-->
+                                                        <!--<option value="2">Item 2</option>-->
+                                                        <!--<option value="3">Item 3</option>-->
+                                                        <!--<option value="3">Item 3</option>-->
+                                                    </div>
                                                     <div class="search__form-dropdown-arrow">
                                                         <i class="fa fa-chevron-down search__form-dropdown-arrow__icon"></i>
                                                     </div>
@@ -210,9 +217,14 @@
                                     <a href="#" class="search__form-more">View all deals for sale &nbsp;&nbsp;></a>
                                 </div>
                             </div>
-                                                      <% end %>
-                            <input type="submit" class="search__form-btn" value="SEARCH">
-                        </form>
+                              <%= button_tag type: 'submit', class: 'search__form-btn', style: " display:inline!important;" do %>
+                                  SEARCH
+                                  <!--<span class="glyphicon glyphicon-search"></span>-->
+
+                              <% end %>
+                            <!--<input type="submit" class="search__form-btn" value="SEARCH">-->
+                          <% end %>
+                        <!--</form>-->
                     </div>
                 </div>
             </div>
@@ -509,6 +521,7 @@
             </div>
         </div>
     </section>
+
 
     <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->

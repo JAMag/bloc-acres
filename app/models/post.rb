@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
 
   def schedule
     begin
+      puts "Scheduled at #{scheduled_at}"
       ScheduleJob.set(wait_until: scheduled_at).perform_later(self)
       self.update_attributes(state: "scheduled")
     rescue Exception => e

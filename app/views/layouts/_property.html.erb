@@ -116,7 +116,12 @@
 
         <div id="pquestions<%= p.id %>" class="tab-pane fade">
           <div class="row">
-            <%= render partial: 'comments/comment', locals: {p: p} %>
+            <% comments = p.comments.order("created_at DESC").paginate(page: params[:comments_page], per_page: 3) %>
+            <% if comments.any? %>
+                <%= render partial: 'comments/comment',locals: {p: p, comments: comments} %>
+                <% else %>
+                Property has no comments
+            <% end %>
           </div>
           <div class="row">
             <%= render partial: 'comments/form', locals: {p: p} %>

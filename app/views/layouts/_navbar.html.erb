@@ -6,7 +6,7 @@
           <a href="#" class="header__logo-wrapper">
             <a class="navbar-brand myLogo" href="#" title="Moverable">
               <%= link_to welcome_index_path do %>
-                  <%= image_tag "Moverable.png", class:'myLogo' %>
+                  <%= image_tag "Moverable.png", class:'myLogo hidden-xs' %>
               <% end %>
             </a>
           </a>
@@ -17,11 +17,11 @@
 
               <div class="header__submit">
                 <%= link_to properties_path do %>
-                    <img src="/assets/i-apartment.png" alt="Submit Property" class="header__submit-icon">
-                    <p class="header__submit-link"> Search Properties </p>
+                    <img src="/assets/i-apartment.png" alt="Submit Property" class="header__submit-icon hidden-xs">
+                    <p class="header__submit-link hidden-xs"> Search Properties </p>
                 <% end %>
               </div>
-              <ul class="header__social">
+              <ul class="header__social hidden-xs">
                 <li class="header__social-item"><a href="#" class="header__social-link header__social-link--linkedin"><i class="fa fa-linkedin"></i></a></li>
                 <li class="header__social-item"><a href="#" class="header__social-link header__social-link--pinterest"><i class="fa fa-pinterest-p"></i></a></li>
                 <li class="header__social-item"><a href="#" class="header__social-link header__social-link--twitter"><i class="fa fa-twitter"></i></a></li>
@@ -30,7 +30,7 @@
             </div>
             <div class="header__actions">
               <% if current_user %>
-                  <%= link_to image_tag(current_user.avatar.url, class: "profile-round"), edit_user_registration_path %>
+                  <%= link_to image_tag(current_user.avatar.url, class: "profile-round hidden-xs"), edit_user_registration_path %>
                   <%= link_to 'Sign Out',  destroy_user_session_path, method: :delete, class: "header__signup" %>
               <% else %>
                   <%= link_to 'Log In', new_user_session_path, class: "header__login" %>
@@ -65,7 +65,7 @@
             <div class="menu__trigger-line"></div>
           </div>
           <ul class="menu">
-            <li class="menu__item"><a href="#" class="menu__link menu__link--active">Home</a></li>
+            <li class="menu__item"><a href="#" class="menu__link">Home</a></li>
             <li class="menu__item"><a href="#" class="menu__link">
               <% if !current_user %>
                   <li><%= link_to 'About', welcome_about_path, class: "menu__link" %></li>
@@ -74,8 +74,8 @@
                   <li><%= link_to 'Dashboard', dashboard_path, class: "menu__link" %></li>
               <% end %>
             </a></li>
-            <li class="menu__item"><a href="#" class="menu__link">For Sale</a></li>
-            <li class="menu__item"><a href="#" class="menu__link">For Buy</a></li>
+            <li class="menu__item"><%=link_to 'Search', properties_path, class: "menu__link" %></li>
+            <li class="menu__item"><a href="#" class="menu__link">Buyers</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Listing</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Property</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Appointment</a></li>
@@ -85,7 +85,7 @@
         </div>
         <div class="searchbar">
 
-            <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block' %>
+            <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block hidden-xs' %>
 
         </div>
 
@@ -102,6 +102,19 @@
 <!--<script src="js/app.js"></script>-->
 
 <script>
-    $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
+
+    $( document ).on( 'click', '.menu__link', function ( e ) {
+        $( this ).addClass( 'menu__link--active' ).siblings().removeClass( 'menu__link--active' );
+    } );
+
+//    $.each($('#menu-item').find('li'), function() {
+//        $(this).toggleClass('menu__link--activ',
+//                window.location.pathname.indexOf($(this).find('a').attr('href')) > -1);
+//    });
+
+//$(".menu__link").on("click", function(){
+//    $(".menu__link").find(".menu__link--active").removeClass(".menu__link--active");
+//    $(this).parent().addClass(".menu__link--active");
+//});
 
 </script>

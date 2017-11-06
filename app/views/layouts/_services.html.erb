@@ -2,21 +2,26 @@
 
     <div class="panel panel-marketing col-md-12">
     <br />
-      <% @advertisements.each do |add| %>
-          <div class="col-md-3">
-            <div class="panel panel-default">
-              <%= image_tag add.image.url, class: "profile-round" %>
+      <% @advertisements.in_groups_of(4).each do |group| %>
+          <div class="row">
 
-              <div>
-                <b><%= add.title %></b>
-              </div>
-              <div>
-                <p><%= add.description %></p>
-              </div>
-              <div class="btn btn-default btn-block">
-                Contact Service Provider
-              </div>
-
+            <div class="four columns">
+              <% group.each do |add| %>
+                  <div class="col-md-3">
+                    <div class="panel panel-default services">
+                      <%= image_tag add.image.url, class: "profile-round" %>
+                      <div>
+                        <b><%= add.title %></b>
+                      </div>
+                      <div>
+                        <p><%= add.description %></p>
+                      </div>
+                      <div class="btn btn-default btn-block btn-services">
+                        Contact Service Provider
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
             </div>
           </div>
       <% end %>

@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :products
   has_many :connections, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :store_purchases
 
 
   validates_integrity_of  :avatar

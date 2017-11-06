@@ -27,13 +27,15 @@
             </div>
           </div>
         <% end %>
-
+    </div>
       <div>
 
         <% if @cart.empty? %>
             <b>Cart is empty</b>
         <% else %>
-            <%= link_to 'Empty Your Cart', cart_clear_path %>
+            <%= link_to cart_clear_path, class: 'btn btn-primary'  do %>
+                Empty Your Cart <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
         <% end %>
         <br><br><br>
         <% total = 0 %>
@@ -42,24 +44,31 @@
           <% @cart.each do | id, quantity | %>
               <% product = Product.find_by_id(id) %>
               <div class="well well-sm">
-                  <li>
-                    <%= link_to product.title, product %>
-                    <p><%= product.description %></p>
-                    <p><%= number_to_currency(product.price, :unit => '$')%></p>
-                    <p>Quantity: <%= quantity %></p>
-                  </li>
+                  <ul>
+                    <li>
+                      <%= link_to product.title, product %>
+                      <p><%= product.description %></p>
+                      <p><%= number_to_currency(product.price, :unit => '$')%></p>
+                      <p>Quantity: <%= quantity %></p>
+                    </li>
+                  </ul>
               </div>
               <% total += quantity * product.price %>
           <% end %>
           <div class="well well-sm">
             <p><b>Order Total: <%= number_to_currency(total, :unit => '$') %></b></p>
           </div>
-          <%= form_tag charges_path do %>
+          <%= form_tag store_charges_path do %>
 
 
-              <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9" data-amount=<%= number_to_currency(total, :unit => '$') %> data-description="Cart"></script>
+              <script class='stripe-button' src="https://checkout.stripe.com/checkout.js"
+                      data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9"
+                      data-amount=<%= number_to_currency(total, :unit => '$') %>
+                              data-email="<%= current_user.email %>"
+                              data-description="Cart">
+                              </script>
           <% end %>
 
       </div>
 
-    </div>
+
