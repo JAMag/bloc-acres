@@ -7,19 +7,19 @@
   <input id="pac-input" class="controls" type="hidden" placeholder="Search Box">
 
       <div class="row col-md-8 float-left">
-        <div id="map-canvas"></div>
-        <div class="panel panel-default hidden-xs">
+        <div id="search-map-canvas"></div>
+        <!--<div class="panel panel-default hidden-xs">-->
 
-              <% @properties.each do |p| %>
-              <div class="row">
-                <div class="">
-                  <%= render partial: "layouts/search_property_view", locals: {p: p} if p.showcase %>
+              <!--<# @properties.each do |p| %>-->
+              <!--<div class="row">-->
+                <!--<div class="">-->
+                  <!--<# render partial: "layouts/search_property_view", locals: {p: p} if p.showcase %>-->
 
-                </div>
-              </div>
-          <% end %>
+                <!--</div>-->
+              <!--</div>-->
+          <!--<# end %>-->
 
-        </div>
+        <!--</div>-->
       </div>
       <div class="col-md-4 float-right" id="search_right">
         <div class="well">
@@ -47,11 +47,13 @@
                 </div>
 
             <% end %>
-            <div class="search-inline" id="sort">
-              <p>Sort:</p>
-              <%= sortable "price" %>
-              <%= sortable "beds" %>
-              <%= sortable "baths" %>
+            <div id="sort">
+              <p>Sort: <i class="fa fa-sort" aria-hidden="true">... </i></p>
+             <p>
+               <%= sortable "price" %>
+               <%= sortable "beds" %>
+               <%= sortable "baths" %>
+             </p>
             </div>
 
 
@@ -139,7 +141,7 @@
       }
 
       function initAutocomplete() {
-          var map = new google.maps.Map(document.getElementById('map-canvas'), {
+          var map = new google.maps.Map(document.getElementById('search-map-canvas'), {
               center: {lat: 37.09024, lng: -95.712891},
               zoom: 5,
               mapTypeId: 'roadmap',
@@ -395,7 +397,7 @@
                       //map: map,
                       //title: 'bob',
                       //animation: google.maps.Animation.DROP,
-                        //icon: {url: '<%# @properties.first.photos.first.url %>', scaledSize: new google.maps.Size(100, 100)},
+                        //icon: {url: '<# @properties.first.photos.first.url %>', scaledSize: new google.maps.Size(100, 100)},
 
                       //position: {lat: coordinates.lat, lng: coordinates.lng}
 

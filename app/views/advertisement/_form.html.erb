@@ -1,0 +1,52 @@
+<%= form_for(@advertisement) do |f| %>
+    <% if @advertisement.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@advertisement.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+            <% @advertisement.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+
+    <% if @advertisement.image? %>
+        <div class="field">
+          <%= image_tag(@advertisement.image.url) %>
+          <%= f.label :remove_image do %>
+              <%= f.check_box :remove_image %>
+          <% end %>
+    <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+
+    <div class="field">
+      <%= f.label :contact_info %><br>
+      <%= f.text_field :contact_info %>
+    </div>
+
+    <div class="field">
+      <%= f.label :profession %><br>
+      <%= f.text_field :profession %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

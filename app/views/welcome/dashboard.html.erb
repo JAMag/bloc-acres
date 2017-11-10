@@ -4,7 +4,10 @@
 
   <div>
 
-
+    <%if current_user.admin %>
+    <%= link_to '@ ~> Admin Area', rails_admin_path %>
+    <% end %>
+    <br>
     <ul id="seller-dash-tabs" class="nav nav-tabs">
       <li><a data-toggle="tab" href="#buyer">Favorites <span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span></a></li>
       <li><a data-toggle="tab" href="#seller">My Listings <span class="fa fa-home" style="vertical-align:middle"></span></a></li>
@@ -24,6 +27,7 @@
 
         <div id="buyer" class="tab-pane fade in active">
           <hr>
+
           <%= render partial: 'layouts/buyer_step_wizard' %>
           <div class="well">
             <h4 id="buyer-dashboard-directions">Your Favorited Properties:</h4>

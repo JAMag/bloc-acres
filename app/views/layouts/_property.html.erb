@@ -6,6 +6,7 @@
     <li><a data-toggle="tab" href="#schedule<%= p.id %>">Schedule <i class="fa fa-calendar" aria-hidden="true"></i></a></li>
     <li><a data-toggle="tab" href="#marketing<%= p.id %>">Marketing <i class="fa fa-users" aria-hidden="true"></i></a></li>
     <li><a data-toggle="tab" href="#pquestions<%= p.id %>">Property Questions <i class="fa fa-comments" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#advertisements<%= p.id %>">Services <i class="fa fa-truck" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 
@@ -127,6 +128,14 @@
             <%= render partial: 'comments/form', locals: {p: p} %>
           </div>
         </div>
+
+        <div id="advertisements<%= p.id %>" class="tab-pane fade">
+            <div class="row">
+                <%= render partial: 'properties/services', locals: {p: p, advertisements: @advertisements} %>
+            </div>
+      </div>
+
+
 
 
 </div>

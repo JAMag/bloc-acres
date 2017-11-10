@@ -87,9 +87,9 @@ $(document).ready(function() {
 
             //
             $datepicker.data('date', cur_date.format('YYMMD-hha'));
-            console.log(dateStr.id);
+            console.log(gon.slot_info[dateStr].id);
 
-            $('#slot_id').val(gon.slot_info.id);
+            $('#slot_id').val(gon.slot_info[dateStr].id);
         }
 
 
@@ -108,7 +108,7 @@ $(document).ready(function() {
 
             if (method == "add") {
                 var duration = moment.duration(1,type);
-                console.log("duration is", duration);
+                //console.log("duration is", duration);
                 dateStr = dateStr.add(duration);
             }else if (method == "subtract") {
                 dateStr = dateStr.subtract(1,type);

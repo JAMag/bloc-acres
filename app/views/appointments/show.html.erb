@@ -4,12 +4,12 @@
       <div class="container-fluid">
         <div class="well">
             <div class="row">
-          <p>Today: <%= Time.now.strftime("%m-%d-%Y") %> </p>
+          <p>Today: <%= Time.now.strftime("%m/%d/%Y %I:%M%p") %> </p>
               <hr />
             </div>
 
             <div class="row">
-              <p>Appointment: <%= @slot.start_time.strftime("%m-%d-%Y %I:%M%p") %></p>
+              <p>Appointment: <%= @slot.start_time.strftime("%m/%d/%Y %I:%M%p") %></p>
             </div>
           <hr />
             <div class="row">
@@ -28,6 +28,9 @@
 
         <%=@lock%>
         <div class="row">
+
+          <% if Time.now > @slot.start_time %>
+              <%# Show buttons if the current time is after the slot start time (for testing purposes only) %>
     <%#=link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'start_show' %>
           <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
               <%= f.hidden_field :avatar %>
@@ -42,9 +45,13 @@
         </div>
         <br />
       <br />
+
         <div class="row">
           <a class="btn btn-warning btn-block" style="padding:20px;" type="button" href="tel:+11111111">Panic</a>
         </div>
+              <% else %>
+          <h3 class="please-return">Please return 5 minutes before your appointment!</h3>
+          <% end %>
         <br />
         <br />
 
@@ -134,5 +141,16 @@
 
 
 
+//  Example code for show and hiding a div between 7 and 4 pm
+//  var d = new Date();
+//  if(d.getHours() >= 7 && d.getHours() <= 15 ){
+//      $(".open").show();
+//      $(".closed").hide();
+//  }
+//  else {
+//      $(".closed").show();
+//      $(".open").hide();
+//  }
+//
 </script>
 

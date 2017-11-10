@@ -10,14 +10,15 @@ class PropertiesController < ApplicationController
                                         beds: params[:search][:beds],
                                         baths: params[:search][:baths],
                                         price: params[:search][:price]
-                                    }
+                                    }, order: sort_info
       ).paginate(page: params[:page], per_page: 5)
     else
       @properties = Property.all.paginate(page: params[:page], per_page: 5).order(sort_column + " " + sort_direction)
     end
     gon.property_coordinates = @properties.map{|p|{lat: p.latitude, lng: p.longitude}}
-
-
+    #
+    # :order => :created_at,
+    #     :sort_mode => :desc
   end
 
 
@@ -38,7 +39,7 @@ class PropertiesController < ApplicationController
 
     @booked_appointments = @property.appointments.map(&:slot).map{|slot| slot.start_time.strftime('%y%m%d-%I%P')}
 
-#     CM reconfigure of db and timepicker for appointment booking
+#     reconfigure of db and timepicker for appointment booking
 
     @slot_info = {}
     @slots.each do |slot|
@@ -131,6 +132,10 @@ logger.info " SLOTS #{@property.appointments.map(&:slot).inspect}"
   end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+
+  def sort_info
+    "#{sort_column} #{sort_direction}"
   end
 end

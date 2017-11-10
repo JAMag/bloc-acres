@@ -4,19 +4,22 @@
   <br>
   <br>
   <br>
-  <%= form_for :calculator, url: { action: :new }, method: :get do |f|   %>
-      <%= number_field_tag :yearly_salary, params[:yearly_salary] %>
-      <p>yearly salary</p>
+      <div class="well">
 
-      <%= number_field_tag :monthly_debt, params[:monthly_debt] %>
-      <p>monthly debt</p>
 
-      <%= f.submit 'Calculate!' %>
-  <% end %>
+          <%= form_for :calculator, url: { action: :new }, method: :get do |f|   %>
+              <%= number_field_tag :yearly_salary, params[:yearly_salary] %>
+              <p>yearly salary</p>
 
-  <% unless @result.nil? %>
-      <p> = <%= @result %> </p>
-  <% end %>
+              <%= number_field_tag :monthly_debt, params[:monthly_debt] %>
+              <p>monthly debt</p>
 
+              <%= f.submit 'Calculate!' %>
+          <% end %>
+
+          <% unless @result.nil? %>
+              <p> = <%= @result %> </p>
+          <% end %>
+      </div>
 </div>
 

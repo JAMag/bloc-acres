@@ -39,7 +39,7 @@ class ChargesController < ApplicationController
       # session[:cart] = nil
       flash[:notice] = "Created store purchase."
       redirect_to :back
-      #session[:cart] = nil
+      session[:cart] = nil
     else
       flash[:error] = "Error creating store purchase. Please try again."
       redirect_to :back

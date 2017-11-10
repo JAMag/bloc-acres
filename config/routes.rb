@@ -18,6 +18,13 @@ Rails.application.routes.draw do
   end
 
 # end of social media marketer
+
+#advertisements start
+
+  # resources :advertisements
+#advertisements end
+
+
 # Start of "seller store"
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
@@ -35,9 +42,9 @@ Rails.application.routes.draw do
   patch 'user/update_type', to: 'user#update_type', as: 'update_type'
 # end of user subscription
 
-# Start of mortgage calculator
-  resources :calculators
-# end of mortgage claculator
+# # Start of mortgage calculator
+#    resources :calculators
+# # end of mortgage claculator
 
 # start of Admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

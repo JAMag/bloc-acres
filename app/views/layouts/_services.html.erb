@@ -2,7 +2,8 @@
 
     <div class="panel panel-marketing col-md-12">
     <br />
-      <% @advertisements.in_groups_of(4).each do |group| %>
+
+      <% @advertisements.in_groups_of(4, false).each do |group| %>
           <div class="row">
 
             <div class="four columns">
@@ -10,18 +11,36 @@
                   <div class="col-md-3">
                     <div class="panel panel-default services">
                       <%= image_tag add.image.url, class: "profile-round" %>
-                      <div>
-                        <b><%= add.title %></b>
+                      <div class="row"></div>
+                      <div class="advert-name">
+                        <h4><%= add.advert_name %></h4>
                       </div>
-                      <div>
+
+                      <div class="footer__text">
+                        <b>Profession: <%= add.profession %></b>
+                      </div>
+                      <br>
+                      <div class="desc-services">
+                        <p class="underline">Description of services:</p>
+                        <br>
+                        <br>
                         <p><%= add.description %></p>
+                        <br>
+                        <p class="footer__text">Service Zip: <%= add.zip %></p>
+                        <br>
+                        <div class="vouch">
+                          <% if add.vouch %>
+                              <i class="fa fa-star-o" aria-hidden="true"></i> <%= add.advert_name %> is vouched for!
+                          <% end %>
+                        </div>
                       </div>
-                      <div class="btn btn-default btn-block btn-services">
-                        Contact Service Provider
-                      </div>
+                      <br>
+                      Contact Info:
+                       <i class="fa fa-phone header__contact-item__icon"></i><%= add.contact_info %>
+
                     </div>
                   </div>
-              <% end %>
+            <% end %>
             </div>
           </div>
       <% end %>
