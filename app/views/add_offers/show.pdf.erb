@@ -1,0 +1,7 @@
+<%= wicked_pdf_stylesheet_link_tag "documents" %>
+
+<div class="document">
+  ..
+  <%= render :partial => 'shared/address.html.erb' %>
+  <% link_to 'Create PDF document', invoice_path(@add_offer, :format => :pdf) %>
+</div>

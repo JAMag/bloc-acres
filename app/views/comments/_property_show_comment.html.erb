@@ -1,0 +1,114 @@
+
+
+<div class="container-fluid">
+
+  <div class="">
+    <!--<# controller.controller_name %>-->
+    <!--<div class="well well-sm">-->
+      <!--&lt;!&ndash;<h4 data-toggle="tooltip" title="Hooray!"> This property has <%= pluralize(comments.count, "question") %>:</h4>&ndash;&gt;-->
+      <!--&lt;!&ndash;<a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>&ndash;&gt;-->
+    <!--</div>-->
+
+    <% comments.each do |comment| %>
+        <div class="row">
+
+          <div class="three columns">
+
+            <!--<#group.each do |comment| %>-->
+
+
+                <div class="comment">
+                  <div class="">
+
+
+
+
+    <div class="">
+      <div class="row">
+                    <div class=" <%= p.user.id == comment.user.id ? 'owner-comment': ''%>">
+
+
+
+                      <div class="col-md-2">
+
+
+                      <%= image_tag(comment.user.avatar.url, class: "profile-round-small pull-left") if comment.user.avatar? %>
+                      </div>
+                      <div class="col-md-10">
+
+
+
+                        <% if p.user.id ==  comment.user.id  %>
+
+                            <p class="pull-left"><b>Owner</b></p>
+                            <br>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: white"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: white"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: white"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: white"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: white"></i>
+                        <% else %>
+
+                            <p class="pull-left"><b><%=comment.user.name %></b></p>
+                            <br>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #29abe3"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #29abe3"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #29abe3"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #29abe3"></i>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #29abe3"></i>
+                        <% end %>
+                        <p class="pull-right">
+                          <span><i class="fa fa-calendar" aria-hidden="true" style="color:#f27c53"></i><%= comment.created_at.strftime(" %m.%d.%Y") %></span>
+                        </p>
+                        </div>
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                      </div>
+                        <div class="col-md-10 pull-right">
+                          <p class="comment-content">"<%= comment.content %>"</p>
+                          <br>
+                          <p class="pull-left">
+                            <% if p.user.id == current_user.id %>
+                                <%= link_to 'Owner May Delete Comment', [comment.property, comment ], class: "btn btn-danger btn-block", method: :delete %>
+                            <% end %>
+                          </p>
+                          <br>
+                          <hr class="style1">
+                        </div>
+
+                        <br/>
+                        <!--<i class="fa fa-comments fa-4x pull-right" aria-hidden="true" style="color:white"></i>-->
+
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+
+          </div>
+
+        </div>
+        <!--<hr class="style1">-->
+
+    <% end %>
+
+    <br>
+
+
+
+  </div>
+  <%= will_paginate comments, :param_name => 'comments_page', renderer: BootstrapPagination::Rails %>
+</div>
+
+<!--<script>-->
+<!--//    $(document).ready(function(){-->
+<!--//        $('[data-toggle="tooltip"]').tooltip();-->
+<!--//    });-->
+<!--</script>-->

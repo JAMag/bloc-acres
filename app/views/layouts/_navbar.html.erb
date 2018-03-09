@@ -11,6 +11,9 @@
             </a>
           </a>
         </div>
+        <body onload="getLocation()">
+
+
         <div class="header__group">
           <div class="header__row">
             <div class="header__actions">
@@ -42,7 +45,8 @@
             <div class="header__contact">
               <div class="header__contact-item">
                 <i class="fa fa-map-marker header__contact-item__icon"></i>
-                <h4 class="header__contact-item__label"><span class="header__contact-item__label header__contact-item__label--bold">123 Quicksale street</span> <span class="header__contact-item__label header__contact-item__label--accent">Rye, NH</span></h4>
+                <h4 class="header__contact-item__label"><span class="header__contact-item__label header__contact-item__label--bold" id="demo" >123 Quicksale street</span> <span class="header__contact-item__label header__contact-item__label--accent"></span></h4>
+
               </div>
               <div class="header__contact-item">
                 <i class="fa fa-phone header__contact-item__icon"></i><a href="#" class="header__contact-item__label header__contact-item__label--big">(800) 555-5555</a>
@@ -84,9 +88,9 @@
           </ul>
         </div>
         <div class="searchbar">
-
+          <% if current_user %>
             <%= link_to 'Create Listing', new_property_path, class: 'btn btn-primary btn-block hidden-xs' %>
-
+          <% end %>
         </div>
 
         </div>
@@ -116,5 +120,21 @@
 //    $(".menu__link").find(".menu__link--active").removeClass(".menu__link--active");
 //    $(this).parent().addClass(".menu__link--active");
 //});
+
+
+// Geolocation in Navbar
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+    }
 
 </script>

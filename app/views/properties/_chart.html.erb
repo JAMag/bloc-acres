@@ -1,0 +1,54 @@
+
+
+<!--<p>Your Max Payment: <%# number_to_currency(current_user.prop_afford)%> per month</p>-->
+<!--<p>This House Payment: <%# number_to_currency(@property.monthly_payment) %> per month (.06% interest, 30 years)</p>-->
+
+
+
+  <div class="">
+    <div class="">
+      <!--<h4>Affordability</h4>-->
+      <!--<hr>-->
+
+    </div>
+
+
+      <div class="">
+        <p class="afford-bar"></p>
+        <p class="footer__text">Your budget</p>
+            <div class = "progress progress-info progress-afford">
+              <% target = ((((current_user.prop_afford.to_f) / (@property.monthly_payment.to_f)) * 100.00).to_f).round%>
+              <div class="progress-bar progress-bar-success" style="width: <%=target%>%">
+                <span></span>
+              </div>
+            </div>
+        <span><p class="footer__text pull-left">Your Max Payment: </p> <p class="pull-right"><%= number_to_currency(current_user.prop_afford)%></p> </span>
+        <br>
+        <br>
+        <br>
+        <p class="footer__text">House Price</p>
+
+        <div class = "progress progress-info progress-afford">
+
+          <div class="progress-bar progress-bar-success" style="width: 100%">
+
+          </div>
+
+        </div>
+        <span><p class="footer__text pull-left">This House Payment: </p> <p class="pull-right"><%= number_to_currency(@property.monthly_payment) %></p></span>
+        <br>
+        <div class="btn btn-primary btn-block">Calculate</div>
+        <br>
+        <p class="footer__text">You can afford <%= target %> % of this home's price</p>
+        <br>
+        <% if current_user.prop_afford >= @property.monthly_payment %>
+            <p class="footer__text">Congrats! This home is within budget!</p>
+            <i class="fa fa-flag-checkered" aria-hidden="true" style="color:green"></i>
+        <% else %>
+            <p class="footer__text"> Ut oh! This home is outside budget! </p>
+            <i class="fa fa-flag" aria-hidden="true" style="color:red"></i>
+        <% end %>
+
+      </div>
+
+  </div>

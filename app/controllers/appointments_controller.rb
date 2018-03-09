@@ -14,12 +14,12 @@ class AppointmentsController < ApplicationController
     if @appointment.update_attributes(appointment_params)
 
 
-      boot_twilio
-      sms = @client.messages.create(
-          from: Rails.application.secrets.twilio_number,
-          to: @user.phone_number,
-          body: "You've started your viewing. Thank you for using Moverable. "
-      )
+      # boot_twilio
+      # sms = @client.messages.create(
+      #     from: Rails.application.secrets.twilio_number,
+      #     to: @user.phone_number,
+      #     body: "You've started your viewing. Thank you for using Moverable. "
+      # )
 
       redirect_to :back, notice: "You started appointment."
     else
@@ -50,6 +50,8 @@ class AppointmentsController < ApplicationController
     @property = Property.friendly.find(params[:property_id])
     @slot = Slot.find(params[:slot_id])
     @appointment = Appointment.find(params[:id])
+
+
   end
 
   def new

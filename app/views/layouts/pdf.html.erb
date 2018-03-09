@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  <title><%= @title || "Default Page Title" %></title>
+
+
+  <%= stylesheet_link_tag wicked_pdf_asset_base64("application") %>
+  <!--<# wicked_pdf_stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>-->
+  <!--<# wicked_pdf_javascript_include_tag "application", "data-turbolinks-track" => true %>-->
+
+  <meta charset="UTF-8">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOVERABLE | List It.View It.Love It.Move It</title>
+
+
+
+  <!-- Wicked PDF START -->
+
+
+
+  <!--<%# wicked_pdf_stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>-->
+  <!--<%# wicked_pdf_javascript_include_tag "application", "data-turbolinks-track" => true %>-->
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+<%= yield %>
+
+
+
+
+
+
+
+</body>
+
+</html>
+

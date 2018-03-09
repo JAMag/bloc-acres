@@ -14,9 +14,18 @@ gem 'delayed_job_active_record'
 
 #end of social media marketer section
 
+#add_offer pdf generation
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+#end of add_offer pdf generation
+
 #sms notifications
 gem 'twilio-ruby'
 #end sms notifications
+
+#upload image on appointment start
+gem 'carrierwave-base64'
+#end upload image on appointment start
 
 gem 'will_paginate-bootstrap'
 gem  'bootstrap-tour-rails'

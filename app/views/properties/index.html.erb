@@ -6,7 +6,14 @@
 
   <input id="pac-input" class="controls" type="hidden" placeholder="Search Box">
 
-      <div class="row col-md-8 float-left">
+      <div class="row col-md-9 float-left">
+        <div class="show-search">
+        <a class="" data-toggle="collapse" href="#search-map-canvas" aria-expanded="false" aria-controls="collapseExample">
+          <i class="fa fa-arrow-circle-o-down" aria-hidden="true" style="color: #f27c53; font-size: 24px"></i>
+          Show Map
+          <i class="fa fa-arrow-circle-o-down" aria-hidden="true" style="color: #f27c53; font-size: 24px"></i>
+        </a>
+      </div>
         <div id="search-map-canvas"></div>
         <!--<div class="panel panel-default hidden-xs">-->
 
@@ -21,9 +28,18 @@
 
         <!--</div>-->
       </div>
-      <div class="col-md-4 float-right" id="search_right">
+
+      <div class="col-md-3 float-right" id="search_right">
+        <div class="show-search">
+          <a class="" data-toggle="collapse" href="#search-form" aria-expanded="false" aria-controls="collapseExample">
+            <i class="fa fa-arrow-circle-o-down" aria-hidden="true" style="color: #f27c53; font-size: 24px"></i>
+            Show Search
+            <i class="fa fa-arrow-circle-o-down" aria-hidden="true" style="color: #f27c53; font-size: 24px"></i>
+          </a>
+        </div>
+
         <div class="well">
-          <div class ="search-inline">
+          <div class ="search-inline" id="search-form">
 
 
             <%= form_tag properties_path, method: :get, id: 'search-field', role: 'search' do %>
@@ -47,7 +63,9 @@
                 </div>
 
             <% end %>
-            <div id="sort">
+            <br>
+            <br>
+            <div class="well" id="sort">
               <p>Sort: <i class="fa fa-sort" aria-hidden="true">... </i></p>
              <p>
                <%= sortable "price" %>
@@ -55,11 +73,25 @@
                <%= sortable "baths" %>
              </p>
             </div>
+            <br>
 
 
 
-            <div class="well" id="search_pagination">
-              <%= will_paginate @properties, :page_links => false, renderer: BootstrapPagination::Rails %>
+
+
+        </div>
+
+
+        <!--<div id="property-index">-->
+        <div>
+
+              <% @properties.each do |p| %>
+                <%= render partial: "layouts/search_property_view_2", locals: {p: p} %>
+
+
+                <% end %>
+          <div class="well" id="search_pagination">
+            <%= will_paginate @properties, :page_links => false, renderer: BootstrapPagination::Rails %>
             <br>
             <div class="btn-group">
               <% if current_user %>
@@ -71,18 +103,6 @@
 
             </div>
           </div>
-
-        </div>
-
-
-        <div id="property-index">
-
-              <% @properties.each do |p| %>
-                <%= render partial: "layouts/search_property_view", locals: {p: p} %>
-
-
-                <% end %>
-
         </div>
       </div>
 </div>

@@ -4,21 +4,24 @@
 
   <div>
 
-    <%if current_user.admin %>
-    <%= link_to '@ ~> Admin Area', rails_admin_path %>
-    <% end %>
+
     <br>
     <ul id="seller-dash-tabs" class="nav nav-tabs">
-      <li><a data-toggle="tab" href="#buyer">Favorites <span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#seller">My Listings <span class="fa fa-home" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#offers">Offers <span class="fa fa-line-chart" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#advice">Advice <span class="fa fa-shield" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#store">Seller's Store <span class="fa fa-credit-card" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#services">Services <span class="fa fa-thumbs-o-up" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#account">Account <span class="fa fa-cog" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#buyer"> <span class="hidden-xs">Favorites </span><span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span></a></li>
 
+      <li><a data-toggle="tab" href="#offers"><span class="hidden-xs">Offers </span><span class="fa fa-line-chart" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#advice"><span class="hidden-xs">Advice </span><span class="fa fa-shield" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#store"><span class="hidden-xs">Seller's Store </span><span class="fa fa-credit-card" style="vertical-align:middle"></span></a></li>
+      <!--<li><a data-toggle="tab" href="#services">Services <span class="fa fa-thumbs-o-up" style="vertical-align:middle"></span></a></li>-->
+      <li><a data-toggle="tab" href="#account"><span class="hidden-xs">Account </span><span class="fa fa-cog" style="vertical-align:middle"></span></a></li>
+      <li><a data-toggle="tab" href="#seller"><span class="hidden-xs">My Listings </span><span class="fa fa-home" style="vertical-align:middle"></span></a></li>
     </ul>
 
+  </div>
+  <div class="hidden-xs">
+    <%if current_user.admin %>
+        <%= link_to '@ ~> Admin Area', rails_admin_path %>
+    <% end %>
   </div>
 
 
@@ -29,11 +32,7 @@
           <hr>
 
           <%= render partial: 'layouts/buyer_step_wizard' %>
-          <div class="well">
-            <h4 id="buyer-dashboard-directions">Your Favorited Properties:</h4>
-            <% if @favorites != nil %>
-                <%= will_paginate @favorites, :param_name => 'favorites_page', renderer: BootstrapPagination::Rails %>
-          </div>
+
 
 
           <% @favorites.each do |f| %>
@@ -44,15 +43,22 @@
                 </div>
               </div>
           <% end %>
-          <% end %>
+
+            <div class="">
+              <br>
+                <h4 id="buyer-dashboard-directions">Your Favorited Properties:</h4>
+                <% if @favorites != nil %>
+                    <%= will_paginate @favorites, :param_name => 'favorites_page', renderer: BootstrapPagination::Rails %>
+                <% end %>
+            </div>
         </div>
 
 
-        <div id="seller" class="tab-pane fade in active">
+        <div id="seller" class="tab-pane fade">
           <hr>
           <%= render partial: 'layouts/seller_step_wizard' %>
 
-          <div class="well">
+          <div class="">
             <h4 id="seller-dashboard-directions">Your Listings For Sale:</h4>
             <%= will_paginate @properties, :param_name => 'properties_page', renderer: BootstrapPagination::Rails %>
           </div>
@@ -108,14 +114,14 @@
 
 
 
-        <div id="services" class="tab-pane fade">
-          <hr>
-          <div class="container-fluid">
-            <div class="row">
-              <%= render partial: 'layouts/services' %>
-            </div>
-          </div>
-        </div>
+        <!--<div id="services" class="tab-pane fade">-->
+          <!--<hr>-->
+          <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+              <!--<# render partial: 'layouts/services' %>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
 
 
 

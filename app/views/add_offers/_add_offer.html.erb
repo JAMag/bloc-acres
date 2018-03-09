@@ -1,27 +1,32 @@
 
 <div class="panel-appointment">
 
-    <h2>CONTRACT TO PURCHASE</h2>
+<div class="row">
+  <div>
+    <ul class="panel panel-default">
+      <button data-toggle="collapse" class="btn btn-primary" href="#offer<%= @property.id %>">
+        <i class="fa fa-university" aria-hidden="true"></i>
+        Start Contract
+      </button>
+      <div class="col-md-5" id="suggested_price">
+        Suggested Price:
 
+        <h4></h4>
+      </div>
+      <div class="col-md-5" >
+        Asking Price:
+
+        <h4><%=@property.price%></h4>
+      </div>
+    </ul>
+  </div>
+
+</div>
     <div>
       <a title="This is a binding legal contract... consult an attorney before submitting."></a>
     </div>
 
-    <div>
-      <ul class="button">
-        <button data-toggle="collapse" class="btn btn-primary" href="#offer<%= @property.id %>">Start Contract</button>
-        <div class="col-md-5" id="suggested_price">
-          Suggested Price:
 
-          <h4></h4>
-        </div>
-        <div class="col-md-5" >
-          Asking Price:
-
-          <h4><%=@property.price%></h4>
-        </div>
-      </ul>
-    </div>
 </div>
 
 

@@ -1,0 +1,32 @@
+<div class="prop-show-head-carousel">
+  <div class="carousel slide article-slide" id="myCarousel" >
+    <div class="carousel-inner cont-slider prop-show-head-carousel">
+
+
+        <% property.photos.each_with_index do |i, counter| %>
+            <div class="item <%= 'active' if counter==0 %>">
+              <%= image_tag(i.url) %>
+            </div>
+        <% end %>
+
+
+
+    </div>
+
+    <!-- Indicators -->
+    <!--<li data-target="#carousel-example-generic<# property.id %>" data-slide-to="<# counter %>" class="<# 'active' if counter==0 %>"></li>-->
+    <ol class="carousel-indicators visible-lg visible-md">
+
+      <% property.photos.each_with_index do |i, counter| %>
+          <li class="<%= 'active' if counter==0 %>" data-slide-to="<%= counter %>" data-target="#myCarousel" >
+            <%= image_tag((i.url), :class => "img") %>
+
+          </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+
+
+

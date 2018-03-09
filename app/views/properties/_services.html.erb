@@ -6,17 +6,17 @@
   <!--<div class="row">-->
 
 
-        <% advertisements.each do |add| %>
-            <div class="four columns">
+    <% advertisements.each do |add| %>
+        <div class="four columns">
 
           <% if add.zip === p.zip %>
               <div class="col-md-3">
                 <div class="panel panel-default services">
                   <%= image_tag add.image.url, class: "profile-round" %>
                   <div class="row"></div>
-                  <div class="advert-name">
-                    <h4><%= add.advert_name %></h4>
-                  </div>
+                    <div class="advert-name">
+                        <h4><%= add.advert_name %></h4>
+                    </div>
 
                   <div class="footer__text">
                     <b>Profession: <%= add.profession %></b>
@@ -44,10 +44,8 @@
                 </div>
               </div>
           <% end %>
-          <% end %>
+
         </div>
+    <% end %>
       <!--</div>-->
-
-
-
 </div>

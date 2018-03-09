@@ -9,13 +9,25 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+  <!--<# wicked_pdf_stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>-->
+  <!--<# wicked_pdf_javascript_include_tag "application", "data-turbolinks-track" => true %>-->
 
   <meta charset="UTF-8">
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MOVERABLE | List It.View It.Love It.Move It</title>
 
 
   <%= csrf_meta_tags %>
+  <!-- Wicked PDF START -->
+
+
+
+  <!--<%# wicked_pdf_stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>-->
+  <!--<%# wicked_pdf_javascript_include_tag "application", "data-turbolinks-track" => true %>-->
+  <!-- WICKED PDF END -->
   <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>-->
   <!--<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>-->
 <!-- Designer Links-->
@@ -67,7 +79,7 @@
       <!--<script src="bootstrap.popover.js"></script>-->
       <!--<script src="bootstrap-tour.js"></script>-->
 
-
+      <%=render partial: 'welcome/footer_all' %>
 
 
 

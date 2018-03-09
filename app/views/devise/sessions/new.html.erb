@@ -1,7 +1,7 @@
 <% @title="Moverable | Sign In" %>
 
-<div id="signup" class="marquee">
-  <div class="stick col-md-4 col-md-offset-4">
+
+  <div class="stick col-md-4 col-md-offset-4" id="session_new">
 
 
 
@@ -15,7 +15,7 @@
       <h5>People in the market for real estate are wasting tens of thousands in real estate agent fees.</h5>
       <h4>Sign In.</h4>
       <h5>Moverable saves you thousands.</h5>
-      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+      <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="" style="margin-top:10px;">
       <div class="form-signin">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
@@ -46,4 +46,3 @@
     </div>
 
   </div>
-</div>

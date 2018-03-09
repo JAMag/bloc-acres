@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
 
-  # config.excluded_models << "calculator"
+  config.excluded_models << "Calculator"
 
   ### Popular gems integration
 

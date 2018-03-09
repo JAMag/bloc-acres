@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :connections, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :store_purchases
+  has_many :calculators
 
 
   validates_integrity_of  :avatar

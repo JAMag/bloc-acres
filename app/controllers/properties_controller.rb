@@ -4,21 +4,28 @@ class PropertiesController < ApplicationController
 
 
   def index
+    # price: params[:search][:price]
+# with: price_range,
+    # price_range = {
+    #   :price => (params[:search][:min_price]..params[:search][:max_price])
+    #
+    # }
+    # :price => (params[:min_price].to_s.to_i..params[:max_price].to_s.to_i).to_a
     if params[:search]
+
       @properties = Property.search(params[:search][:full_search], conditions: {
                                         structure: params[:search][:structure],
                                         beds: params[:search][:beds],
                                         baths: params[:search][:baths],
                                         price: params[:search][:price]
-                                    }, order: sort_info
+                                    },
+                                    order: sort_info
       ).paginate(page: params[:page], per_page: 5)
     else
       @properties = Property.all.paginate(page: params[:page], per_page: 5).order(sort_column + " " + sort_direction)
     end
     gon.property_coordinates = @properties.map{|p|{lat: p.latitude, lng: p.longitude}}
-    #
-    # :order => :created_at,
-    #     :sort_mode => :desc
+
   end
 
 
@@ -38,6 +45,8 @@ class PropertiesController < ApplicationController
     @has_slots = @property.slots.future.map{|slot| slot.start_time.strftime('%y%m%d-%I%P')}
 
     @booked_appointments = @property.appointments.map(&:slot).map{|slot| slot.start_time.strftime('%y%m%d-%I%P')}
+
+
 
 #     reconfigure of db and timepicker for appointment booking
 
@@ -59,6 +68,18 @@ logger.info " SLOTS #{@property.appointments.map(&:slot).inspect}"
     gon.push({property: @property})
     gon.push({slots: @slots})
     gon.push({slot_info: @slot_info})
+
+    #pdf generation
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@property.address}",
+               :layout => "pdf",
+               :template => 'properties/show.pdf.erb',
+               :page_size => "A4",
+               :show_as_html => params[:debug].present?
+      end
+    end
   end
 
   def edit

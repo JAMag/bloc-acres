@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+  background-color: #272626;
     text-align: center;
     &__header {
         margin-bottom: 3.125rem;
@@ -40,6 +41,7 @@
         &-img {
             height: 5rem;
             width: auto;
+
         }
         &-title {
             margin-top: 1rem;

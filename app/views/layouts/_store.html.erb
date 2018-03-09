@@ -1,62 +1,75 @@
 
-    <div class="panel panel-marketing col-md-12">
+    <div class="panel panel-marketing col-md-8">
       <p id="notice"><%= notice %></p>
 
 
         <% @products.each do |product| %>
-          <div class="col-md-3">
-            <div class="panel panel-default">
-              <%= image_tag product.image.url, class: "profile-round" %>
+          <div class="">
+            <div class="panel-default">
+              <%= image_tag product.image.url, class: "profile-round pull-left" %>
+            <div class="panel-store">
 
-              <div>
-                <b><%= product.title %></b>
-              </div>
-              <div>
-                <p class="footer__text"><%= product.description %></p>
+              <!--<div class="panel-store-info">-->
+                <div>
+
+                  <div>
+                    <b><%= product.title %></b>
+                  </div>
+                  <div>
+                    <p class="footer__text"><%= product.description %></p>
+                  </div>
               </div>
               <div>
                 <a href="/cart/<%= product.id %>" style="text-decoration:none;">
                 <div class="btn btn-default btn-block">
                   <h3><%= number_to_currency(product.price, :unit => '$')%></h3>
                   Add To Cart
-                  <span class="glyphicon glyphicon-shopping-cart" style="vertical-align:middle"></span>
+                  <span class="glyphicon glyphicon-shopping-cart" style="color:#f27d54;"></span>
                 </div>
                 </a>
               </div>
-
+            </div>
             </div>
           </div>
         <% end %>
     </div>
-      <div>
+      <div class="col-md-4">
 
         <% if @cart.empty? %>
             <b>Cart is empty</b>
+            <br><br><br>
         <% else %>
-            <%= link_to cart_clear_path, class: 'btn btn-primary'  do %>
-                Empty Your Cart <i class="glyphicon glyphicon-trash"></i>
+            <div class="panel-default clearfix">
+
+
+            <%= link_to cart_clear_path, class: 'btn btn-primary pull-right'  do %>
+                Empty Your Cart <i class="glyphicon glyphicon-trash" style="color:#2196F3;"></i>
             <% end %>
+            </div>
         <% end %>
-        <br><br><br>
+
         <% total = 0 %>
 
 
           <% @cart.each do | id, quantity | %>
               <% product = Product.find_by_id(id) %>
-              <div class="well well-sm">
+              <div class="panel-default clearfix">
                   <ul>
                     <li>
                       <%= link_to product.title, product %>
+                      <br>
+                      <br>
                       <p><%= product.description %></p>
-                      <p><%= number_to_currency(product.price, :unit => '$')%></p>
-                      <p>Quantity: <%= quantity %></p>
+                      <br>
+                      <p class="pull-left"><%= number_to_currency(product.price, :unit => '$')%></p>
+                      <p class="pull-right">Quantity: <%= quantity %></p>
                     </li>
                   </ul>
               </div>
               <% total += quantity * product.price %>
           <% end %>
           <div class="well well-sm">
-            <p><b>Order Total: <%= number_to_currency(total, :unit => '$') %></b></p>
+            <p class="order_total"><b>Order Total: <%= number_to_currency(total, :unit => '$') %></b></p>
           </div>
           <%= form_tag store_charges_path do %>
 
@@ -70,5 +83,8 @@
           <% end %>
 
       </div>
+
+
+
 
 

@@ -1,12 +1,12 @@
 
 <div class="">
   <ul class="nav nav-tabs" id="myTab">
-    <li><a data-toggle="tab" href="#home<%= p.id %>"> <%=p.address %> <i class="fa fa-folder-open" aria-hidden="true"></i></a></li>
-    <li><a data-toggle="tab" href="#appointment<%= p.id %>">Showing Appointments <i class="fa fa-clock-o" aria-hidden="true"></i></a></li>
-    <li><a data-toggle="tab" href="#schedule<%= p.id %>">Schedule <i class="fa fa-calendar" aria-hidden="true"></i></a></li>
-    <li><a data-toggle="tab" href="#marketing<%= p.id %>">Marketing <i class="fa fa-users" aria-hidden="true"></i></a></li>
-    <li><a data-toggle="tab" href="#pquestions<%= p.id %>">Property Questions <i class="fa fa-comments" aria-hidden="true"></i></a></li>
-    <li><a data-toggle="tab" href="#advertisements<%= p.id %>">Services <i class="fa fa-truck" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#home<%= p.id %>"><span class="hidden-xs"> <%=p.address %> </span><i class="fa fa-folder-open" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#appointment<%= p.id %>"> <span class="hidden-xs"> Showing Appointments </span><i class="fa fa-clock-o" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#schedule<%= p.id %>"><span class="hidden-xs">Schedule </span><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#marketing<%= p.id %>"><span class="hidden-xs">Marketing </span><i class="fa fa-users" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#pquestions<%= p.id %>"><span class="hidden-xs">Property Questions </span><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+    <li><a data-toggle="tab" href="#advertisements<%= p.id %>"><span class="hidden-xs">Services </span><i class="fa fa-truck" aria-hidden="true"></i></a></li>
   </ul>
 </div>
 
@@ -57,6 +57,10 @@
               </div>
               <hr>
               <div>
+                <!--<span class="fa-stack fa-1x">-->
+                  <!--<i class="fa fa-heart-o fa-stack-2x"></i>-->
+                  <!--<span  class="fa fa-stack-1x"><# p.favorites.count%></span>-->
+                <!--</span>-->
                 <i class="fa fa-heart-o" aria-hidden="true"> Your property has <%= pluralize(p.favorites.count, 'favorite') %>! </i>
               </div>
               <div>
@@ -119,7 +123,7 @@
           <div class="row">
             <% comments = p.comments.order("created_at DESC").paginate(page: params[:comments_page], per_page: 3) %>
             <% if comments.any? %>
-                <%= render partial: 'comments/comment',locals: {p: p, comments: comments} %>
+                <%= render partial: 'comments/dashboard_comment.html.erb',locals: {p: p, comments: comments} %>
                 <% else %>
                 Property has no comments
             <% end %>
@@ -141,6 +145,15 @@
 </div>
 
 
+<script>
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var target = $(this).attr('href');
+
+        $(target).css('left','-'+$(window).width()+'px');
+        var left = $(target).offset().left;
+        $(target).css({left:left}).animate({"left":"0px"}, 700);
+    })
+</script>
 
 
 <!--&lt;!&ndash;<script>&ndash;&gt;-->

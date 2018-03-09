@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 # end of user subscription
 
 # # Start of mortgage calculator
-#    resources :calculators
+   resources :calculators
 # # end of mortgage claculator
 
 # start of Admin

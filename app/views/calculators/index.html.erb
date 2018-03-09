@@ -1,25 +1,35 @@
 <div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-      <div class="well">
+
+      <div class="panel-appointment col-md-4 col-md-offset-4">
+        <div class="well">
+
+
 
 
           <%= form_for :calculator, url: { action: :new }, method: :get do |f|   %>
-              <%= number_field_tag :yearly_salary, params[:yearly_salary] %>
-              <p>yearly salary</p>
+            <div class="row">
+              <span> yearly salary <%= number_field_tag :yearly_salary, params[:yearly_salary] %> </span>
+            </div>
+            <br>
+            <div class="row">
+              <span>monthly debt <%= number_field_tag :monthly_debt, params[:monthly_debt] %> </span>
+            </div>
+            <br>
 
-              <%= number_field_tag :monthly_debt, params[:monthly_debt] %>
-              <p>monthly debt</p>
-
-              <%= f.submit 'Calculate!' %>
+<hr>
+            <div class="row">
+              <%= f.submit 'Calculate!', class: 'btn btn-primary btn-block' %>
+            </div>
           <% end %>
+          <br>
 
           <% unless @result.nil? %>
-              <p> = <%= @result %> </p>
+            <div clas="row">
+              You can afford <p class="calc">$<%= @result %> </p> per month
+            </div>
+
           <% end %>
+      </div>
       </div>
 </div>
 

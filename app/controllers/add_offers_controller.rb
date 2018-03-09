@@ -1,7 +1,21 @@
 class AddOffersController < ApplicationController
 
 
+  def show
+    @add_offer = AddOffer.find(params[:add_offer_id])
+    format.pdf do
+      @example_text = "some text"
+      render :pdf => "file_name",
+             :template => 'add_offers/show.pdf.erb',
+             :layout => 'pdf',
+             :footer => {
+                 :center => "Center",
+                 :left => "Left",
+                 :right => "Right"
+             }
+    end
 
+  end
 
   def create
     @add_offer = AddOffer.new(add_offer_params)

@@ -1020,7 +1020,10 @@ div.c-wrapper{
 
 .owner-comment {
   border-color: white;
-  background-color: rgba(43, 171, 226, 0.45);
+  background-color: #29abe324;
+  border-top: solid;
+  border-color: white;
+  border-width: 2px;
 }
 
 .profile-round {
@@ -1082,8 +1085,15 @@ div.c-wrapper{
 }
 
 #video {
-  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  //width: auto;
   height: auto;
+  object-fit: fill;
+  z-index: -1;
 }
 .embed-responsive-16by9 {
   padding-bottom: 56.25%;
@@ -1107,7 +1117,6 @@ div.c-wrapper{
 #welcomefourth {
   background-color: #62529b;
   padding: 50px;
-  //background-image: url("Aspen1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -1138,10 +1147,7 @@ div.c-wrapper{
   line-height: 14px;
 }
 
-#video {
-  z-index: -1;
-  width: 100%;
-}
+
 
 .separate {
   background-color: rgba(248, 80, 50, 0.23);
@@ -1419,20 +1425,47 @@ section {
   width: 100%;
 }
 #search_price {
-  padding: 2.5px;
+  padding: 5px;
   background-color: white;
   width: 100%;
 }
 #search_beds {
-  padding: 2.5px;
+  padding: 5px;
   background-color: white;
   width: 100%;
 }
 #search_baths {
-  padding: 2.5px;
+  padding: 5px;
   background-color: white;
   width: 100%;
 }
+#search_sqft {
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+}
+#search_landscape {
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+}
+#search_lot {
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+}
+#search_amenities {
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+}
+#search_state {
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+}
+
+
 
 .form-id {
   #search-field {
@@ -1699,12 +1732,10 @@ ul.breadcrumbs {
   color: blue;
 }
 
-//#search_right {
-//  position: absolute;
-//  top: 10px;
-//  left: 10px;
-//  z-index: 99;
-//}
+#search_right {
+  overflow: scroll;
+  max-height: 1200px;
+}
 
 
 //Will-paginate styling
@@ -1724,7 +1755,7 @@ ul.breadcrumbs {
 
 .breadcrumb {
   border-style: double;
-
+  font-size: small;
 }
 //
 
@@ -1766,11 +1797,11 @@ ul.breadcrumbs {
 }
 
 #sort {
-  display: inline-flex;
+
 }
 
 .marketing-post {
-  background-color: rgba(112, 128, 144, 0.5);
+  background-color: rgba(219, 227, 223, 0.31);
 }
 
 .please-return {
@@ -1781,6 +1812,8 @@ ul.breadcrumbs {
   background: lightsteelblue;
   min-height: 125px;
   padding: 10px;
+  max-height: 125px;
+  overflow: scroll;
 }
 
 .vouch {
@@ -1798,4 +1831,272 @@ ul.breadcrumbs {
 
 .advert-name {
 
+}
+
+.panel-store-info {
+  height: 100px;
+  overflow: scroll;
+}
+
+.calc {
+  background: white;
+}
+
+.order_total {
+  background-color: aliceblue;
+}
+
+.small-prop-photo {
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+  margin: 10px;
+  object-fit: contain;
+}
+
+.small-house-photo {
+  height: 100%;
+}
+
+.afford-bar {
+  text-align: center;
+}
+
+.progress-afford {
+  height: 3px;
+}
+
+.prop-show-head-carousel {
+  max-height: 900px;
+  //overflow: hidden;
+}
+.large-house-photo {
+  position: relative;
+  background-color: rgb(229, 227, 223);
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+  height:800px;
+}
+
+.property-show-table {
+  background-color: #efeeee;
+}
+
+hr.style1{
+  border-top: 1px solid #8c8b8b;
+}
+hr.style2{
+  border-top: 1px solid #f27d54;
+}
+
+.thumbnail-street-view-prop-show {
+  position: relative;
+  background-color: rgb(229, 227, 223);
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+  height: 587px;
+}
+
+.comment-content {
+  color: dimgray;
+}
+
+#myTab {
+  background-color: rgba(199, 215, 212, 0.47);
+}
+/////Property show carousel
+
+//body {
+//  padding-top:50px;
+//}
+/*#####################
+Additional Styles (required)
+#####################*/
+#myCarousel .carousel-indicators {
+  bottom: 0;
+  left: 10px;
+  margin-left: 5px;
+  width: 100%;
+}
+#myCarousel .carousel-indicators li {
+  border: medium none;
+  border-radius: 0;
+  float: left;
+  margin-bottom: 5px;
+  margin-left: 0;
+  margin-right: 5px !important;
+  margin-top: 0;
+  height: 127px;
+  width: 187px;
+}
+#myCarousel .carousel-indicators img {
+  border: 2px solid #FFFFFF;
+  float: left;
+  //height: 44px;
+  left: 0;
+  //width: 120px;
+  height: 127px;
+  width: 187px;
+}
+#myCarousel .carousel-indicators .active img {
+  border: 2px solid #39b3d7;
+}
+/////////////////////////////////
+.prop-show-row {
+  margin: 0px;
+}
+
+button.stripe-button-el,
+button.stripe-button-el>span {
+  background-color: #f27d54 !important;
+  background-image: none;
+  width: 100%;
+}
+
+.prop-heading {
+  padding: 10px;
+}
+
+.show-search {
+  text-align: center;
+  background-color: #dbe3df;
+  border-bottom: solid;
+  border-color: white;
+  border-bottom-width: 2px;
+}
+
+.search__item-img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.landing-search {
+  background-color: white;
+}
+
+.prop-index-view {
+  background-color: white;
+}
+
+
+///// Shake Contract Price Animation
+#suggested_price {
+
+  background: #f27d54;
+  position: relative;
+  -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+  -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+  animation: mymove 5s;
+  animation-delay: 2s;
+  animation-iteration-count: 5;
+}
+
+@-webkit-keyframes mymove {
+  from {left: 0px;}
+  to {left: 200px;}
+}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 200px;}
+}
+
+// Slide tab in
+.tab-content .tab-pane {
+  position: relative;
+}
+
+///
+
+.appnt-prop-photo {
+  height: 400px;
+  width: 100%;
+}
+
+///
+
+#snap {
+  padding: 20px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  /* min-width: 100%; */
+  /* min-height: 100%; */
+  z-index: 1000;
+  background-color: #f6f6f6;
+  border-color: black;
+  font-size: large;
+  font-weight: 600;
+}
+
+#end_show {
+  adding: 20px;
+  padding: 20px;
+  width: 100%;
+  /* position: fixed; */
+  left: 0;
+  /* bottom: 0; */
+  /* min-width: 100%; */
+  /* min-height: 100%; */
+  z-index: 1000;
+  background-color: #f0f8ffe0;
+  border-color: black;
+  /* color: #2196F3; */
+  font-size: large;
+  font-weight: 600;
+}
+
+
+//button ripple
+
+/* Ripple magic */
+.btn{
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, .5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.btn:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+
+///// session new
+#session_new {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding-top: 20px;
+  background-color: #edeee8;
 }

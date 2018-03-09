@@ -3,10 +3,10 @@
 <div class="container-fluid">
   <%= will_paginate comments, :param_name => 'comments_page', renderer: BootstrapPagination::Rails %>
   <div class="panel panel-default">
-    <%= controller.controller_name %>
+    <!--<# controller.controller_name %>-->
     <div class="well well-sm">
         <h4 data-toggle="tooltip" title="Hooray!"> This property has <%= pluralize(comments.count, "question") %>:</h4>
-      <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>
+      <!--<a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>-->
     </div>
 
     <% comments.each_slice(3) do |group| %>
@@ -68,7 +68,7 @@
 </div>
 
 <!--<script>-->
-//    $(document).ready(function(){
-//        $('[data-toggle="tooltip"]').tooltip();
-//    });
+<!--//    $(document).ready(function(){-->
+<!--//        $('[data-toggle="tooltip"]').tooltip();-->
+<!--//    });-->
 <!--</script>-->
