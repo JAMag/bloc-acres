@@ -1,6 +1,7 @@
 .header {
     background-color: $gray-light;
     padding: 5px 0 16px 0;
+    box-shadow: -10px 0px 20px -5px #607D8B;
     &__content {
         @include atSmall {
             display: flex;

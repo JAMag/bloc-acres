@@ -1,5 +1,7 @@
 <% if p.appointments.any? %>
 
+
+
     <table class="table table-striped">
 
         <thead>
@@ -11,6 +13,7 @@
             <th class="hidden-xs hidden-sm"><h4>Enter</h4></th>
             <th class="hidden-xs hidden-sm"><h4>Exit</h4></th>
             <th class="hidden-xs hidden-sm"><h4>Secure</h4></th>
+            <th class="hidden-xs hidden-sm"><h4>Video</h4></th>
         </tr>
         </thead>
         <tbody>
@@ -35,9 +38,11 @@
 
                   <td><%= a.slot.start_time.strftime("%-I:%M%p") %></td>
                   <td><%= a.slot.start_time.strftime("%B %-d, %Y") %></td>
-                  <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
-                  <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
-                  <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
+
+                  <td><%= image_tag 'checked_filled.png' %></td>
+                  <td><%= image_tag 'checked_filled.png' %></td>
+                  <td><%= image_tag 'checked_filled.png' %></td>
+                  <td><%= image_tag 'icons8-film_filled.png' %></td>
                 </tr>
 
             <% end %>
@@ -59,9 +64,10 @@
                       <% end %></td>
                       <td><%= appointment.slot.start_time.strftime("%-I:%M%p") %></td>
                       <td><%= appointment.slot.start_time.strftime("%B %-d, %Y") %></td>
-                      <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
-                      <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
-                      <td class="hidden-xs hidden-sm"><span class="fa fa-check-circle-o fa-3x"></span></td>
+                      <td><%= image_tag 'checked_filled.png' %></td>
+                      <td><%= image_tag 'checked_filled.png' %></td>
+                      <td><%= image_tag 'checked_filled.png' %></td>
+                      <td><%= image_tag 'icons8-film_filled.png' %></td>
                     </tr>
                 <% end %>
             <% end %>

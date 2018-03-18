@@ -54,7 +54,7 @@
                   <%= text_field_tag 'search[full_search]', (params[:search][:full_search] if params[:search]), class: 'form-control', placeholder: 'City, State ...' %>
                 </div>
                 <div>
-                  <%= button_tag type: 'submit', class: 'search__form-btn', style: " display:inline!important;" do %>
+                  <%= button_tag type: 'submit', class: 'search__form-btn btn btn-primary-listing', style: " display:inline!important;" do %>
                       SEARCH
                       <!--<span class="glyphicon glyphicon-search"></span>-->
 
@@ -66,8 +66,7 @@
             <br>
             <br>
             <div class="well" id="sort">
-              <p>Sort: <i class="fa fa-sort" aria-hidden="true">... </i></p>
-             <p>
+              <p>Sort: <i class="fa fa-sort" aria-hidden="true">... </i>
                <%= sortable "price" %>
                <%= sortable "beds" %>
                <%= sortable "baths" %>
@@ -412,6 +411,12 @@
 
 
             <% end %>
+          var bounds = new google.maps.LatLngBounds();
+          for (var i = 0; i < markers.length; i++) {
+              bounds.extend(markers[i].getPosition());
+          }
+
+          map.fitBounds(bounds);
               //$.each(gon.property_coordinates,function(index, coordinates){
                   //markers.push(new google.maps.Marker({
                       //map: map,

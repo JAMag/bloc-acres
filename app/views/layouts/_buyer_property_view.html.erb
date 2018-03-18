@@ -98,7 +98,7 @@
 
               <div class="col-md-12">
 
-                <h4> <%= link_to '<i class="fa fa-clock-o" aria-hidden="true"></i> Book Your Viewing'.html_safe, property_path(p), target: '_blank', class: 'btn btn-default' %></h4>
+                <h4> <%= link_to image_tag('icons8-clock.png') + 'Book Your Viewing'.html_safe, property_path(p), target: '_blank', class: 'btn btn-default' %></h4>
                 <%= render partial: 'properties/appointment', locals: {p: p, slot: @slot} %>
               </div>
 
