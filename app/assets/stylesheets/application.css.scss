@@ -15,7 +15,9 @@
 @import "bootstrap-datetimepicker";
 
 
-
+body {
+  letter-spacing: 1px;
+}
 
 
 .well {
@@ -624,7 +626,7 @@ header {
 #search-map-canvas {
   width: 100%;
   margin: auto;
-  height: 1200px;
+  height: 600px;
 }
 
 #map-canvas {
@@ -1033,6 +1035,7 @@ div.c-wrapper{
   display: block;
   width: 100px;
   height: 100px;
+  margin-right: 8px;
   //margin: 1em auto;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1629,7 +1632,6 @@ $green: #96be11;
 
 
 ul.breadcrumbs {
-  margin: 25px 0px 0px;
   padding: 0px;
   font-size: 0px;
   line-height: 0px;
@@ -1737,7 +1739,7 @@ ul.breadcrumbs {
 
 #search_right {
   overflow: scroll;
-  max-height: 1200px;
+  max-height: 700px;
   padding: 0px;
   box-shadow: -10px 0px 20px -5px #607D8B;
 }
@@ -1761,6 +1763,7 @@ ul.breadcrumbs {
 .breadcrumb {
   border-style: double;
   font-size: small;
+  margin: 0px;
 }
 //
 
@@ -2032,10 +2035,15 @@ button.stripe-button-el>span {
   /* min-width: 100%; */
   /* min-height: 100%; */
   z-index: 1000;
-  background-color: #f6f6f6;
+  background-color: #db7254;
   border-color: black;
   font-size: large;
   font-weight: 600;
+  color: white;
+  letter-spacing: 3px;
+  border-radius: 0px;
+
+  box-shadow: -10px 0px 20px -5px #607D8B;
 }
 
 #end_show {
@@ -2048,11 +2056,14 @@ button.stripe-button-el>span {
   /* min-width: 100%; */
   /* min-height: 100%; */
   z-index: 1000;
-  background-color: #f0f8ffe0;
+  background-color: rgb(41, 171, 227);
   border-color: black;
   /* color: #2196F3; */
   font-size: large;
   font-weight: 600;
+  color: white;
+  letter-spacing: 3px;
+  box-shadow: -10px 0px 20px -5px #607D8B;
 }
 
 
@@ -2114,3 +2125,38 @@ button.stripe-button-el>span {
    height: 300px;
   }
 }
+
+#search-right {
+  overflow: scroll;
+  padding: 0px;
+  min-height: 700px;
+  max-height: 700px !important;
+  box-shadow: -10px 0px 20px -5px #607D8B;
+}
+
+
+/////////
+
+#appointment_show {
+  margin: 0px;
+  padding: 0px 20px 0px 20px;
+  font-weight: 900 !important;
+}
+
+
+.help {
+  font-weight: 900 !important;
+  background: #f6f6f6;
+  letter-spacing: 6px;
+  box-shadow: -10px 0px 20px -5px #607D8B;
+
+}
+
+
+@media (max-width: 824px) {
+  .header {
+    visibility: hidden;
+  }
+}
+
+

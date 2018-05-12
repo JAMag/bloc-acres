@@ -3,88 +3,88 @@
 
 <div class="" id="appointment-show">
 
-    <div class="">
-      <div class="container-fluid">
-        <div class="">
-            <div class="row" >
+  <div class="">
+    <div class="container-fluid">
+      <div class="">
+        <div class="row" >
           <p class="pull-left" style="color:white;">Today: <%= Time.now.strftime("%m/%d/%Y %I:%M%p") %> </p>
 
-<br>
-              <p class="pull-left" style="color:#2196f3;">Appointment: </p><p class="pull-left" style="color:white;"> <%= @slot.start_time.strftime("%m/%d/%Y %I:%M%p") %></p>
-            </div>
+          <br>
+          <p class="pull-left" style="color:#2196f3;">Appointment: </p><p class="pull-left" style="color:white;"> <%= @slot.start_time.strftime("%m/%d/%Y %I:%M%p") %></p>
+        </div>
 
-            <div class="row">
-              <p style="color:white;"> Duration: 1 Hour</p>
-              <hr />
-              <p class="please-return">Please return 5 minutes before your appointment!</p>
-              <hr />
-            </div>
-            <div class="row">
-              <div class="timer">
-                <p></p>
-              </div>
-            </div>
+        <div class="row">
+          <p style="color:white;"> Duration: 1 Hour</p>
+          <hr />
+          <p class="please-return">Please return 5 minutes before your appointment!</p>
+          <hr />
+        </div>
+        <div class="row">
+          <div class="timer">
+            <p></p>
+          </div>
         </div>
       </div>
+    </div>
     <div>
-<!-- Put texts over picture-->
+      <!-- Put texts over picture-->
       <!--<div style="position:relative">-->
-        <!--<img src="image.jpg" alt="" />-->
-        <!--<div style="position:absolute;left:0;top:0;">-->
-          <!--This text is on top of the image-->
-        <!--</div>-->
+      <!--<img src="image.jpg" alt="" />-->
+      <!--<div style="position:absolute;left:0;top:0;">-->
+      <!--This text is on top of the image-->
+      <!--</div>-->
       <!--</div>-->
 
 
-        <%=@lock%>
-        <div class="row">
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-          <%# if Time.now > @slot.start_time %>
-              <%# Show buttons if the current time is after the slot start time (for testing purposes only) %>
-    <%#=link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'start_show' %>
-          <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
-              <%= f.hidden_field :avatar %>
+      <%=@lock%>
+      <div class="row">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <%# if Time.now > @slot.start_time %>
+            <%# Show buttons if the current time is after the slot start time (for testing purposes only) %>
+            <%#=link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'start_show' %>
+            <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
+                <%= f.hidden_field :avatar %>
 
-              <%= f.submit 'Start Showing', :class => 'btn btn-primary btn-block', :id=>'snap',  accept:"image/*;capture=camera",:style =>'padding:20px;'%>
+                <%= f.submit 'Start Showing', :class => 'btn btn-primary btn-block', :id=>'snap',  accept:"image/*;capture=camera",:style =>'padding:20px;'%>
 
-          <% end %>
-              </div>
-
-            <div class="btn-group" role="group">
-          <%= link_to property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn btn-danger btn-block', id: 'end_show',:style =>'padding:20px;' do %>
-              <i class="fa fa-sign-out" style="font-size: 24px;" aria-hidden="true"></i> End Showing
-              <% end %>
-          <a class="btn btn-warning btn-block" style="padding:20px; color:#F27D5C" type="button" href="tel:+11111111">Help!</a>
-
-              </div>
-        </div>
-            </div>
+            <% end %>
           </div>
-              <%# else %>
 
-          <%# end %>
+          <div class="btn-group" role="group">
+            <%= link_to property_slot_appointment_lock_path(@property, @slot, @appointment), class: 'btn btn-danger btn-block', id: 'end_show',:style =>'padding:20px;' do %>
+                <i class="fa fa-sign-out" style="font-size: 24px;" aria-hidden="true"></i> All Done
+            <% end %>
+            <a class="btn btn-warning btn-block help" style="padding:20px; color:#F27D5C" type="button" href="tel:+11111111"><strong>Help!</strong></a>
 
-
-
-        <div class="video">
-
-
-
-            <video id="video" width="640" height="" autoplay>
-
-              <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
-                  <%= f.hidden_field :avatar %>
-
-                  <%= f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
-
-              <% end %>
-            </video>
-
-            <canvas id="canvas" width="0" height="0"></canvas>
-
+          </div>
         </div>
+      </div>
     </div>
+    <%# else %>
+
+    <%# end %>
+
+
+
+    <div class="video">
+
+
+
+      <video id="video" width="640" height="" autoplay>
+
+        <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
+            <%= f.hidden_field :avatar %>
+
+            <%= f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
+
+        <% end %>
+      </video>
+
+      <canvas id="canvas" width="0" height="0"></canvas>
+
+    </div>
+  </div>
 
 
 
@@ -94,69 +94,60 @@
 
 
 
-<div class="row">
-  <hr/>
-  <span class="fa fa-map-marker header__contact-item__icon" style="font-size: 36px;"></span><p style="color: white; font-style: italic">You are X distance away from <%= @property.address %></p>
-  <!--<input type="button" value="Refresh Location" onClick="window.location.reload()" class="btn btn-primary btn-block">-->
-  <hr/>
-</div>
+  <div class="row">
+    <hr/>
+    <span class="fa fa-map-marker header__contact-item__icon" style="font-size: 36px;"></span><p style="color: white; font-style: italic">You are X distance away from <%= @property.address %></p>
+    <!--<input type="button" value="Refresh Location" onClick="window.location.reload()" class="btn btn-primary btn-block">-->
+    <hr/>
+  </div>
 
-    <div class="" id="mapPlaceholder" style="height: 400px; width: 100%;">
+  <div class="" id="mapPlaceholder" style="height: 400px; width: 100%;">
 
-    </div>
-    <!--<div class="col-xs-6">-->
-      <!--<# image_tag(@property.photos.first.url, :class=>'appnt-prop-photo') %>-->
-    <!--</div>-->
+  </div>
+  <!--<div class="col-xs-6">-->
+  <!--<# image_tag(@property.photos.first.url, :class=>'appnt-prop-photo') %>-->
+  <!--</div>-->
 
 
 </div>
 
 <!--<script src="http://maps.googleapis.com/maps/api/js&libraries=geometry&sensor=false">-->
-    <!--<script src="http://maps.google.com/maps/api/js?sensor=false">-->
+<!--<script src="http://maps.google.com/maps/api/js?sensor=false">-->
 <script>
-//    var y = document.getElementById("userlocation");
-//
-//    function appntLocation() {
-//        if (navigator.geolocation) {
-//            navigator.geolocation.getCurrentPosition(userPosition);
-//        } else {
-//            y.innerHTML = "Geolocation is not supported by this browser.";
-//        }
-//    }
-//console.log(appntLocation());
-//
-//    function userPosition(position) {
-//        var ll = position.coords.latitude + "," + position.coords.longitude;
-//        var img_url = "https://maps.googleapis.com/maps/api/js?center=" + ll + "&zoom=14&size=400x300&key=AIzaSyC0XtdadnCScIHtKprl46UROKJkoP1cg7s&libraries=places&markers=" + ll + "&sensor=false";
-//        document.body.background = img_url;
-//    }
-
-
-//
-
-
-
-  // clock jquery
-  $(document).ready(function(){
-      function getdate(){
-          var today = new Date();
-          var h = today.getHours();
-          var m = today.getMinutes();
-          var s = today.getSeconds();
-          if(s<10){
-              s = "0"+s;
-          }
-
-          $("p").text(h+" : "+m+" : "+s);
-          setTimeout(function(){getdate()}, 500);
-      }
-
-      $("#snap").click(getdate);
-  });
-
+    //    var y = document.getElementById("userlocation");
+    //
+    //    function appntLocation() {
+    //        if (navigator.geolocation) {
+    //            navigator.geolocation.getCurrentPosition(userPosition);
+    //        } else {
+    //            y.innerHTML = "Geolocation is not supported by this browser.";
+    //        }
+    //    }
+    //console.log(appntLocation());
+    //
+    //    function userPosition(position) {
+    //        var ll = position.coords.latitude + "," + position.coords.longitude;
+    //        var img_url = "https://maps.googleapis.com/maps/api/js?center=" + ll + "&zoom=14&size=400x300&key=AIzaSyC0XtdadnCScIHtKprl46UROKJkoP1cg7s&libraries=places&markers=" + ll + "&sensor=false";
+    //        document.body.background = img_url;
+    //    }
+    //
+    // clock jquery
+    $(document).ready(function(){
+        function getdate(){
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            if(s<10){
+                s = "0"+s;
+            }
+            $("p").text(h+" : "+m+" : "+s);
+            setTimeout(function(){getdate()}, 500);
+        }
+        $("#snap").click(getdate);
+    });
     // Grab elements, create settings, etc.
-//    var video = document.getElementById('video');
-
+    //    var video = document.getElementById('video');
     // Get access to the camera!
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         // Not adding `{ audio: true }` since we only want video now
@@ -165,45 +156,29 @@
             video.play();
         });
     }
-
-
     // Elements for taking the snapshot
-
-
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
     var video = document.getElementById('video');
     var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-
     // Trigger photo take
     document.getElementById("snap").addEventListener("click", function() {
         context.drawImage(video, 0, 0, 640, 480);
-
     });
-
     //convert canvas to data for upload
-
     $("#appointment_avatar").val(url);
-
-
-
-
     //  Example code for show and hiding a div between 7 and 4 pm
-//  var d = new Date();
-//  if(d.getHours() >= 7 && d.getHours() <= 15 ){
-//      $(".open").show();
-//      $(".closed").hide();
-//  }
-//  else {
-//      $(".closed").show();
-//      $(".open").hide();
-//  }
-//
-
-
-//
-
-
+    //  var d = new Date();
+    //  if(d.getHours() >= 7 && d.getHours() <= 15 ){
+    //      $(".open").show();
+    //      $(".closed").hide();
+    //  }
+    //  else {
+    //      $(".closed").show();
+    //      $(".open").hide();
+    //  }
+    //
+    //
     if (navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition(showCurrentLocation);
@@ -212,13 +187,11 @@
     {
         alert("Geolocation API not supported.");
     }
-
     function showCurrentLocation(position)
     {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         var coords = new google.maps.LatLng(latitude, longitude);
-
         var mapOptions = {
             zoom: 15,
             center: coords,
@@ -395,15 +368,11 @@
                             ]
                         }
                     ]
-
-
         };
-
         //create the map, and place it in the HTML map div
         map = new google.maps.Map(
                 document.getElementById("mapPlaceholder"), mapOptions
         );
-
         //place the initial marker
         var marker = new google.maps.Marker({
             position: coords,
@@ -431,21 +400,29 @@
                 fontBorder: '1px'
             },
             position: {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>}
-
         });
-
     }
+    //  compute distance between property and user
+    //    window.onload = function calcDistance(p1, p2, position) {
+    //        var latitude1 = position.coords.latitude;
+    //        var longitude1 = position.coords.longitude;
+    //        var p1 = new google.maps.LatLng(<# @property.latitude %>, <# @property.longitude %>);
+    //        var p2 = new google.maps.LatLng(latitude, longitude);
+    //        console.log(p2);
+    //        var d = (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+    //        console.log('Compute Distance', d);
+    //    };
 
-//  compute distance between property and user
-//    window.onload = function calcDistance(p1, p2, position) {
-//        var latitude1 = position.coords.latitude;
-//        var longitude1 = position.coords.longitude;
-//        var p1 = new google.maps.LatLng(<# @property.latitude %>, <# @property.longitude %>);
-//        var p2 = new google.maps.LatLng(latitude, longitude);
-//        console.log(p2);
-//        var d = (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
-//        console.log('Compute Distance', d);
-//    };
+
+
+
+    $(function() {
+        $("footer").hide();
+    });
+
+
+
+
 
 
 </script>
