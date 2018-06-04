@@ -1,7 +1,7 @@
 
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url(https://fonts.googleapis.com/css?family=Cabin);
+//
+//@import url(https://fonts.googleapis.com/css?family=Montserrat);
+//@import url(https://fonts.googleapis.com/css?family=Cabin);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -2156,7 +2156,189 @@ button.stripe-button-el>span {
 @media (max-width: 824px) {
   .header {
     visibility: hidden;
+    display: none;
   }
 }
 
 
+.landing {
+  height: 100vh;
+  background-color: rgba(13, 13, 19, 0.88);
+  color: white;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  right: 0;
+  font-size: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 100px;
+  font-weight: bold;
+  letter-spacing: 0;
+  border: solid 30px white;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+
+}
+
+.landing p {
+  font-size: 25px;
+  font-weight: normal;
+  letter-spacing: 7px;
+}
+
+.landing .form__group {
+  width: 33%;
+  margin: auto;
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.landing .form__group .form__input  {
+  padding: 10px;
+  width: 100%;
+  border-radius: 9px;
+  border: 1px solid #00ff8063;
+  background-color: #6e727261;
+  box-shadow: 0px -10px 54px -14px #d80fd89e;
+  text-align: center;
+}
+
+.landing .form__group .btn {
+  margin-top: 30px;
+
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 7px;
+  transition: all .7s;
+}
+
+
+.landing .form__group .btn:hover {
+  background-color: #d80fd84f;
+  box-shadow: 0px -10px 70px -8px #00ff8063;
+  color: #00ff8063;
+}
+
+#landing__email-label {
+
+  display: none;
+}
+
+
+
+@media(max-width:1400px){
+  .landing {
+    height: 100vh;
+    background-color: rgba(13, 13, 19, 0.88);
+    color: white;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    right: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 100px;
+    font-weight: bold;
+    letter-spacing: 0;
+    border: solid 10px white;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+
+  }
+
+  .landing p {
+    font-size: 16px;
+    font-weight: normal;
+    //letter-spacing: 7px;
+  }
+
+  .landing .form__group {
+    width: 100%;
+    margin: auto;
+    //font-size: 25px;
+    font-weight: normal;
+  }
+
+  .landing .form__group .form__input  {
+    //padding: 10px;
+    width: 100%;
+    border-radius: 9px;
+    border: 1px solid #00ff8063;
+    background-color: #6e727261;
+    box-shadow: 0px -10px 54px -14px #d80fd89e;
+    text-align: center;
+  }
+
+  .landing .form__group .btn {
+    margin-top: 30px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: all .7s;
+  }
+
+}
+
+@media(max-width:500px){
+  .landing {
+    height: 100vh;
+    background-color: rgba(13, 13, 19, 0.88);
+    color: white;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    right: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 50px;
+    font-weight: bold;
+    letter-spacing: 0;
+    border: solid 7px white;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+
+  }
+
+  .landing p {
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 3px;
+  }
+
+  .landing .form__group {
+    width: 100%;
+    margin: auto;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  .landing .form__group .form__input  {
+    //padding: 10px;
+    width: 100%;
+    border-radius: 9px;
+    border: 1px solid #00ff8063;
+    background-color: #6e727261;
+    box-shadow: 0px -10px 54px -14px #d80fd89e;
+    text-align: center;
+  }
+
+  .landing .form__group .btn {
+    margin-top: 15px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: all .7s;
+  }
+
+}
