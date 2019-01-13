@@ -227,20 +227,22 @@
         <br>
         <h3>Comments</h3>
         <hr class="style1">
-        <div class="row">
+        <div class="container" id="prop_show_comments--container">
           <%# render partial: "properties/buyer_calendar", locals: { slots: @property.slots, property: @property } %>
-          <div class="row col-md-8">
+          <div class="row">
+            <div class="col-md-8">
+
+
             <% comments = @property.comments.order("created_at DESC").paginate(page: params[:comments_page], per_page: 3) %>
             <% if comments.any? %>
                 <%= render partial: 'comments/property_show_comment',locals: {p: @property, comments: comments} %>
             <% else %>
                 Property has no comments
             <% end %>
-          </div>
+            </div>
           <div class="col-md-4">
             <div class="panel panel-default">
               <div>
-
                 <i class="fa fa-heart-o" aria-hidden="true" style="color: #29abe3; font-size: 24px"> </i> This property has <%= pluralize(@property.favorites.count, 'favorite') %>!
               </div>
               <div>
@@ -255,6 +257,7 @@
               <!--<hr class="style1">-->
             </div>
           </div>
+          </div>
           <div class="row">
             <%= render partial: 'comments/form', locals: {p: @property} %>
           </div>
@@ -264,7 +267,7 @@
     <br>
     <br>
 
-
+    <%= render partial: "add_offers/offer_wizard"  %>
 
 
   <div class="row visible-lg-block">

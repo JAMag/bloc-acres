@@ -14,6 +14,10 @@ gem 'delayed_job_active_record'
 
 #end of social media marketer section
 
+
+#rating for comments
+gem 'ratyrate'
+
 #add_offer pdf generation
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'

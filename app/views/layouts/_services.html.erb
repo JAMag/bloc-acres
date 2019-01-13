@@ -6,11 +6,12 @@
       <% @advertisements.in_groups_of(4, false).each do |group| %>
           <div class="row">
 
-            <div class="four columns">
+            <div>
               <% group.each do |add| %>
-                  <div class="col-md-3">
+                  <div class="col-md-6">
                     <div class="panel panel-default services">
-                      <%= image_tag add.image.url, class: "profile-round" %>
+                        <%= image_tag add.image.url, class: "profile-round" %>
+
                       <div class="row"></div>
                       <div class="advert-name">
                         <h4><%= add.advert_name %></h4>

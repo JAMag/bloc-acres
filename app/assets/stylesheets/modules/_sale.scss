@@ -51,7 +51,7 @@
         &-img-wrapper {
             position: relative;
             &:after {
-                content: "Sale";
+                //content: "Sale";
                 font-family: $main;
                 color: $white;
                 font-size: 1.125rem;
@@ -60,7 +60,7 @@
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                background-color: $brand;
+                //background-color: $brand;
             }
         }
         &-img {
@@ -68,7 +68,9 @@
             height: auto;
         }
         &-content {
-            padding: 2.8125rem 1.875rem 1.875rem 1.875rem;
+            //padding: 2.8125rem 1.875rem 1.875rem 1.875rem;
+            // change for property search view
+          padding: 0 15px;
             &__group {
                 display: flex;
                 align-content: center;

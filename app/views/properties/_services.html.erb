@@ -1,7 +1,7 @@
 
 
 <div class="panel panel-marketing col-md-12">
-  <p>Here are 3rd party service providers that work in this house's zip code!</p>
+  <p>These 3rd party service providers work in this house's zip code!</p>
   <br />
   <!--<div class="row">-->
 
@@ -10,26 +10,45 @@
         <div class="four columns">
 
           <% if add.zip === p.zip %>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="panel panel-default services">
-                  <%= image_tag add.image.url, class: "profile-round" %>
+                  <div class="service-head">
+                    <%= image_tag add.image.url, class: "profile-round-services" %>
+                  </div>
                   <div class="row"></div>
                     <div class="advert-name">
                         <h4><%= add.advert_name %></h4>
                     </div>
 
                   <div class="footer__text">
-                    <b>Profession: <%= add.profession %></b>
+                    <b><%= add.profession %></b>
+                    <br />
+                    <span class="our-price">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </span>
+
                   </div>
+
+                  <button class="btn btn-default btn-lg btn-service btn-block">
+                    Call <i class="fa fa-phone header__contact-item__icon"></i> <%# add.contact_info %>
+                  </button>
+
+                  <br />
+                  <button class="btn btn-default btn-lg btn-service btn-block">
+                    Email <i class="fa fa-envelope newsletter__btn-icon" style="color: #33AEF3;"></i>
+                  </button>
+
+                  <br>
+                  <br>
+                  <p class="footer__text">Service Zip: <%= add.zip %></p>
+                  <p class="footer__text">House Zip: <%= p.zip %></p>
                   <br>
                   <div class="desc-services">
-                    <p class="underline">Description of services:</p>
-                    <br>
-                    <br>
                     <p><%= add.description %></p>
-                    <br>
-                    <p class="footer__text">Service Zip: <%= add.zip %></p>
-                    <p class="footer__text">House Zip: <%= p.zip %></p>
                     <br>
                     <div class="vouch">
                       <% if add.vouch %>
@@ -37,9 +56,30 @@
                       <% end %>
                     </div>
                   </div>
+                  <br />
+                  <div class="footer__text">
+                    <span>
+                        <p class="pull-left">Contacted:</p>
+                        <p class="pull-right">113 times</p>
+                    </span>
+                    <br/>
+                    <span>
+                        <p class="pull-left">Experience:</p>
+                        <p class="pull-right">5 years</p>
+                    </span>
+                    <br/>
+                    <span>
+                        <p class="pull-left">Insured:</p>
+                        <p class="pull-right">Yes</p>
+                    </span>
+                  </div>
+                  <br />
+
+
                   <br>
-                  Contact Info:
-                  <i class="fa fa-phone header__contact-item__icon"></i><%= add.contact_info %>
+                  <p class="footer__text">Orig. Price: $125 per hour</p>
+                  <p class="footer__text our-price">Our Price: $75 per hour</p>
+                  <br>
 
                 </div>
               </div>

@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :store_purchases
   has_many :calculators
 
+  ratyrate_rater
+
 
   validates_integrity_of  :avatar
   validates_processing_of :avatar

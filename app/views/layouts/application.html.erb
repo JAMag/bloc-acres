@@ -35,8 +35,10 @@
   <!--<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>-->
 <!-- Designer Links-->
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!--<link rel="stylesheet" href="assets/main.scss">-->
   <!-- End of Designer Links -->
 
@@ -45,11 +47,18 @@
 
   <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
   <!--<script src="assets/app.js"></script>-->
 
 <!-- following comment is for matching height of comments in partial-->
   <!--<script type="text/javascript" src ='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js'></script>-->
+  <script src='//cameratag.com/api/v12/js/cameratag.min.js' type='text/javascript'></script>
+  <link rel='stylesheet' href='//cameratag.com/static/12/cameratag.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/css/bootstrap-tour-standalone.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/js/bootstrap-tour-standalone.js"></script>
 </head>
 
 <body>
@@ -81,8 +90,10 @@
       <!--<script src="bootstrap.tooltip.js"></script>-->
       <!--<script src="bootstrap.popover.js"></script>-->
       <!--<script src="bootstrap-tour.js"></script>-->
+      <% if action_name != "index" %>
+        <%=render partial: 'welcome/footer_all' %>
+      <% end %>
 
-      <%=render partial: 'welcome/footer_all' %>
 
 
 
@@ -100,27 +111,7 @@
 <!--</footer>-->
 
 
-<!--&lt;!&ndash;<script>&ndash;&gt;-->
-<!--//    var tour = new Tour({-->
-<!--//        steps: [-->
-<!--//            {-->
-<!--//                element: "#my-element",-->
-<!--//                title: "Title of my step",-->
-<!--//                content: "Content of my step"-->
-<!--//            },-->
-<!--//            {-->
-<!--//                element: "#my-other-element",-->
-<!--//                title: "Title of my step",-->
-<!--//                content: "Content of my step"-->
-<!--//            }-->
-<!--//        ]});-->
-<!--//-->
-<!--//    // Initialize the tour-->
-<!--//    tour.init();-->
-<!--//-->
-<!--//    // Start the tour-->
-<!--//    tour.start();-->
-<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
 
 </body>
 

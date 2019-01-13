@@ -1,7 +1,7 @@
 <%= simple_form_for(@post) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-input">
+    <div class="form-input marketing-input-post">
       <%= f.input :content, required: true, maxlength: 140 %>
       <p>This post is scheduled in <b><%= Time.zone.name %></b></p>
       <%= f.input :scheduled_at, required: true, as: :datetime_picker %>

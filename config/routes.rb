@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  post '/rate' => 'rater#create', :as => 'rate'
   get 'messages/reply'
 
 # social media marketer

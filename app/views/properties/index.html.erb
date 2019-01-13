@@ -7,7 +7,7 @@
 
   <input id="pac-input" class="controls" type="hidden" placeholder="Search Box">
 
-      <div class="row col-md-8 float-left">
+      <div class="row col-md-8 float-left" style="100vh;">
         <div class="show-search">
         <a class="" data-toggle="collapse" href="#search-map-canvas" aria-expanded="false" aria-controls="collapseExample">
           <i class="fa fa-arrow-circle-o-down" aria-hidden="true" style="color: #f27c53; font-size: 24px"></i>
@@ -30,7 +30,8 @@
         <!--</div>-->
       </div>
 
-      <div class="col-md-4 float-right" id="search_right">
+      <div class="col-md-4 float-right" id="search_right" style="
+      padding:  32px;border: solid 1px #f27b52;box-shadow: 11px 20px 20px 0px #607D8B;">
         <div class="show-search">
           <a class="" data-toggle="collapse" href="#search-form" aria-expanded="false" aria-controls="collapseExample">
             <i class="fa fa-arrow-circle-o-down" aria-hidden="true" style="color: #f27c53; font-size: 24px"></i>
@@ -68,10 +69,14 @@
             <br>
             <div class="well" id="sort">
               <p>Sort: <i class="fa fa-sort" aria-hidden="true">... </i>
-               <%= sortable "price" %>
-               <%= sortable "beds" %>
-               <%= sortable "baths" %>
+              <ul >
+                <li class="search-filter"><%= sortable "price" %></li>
+                <li class="search-filter"><%= sortable "beds" %></li>
+                <li class="search-filter"><%= sortable "baths" %></li>
+              </ul>
+
              </p>
+
             </div>
             <br>
 
@@ -83,7 +88,7 @@
 
 
         <!--<div id="property-index">-->
-        <div>
+        <div id="prop-loop">
 
               <% @properties.each do |p| %>
                 <%= render partial: "layouts/search_property_view_2", locals: {p: p} %>
@@ -103,6 +108,8 @@
 
             </div>
           </div>
+
+          <%=render partial: 'welcome/footer_all' %>
         </div>
       </div>
 </div>
@@ -356,7 +363,8 @@
           (function(){
               var marker = new google.maps.Marker({
                   map: map,
-                  title: 'bob',
+                  title: '<%= p.id %>',
+                  id: '<%= p.id %>',
                   animation: google.maps.Animation.DROP,
                   //icon: {url: '<%= p.photos.first.url %>',  scaledSize: new google.maps.Size(100, 100)},
                   icon: ' ',
@@ -383,11 +391,51 @@
                   });
                   infowindow.open(map, marker);
               });
+
+
               markers.push(marker);
+
+
+//******************************************Highlight Marker on DIV Hover ***********
+              $(document).ready(function() {
+                  $(".prop-index-view").hover(function() {
+                      console.log($(this).data('value'));
+                      var data = $(this).data('value');
+                      var result = markers.filter(function(obj) {
+                          return obj.id == data;
+                      })[0];
+                      console.log(result);
+                      result.addListener("click", toggleBounce);
+                  });
+                  function toggleBounce(){
+                      if (result.getAnimation() !== null) {
+                          result.setAnimation(null);
+                      } else {
+                          result.setAnimation(google.maps.Animation.BOUNCE);
+                      }
+                  }
+              });
+
+
 
           })();
 
+          // ATTEMPT TO Link Div to marker on map -- Just Me
 
+//          marker.addListener('hover', function() {
+//              var infowindow = new google.maps.InfoWindow({
+//                  content: '<# image_tag((p.photos.first), class: "profile-round") %><br><%= link_to p.address, property_path(p), target: :_blank %><br>$<%= p.price %>',
+//                  position: {lat: <# p.latitude %>, lng: <# p.longitude %>}
+//
+//              });
+//              infowindow.open(map, marker);
+//          });
+//
+//          $("#viewfavs<#p.id %>").on("hover", function(){
+//              $(marker.title).("#prop-loop").fadeOut(700, function(){
+//                  $(this).remove();
+//              });
+//          });
 
 
 
@@ -440,6 +488,85 @@
 initAutocomplete();
 
 
+
+//      ////  BOOTSTRAP TOUR www.bootstraptour.com ********************************
+//
+//      // Instance the tour
+//      var tour = new Tour({
+////            storage: false will launch the tour every time the page loads, otherwise it runs once or use button,
+//
+////            storage: false,
+//          steps: [
+//              {
+//                  path: "/dashboard",
+//                  element: "#film-button-tour",
+//                  title: "Watch Video Button",
+//                  content: "Here you can watch the video of your last showing!"
+//              },
+//              {
+//                  path: "/properties",
+//                  element: "#search_right",
+//                  title: "Search For Property",
+//                  content: "Search for property here, and then favorite to keep track of it in your dashboard!"
+//              },
+//              {
+//                  path: "/dashboard",
+//                  element: "#seller-dash-tabs",
+//                  backdrop: true,
+//                  title: "Here are the links for selling your house!",
+//                  content: "Find everything you need to sell your house here."
+//              }
+//          ]});
+//
+//      // Initialize the tour
+//      tour.init();
+//      console.log('tour inited');
+//
+//      // Start the tour
+//      tour.start();
+//      console.log('tour started');
+//
+//      document.getElementById("tour-demo").onclick = function(){
+//          tour.init();
+//          console.log('tour inited');
+//
+//          // Start the tour
+//          tour.start(true);
+//          console.log('tour started');
+//      };
+//
+
+          //********************************* styling of sorting links ****************************//
+//      $(".search-filter").click(function(e){
+////          e.preventDefault();
+////          if ($(this).hasClass("search-sort")) {
+////               $(this).removeClass("search-sort");
+////          } else {
+////              $(this).addClass("search-sort");
+////          }
+//          $(this).toggleClass("search-sort");
+////          alert("someone sorted");
+//      });
+//
+//      $(document).ready(function() {
+//          $(".prop-index-view").hover(function() {
+//              alert($(this).data('value'));
+//              var data = $(this).data('value');
+//              var result = markers.filter(function(obj) {
+//                  return obj.id == data;
+//              })[0];
+//              console.log(result);
+//          });
+//      });
+
+//
+//      function highlightMarker(i) {
+//          if (markers[i].getAnimation() !== null) {
+//              markers[i].setAnimation(null);
+//          } else {
+//              markers[i].setAnimation(google.maps.Animation.BOUNCE);
+//          }
+//      }
 
   </script>
 

@@ -42,7 +42,10 @@
                   <td><%= image_tag 'checked_filled.png' %></td>
                   <td><%= image_tag 'checked_filled.png' %></td>
                   <td><%= image_tag 'checked_filled.png' %></td>
-                  <td><%= image_tag 'icons8-film_filled.png' %></td>
+                  <!--<td><%# image_tag 'icons8-film_filled.png' %></td>-->
+                  <td>  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="film-button-tour">
+                    <%= image_tag 'icons8-film_filled.png' %>
+                  </button></td>
                 </tr>
 
             <% end %>
@@ -67,7 +70,8 @@
                       <td><%= image_tag 'checked_filled.png' %></td>
                       <td><%= image_tag 'checked_filled.png' %></td>
                       <td><%= image_tag 'checked_filled.png' %></td>
-                      <td><%= image_tag 'icons8-film_filled.png' %></td>
+
+
                     </tr>
                 <% end %>
             <% end %>

@@ -1,88 +1,69 @@
+<style>
+    .large-house-photo {
+        position: relative;
+        background-color: rgb(229, 227, 223);
+        overflow: hidden;
+        width: 100%;
+        margin: auto;
+        height:400px;
+    }
+
+
+</style>
+
 <% @title= @property.address %>
 
-<div class="container">
-  <div class="row">
-    <div class="loader col-md-4 offset-4">Loading</div>
-  </div>
-  <div class="">
+<div class="">
 
-    <div class="row hidden-xs prop-show-row">
-      <div class="panel-default">
-        <div class="row prop-heading">
-          <span>
-              <h1 class="pull-left"><%= link_to ' < '.html_safe, :back, class: 'btn btn-default' %></h1>
-                <h1 class="pull-left"><%= @property.address %></h1>
-              <h1 class="pull-right">          <b><i><%= "$" + @property.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></h1>
-          </span>
+  <div>
+
+    <div>
+      <div>
+        <div>
+            <h1 style="text-align: center; text-transform: uppercase;"><%= @property.address %></h1>
+            <h1><b><i><%= "$" + @property.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></h1>
         </div>
-        <br>
-        <div class="row prop-heading">
-          <span>
-            <h4 class="pull-left"><i class="fa fa-map-marker" aria-hidden="true" style="color: #29abe3;"></i> <%= @property.city%>, <%= @property.state%>, <%= @property.zip%></h4>
-            <h4 class="pull-right"><%= @property.structure %></h4>
-          </span>
+        <div>
+            <h4><i class="fa fa-map-marker" aria-hidden="true" style="color: #29abe3;"></i> <%= @property.city%>, <%= @property.state%>, <%= @property.zip%></h4>
+            <h4><%= @property.structure %></h4>
         </div>
-
-
-
       </div>
     </div>
-    <div class="prop-show-head-carousel">
-      <%= render partial: 'properties/property_show_carousel.html.erb', formats: [:html], locals: {property: @property} %>
-      <!--<# image_tag @property.photos.first.url, class:"large-house-photo" %>-->
+    <div>
+      <%# render partial: 'properties/property_show_carousel.html.erb', formats: [:html], locals: {property: @property} %>
+      <%= image_tag @property.photos.first.url, class:"large-house-photo" %>
 
     </div>
 
-    <!--<div class="row">-->
-    <!--&lt;!&ndash;<# @property.photos.each do |prop| %>&ndash;&gt;-->
-    <!--&lt;!&ndash;<div class="small-prop-photo col-md-1">&ndash;&gt;-->
-    <!--&lt;!&ndash;<# image_tag prop.url, class: "small-house-photo" %>&ndash;&gt;-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-    <!--&lt;!&ndash;<# end %>&ndash;&gt;-->
-
-    <!--</div>-->
 
 
     <br>
-    <div id="" class="row">
+    <div>
 
 
-      <div class="col-md-8">
+      <div>
         <p><b>
 
         </b></p>
-        <div class="panel panel-default">
-          <div class="panel-body">
+        <div>
+          <div>
             <p>
 
             </p>
 
-            <!--<ul class="sale__item-features">-->
-            <!--<li class="sale__item-features__item"><img src="/assets/i-room-bed.png" alt="Number of beds" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label"><%= @property.beds.to_s + " " %></span></li>-->
-            <!--<li class="sale__item-features__item"><img src="/assets/i-bathtub.png" alt="Number of bathrooms" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label"><%= @property.baths.to_s + " " %></span></li>-->
-            <!--<li class="sale__item-features__item"><img src="/assets/i-kitchen.png" alt="Number of kitchens" class="sale__item-features__item-icon"> <span class="sale__item-features__item-label"><%= @property.lot.to_s + " " %></span></li>-->
-            <!--</ul>-->
-            <div class="row">
-              <div class="pull-left">
+            <div>
+              <div>
 
-              </div>
-              <div class="pull-right">
-                <i class="fa fa-heart-o" aria-hidden="true" style="color: #29abe3; font-size: 24px"> </i><span class="badge"> <%= @property.favorites.count %></span>
-                <i class="fa fa-clock-o" aria-hidden="true " style="color: #29abe3; font-size: 24px"> </i><span class="badge"><%= @property.appointments.count %></span>
-                <i class="fa fa-comments-o" aria-hidden="true" style="color: #29abe3; font-size: 24px"> </i><span class="badge"><%= @property.comments.count %></span>
               </div>
 
             </div>
-            <br>
-            <br>
-            <table class="table property-show-table">
+            <table style="margin: 0 auto;">
               <thead>
               <tr>
-                <th>Area </th>
-                <th>Rooms</th>
-                <th>Beds</th>
-                <th>Baths</th>
+                <th style="padding: 10px;">Area </th>
+                <th style="padding: 10px;">Rooms</th>
+                <th style="padding: 10px;">Beds</th>
+                <th style="padding: 10px;">Baths</th>
               </tr>
 
               </thead>
@@ -97,57 +78,42 @@
             </table>
 
 
+            <h4 style="text-transform: uppercase;
+                font-weight: 600;
+                border-bottom: 1px solid;">Description</h4>
+            <hr>
+            <p><%= @property.description %></p>
+            <br>
+            <center><%# render partial: 'more_info_prop_show' %></center>
 
-
-            <!--<h3 class="sale__item-price"><b><i><%= "$" + @property.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></h3>-->
-
-            <%= link_to property_path(@property, :format => :pdf), class: "btn btn-default" do %>
-                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Create PDF
-            <% end %>
-            <%= link_to property_path(@property, :format => :pdf), class: "btn btn-default" do %>
-                <i class="fa fa-share-alt" aria-hidden="true"></i> Share!
-            <% end %>
-            <%= link_to property_path(@property, :format => :pdf), class: "btn btn-default" do %>
-                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Create PDF
-            <% end %>
-            <%# render partial: 'properties/favorite', locals: {p: @property} %><!--<hr>-->
-
-            <br>
-            <br>
-            <h4>Description</h4>
-            <hr class="style1">
-            <p class="footer__text"><%= @property.description %></p>
-            <br>
-            <center><%= render partial: 'more_info_prop_show' %></center>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <h4>Details</h4>
-            <hr class="style1">
-            <div class="col-md-4">
-              <ul>
-                <li>Building Age: 2 years</li>
-                <li>Parking: Attached Garage</li>
-                <li>Heating: Oil</li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <ul>
-                <li>Cooling: Central</li>
-                <li>Sewer: Septic System</li>
-                <li>Water: Well</li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <ul>
-                <li>Foundation: Cement</li>
-                <li>Basement: Finished</li>
-                <li>Windows: New</li>
-              </ul>
+            <hr>
+            <div style="border: 1px solid;
+                    padding: 10px;">
 
+
+                <div>
+                  <ul>
+                    <li>Building Age: 2 years</li>
+                    <li>Parking: Attached Garage</li>
+                    <li>Heating: Oil</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>Cooling: Central</li>
+                    <li>Sewer: Septic System</li>
+                    <li>Water: Well</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>Foundation: Cement</li>
+                    <li>Basement: Finished</li>
+                    <li>Windows: New</li>
+                  </ul>
+
+                </div>
             </div>
 
 
@@ -158,170 +124,51 @@
 
       </div>
 
-
-      <div class="col-md-4">
-        <div class="panel panel-default">
-          <h3>
-            <center><%= "View" %></center>
-          </h3>
-          <hr class="style1">
-          <%= render partial: "layouts/timepicker" %>
-          Open House:
-          <br>
-          <span><p class="pull-left">11/23/19</p><p class="pull-right">9:00 am - 12:00 pm</p></span>
-          <br>
-          <br>
-          <br>
-
-
-
-        </div>
-
-        <div class="panel panel-default">
-          <h3>
-            <center><%= "Affordability" %></center>
-          </h3>
-          <hr class="style1">
-          <%= render partial: "properties/chart" %>
-
-        </div>
-
-
-        <br>
-      </div>
       <h3>Find On Google</h3>
-      <hr class="style1">
+      <hr>
     </div>
     <br>
-    <div class="row">
-      <div id="map-container">
-        <div id="map-canvas">
-          <div class="google_map">
+    <div>
+      <div>
+        <div>
+          <div>
 
-            <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@property.map_address}&zoom=14&size=640x600&markers=#{@property.map_address}&sensor=false" %>
+            <%# image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@property.map_address}&zoom=14&size=640x600&markers=#{@property.map_address}&sensor=false" %>
           </div>
 
         </div>
       </div>
     </div>
 
-    <br>
-    <div class="row">
-      Street View
-      <div id="pano<%= @property.id %>" class="thumbnail-street-view-prop-show"></div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-      <h3>Similar Properties</h3>
-      <hr class="style1">
-      <%= render partial: 'similar_properties' %>
-    </div>
 
-
-
-    <div class="row">
+    <div>
       <br>
       <br>
 
       <br>
-      <h3>Comments</h3>
-      <hr class="style1">
-      <div class="row">
-        <%# render partial: "properties/buyer_calendar", locals: { slots: @property.slots, property: @property } %>
-        <div class="row col-md-8">
-          <% comments = @property.comments.order("created_at DESC").paginate(page: params[:comments_page], per_page: 3) %>
-          <% if comments.any? %>
-              <%= render partial: 'comments/property_show_comment',locals: {p: @property, comments: comments} %>
-          <% else %>
-              Property has no comments
-          <% end %>
-        </div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
+      <h3>Moverable Stats</h3>
+      <hr>
+      <div>
+        <div>
+          <div>
             <div>
-
-              <i class="fa fa-heart-o" aria-hidden="true" style="color: #29abe3; font-size: 24px"> </i> This property has <%= pluralize(@property.favorites.count, 'favorite') %>!
+              This property has <%= pluralize(@property.favorites.count, 'favorite') %>!
             </div>
             <div>
-              <i class="fa fa-clock-o" aria-hidden="true " style="color: #29abe3; font-size: 24px"> </i> This property has <%= pluralize(@property.appointments.count, 'appointment') %>!
+              This property has <%= pluralize(@property.appointments.count, 'appointment') %>!
             </div>
             <div>
-              <i class="fa fa-comments-o" aria-hidden="true" style="color: #29abe3; font-size: 24px"> </i> This property has <%= pluralize(@property.comments.count, 'comment') %>!
+              This property has <%= pluralize(@property.comments.count, 'comment') %>!
             </div>
-            <hr class="style1">
+            <hr>
             <p> Listed <%= (Time.now.to_i - Time.at(@property.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
-            <p class="footer__text">Moverable Suggested Price: <%= number_to_currency(@property.price - (@property.price * ((Time.now.to_i - Time.at(@property.created_at.to_i).to_i) /60 /60 /24 /30).to_f*(0.01)).to_i) %></p>
-            <!--<hr class="style1">-->
+            <p>Moverable Time Price: <%= number_to_currency(@property.price - (@property.price * ((Time.now.to_i - Time.at(@property.created_at.to_i).to_i) /60 /60 /24 /30).to_f*(0.01)).to_i) %></p>
+
           </div>
-        </div>
-        <div class="row">
-          <%= render partial: 'comments/form', locals: {p: @property} %>
         </div>
       </div>
     </div>
 
-    <br>
-    <br>
-
-
-
-
-    <div class="row visible-lg-block">
-      <h3>Purchase Contract</h3>
-      <hr class="style2">
-      <% if @add_offer %>
-          <%= @add_offer.price %>
-      <% else %>
-          <%= render partial: "add_offers/add_offer", locals: { :property => @property }  %>
-      <% end %>
-    </div>
   </div>
 </div>
-
-
-
-
-
-<script>
-    $(window).load(function(){
-        $('.loader').fadeOut(500);
-    });
-
-
-    function initialize() {
-        var fenway = {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>};
-
-        var panorama = new google.maps.StreetViewPanorama(
-                document.getElementById('pano<%= @property.id %>'), {
-                    position: fenway,
-                    pov: {
-                        heading: 34,
-                        pitch: 0,
-                        zoom: 1
-                    }
-
-
-                });
-
-
-
-        $('button[href="#viewfavs<%=@property.id %>"]').on('click', function(e) {
-            console.log('button has been clicked');
-            setTimeout(function(){
-                google.maps.event.trigger(panorama, 'resize');
-
-            }, 1000);
-        });
-    }
-
-
-
-
-
-
-    initialize();
-
-
-</script>
 

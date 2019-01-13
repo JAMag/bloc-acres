@@ -28,60 +28,126 @@
         <div class="panel panel-home">
             <div class="row">
 
-              <div class="col-md-4">
-                <div class="panel -panel buyer">
-                    <div id="map-container">
-                      <div id="map-canvas">
-                        <div class="google_map">
-                           <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+              <!--<div class="col-md-4">-->
+                <!--<div class="panel -panel buyer">-->
+                    <!--<div id="map-container">-->
+                      <!--<div id="map-canvas">-->
+                        <!--<div class="google_map">-->
+                           <!--<# image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{p.map_address}&zoom=14&size=640x600&markers=#{p.map_address}&sensor=false" %>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+              <!--</div>-->
 
-              <div class="col-md-4">
+              <div class="col-md-6 prop-info-dash">
                 <div class="alert alert-info fade in">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                   <strong>Tip!</strong> Click on the address below to start offer.
                 </div>
-                <h4> <%= link_to p.address, property_path(p), target: '_blank' %></h4>
-                <%= p.city + "," %>
-                <%= p.state + "," %>
-                <%= p.zip %>
-                <hr>
-                <b><%= p.structure %></b>
-                <hr>
-                <H4><b><i><%= "$" + p.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></H4>
-                <hr>
-                <p>Your Max Payment: <%= number_to_currency(current_user.prop_afford)%> per month</p>
-                <p>This House Payment: <%= number_to_currency(p.monthly_payment) %> per month (.06% interest, 30 years)</p>
-                <% if current_user.prop_afford >= p.monthly_payment %>
-                    This property seems to be within max budget!
-                    <i class="fa fa-flag-checkered" aria-hidden="true" style="color:green"></i>
-                <% else %>
-                    This property seems to be outside max budget!
-                    <i class="fa fa-flag" aria-hidden="true" style="color:red"></i>
-                <% end %>
-                <hr>
-                <b><%= p.beds.to_s + " " %>Beds -</b>
-                <b><%= p.baths.to_s + " " %>Baths -</b>
-                <b><%= p.lot.to_s + " " %>Acres</b>
+                <div class="row address-header">
 
-                <hr>
-                <%= p.description %>
-                <hr>
+                  <span class="pull-left">
+                    <p> <%= link_to p.address, property_path(p), target: '_blank' %></p>
+                  </span>
 
-                <p> Listed <%= (Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago </p>
-                <hr>
-                <%= render partial: 'properties/favorite', locals: {p: p} %>
-              </div>
-
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <%= render partial: 'properties/photo', locals: {property: p} %>
+                    <span class="pull-right prop-town">
+                      <%= p.city + "," %>
+                      <%= p.state %>
+                      <%= p.zip %>
+                    </span>
                 </div>
+
+                <hr>
+                <div class="row price-structure">
+
+                  <span class="pull-left p-price">
+                    <H4><b><i><%= "$" + p.price.to_s.scan(/(?:\d*\.)?\d{1,3}-?/).join(',') %></i></b></H4>
+                  </span>
+
+                    <span class="pull-right">
+                      <b><%= p.structure %></b>
+                    </span>
+                </div>
+                <hr>
+                <div class="row text-center">
+                  <b><%= p.beds.to_s + " " %>Beds -</b>
+                  <b><%= p.baths.to_s + " " %>Baths -</b>
+                  <b><%= p.lot.to_s + " " %>Acres</b>
+                </div>
+
+
+
+                <hr>
+                <div class="pay-wrapper">
+
+
+                <div class="row pay-compare">
+                  <p class="pull-left">Max Payment: <%= number_to_currency(current_user.prop_afford)%></p>
+                  <p class="pull-right">This Payment: <%= number_to_currency(p.monthly_payment) %></p>
+                </div>
+                <div class="row text-center text-uppercase payment-comparison">
+                  <br />
+                  <% if current_user.prop_afford >= p.monthly_payment %>
+                      <div class="row">
+                        <i class="fa fa-flag-checkered pull-left" aria-hidden="true" style="color:green"></i>
+                        <i class="fa fa-flag-checkered pull-right" aria-hidden="true" style="color:green"></i>
+                      </div>
+                      <div class="row">
+                        This property seems to be <span class="max-with"><strong>within</strong></span>  your <span class="max-budget"><strong>max</strong></span> budget!
+                      </div>
+                      <div class="row">
+                        <i class="fa fa-flag-checkered pull-left" aria-hidden="true" style="color:green"></i>
+                        <i class="fa fa-flag-checkered pull-right" aria-hidden="true" style="color:green"></i>
+                      </div>
+                  <% else %>
+                      <div class="row">
+                        <i class="fa fa-flag pull-left" aria-hidden="true" style="color:#E24915"></i>
+                        <i class="fa fa-flag pull-right" aria-hidden="true" style="color:#E24915"></i>
+                      </div>
+                      <div class="row">
+                        This property seems to be <span class="max-with"><strong>outside</strong></span>  your <span class="max-budget"><strong>max</strong></span> budget!
+                      </div>
+                      <div class="row">
+                        <i class="fa fa-flag pull-left" aria-hidden="true" style="color:#E24915"></i>
+                        <i class="fa fa-flag pull-right" aria-hidden="true" style="color:#E24915"></i>
+                      </div>
+                  <% end %>
+                </div>
+                </div>
+
+                <hr>
+                <div class="p-description">
+                  <%= p.description %>
+
+                </div>
+
+                <hr>
+                <div class="row">
+                  <span class="pull-left p-listed-ago">
+                    Listed <%= (Time.now.to_i - Time.at(p.created_at.to_i).to_i) /60 /60 /24 %> Days Ago
+                  </span>
+                  <span class="pull-right prop-search-view-fav">
+                    <%= render partial: 'properties/favorite', locals: {p: p} %>
+                  </span>
+                </div>
+
               </div>
+
+              <div class="col-md-6">
+                <div class="thumbnail property-image-circle">
+                  <div class="row">
+                    <%= render partial: 'properties/photo', locals: {property: p} %>
+                  </div>
+
+
+                </div>
+
+
+
+
+              </div>
+
 
 
 

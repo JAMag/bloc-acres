@@ -15,6 +15,19 @@
 @import "bootstrap-datetimepicker";
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
   letter-spacing: 1px;
 }
@@ -626,7 +639,7 @@ header {
 #search-map-canvas {
   width: 100%;
   margin: auto;
-  height: 600px;
+  height: 100vh;
 }
 
 #map-canvas {
@@ -701,6 +714,26 @@ header {
   -1px 1px 0 #000,
   1px 1px 0 #000;
 }
+
+.prop-search-view-fav {
+  //font-family: "Lato", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  font-size: 8rem;
+  font-weight: 400;
+  padding: 0px 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: all .2s;
+  //background-color: #29abe2;
+}
+
+.prop-search-view-fav a {
+  color: #f27c52bd;
+  text-decoration: none;
+}
+
+
 
 
 
@@ -1029,6 +1062,7 @@ div.c-wrapper{
   border-top: solid;
   border-color: white;
   border-width: 2px;
+  box-shadow: -10px 0px 20px -5px #607D8B;
 }
 
 .profile-round {
@@ -1059,6 +1093,22 @@ div.c-wrapper{
   -moz-border-radius: 99em;
   border-radius: 99em;
 
+}
+
+
+.profile-round-services {
+  //display: block; */
+  width: 200px;
+  height: 200px;
+  /* margin-right: 8px; */
+  margin: 10px auto 10px auto;
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center center; */
+  /* -webkit-border-radius: 99em; */
+  -moz-border-radius: 99em;
+  border-radius: 99em;
+  border: 10px solid #f8f9f9;
 }
 
 .showcase {
@@ -1181,6 +1231,7 @@ div.c-wrapper{
   margin-top: 5px;
   border-radius: 8px 8px;
   background-color: #e9eded;
+  box-shadow: -10px 0px 20px -5px #607D8B;
 }
 
 th.navigate {
@@ -1739,9 +1790,10 @@ ul.breadcrumbs {
 
 #search_right {
   overflow: scroll;
-  max-height: 700px;
-  padding: 0px;
+  //max-height: 700px;
+  padding: 0px 32px;
   box-shadow: -10px 0px 20px -5px #607D8B;
+  height: 100vh;
 }
 
 
@@ -1763,17 +1815,22 @@ ul.breadcrumbs {
 .breadcrumb {
   border-style: double;
   font-size: small;
-  margin: 0px;
+  margin: 0 0 10px 0;
+  border-color: #f27d53;
 }
 //
 
 //styling for dashboard directions to show user which section is which (ex: buyer or seller)
 #seller-dashboard-directions{
   color: #f27d53;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 #buyer-dashboard-directions{
   color: #f27d53;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .past-due {
@@ -1804,6 +1861,12 @@ ul.breadcrumbs {
   text-align: center;
 }
 
+//.search-filter:active {
+//  color: red;
+// background: black;
+//}
+
+
 #sort {
 
 }
@@ -1817,11 +1880,12 @@ ul.breadcrumbs {
 }
 
 .desc-services {
-  background: lightsteelblue;
+  background: #e9eded;
   min-height: 125px;
   padding: 10px;
   max-height: 125px;
   overflow: scroll;
+  box-shadow: -10px 0px 20px -5px #607D8B;
 }
 
 .vouch {
@@ -1961,6 +2025,8 @@ button.stripe-button-el>span {
   background-color: #f27d54 !important;
   background-image: none;
   width: 100%;
+  box-shadow: -10px 0px 20px -5px #607D8B;
+  text-transform: uppercase;
 }
 
 .prop-heading {
@@ -1979,6 +2045,7 @@ button.stripe-button-el>span {
   width: 100%;
   height: auto;
   max-height: 200px;
+  object-fit: cover;
 }
 
 .landing-search {
@@ -1987,8 +2054,30 @@ button.stripe-button-el>span {
 
 .prop-index-view {
   background-color: white;
+
 }
 
+
+.prop-search-view-price {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 400;
+  padding: 5px 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: solid white 1px;
+  text-align: left;
+  background-color: #29abe2;
+  //background-color: #29abe2;
+}
+
+.pointer {
+  cursor: pointer;
+
+}
 
 ///// Shake Contract Price Animation
 #suggested_price {
@@ -2126,12 +2215,17 @@ button.stripe-button-el>span {
   }
 }
 
-#search-right {
-  overflow: scroll;
-  padding: 0px;
-  min-height: 700px;
-  max-height: 700px !important;
+div.float-right #search-right {
+  overflow-y: scroll;
+
   box-shadow: -10px 0px 20px -5px #607D8B;
+  padding: 1em !important;
+  position: absolute;
+  top: 230px;
+  right: 150px;
+  bottom: 39px;
+  margin-top: 1e !important;
+  height: 100vh !important;
 }
 
 
@@ -2227,7 +2321,22 @@ button.stripe-button-el>span {
   display: none;
 }
 
+// PROPERTY CONTRACT
 
+.contract-heading {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+
+#prop_show_comments--container {
+  padding: 0;
+}
+
+.prop-show-comment-heading {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
 @media(max-width:1400px){
   .landing {
@@ -2342,3 +2451,298 @@ button.stripe-button-el>span {
   }
 
 }
+
+
+
+.prop-search-view-fav span:hover {
+  transform: translateY(-3px);
+  //box-shadow: 0 10px 20px rgba(0,0,0,.3);
+  text-shadow: 0 10px 20px rgba(0,0,0,.7);
+}
+
+.prop-search-view-fav span:active {
+  transform: translateY(-1px);
+  text-shadow: 0 5px 10px rgba(0,0,0,.7);
+}
+
+//
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #2AABE8 !important;
+}
+
+
+//
+//  REDO OF DASHBOARD ********************************************************
+//
+.panel-home {
+  padding: 0 50px;
+
+
+.btn-service {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  width: 100%;
+  margin: 10px auto;}
+}
+
+.advert-name {
+  margin-top: 10px;
+}
+
+.our-price {
+  color: #FF5722;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.product {
+  height: 300px;
+  margin: 10px auto;
+}
+
+.quickview {
+  color: #25adf6;
+}
+
+.store-quantity {
+  color: #25adf6;
+}
+
+.container-dashboard {
+  background-color:  #252a2d17;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.step-heading {
+  text-transform: uppercase;
+  color: #A09EA2;
+  font-weight: 900;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.dash-house-view {
+  border-radius: 1000px;
+  box-shadow: -10px 0px 20px -5px #607D8B;
+}
+
+.property-image-circle {
+  width: 100%;
+  top: 75px;
+  bottom: 0;
+  position: absolute;
+  margin: auto;
+}
+.prop-info-dash{
+  padding: 5px 5%;
+  box-shadow: -9px 3px 20px 0px #607D8B;
+}
+
+.payment-comparison {
+  background: #ffffffb3;
+  padding: 40px;
+  font-size: 12px;
+  box-shadow: -1px 2px 20px 0px #607D8B;
+  border-top: solid 3px #29abe2;
+  margin-top: 40px;
+}
+
+.address-header {
+  font-size: 32px;
+  padding: 20px;
+
+}
+
+.pay-compare {
+  letter-spacing: -1px;
+}
+
+.prop-town {
+  font-size: 24px;
+}
+
+.p-description {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -1px;
+}
+
+.pay-wrapper {
+  padding: 10px;
+}
+
+.p-listed-ago {
+  text-transform: uppercase;
+  color: #f27d54;
+}
+
+.p-price {
+  color: #29ABE3;
+}
+
+.btn.btn-primary-listing:focus {
+  color: #2f78b9;
+}
+
+.service-head {
+  background: #e9eded;
+  height: 150px;
+  margin: 0 0 100px;
+}
+//
+//  END OF REDO OF DASHBOARD ********************************************************
+//
+
+.header__contact-item i {
+  font-size: 72px;
+}
+
+.nav-content {
+ margin: 0;
+}
+
+.move-logo {
+  margin-left: 16px;
+}
+
+.header__content {
+  height: 100px;
+}
+
+.header__row {
+  margin-right: 10px;
+}
+
+.nav-row-2 {
+
+}
+
+.btn-none {
+  background-color: transparent;
+  border: none;
+}
+
+.alert-info {
+  border-color: #f69c7a;
+  color: #29abe2;
+  box-shadow: -10px 0px 20px -5px #607D8B;
+  background-color: transparent;
+}
+
+
+.price-structure {
+  margin: -10px 136px;
+}
+
+.max-budget {
+  color: #29abe2;
+}
+.max-with {
+  color: #f69c7a;
+}
+
+.our-price > .fa {
+  font-size: 32px;
+}
+
+//
+// SELLER MARKETING REDO ************************************************************
+//
+.post-content {
+  height: 500px;
+}
+
+.marketing-posted {
+  padding: 10px;
+  //border-top-right-radius: 150px;
+  //border-top-left-radius: 150px;
+  background: linear-gradient(rgba(126, 186, 201, 0.22), rgba(30, 144, 255, 0));
+  color: #929292;
+  z-index: 1000;
+  box-shadow: -10px 0px 20px -5px #607D8B;
+  .marketing-post {
+    color: #caccc5;
+  }
+}
+.marketing-posted > .marketing-post > .panel-body > .footer__text {
+  color: rgba(32, 32, 32, 0.9);
+  line-height: 1rem;
+  font-size: 10px;
+
+ }
+
+//.marketing-posted > .marketing-post > .panel-heading {
+//  //background: #80808024;;
+//}
+
+.panel-heading > .label-info .fa {
+  margin: 20px;
+
+}
+.marketing-posted > .marketing-post > .panel-heading {
+  background-color: #03a9f47a;
+  color: #5f5e5e;
+}
+
+
+.marketing-posted > .marketing-post > .panel-body {
+  box-shadow: -10px 0px 20px -5px #607D8B;
+}
+
+.marketing-post {
+  color: rgba(0, 0, 0, 0.9);
+  //line-height: 1rem;
+  //font-size: 10px;
+}
+
+.new_post > .marketing-input-post > .post_content > .form-control {
+  height: 250px;
+  box-shadow: -10px 0px 20px -5px #607D8B;
+}
+
+.marketing-next {
+  box-shadow: -10px 0px 20px -5px #607D8B;
+}
+
+
+#marketing2 > .row > .well > h4 {
+  font-size: 100px;
+}
+
+//
+//
+//
+
+//
+// store stuff
+//
+
+.panel-default > ul > li > p {
+  font-size: 12px;
+}
+
+.panel-store > div > div > p {
+  font-size: 12px;
+  padding: 10px;
+  margin: 10px;
+}
+
+//
+///
+//
+
+//
+// STORE REDO
+//
+
+#shop-cart {
+  //font-size: 48px;
+}
+//
+// END STORE REDO
+//

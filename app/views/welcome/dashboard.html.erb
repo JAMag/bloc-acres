@@ -1,28 +1,65 @@
 <% @title="Moverable Dashboard" %>
 
 <!--<div class="container-fluid">-->
-<div class="container">
+<div class="container container-dashboard">
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Video for <%=Time.now.strftime("%d/%m/%Y %H:%M")%></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <player data-uuid='v-9259a058-27f3-4602-aa8a-1bc02b964455' id='MyPlayer' style="width: 400px;height: 300px;margin: 0 auto;"></player>
+
+          </div>
+          <br>
+          <hr>
+          <div class="row">
+            <player data-uuid='v-daf0088e-900f-4c9e-b2b1-4de12cbc234e' id='MyPlayer1' style="width: 400px;height: 300px;margin: 0 auto;"></player>
+          </div>
+          <div class="row">
+            <iframe id="camera-2" src="http://6e86c81a.ngrok.io/stream" style="width: 500px; height: 500px;"></iframe>
+
+            <iframe id="camera-1" src="http://645dedaa.ngrok.io/stream" style="width: 500px; height: 500px;"></iframe>
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div>
 
 
     <br>
     <ul id="seller-dash-tabs" class="nav nav-tabs">
-      <li><a data-toggle="tab" href="#buyer"> <span class="hidden-xs">Favorites </span><span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span></a></li>
+      <li id="tab-favorites"><a data-toggle="tab" href="#buyer"> <span class="hidden-xs">Favorites </span><span class="glyphicon glyphicon-heart" style="vertical-align:middle"></span></a></li>
 
-      <li><a data-toggle="tab" href="#offers"><span class="hidden-xs">Offers </span><span class="fa fa-line-chart" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#advice"><span class="hidden-xs">Advice </span><span class="fa fa-shield" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#store"><span class="hidden-xs">Seller's Store </span><span class="fa fa-credit-card" style="vertical-align:middle"></span></a></li>
+      <li id="tab-offers"><a data-toggle="tab" href="#offers"><span class="hidden-xs">Offers </span><span class="fa fa-line-chart" style="vertical-align:middle"></span></a></li>
+      <li id="tab-advice"><a data-toggle="tab" href="#advice"><span class="hidden-xs">Advice </span><span class="fa fa-shield" style="vertical-align:middle"></span></a></li>
+      <li id="tab-store"><a data-toggle="tab" href="#store"><span class="hidden-xs">Seller's Store </span><span class="fa fa-credit-card" style="vertical-align:middle"></span></a></li>
       <!--<li><a data-toggle="tab" href="#services">Services <span class="fa fa-thumbs-o-up" style="vertical-align:middle"></span></a></li>-->
-      <li><a data-toggle="tab" href="#account"><span class="hidden-xs">Account </span><span class="fa fa-cog" style="vertical-align:middle"></span></a></li>
-      <li><a data-toggle="tab" href="#seller"><span class="hidden-xs">My Listings </span><span class="fa fa-home" style="vertical-align:middle"></span></a></li>
+      <li id="tab-account"><a data-toggle="tab" href="#account"><span class="hidden-xs">Account </span><span class="fa fa-cog" style="vertical-align:middle"></span></a></li>
+      <li id="tab-seller"><a data-toggle="tab" href="#seller"><span class="hidden-xs">My Listings </span><span class="fa fa-home" style="vertical-align:middle"></span></a></li>
+
     </ul>
 
   </div>
-  <div class="hidden-xs">
-    <%if current_user.admin %>
-        <%= link_to '@ ~> Admin Area', rails_admin_path %>
-    <% end %>
-  </div>
+
 
 
   <div class="tab-content">
@@ -33,7 +70,7 @@
 
           <%= render partial: 'layouts/buyer_step_wizard' %>
 
-
+          <hr>
 
           <% @favorites.each do |f| %>
               <% p = f.property %>
@@ -57,7 +94,7 @@
         <div id="seller" class="tab-pane fade">
           <hr>
           <%= render partial: 'layouts/seller_step_wizard' %>
-
+          <hr>
           <div class="">
             <h4 id="seller-dashboard-directions">Your Listings For Sale:</h4>
             <%= will_paginate @properties, :param_name => 'properties_page', renderer: BootstrapPagination::Rails %>
@@ -163,8 +200,23 @@
 
     });
 
-//    Remember open tabs
+//    Remember open button -- currently NOT working!
 
+//    $(document).ready(function() {
+//        if (location.hash) {
+//            $("a[href='" + location.hash + "']").button("show");
+//        }
+//        $(document.body).on("click", "a[data-toggle]", function(event) {
+//            location.hash = this.getAttribute("href");
+//        });
+//    });
+//    $(window).on("popstate", function() {
+//        var anchor = location.hash || $("a[data-toggle='button']").first().attr("href");
+//        $("a[href='" + anchor + "']").button("show");
+//    });
+
+
+    /// Remember open tabs
     $(document).ready(function() {
         if (location.hash) {
             $("a[href='" + location.hash + "']").tab("show");
@@ -177,4 +229,113 @@
         var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
         $("a[href='" + anchor + "']").tab("show");
     });
+
+
+
+////  BOOTSTRAP TOUR www.bootstraptour.com ********************************
+
+        // Instance the tour
+        var tour = new Tour({
+//            storage: false will launch the tour every time the page loads, otherwise it runs once or use button,
+
+//            storage: false,
+            steps: [
+                {
+//                    path: "/dashboard",
+                    element: "#film-button-tour",
+                    backdrop: true,
+                    title: "Watch Video Button",
+                    content: "Here you can watch the video of your last showing!"
+                },
+                {
+//                    path: "/dashboard",
+                    element: "#seller-dash-tabs",
+                    backdrop: true,
+                    title: "Here are the links for selling your house!",
+                    content: "Find everything you need to sell your house here."
+                },
+                {
+//                    path: "/properties",
+                    element: "#tab-favorites",
+                    backdrop: true,
+                    title: "Favorites",
+                    content: "Clicking on this tab will allow you to view all of the property that you have favorited during your search. You can favorite by clicking a heart on each listing.",
+                    onNext:function(tour){
+                        $("a[href='#store']").click();
+                    },
+                    onPrev:function(tour){
+                        $("a[href='#seller']").click();
+                    }
+                },
+                {
+//                    path: "/properties",
+                    element: "#tab-store",
+                    backdrop: true,
+                    title: "Store",
+                    content: "If you are selling a property and find that you need additional supplies, check out the store! Everything you need to sell your house is there and is reasonably priced due to Moverable's economic scale.",
+                    onNext:function(tour){
+                        $("a[href='#seller']").click();
+                    },
+                    onPrev:function(tour){
+                        $("a[href='#buyer']").click();
+                    }
+                },
+                {
+//                    path: "/properties",
+                    element: "#tab-seller",
+                    backdrop: true,
+                    title: "Selling",
+                    content: "If you are selling a home on Moverable, clicking this tab will allow you to get an overview on the property. Including pricing recommendations, viewed stats, updates for showings, marketing, and property questions! If you're selling this is the most important section of the dashboard.",
+                    onNext:function(tour){
+                        $("a[href='#account']").click();
+                    },
+                    onPrev:function(tour){
+                        $("a[href='#store']").click();
+                    }
+                },
+                {
+//                    path: "/properties",
+                    element: "#tab-account",
+                    backdrop: true,
+                    title: "In TAB",
+                    content: "If you are selling a home on Moverable, click.",
+                    onNext:function(tour){
+                        $("a[href='#buyer']").click();
+                    },
+                    onPrev:function(tour){
+                        $("a[href='#seller']").click();
+                    }
+                },
+                {
+//                    path: "/properties",
+                    element: "#buyer-dashboard-directions",
+                    backdrop: true,
+                    title: "Favorites",
+                    content: "Depending on how many properties you've favorited, click on the number below to see more!",
+                    onPrev:function(tour){
+                        $("a[href='#account']").click();
+                    }
+                }
+
+            ]});
+
+        // Initialize the tour
+        tour.init();
+        console.log('tour inited');
+
+        // Start the tour
+        tour.start();
+        console.log('tour started');
+
+        document.getElementById("tour-demo").onclick = function(){
+            tour.init();
+            console.log('tour inited');
+
+            // Start the tour
+            tour.start(true);
+            console.log('tour started');
+        };
+
 </script>
+
+

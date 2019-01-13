@@ -1,90 +1,347 @@
+<style>
 
-    <div class="panel panel-marketing col-md-8">
-      <p id="notice"><%= notice %></p>
+    nav .cart {
+        position: relative;
+        float: right;
+        margin-right: 50px;
+        height: 20px;
+        line-height: 70px;
+        font-size: 28px;
+        height: 100%;
+        cursor: pointer;
+    }
+    nav .cart span {
+        height: 100%;
+        float: left;
+        margin-right: 20px;
+        opacity: 1;
+        color: #fff;
+        font-size: 18px;
+        font-family: 'Nunito', sans-serif;
+    }
+    nav .cart span.updateQuantity:before, nav .cart span.updateQuantity:after {
+        top: 0;
+        bottom: 0;
+        opacity: 1;
+        width: 30px;
+        transition: all .2s ease, top .3s ease .4s, bottom .3s ease .4s;
+    }
+    nav .cart span.update {
+        transition: color .2s ease .6s;
+        color: #000;
+    }
+    nav .cart span.update:before {
+        top: -30px;
+        width: 30px;
+        opacity: 1;
+        transition: all .2s ease, top .3s ease .4s, bottom .3s ease .4s;
+    }
+    nav .cart span.update:after {
+        top: 30px;
+        width: 30px;
+        opacity: 1;
+        transition: all .2s ease, top .3s ease .4s, bottom .3s ease .4s;
+    }
+    nav .cart span:before, nav .cart span:after {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 2px;
+        background-color: #0b0b0b;
+        left: -10px;
+        right: 40px;
+        top: 2px;
+        bottom: 0;
+        margin: auto;
+    }
+
+    /*.container .panel-marketing {*/
+    /*position: relative;*/
+    /*overflow: hidden;*/
+    /*width: 200px;*/
+    /*height: 240px;*/
+    /*display: inline-block;*/
+    /*border-radius: 4px;*/
+    /*background-color: rgba(255, 255, 255, 0.45);*/
+    /*margin: 20px;*/
+    /*padding: 15px;*/
+    /*}*/
+    /*.container .product img {*/
+        /*position: relative;*/
+        /*top: -15px;*/
+        /*left: -15px;*/
+        /*transition: all .2s ease;*/
+        /*-webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 70%);*/
+        /*clip-path: polygon(0 100%, 0 0, 100% 0, 100% 70%);*/
+        /*border-top-right-radius: 4px;*/
+        /*border-top-left-radius: 4px;*/
+    /*}*/
+    /*.container .product img:hover {*/
+        /*-webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);*/
+        /*clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);*/
+        /*-webkit-transform: scale(1.1);*/
+        /*transform: scale(1.1);*/
+    /*}*/
+
+    .container .product .quickview {
+        position: absolute;
+        bottom: 20px;
+        font-size: 11px;
+        cursor: pointer;
+    }
+    .container .product .quickview:before {
+        font-family: 'simple-line-icons';
+        content: "\e05d";
+        margin-right: 3px;
+    }
+
+    .quickviewContainer {
+        position: fixed;
+        height: 100vh;
+        width: 400px;
+        background: rgba(0, 0, 0, 0.9);
+        top: 70px;
+        right: -100%;
+        transition: all .3s ease;
+        padding: 30px;
+        color: #fff;
+    }
+    .quickviewContainer .close {
+        height: 20px;
+        width: 20px;
+        float: right;
+        cursor: pointer;
+    }
+    .quickviewContainer .close:before, .quickviewContainer .close:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: #ffF;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .quickviewContainer .close:after {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    .quickviewContainer .headline {
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+    .quickviewContainer .description {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    .quickviewContainer img {
+        display: inline-block;
+        border-radius: 4px;
+        margin: 5px;
+    }
+    .quickviewContainer.active {
+        right: 0;
+    }
+
+</style>
+
+<container>
+
+  <nav>
+
+  </nav>
+
+  <div class='quickviewContainer'>
+    <div class='close'></div>
+    <h2 class='headline'></h2>
+    <p class='description'></p>
+    <img src='https://placeimg.com/100/100'>
+    <img src='https://placeimg.com/100/100'>
+    <img src='https://placeimg.com/100/100'>
+  </div>
 
 
-        <% @products.each do |product| %>
-          <div class="">
-            <div class="panel-default">
-              <%= image_tag product.image.url, class: "profile-round pull-left" %>
-            <div class="panel-store">
 
-              <!--<div class="panel-store-info">-->
-                <div>
+</container>
+<div class="panel panel-marketing col-md-8">
+  <p id="notice"><%= notice %></p>
 
-                  <div>
-                    <b><%= product.title %></b>
-                  </div>
-                  <div>
-                    <p class="footer__text"><%= product.description %></p>
-                  </div>
+
+  <% @products.each do |product| %>
+      <div class="col-md-6">
+        <div class="panel-default product">
+          <%= image_tag product.image.url, class: "profile-round pull-left" %>
+          <div class="panel-store">
+
+            <!--<div class="panel-store-info">-->
+            <div>
+
+              <div>
+                <b><%= product.title %></b>
               </div>
               <div>
-                <a href="/cart/<%= product.id %>" style="text-decoration:none;">
+                <p class="footer__text"><%= product.description %></p>
+              </div>
+            </div>
+            <div>
+              <a href="/cart/<%= product.id %>" style="text-decoration:none;">
                 <div class="btn btn-default btn-block">
                   <h3><%= number_to_currency(product.price, :unit => '$')%></h3>
                   Add To Cart
-                  <span class="glyphicon glyphicon-shopping-cart" style="color:#f27d54;"></span>
+                  <span class="glyphicon glyphicon-shopping-cart" id="shop-cart" style="color:#f27d54;"></span>
                 </div>
-                </a>
-              </div>
-            </div>
+              </a>
             </div>
           </div>
-        <% end %>
-    </div>
-      <div class="col-md-4">
-
-        <% if @cart.empty? %>
-            <b>Cart is empty</b>
-            <br><br><br>
-        <% else %>
-            <div class="panel-default clearfix">
-
-
-            <%= link_to cart_clear_path, class: 'btn btn-primary pull-right'  do %>
-                Empty Your Cart <i class="glyphicon glyphicon-trash" style="color:#2196F3;"></i>
-            <% end %>
-            </div>
-        <% end %>
-
-        <% total = 0 %>
-
-
-          <% @cart.each do | id, quantity | %>
-              <% product = Product.find_by_id(id) %>
-              <div class="panel-default clearfix">
-                  <ul>
-                    <li>
-                      <%= link_to product.title, product %>
-                      <br>
-                      <br>
-                      <p><%= product.description %></p>
-                      <br>
-                      <p class="pull-left"><%= number_to_currency(product.price, :unit => '$')%></p>
-                      <p class="pull-right">Quantity: <%= quantity %></p>
-                    </li>
-                  </ul>
-              </div>
-              <% total += quantity * product.price %>
-          <% end %>
-          <div class="well well-sm">
-            <p class="order_total"><b>Order Total: <%= number_to_currency(total, :unit => '$') %></b></p>
-          </div>
-          <%= form_tag store_charges_path do %>
-
-
-              <script class='stripe-button' src="https://checkout.stripe.com/checkout.js"
-                      data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9"
-                      data-amount=<%= number_to_currency(total, :unit => '$') %>
-                              data-email="<%= current_user.email %>"
-                              data-description="Cart">
-                              </script>
-          <% end %>
-
+          <div class='quickview'>Quickview</div>
+        </div>
       </div>
+  <% end %>
+</div>
+<div class="col-md-4 panel-marketing">
+
+  <% if @cart.empty? %>
+      <b>Cart is empty</b>
+      <br><br><br>
+  <% else %>
+      <div class="panel-default clearfix">
+        <!--<div class='cart icon-basket'>-->
+          <!--<span class='number'>1</span>-->
+        <!--</div>-->
+
+        <%= link_to cart_clear_path, class: 'btn btn-primary pull-right'  do %>
+            Empty Your Cart <i class="glyphicon glyphicon-trash" style="color:#2196F3;"></i>
+        <% end %>
+      </div>
+  <% end %>
+
+  <% total = 0 %>
+
+
+  <% @cart.each do | id, quantity | %>
+      <% product = Product.find_by_id(id) %>
+      <div class="panel-default clearfix">
+        <ul>
+          <li>
+            <%= link_to product.title, product %>
+            <br>
+            <br>
+            <%= image_tag product.image.url, class: "profile-round pull-left" %>
+            <br />
+            <p><%= product.description %></p>
+            <br>
+
+            <p class="pull-left"><%= number_to_currency(product.price, :unit => '$')%></p>
+            <p class="pull-right store-quantity">Quantity: <%= quantity %></p>
+          </li>
+        </ul>
+      </div>
+      <% total += quantity * product.price %>
+  <% end %>
+  <div class="well well-sm">
+    <form>
+      <label for="fname">Promo Code</label>
+      <input type="text" id="promo_code" name="promo_code" placeholder="Promo Code">
+    </form>
+  </div>
+  <div class="well well-sm panel-marketing">
+    <p class="order_total"><b>Order Total: <%= number_to_currency(total, :unit => '$') %></b></p>
+  </div>
+
+  <%= form_tag store_charges_path do %>
+
+
+      <script class='stripe-button' src="https://checkout.stripe.com/checkout.js"
+              data-key="pk_test_cRzT97SZoD13r1a2JB1eHZH9"
+              data-amount=<%= number_to_currency(total, :unit => '$') %>
+                      data-email="<%= current_user.email %>"
+              data-description="Cart">
+      </script>
+  <% end %>
+
+</div>
 
 
 
 
+<script>
+    var cartCount = 0,
+            buy = $('.btn'),
+            span = $('.number'),
+            cart = $('.cart'),
+            quickview = $('.quickviewContainer'),
+            quickViewBtn = $('.quickview'),
+            close = $('.quickviewContainer .close'),
+            minicart = [],
+            totalPrice = [],
+            miniCartPrice;
 
+    buy.on('click', addToCart);
+    quickViewBtn.on('click', quickView);
+    cart.on('click', showMiniCart);
+    close.on('click', function(){
+        quickview.removeClass('active');
+    });
+
+    function quickView() {
+        var description = $(this).parent().find('.description').text(),
+                header = $(this).parent().find('.header').text(),
+                price = $(this).find('.price'),
+                quickViewHeader = $('.quickviewContainer .headline'),
+                quickViewDescription = $('.quickviewContainer .description');
+        clearTimeout(timeQuick);
+        if(quickview.hasClass('active')){
+            quickview.removeClass('active');
+            var timeQuick = setTimeout(function(){
+                quickview.addClass('active');
+            }, 300);
+        } else{
+            quickview.addClass('active');
+        }
+
+        quickViewHeader.text(header);
+        quickViewDescription.text(description);
+    }
+
+    function showMiniCart() {
+        $('.mini').toggleClass('visible');
+    }
+
+    function addToCart() {
+        var self = $(this),
+                productName = $(this).parent().find('.header').text(),
+                miniCartNames = $('.products'),
+                names = $('.names'),
+                price = $(this).parent().find('.price').text(),
+                priceInt = parseInt(price);
+
+        totalPrice.push(priceInt);
+        miniCartPrice = totalPrice.reduce(function(a,b){  return a+b });
+        $('.miniprice').text('Total amount: ' + miniCartPrice + ",-");
+        minicart.push(productName);
+        lastProduct = minicart[minicart.length - 1];
+        miniCartNames.text('Your cart lines: ');
+        names.append('<p>' + lastProduct + '</p>');
+
+        cartCount++;
+        span.text(cartCount);
+        clearTimeout(time);
+        if(span.hasClass('update')){
+            span.removeClass('update');
+            span.addClass('updateQuantity');
+            var time = setTimeout(function(){
+                span.removeClass('updateQuantity');
+                span.addClass('update');
+            }, 700);
+        } else{
+            span.addClass('update');
+        }
+        if (cartCount == 1){
+            cart.toggleClass('icon-basket icon-basket-loaded');
+        }
+
+        $(this).addClass('ok');
+        var timeOk = setTimeout(function(){
+            self.removeClass('ok');
+        }, 1000);
+    }
+</script>

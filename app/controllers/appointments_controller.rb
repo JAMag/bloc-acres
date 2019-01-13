@@ -1,6 +1,8 @@
 class AppointmentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :authenticate_user!, :only => 'reply'
+  require 'Base64'
+
 
   def index
   end
@@ -11,6 +13,11 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
     @user = @appointment.user
+    @appointment.avatar = (params[:avatar])
+    File.open(@appointment.avatar, 'wb') do |f|
+      f.write(Base64.decode64(base_64_encoded_data))
+    end
+
     if @appointment.update_attributes(appointment_params)
 
 

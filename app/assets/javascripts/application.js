@@ -6,6 +6,9 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
+//= require jquery.raty
+//= require ratyrate
+//= require tour.js
 
 //= require_tree .
 
