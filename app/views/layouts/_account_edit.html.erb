@@ -1,0 +1,76 @@
+<% @title="Moverable | Edit User" %>
+  <div id="signup" class="marquee">
+  <div class="stick col-md-4 col-md-offset-4">
+
+
+
+
+
+    <div class="title">
+      <h1><b>Zero. Agent. Fees.</b></h1>
+    </div>
+
+    <div>
+      <h5>People in the market for real estate are wasting tens of thousands in real estate agent fees.</h5>
+      <h4>Update User.</h4>
+      <h5>Moverable saves you thousands.</h5>
+      <% if current_user.avatar.url.present? %>
+          <%= image_tag(current_user.avatar.url, :class => "profile-round") %>
+      <% else %>
+          <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+      <% end %>
+
+
+
+      <div class="form-signin">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div>
+              <% f.label :email %>
+              <%= f.email_field :email, autofocus: true, placeholder: 'Email', class: "form-control" %>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <div>
+
+              <% f.label :password %>
+              <%= f.password_field :password, class: 'form-control', autocomplete: "off", placeholder: "Change password or leave blank" %>
+            </div>
+            <div>
+              <!--# social media marketer-->
+              <%= f.time_zone_select :time_zone, nil, include_blank: true, required: true, placeholder: 'Time Zone', class: "form-control" %>
+              <!--# end of social media marketer-->
+            </div>
+            <div class="form-control">
+
+              <div class="photo-upload-info">
+                <img id="img_prev" />
+                <p>Add your photo</p>
+                <span class= "glyphicon glyphicon-camera" style="color:black; font-size:104px"></span>
+
+
+              </div>
+
+              <%= f.file_field :avatar, class: 'btn btn-success', onchange:'readURL(this)' %>
+            </div>
+
+
+            <%= f.hidden_field :avatar_cache %>
+
+            <div>
+                <% f.label :current_password %>
+                <%= f.password_field :current_password, class: 'form-control', placeholder: 'Password to confirm changes', autocomplete: "off" %>
+            </div>
+            <%= f.submit 'Update User', class: 'btn btn-lg btn-primary btn-block'  %>
+            <div class="form-group">
+              <%= render "devise/shared/links" %>
+            </div>
+        <% end %>
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+      </div>
+    </div>
+
+  </div>
+</div>

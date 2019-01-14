@@ -19,6 +19,8 @@
       Percentage financing:
       <br />
       <% p.add_offers.each do |a| %>
+            <%= a.inspect %>
+
         <%= a.created_at.strftime("%d %b. %Y %H: %M") %>
      <% end %>>
       <br />
