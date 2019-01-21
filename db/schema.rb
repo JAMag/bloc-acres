@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180731183018) do
+ActiveRecord::Schema.define(version: 20190121165121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,25 @@ ActiveRecord::Schema.define(version: 20180731183018) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "cameras", force: :cascade do |t|
+    t.string   "position"
+    t.string   "ngrok_address"
+    t.string   "ngrok_password"
+    t.decimal  "price"
+    t.integer  "house_id"
+    t.integer  "user_id"
+    t.integer  "battery_life"
+    t.boolean  "battery"
+    t.boolean  "wired"
+    t.boolean  "powered"
+    t.boolean  "recording"
+    t.integer  "property_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "cameras", ["property_id"], name: "index_cameras_on_property_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -289,6 +308,7 @@ ActiveRecord::Schema.define(version: 20180731183018) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "cameras", "properties"
   add_foreign_key "comments", "properties"
   add_foreign_key "comments", "users"
   add_foreign_key "store_purchases", "users"
