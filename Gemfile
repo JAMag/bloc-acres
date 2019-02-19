@@ -29,6 +29,7 @@ gem 'twilio-ruby'
 
 #upload image on appointment start
 gem 'carrierwave-base64'
+gem 'data_uri'
 #end upload image on appointment start
 
 gem 'will_paginate-bootstrap'

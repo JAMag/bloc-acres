@@ -21,17 +21,15 @@
             <% if a.user == current_user %>
 
                 <tr class="<%= 'past-due' if a.slot.start_time.past? %>">
-                  <td class="hidden-xs hidden-sm">  <%= image_tag(a.user.avatar.url, class: "profile-round-small") %></td>
+                  <td class="hidden-xs hidden-sm">  <td><%= image_tag(a.avatar.url) %></td></td>
                   <div class="">
                     <td>
-                      <% if a.slot.start_time.past? %>
-                          <p>Past Appointment Date</p>
-                      <% else %>
+
 
                           <%= link_to 'Start Viewing', [a.slot.property, a.slot, a], class: 'btn btn-primary btn-block', target: :_blank %>
                           <%= link_to [a.slot.property, a.slot, a], class: 'btn btn-danger btn-block', method: :delete do %>
                               Delete Viewing
-                          <% end %>
+                          <# end %>
                       <% end %>
                     </td>
                   </div>
@@ -54,7 +52,7 @@
         <% if p.user == current_user %>
             <% p.appointments.each do |appointment| %>
                 <% if appointment.user != current_user %>
-
+                    <!--<td><%# image_tag(appointment.avatar_url) %></td>-->
 
                     <tr class="<%= 'past-due' if appointment.slot.start_time.past? %>">
                       <td class="hidden-xs hidden-sm"><%= image_tag(appointment.user.avatar.url, class: "profile-round-small") %></td>

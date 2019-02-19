@@ -43,7 +43,7 @@
             <%# if Time.now > @slot.start_time %>
             <%# Show buttons if the current time is after the slot start time (for testing purposes only) %>
             <%#=link_to "start showing", property_slot_appointment_unlock_path(@property, @slot, @appointment), class: 'btn btn-block', id: 'start_show' %>
-            <%= form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
+            <%= form_for(@appointment, url: appointment_add_avatar_path(@appointment), method: :patch) do |f| %>
                 <%= f.hidden_field :avatar %>
 
                 <%= f.submit 'Start Showing', :class => 'btn btn-primary btn-block', :id=>'snap',  accept:"image/*;capture=camera",:style =>'padding:20px;'%>
@@ -73,12 +73,7 @@
 
       <video id="video" width="640" height="" autoplay="true">
 
-        <%# form_for(@appointment, url: property_slot_appointment_path(@property, @slot, @appointment), method: :put) do |f| %>
-            <%# f.hidden_field :avatar %>
 
-            <%# f.submit 'Snap Photo', :class => 'btn btn-block', :id=>'snap',  accept:"image/*;capture=camera"%>
-
-        <# end %>
       </video>
 
       <canvas id="canvas" width="500px" height="500px"></canvas>
@@ -161,14 +156,21 @@
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
     var video = document.getElementById('video');
-    var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+//    var dataImg = document.createElement('img');
+//    dataImg.src = url;
+
     // Trigger photo take
     document.getElementById("snap").addEventListener("click", function() {
         context.drawImage(video, 0, 0, 640, 480);
+        var url = canvas.toDataURL("image/png");
+        $("#appointment_avatar").val(url);
     });
-    //convert canvas to data for upload
-    $("#appointment_avatar").val(url);
 
+//    var dataImg = document.createElement('img');
+//    dataImg.src = url;
+
+//        $("#appointment_avatar").setAttribute('val', url);
 
 
     //  Example code for show and hiding a div between 7 and 4 pm

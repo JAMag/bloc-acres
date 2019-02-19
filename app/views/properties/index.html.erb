@@ -358,7 +358,9 @@
 
           var markers = [];
 
+
             <% @properties.each do |p| %>
+
 
           (function(){
               var marker = new google.maps.Marker({
@@ -379,6 +381,18 @@
 
               });
 
+              google.maps.event.addListener(marker, 'mouseover', function() {
+                  var label = this.getLabel();
+                  label.color = "#f27c52bd";
+                  label.fontSize = '40px';
+                  this.setLabel(label);
+              });
+              google.maps.event.addListener(marker, 'mouseout', function() {
+                  var label = this.getLabel();
+                  label.fontSize = '32px';
+                  this.setLabel(label);
+              });
+
               marker.addListener('dblclick', function() {
                   map.setZoom(8);
                   map.setCenter(marker.getPosition());
@@ -390,6 +404,10 @@
 
                   });
                   infowindow.open(map, marker);
+                  var label = this.getLabel();
+                  label.color = "rgba(199, 215, 212, 0.47)";
+                  label.fontSize = '48px';
+                  this.setLabel(label);
               });
 
 

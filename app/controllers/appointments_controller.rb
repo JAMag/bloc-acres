@@ -3,20 +3,54 @@ class AppointmentsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => 'reply'
   require 'Base64'
 
-
   def index
   end
 
   def about
   end
 
+
+  # Split up a data uri
+  def split_base64(uri_str)
+    if uri_str.match(%r{^data:(.*?);(.*?),(.*)$})
+      uri = Hash.new
+      uri[:type] = $1 # "image/gif"
+      uri[:encoder] = $2 # "base64"
+      uri[:data] = $3 # data string
+      uri[:extension] = $1.split('/')[1] # "gif"
+      return uri
+    else
+      return nil
+    end
+  end
+
+  # Convert data uri to uploaded file. Expects object hash, eg: params[:post]
+  def convert_data_uri_to_upload(data_uri)
+    byebug
+    if !data_uri.blank?
+      image_data = split_base64(data_uri)
+      image_data_string = image_data[:data]
+      image_data_binary = Base64.decode64(image_data_string)
+
+      temp_img_file = Tempfile.new("data_uri-upload")
+      temp_img_file.binmode
+      temp_img_file << image_data_binary
+      temp_img_file.rewind
+      byebug
+      img_params = {:filename => "data-uri-img.#{image_data[:extension]}", :type => image_data[:type], :tempfile => temp_img_file}
+      uploaded_file = ActionDispatch::Http::UploadedFile.new(img_params)
+
+      return uploaded_file
+    end
+
+    return nil
+  end
+
+
   def update
     @appointment = Appointment.find(params[:id])
     @user = @appointment.user
-    @appointment.avatar = (params[:avatar])
-    File.open(@appointment.avatar, 'wb') do |f|
-      f.write(Base64.decode64(base_64_encoded_data))
-    end
+
 
     if @appointment.update_attributes(appointment_params)
 
@@ -29,12 +63,34 @@ class AppointmentsController < ApplicationController
       # )
 
       redirect_to :back, notice: "You started appointment."
+
     else
-      redirect_to :back, notice: "Error. Try again."
+      redirect_to :back, notice: @appointment.errors.full_messages.join(", ")
     end
   end
 
+  def add_avatar
+    @appointment = Appointment.find(params[:appointment_id])
+    @user = @appointment.user
 
+
+    @appointment.avatar = convert_data_uri_to_upload(appointment_params[:avatar])
+    if @appointment.save
+
+
+      # boot_twilio
+      # sms = @client.messages.create(
+      #     from: Rails.application.secrets.twilio_number,
+      #     to: @user.phone_number,
+      #     body: "You've started your viewing. Thank you for using Moverable. "
+      # )
+
+      redirect_to :back, notice: "You started appointment."
+
+    else
+      redirect_to :back, notice: @appointment.errors.full_messages.join(", ")
+    end
+  end
 
 
   def destroy
@@ -122,4 +178,6 @@ class AppointmentsController < ApplicationController
   def boot_twilio
     @client = Twilio::REST::Client.new(Rails.application.secrets.twilio_sid, Rails.application.secrets.twilio_token)
   end
+
+
 end

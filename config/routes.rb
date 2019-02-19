@@ -90,6 +90,10 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
 
+  resources :appointments do
+    patch 'add_avatar' => 'appointments#add_avatar', as: 'add_avatar'
+  end
+
 
   resource :messages do
     collection do
