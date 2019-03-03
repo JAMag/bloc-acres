@@ -389,6 +389,7 @@
               });
               google.maps.event.addListener(marker, 'mouseout', function() {
                   var label = this.getLabel();
+                  label.color = "#29abe2";
                   label.fontSize = '32px';
                   this.setLabel(label);
               });
@@ -414,66 +415,98 @@
               markers.push(marker);
 
 
-//******************************************Highlight Marker on DIV Hover ***********
+//******************** Highlight Marker on ROW-DIV EVENT ***********
               $(document).ready(function() {
-                  $(".prop-index-view").hover(function() {
-                      console.log($(this).data('value'));
+                  $(".prop-index-view").mouseover(function() {
                       var data = $(this).data('value');
                       var result = markers.filter(function(obj) {
                           return obj.id == data;
+
                       })[0];
                       console.log(result);
-                      result.addListener("click", toggleBounce);
+                      var rid = result.id;
+                      console.log('id is equal to', rid);
+                      console.log('first in array is', markers[0]);
+                      console.log('markers is', markers);
+
+
+                      google.maps.event.trigger(result, 'mouseover', function() {
+                          var label = this.getLabel();
+                          label.color = "#f27c52bd";
+                          label.fontSize = '40px';
+                          this.setLabel(label);
+                      });
+
                   });
-                  function toggleBounce(){
-                      if (result.getAnimation() !== null) {
-                          result.setAnimation(null);
-                      } else {
-                          result.setAnimation(google.maps.Animation.BOUNCE);
-                      }
-                  }
+              });
+
+
+              $(document).ready(function() {
+                  $(".prop-index-view").mouseout(function() {
+                      var data = $(this).data('value');
+                      var result = markers.filter(function(obj) {
+                          return obj.id == data;
+
+                      })[0];
+                      console.log(result);
+                      var rid = result.id;
+                      console.log('MOUSEOUT id is equal to', rid);
+                      console.log('MOUSEOUT first in array is', markers[0]);
+                      console.log('MOUSEOUT markers is', markers);
+
+
+
+                      google.maps.event.trigger(result, 'mouseout', function() {
+                          var label = this.getLabel();
+                          label.color = "#29abe2";
+                          label.fontSize = '32px';
+                          this.setLabel(label);
+                      });
+
+                  });
+              });
+
+              $(document).ready(function() {
+                  $(".prop-index-view").click(function() {
+                      var data = $(this).data('value');
+                      var result = markers.filter(function(obj) {
+                          return obj.id == data;
+
+                      })[0];
+                      console.log(result);
+                      var rid = result.id;
+                      console.log('MOUSEOUT id is equal to', rid);
+                      console.log('MOUSEOUT first in array is', markers[0]);
+                      console.log('MOUSEOUT markers is', markers);
+
+
+
+                      google.maps.event.trigger(result, 'click', function() {
+                          var infowindow = new google.maps.InfoWindow({
+                              content: '<%= image_tag((p.photos.first), class: "profile-round") %><br><%= link_to p.address, property_path(p), target: :_blank %><br>$<%= p.price %>',
+                              position: {lat: <%= p.latitude %>, lng: <%= p.longitude %>}
+
+                          });
+                          infowindow.open(map, marker);
+                          var label = this.getLabel();
+                          label.color = "rgba(199, 215, 212, 0.47)";
+                          label.fontSize = '48px';
+                          this.setLabel(label);
+                      });
+
+                  });
               });
 
 
 
           })();
 
-          // ATTEMPT TO Link Div to marker on map -- Just Me
-
-//          marker.addListener('hover', function() {
-//              var infowindow = new google.maps.InfoWindow({
-//                  content: '<# image_tag((p.photos.first), class: "profile-round") %><br><%= link_to p.address, property_path(p), target: :_blank %><br>$<%= p.price %>',
-//                  position: {lat: <# p.latitude %>, lng: <# p.longitude %>}
-//
-//              });
-//              infowindow.open(map, marker);
-//          });
-//
-//          $("#viewfavs<#p.id %>").on("hover", function(){
-//              $(marker.title).("#prop-loop").fadeOut(700, function(){
-//                  $(this).remove();
-//              });
-//          });
 
 
 
 
 
 
-//          google.maps.event.addListener(markers, 'click', function() {
-//              this.infowindow.open(map, this);
-//
-//          });
-
-          //zoom in on click
-
-
-          //////
-
-//          google.maps.event.addListener(markers,'click',function() {
-//              map.setZoom(9);
-//              map.setCenter(markers.getPosition());
-//          });
 
 
 
