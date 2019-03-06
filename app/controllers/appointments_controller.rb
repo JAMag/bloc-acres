@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
 
   # Convert data uri to uploaded file. Expects object hash, eg: params[:post]
   def convert_data_uri_to_upload(data_uri)
-    byebug
+
     if !data_uri.blank?
       image_data = split_base64(data_uri)
       image_data_string = image_data[:data]
@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
       temp_img_file.binmode
       temp_img_file << image_data_binary
       temp_img_file.rewind
-      byebug
+
       img_params = {:filename => "data-uri-img.#{image_data[:extension]}", :type => image_data[:type], :tempfile => temp_img_file}
       uploaded_file = ActionDispatch::Http::UploadedFile.new(img_params)
 

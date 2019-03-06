@@ -1,9 +1,7 @@
 <% @title="Moverable Search" %>
 <!--<div class="container-fluid">-->
 <div class="container">
-  <!--<div class="well">-->
-    <!--<div class="well"><h4> See your new home today!</h4></div>-->
-  <!--</div>-->
+
 
   <input id="pac-input" class="controls" type="hidden" placeholder="Search Box">
 
@@ -361,6 +359,14 @@
 
             <% @properties.each do |p| %>
 
+          property_vars = {'<%= p.id %>': {
+                  image_tag: '<%= image_tag((p.photos.first), class: 'profile-round') %>',
+                  address_link: '<%= link_to p.address, property_path(p), target: '_blank' %>',
+                  property_price: <%= p.price %>,
+                  latitude: <%= p.latitude %>,
+                  longitude: <%= p.longitude %>
+                  }
+          };
 
           (function(){
               var marker = new google.maps.Marker({
@@ -415,87 +421,7 @@
               markers.push(marker);
 
 
-//******************** Highlight Marker on ROW-DIV EVENT ***********
-              $(document).ready(function() {
-                  $(".prop-index-view").mouseover(function() {
-                      var data = $(this).data('value');
-                      var result = markers.filter(function(obj) {
-                          return obj.id == data;
 
-                      })[0];
-                      console.log(result);
-                      var rid = result.id;
-                      console.log('id is equal to', rid);
-                      console.log('first in array is', markers[0]);
-                      console.log('markers is', markers);
-
-
-                      google.maps.event.trigger(result, 'mouseover', function() {
-                          var label = this.getLabel();
-                          label.color = "#f27c52bd";
-                          label.fontSize = '40px';
-                          this.setLabel(label);
-                      });
-
-                  });
-              });
-
-
-              $(document).ready(function() {
-                  $(".prop-index-view").mouseout(function() {
-                      var data = $(this).data('value');
-                      var result = markers.filter(function(obj) {
-                          return obj.id == data;
-
-                      })[0];
-                      console.log(result);
-                      var rid = result.id;
-                      console.log('MOUSEOUT id is equal to', rid);
-                      console.log('MOUSEOUT first in array is', markers[0]);
-                      console.log('MOUSEOUT markers is', markers);
-
-
-
-                      google.maps.event.trigger(result, 'mouseout', function() {
-                          var label = this.getLabel();
-                          label.color = "#29abe2";
-                          label.fontSize = '32px';
-                          this.setLabel(label);
-                      });
-
-                  });
-              });
-
-              $(document).ready(function() {
-                  $(".prop-index-view").click(function() {
-                      var data = $(this).data('value');
-                      var result = markers.filter(function(obj) {
-                          return obj.id == data;
-
-                      })[0];
-                      console.log(result);
-                      var rid = result.id;
-                      console.log('MOUSEOUT id is equal to', rid);
-                      console.log('MOUSEOUT first in array is', markers[0]);
-                      console.log('MOUSEOUT markers is', markers);
-
-
-
-                      google.maps.event.trigger(result, 'click', function() {
-                          var infowindow = new google.maps.InfoWindow({
-                              content: '<%= image_tag((p.photos.first), class: "profile-round") %><br><%= link_to p.address, property_path(p), target: :_blank %><br>$<%= p.price %>',
-                              position: {lat: <%= p.latitude %>, lng: <%= p.longitude %>}
-
-                          });
-                          infowindow.open(map, marker);
-                          var label = this.getLabel();
-                          label.color = "rgba(199, 215, 212, 0.47)";
-                          label.fontSize = '48px';
-                          this.setLabel(label);
-                      });
-
-                  });
-              });
 
 
 
@@ -506,11 +432,8 @@
 
 
 
-
-
-
-
-            <% end %>
+    <% end %>
+          console.log("PROP VARS", property_vars);
           var bounds = new google.maps.LatLngBounds();
           for (var i = 0; i < markers.length; i++) {
               bounds.extend(markers[i].getPosition());
@@ -539,7 +462,87 @@
 initAutocomplete();
 
 
+      //******************** Highlight Marker on ROW-DIV EVENT ***********
+      $(document).ready(function() {
+          $(".prop-index-view").mouseover(function() {
+              var data = $(this).data('value');
+              var result = markers.filter(function(obj) {
+                  return obj.id == data;
 
+              })[0];
+              console.log(result);
+              var rid = result.id;
+              console.log('id is equal to', rid);
+              console.log('first in array is', markers[0]);
+              console.log('markers is', markers);
+
+
+              google.maps.event.trigger(result, 'mouseover', function() {
+                  var label = this.getLabel();
+                  label.color = "#f27c52bd";
+                  label.fontSize = '40px';
+                  this.setLabel(label);
+              });
+
+          });
+      });
+
+
+      $(document).ready(function() {
+          $(".prop-index-view").mouseout(function() {
+              var data = $(this).data('value');
+              var result = markers.filter(function(obj) {
+                  return obj.id == data;
+
+              })[0];
+              console.log(result);
+              var rid = result.id;
+              console.log('MOUSEOUT id is equal to', rid);
+              console.log('MOUSEOUT first in array is', markers[0]);
+              console.log('MOUSEOUT markers is', markers);
+
+
+
+              google.maps.event.trigger(result, 'mouseout', function() {
+                  var label = this.getLabel();
+                  label.color = "#29abe2";
+                  label.fontSize = '32px';
+                  this.setLabel(label);
+              });
+
+          });
+      });
+
+      $(document).ready(function() {
+          $(".prop-index-view").click(function() {
+              var data = $(this).data('value');
+              var result = markers.filter(function(obj) {
+                  return obj.id == data;
+
+              })[0];
+              console.log(result);
+              var rid = result.id;
+              console.log('MOUSEOUT id is equal to', rid);
+              console.log('MOUSEOUT first in array is', markers[0]);
+              console.log('MOUSEOUT markers is', markers);
+
+
+
+              google.maps.event.trigger(result, 'click', function() {
+                  var infowindow = new google.maps.InfoWindow({
+                      content: property_vars['prop_'+rid]['image_tag']+'<br>'+property_vars['prop_'+rid]['property_link']+'<br>$'+property_vars['prop_'+rid]['price'],
+                      position: {lat: property_vars['prop_'+rid]['latitude'], lng: property_vars['prop_'+rid]['longitude']}
+
+                  });
+                  infowindow.open(map, marker);
+                  var label = this.getLabel();
+                  label.color = "rgba(199, 215, 212, 0.47)";
+                  label.fontSize = '48px';
+                  this.setLabel(label);
+              });
+
+          });
+      });
 //      ////  BOOTSTRAP TOUR www.bootstraptour.com ********************************
 //
 //      // Instance the tour
