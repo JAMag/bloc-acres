@@ -17,8 +17,8 @@
         </tr>
         </thead>
         <tbody>
-        <% p.appointments.each do |a| %>
-            <% if a.user == current_user %>
+        <% p.appointments.includes(:slot).each do |a| %>
+            <% if a.user_id == current_user.id %>
 
                 <tr class="<%= 'past-due' if a.slot.start_time.past? %>">
                   <td class="hidden-xs hidden-sm">  <td><%= image_tag(a.avatar.url, class: "profile-round-small") %></td></td>
@@ -26,8 +26,8 @@
                     <td>
 
 
-                          <%= link_to 'Start Viewing', [a.slot.property, a.slot, a], class: 'btn btn-primary btn-block', target: :_blank %>
-                          <%= link_to [a.slot.property, a.slot, a], class: 'btn btn-danger btn-block', method: :delete do %>
+                          <%= link_to 'Start Viewing', property_slot_appointment_path(a.slot.property_id, a.slot_id, a.id), class: 'btn btn-primary btn-block', target: :_blank %>
+                          <%= link_to property_slot_appointment_path(a.slot.property_id, a.slot_id, a.id), class: 'btn btn-danger btn-block', method: :delete do %>
                               Delete Viewing
                           <# end %>
                       <% end %>
@@ -49,7 +49,7 @@
             <% end %>
         <% end %>
 
-        <% if p.user == current_user %>
+        <% if p.user_id == current_user.id %>
             <% p.appointments.each do |appointment| %>
                 <% if appointment.user != current_user %>
                     <!--<td><%# image_tag(appointment.avatar_url) %></td>-->

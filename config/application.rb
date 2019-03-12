@@ -10,7 +10,8 @@ Bundler.require(*Rails.groups)
 module BlocAcres
   class Application < Rails::Application
     config.assets.precompile << 'delayed/web/application.css'
-
+    # HELP WITH SPEED OF SITE -- by adding gzip compression to files that haven't already been compressed
+    # config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
 
     # WICKED PDF START
     # config.middleware.use WickedPdf::Middleware

@@ -31,9 +31,9 @@ class WelcomeController < ApplicationController
 
 
   def dashboard
-    @properties = current_user.properties.paginate(page: params[:properties_page], per_page: 1)
-    @appointments = current_user.appointments
-    @favorites = current_user.favorites.paginate(page: params[:favorites_page], per_page: 3)
+    @properties = current_user.properties.includes(appointments: [:user]).paginate(page: params[:properties_page], per_page: 1)
+    @appointments = current_user.appointments.includes([:user, :slots])
+    @favorites = current_user.favorites.includes(:property).paginate(page: params[:favorites_page], per_page: 3)
     @products = Product.all
     @cart = cart
     @advertisements = Advertisement.all

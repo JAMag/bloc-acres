@@ -17,7 +17,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <!--<div class="modal-body">-->
+        <div class="modal-body">
           <!--<div class="row">-->
             <!--<player data-uuid='v-9259a058-27f3-4602-aa8a-1bc02b964455' id='MyPlayer' style="width: 400px;height: 300px;margin: 0 auto;"></player>-->
 
@@ -93,25 +93,25 @@
 
         <div id="seller" class="tab-pane fade">
           <hr>
-          <%= render partial: 'layouts/seller_step_wizard' %>
+          <# render partial: 'layouts/seller_step_wizard' %>
           <hr>
           <div class="">
             <h4 id="seller-dashboard-directions">Your Listings For Sale:</h4>
-            <%= will_paginate @properties, :param_name => 'properties_page', renderer: BootstrapPagination::Rails %>
+            <# will_paginate @properties, :param_name => 'properties_page', renderer: BootstrapPagination::Rails %>
           </div>
 
 
 
 
-          <% @properties.each do |p| %>
+          <# @properties.each do |p| %>
               <div class="container-fluid">
                 <div class="row">
-                  <%= render partial: 'layouts/property', locals: {p: p} %>
+                  <# render partial: 'layouts/property', locals: {p: p} %>
                 </div>
           <hr>
 
               </div>
-          <% end %>
+          <# end %>
 
         </div>
 
@@ -119,15 +119,15 @@
 
         <div id="offers" class="tab-pane fade">
           <hr>
-          <% if @properties != nil %>
-          <% @properties.each do |p| %>
+          <# if @properties != nil %>
+          <# @properties.each do |p| %>
               <div class="container-fluid">
                 <div class="row">
-                    <%= render partial: 'properties/offer', locals: {p: p} if p.add_offers.any? %>
+                    <# render partial: 'properties/offer', locals: {p: p} if p.add_offers.any? %>
                 </div>
               </div>
-          <% end %>
-              <% end %>
+          <# end %>
+              <# end %>
         </div>
 
 
@@ -135,7 +135,7 @@
           <hr>
           <div class="container-fluid">
               <div class="row">
-                <%= render partial: 'properties/advice' %>
+                <# render partial: 'properties/advice' %>
               </div>
           </div>
         </div>
@@ -144,21 +144,13 @@
           <hr>
           <div class="container-fluid">
               <div class="row">
-                <%= render partial: 'layouts/store' %>
+                <# render partial: 'layouts/store' %>
               </div>
           </div>
         </div>
 
 
 
-        <!--<div id="services" class="tab-pane fade">-->
-          <!--<hr>-->
-          <!--<div class="container-fluid">-->
-            <!--<div class="row">-->
-              <!--<# render partial: 'layouts/services' %>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
 
 
 

@@ -15,6 +15,12 @@ gem 'delayed_job_active_record'
 #end of social media marketer section
 
 
+# SPEED SECTION
+gem 'bullet', '~> 4.14.0', group: 'development'
+
+
+# END OF SPEED SECTION
+
 #rating for comments
 gem 'ratyrate'
 
