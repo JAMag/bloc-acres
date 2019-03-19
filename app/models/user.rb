@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :store_purchases
   has_many :calculators
+  has_many :slots, dependent: :destroy, as: :bookable
 
   ratyrate_rater
-
 
   validates_integrity_of  :avatar
   validates_processing_of :avatar
@@ -36,6 +36,10 @@ end
 
 def seller?
   role == 'seller'
+end
+
+def inspector?
+  role == 'inspector'
 end
 
 def favorited(property)

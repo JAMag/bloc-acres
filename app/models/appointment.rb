@@ -1,6 +1,7 @@
 class Appointment < ActiveRecord::Base
   belongs_to :user
-  belongs_to :slot
+  belongs_to :property_slot, source: :property_slot_id, source_type: Slot
+  belongs_to :thirdt_party_slot, source: :property_slot_id, source_type: Slot
   mount_base64_uploader  :avatar, AvatarUploader, file_name: -> { 'appnt_pic' }
 #  has_many :started_at
 #  has_many :ended_at

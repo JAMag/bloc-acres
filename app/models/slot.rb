@@ -1,7 +1,7 @@
 class Slot < ActiveRecord::Base
   extend SimpleCalendar
   has_calendar
-  belongs_to :property
+  belongs_to :bookable, polymorphic: true
  # has_many :start_time
   has_one :appointment
 
